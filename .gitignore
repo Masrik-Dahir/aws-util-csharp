@@ -1,4 +1,27 @@
-## .NET
+# ============================================================
+# SECRETS & SENSITIVE CONFIG
+# ============================================================
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+secrets/
+secret/
+credentials/
+.credentials
+config/local.*
+config/secrets.*
+*.secret
+
+# ============================================================
+# .NET
+# ============================================================
 bin/
 obj/
 *.user
@@ -6,14 +29,18 @@ obj/
 *.userosscache
 *.sln.docstates
 
-## NuGet
+# ============================================================
+# NuGet
+# ============================================================
 *.nupkg
 **/[Pp]ackages/*
 !**/[Pp]ackages/build/
 *.nuget.props
 *.nuget.targets
 
-## Build results
+# ============================================================
+# Build results
+# ============================================================
 [Dd]ebug/
 [Rr]elease/
 x64/
@@ -26,27 +53,124 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
-## Visual Studio
+# ============================================================
+# IDE & EDITOR FILES
+# ============================================================
+
+# Visual Studio
 .vs/
 *.csproj.user
 *.dbmdl
 *.jfm
 
-## Rider
+# JetBrains (Rider, IntelliJ, etc.)
 .idea/
+*.iml
+*.iws
+*.ipr
 *.sln.iml
-.claude/
+out/
 
-## Test results
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+.netrwhist
+Session.vim
+
+# Emacs
+\#*\#
+.\#*
+*.elc
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# ============================================================
+# CLAUDE & AI TOOL FILES
+# ============================================================
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+claude_context/
+.aider
+.aider.*
+!.aider.conf.yml
+.cursor/
+.continue/
+.codeium/
+.copilot/
+*.ai-context
+.ai/
+ai-context/
+
+# ============================================================
+# OS & SYSTEM FILES
+# ============================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+
+# ============================================================
+# LOGS & TEMPORARY FILES
+# ============================================================
+*.log
+*.logs
+logs/
+log/
+tmp/
+temp/
+.tmp/
+*.tmp
+*.temp
+*.bak
+*.orig
+*.pid
+*.seed
+
+# ============================================================
+# TEST RESULTS & COVERAGE
+# ============================================================
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 TestResults/
-
-## Coverage
 coverage/
 *.coverage
 *.coveragexml
+.coverage
+*.lcov
+test-results/
 
-## OS
-.DS_Store
-Thumbs.db
+# ============================================================
+# DATABASES
+# ============================================================
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+dump.sql
+*.dump

@@ -7,8 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 ### Added
 - CLAUDE.md project instructions for Claude Code sessions
-- Animated author banner SVG (.github/banner.svg)
-- Rich README.md with Mermaid architecture/structure diagrams, full service coverage docs, CI/CD pipeline flow
+- Animated author banner SVG (.github/banner.svg) — Ocean Depths style
+- Rich README.md with class diagrams, sequence diagrams, collapsible service coverage, full CI/CD pipeline docs
+- Skills submodule (.claude/skills) for Claude Code automation
+- Comprehensive .gitignore with secrets, IDE, Claude/AI, OS, logs, test, and database sections
 
 ## [2.2.6] - 2026-04-09
 
