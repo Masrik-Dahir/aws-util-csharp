@@ -136,7 +136,7 @@ classDiagram
         +QueryAsync(...)
     }
 
-    class «133 Services» {
+    class AllServices["133 Services"] {
         <<static>>
         SQS, Lambda, SNS, SES,
         ECS, EKS, Bedrock, ...
@@ -148,10 +148,10 @@ classDiagram
     Placeholder --> SecretsManagerService : secret lookups
     S3Service --> ClientFactory : GetClient
     DynamoDbService --> ClientFactory : GetClient
-    «133 Services» --> ClientFactory : GetClient
+    AllServices["133 Services"] --> ClientFactory : GetClient
     S3Service --> ErrorClassifier : WrapAwsError
     DynamoDbService --> ErrorClassifier : WrapAwsError
-    «133 Services» --> ErrorClassifier : WrapAwsError
+    AllServices["133 Services"] --> ErrorClassifier : WrapAwsError
 
     note for ClientFactory "LRU cache per (type, region)\nTTL evicts stale clients\nMax 64 concurrent clients"
 ```
