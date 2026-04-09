@@ -1,0 +1,46 @@
+name: Build Validation
+
+on:
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  validate:
+    name: Validate Package
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build Release
+        run: dotnet build --no-restore --configuration Release -warnaserror
+
+      - name: Pack (dry run)
+        run: dotnet pack src/AwsUtil/AwsUtil.csproj --no-build --configuration Release --output ./nupkg
+
+      - name: Validate NuGet package
+        run: dotnet nuget verify ./nupkg/*.nupkg --all || true
+
+      - name: Check package size
+        run: |
+          SIZE=$(stat --format=%s ./nupkg/*.nupkg)
+          echo "Package size: $((SIZE / 1024)) KB"
+          if [ "$SIZE" -gt 52428800 ]; then
+            echo "::error::Package exceeds 50MB limit"
+            exit 1
+          fi
+
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-preview
+          path: ./nupkg/*.nupkg
+          retention-days: 7

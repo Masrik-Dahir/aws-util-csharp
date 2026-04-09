@@ -1,0 +1,18 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+
+## [2.2.6] - 2026-04-09
+
+### Added
+
+- Initial C# port of aws-util Python package (v2.2.6)
+- Core infrastructure: ClientFactory with TTL-based caching, structured exception hierarchy, error classifier
+- Placeholder resolution for SSM Parameter Store and Secrets Manager references
+- Config loader for batch application configuration from SSM + Secrets Manager
+- 100+ AWS service wrappers covering compute, storage, database, networking, AI/ML, security, and more
+- Multi-service orchestration modules: deployer, data pipeline, security ops, resilience, observability, etc.
+- All operations are async (Task-based) with proper error classification
+- Unit test project with xUnit

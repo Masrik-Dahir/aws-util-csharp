@@ -1,0 +1,39 @@
+source:
+  - changed-files:
+      - any-glob-to-any-file: "src/**/*"
+
+tests:
+  - changed-files:
+      - any-glob-to-any-file: "tests/**/*"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file: ".github/**/*"
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "*.md"
+          - "docs/**/*"
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.csproj"
+          - "Directory.Build.props"
+          - "Directory.Packages.props"
+
+services:
+  - changed-files:
+      - any-glob-to-any-file: "src/AwsUtil/Services/**/*"
+
+exceptions:
+  - changed-files:
+      - any-glob-to-any-file: "src/AwsUtil/Exceptions/**/*"
+
+orchestration:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "src/AwsUtil/ConfigLoader.cs"
+          - "src/AwsUtil/Placeholder.cs"
+          - "src/AwsUtil/*Service.cs"

@@ -1,0 +1,36 @@
+name: License Compliance
+
+on:
+  pull_request:
+    branches: [main, master]
+    paths:
+      - "**/*.csproj"
+  schedule:
+    - cron: "0 8 * * 1" # Every Monday at 8 AM UTC
+
+jobs:
+  license-check:
+    name: Check Dependency Licenses
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Install license tool
+        run: dotnet tool install --global dotnet-project-licenses
+
+      - name: Check licenses
+        run: |
+          dotnet-project-licenses -i src/AwsUtil/AwsUtil.csproj -o -u --output-directory ./license-report || true
+
+      - name: Upload license report
+        uses: actions/upload-artifact@v4
+        with:
+          name: license-report
+          path: ./license-report/
+          retention-days: 30
