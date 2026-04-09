@@ -364,4 +364,26 @@ public static class MlPipelineService
             throw ErrorClassifier.WrapAwsError(exc, "Batch transform orchestration failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="SageMakerPipelineRunnerAsync"/>.</summary>
+    public static SageMakerPipelineRunnerResult SageMakerPipelineRunner(string pipelineName, string executionLambdaArn, Dictionary<string, string>? parameters = null, string? trackingTableName = null, RegionEndpoint? region = null)
+        => SageMakerPipelineRunnerAsync(pipelineName, executionLambdaArn, parameters, trackingTableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModelRegistryManagerAsync"/>.</summary>
+    public static ModelRegistryManagerResult ModelRegistryManager(string modelPackageGroupName, string modelArtifactS3Uri, string approvalStatus = "PendingManualApproval", Dictionary<string, string>? metadata = null, string? trackingTableName = null, RegionEndpoint? region = null)
+        => ModelRegistryManagerAsync(modelPackageGroupName, modelArtifactS3Uri, approvalStatus, metadata, trackingTableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="FeatureStoreIngesterAsync"/>.</summary>
+    public static FeatureStoreIngesterResult FeatureStoreIngester(string featureGroupName, string featureTableName, List<Dictionary<string, Amazon.DynamoDBv2.Model.AttributeValue>> records, RegionEndpoint? region = null)
+        => FeatureStoreIngesterAsync(featureGroupName, featureTableName, records, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchTransformOrchestratorAsync"/>.</summary>
+    public static BatchTransformOrchestratorResult BatchTransformOrchestrator(string modelName, string inputS3Uri, string outputS3Uri, string transformLambdaArn, string? trackingTableName = null, RegionEndpoint? region = null)
+        => BatchTransformOrchestratorAsync(modelName, inputS3Uri, outputS3Uri, transformLambdaArn, trackingTableName, region).GetAwaiter().GetResult();
+
 }

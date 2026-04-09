@@ -501,4 +501,26 @@ public static class DisasterRecoveryService
             throw ErrorClassifier.WrapAwsError(exc, "RPO/RTO monitoring failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CrossRegionBackupManagerAsync"/>.</summary>
+    public static CrossRegionBackupManagerResult CrossRegionBackupManager(string sourceRegion, string targetRegion, List<string>? rdsInstanceIds = null, List<(string Bucket, string KeyPrefix)>? s3Sources = null, string? auditTableName = null, RegionEndpoint? region = null)
+        => CrossRegionBackupManagerAsync(sourceRegion, targetRegion, rdsInstanceIds, s3Sources, auditTableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="FailoverOrchestratorAsync"/>.</summary>
+    public static FailoverOrchestratorResult FailoverOrchestrator(string primaryRegion, string secondaryRegion, string hostedZoneId, string recordName, string secondaryEndpoint, string? alertTopicArn = null, RegionEndpoint? region = null)
+        => FailoverOrchestratorAsync(primaryRegion, secondaryRegion, hostedZoneId, recordName, secondaryEndpoint, alertTopicArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RecoveryPointValidatorAsync"/>.</summary>
+    public static RecoveryPointValidatorResult RecoveryPointValidator(List<string>? rdsSnapshotIds = null, List<(string Bucket, string Key)>? s3BackupKeys = null, RegionEndpoint? region = null)
+        => RecoveryPointValidatorAsync(rdsSnapshotIds, s3BackupKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RpoRtoMonitorAsync"/>.</summary>
+    public static RpoRtoMonitorResult RpoRtoMonitor(TimeSpan targetRpo, TimeSpan targetRto, string trackingTableName, string? alertTopicArn = null, RegionEndpoint? region = null)
+        => RpoRtoMonitorAsync(targetRpo, targetRto, trackingTableName, alertTopicArn, region).GetAwaiter().GetResult();
+
 }

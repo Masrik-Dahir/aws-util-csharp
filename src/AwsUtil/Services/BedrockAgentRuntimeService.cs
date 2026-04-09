@@ -89,4 +89,22 @@ public static class BedrockAgentRuntimeService
                 "Failed to retrieve and generate from Bedrock knowledge base");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="InvokeAgentAsync"/>.</summary>
+    public static InvokeAgentResponse InvokeAgent(InvokeAgentRequest request, RegionEndpoint? region = null)
+        => InvokeAgentAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RetrieveAsync"/>.</summary>
+    public static RetrieveResult Retrieve(RetrieveRequest request, RegionEndpoint? region = null)
+        => RetrieveAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RetrieveAndGenerateAsync"/>.</summary>
+    public static RetrieveAndGenerateResult RetrieveAndGenerate(RetrieveAndGenerateRequest request, RegionEndpoint? region = null)
+        => RetrieveAndGenerateAsync(request, region).GetAwaiter().GetResult();
+
 }

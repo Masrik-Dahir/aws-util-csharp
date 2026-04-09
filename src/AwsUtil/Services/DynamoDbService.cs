@@ -1618,4 +1618,190 @@ public static class DynamoDbService
                 "DisableKinesisStreamingDestination failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="GetItemAsync"/>.</summary>
+    public static Dictionary<string, AttributeValue>? GetItem(string tableName, Dictionary<string, AttributeValue> key, bool consistentRead = false, RegionEndpoint? region = null)
+        => GetItemAsync(tableName, key, consistentRead, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutItemAsync"/>.</summary>
+    public static void PutItem(string tableName, Dictionary<string, AttributeValue> item, string? conditionExpression = null, Dictionary<string, string>? expressionAttributeNames = null, Dictionary<string, AttributeValue>? expressionAttributeValues = null, RegionEndpoint? region = null)
+        => PutItemAsync(tableName, item, conditionExpression, expressionAttributeNames, expressionAttributeValues, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteItemAsync"/>.</summary>
+    public static void DeleteItem(string tableName, Dictionary<string, AttributeValue> key, string? conditionExpression = null, Dictionary<string, string>? expressionAttributeNames = null, Dictionary<string, AttributeValue>? expressionAttributeValues = null, RegionEndpoint? region = null)
+        => DeleteItemAsync(tableName, key, conditionExpression, expressionAttributeNames, expressionAttributeValues, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateItemAsync"/>.</summary>
+    public static Dictionary<string, AttributeValue> UpdateItem(string tableName, Dictionary<string, AttributeValue> key, string updateExpression, Dictionary<string, string>? expressionAttributeNames = null, Dictionary<string, AttributeValue>? expressionAttributeValues = null, string? conditionExpression = null, ReturnValue? returnValues = null, RegionEndpoint? region = null)
+        => UpdateItemAsync(tableName, key, updateExpression, expressionAttributeNames, expressionAttributeValues, conditionExpression, returnValues, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="QueryAsync"/>.</summary>
+    public static List<Dictionary<string, AttributeValue>> Query(string tableName, string keyConditionExpression, Dictionary<string, string>? expressionAttributeNames = null, Dictionary<string, AttributeValue>? expressionAttributeValues = null, string? filterExpression = null, string? indexName = null, int? limit = null, bool scanIndexForward = true, bool consistentRead = false, RegionEndpoint? region = null)
+        => QueryAsync(tableName, keyConditionExpression, expressionAttributeNames, expressionAttributeValues, filterExpression, indexName, limit, scanIndexForward, consistentRead, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ScanAsync"/>.</summary>
+    public static List<Dictionary<string, AttributeValue>> Scan(string tableName, string? filterExpression = null, Dictionary<string, string>? expressionAttributeNames = null, Dictionary<string, AttributeValue>? expressionAttributeValues = null, string? indexName = null, int? limit = null, bool consistentRead = false, RegionEndpoint? region = null)
+        => ScanAsync(tableName, filterExpression, expressionAttributeNames, expressionAttributeValues, indexName, limit, consistentRead, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchWriteAsync"/>.</summary>
+    public static void BatchWrite(string tableName, List<Dictionary<string, AttributeValue>> items, RegionEndpoint? region = null)
+        => BatchWriteAsync(tableName, items, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetAsync"/>.</summary>
+    public static List<Dictionary<string, AttributeValue>> BatchGet(string tableName, List<Dictionary<string, AttributeValue>> keys, RegionEndpoint? region = null)
+        => BatchGetAsync(tableName, keys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchWriteItemAsync"/>.</summary>
+    public static BatchWriteItemResult BatchWriteItem(Dictionary<string, List<WriteRequest>> requestItems, ReturnConsumedCapacity? returnConsumedCapacity = null, ReturnItemCollectionMetrics? returnItemCollectionMetrics = null, RegionEndpoint? region = null)
+        => BatchWriteItemAsync(requestItems, returnConsumedCapacity, returnItemCollectionMetrics, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetItemAsync"/>.</summary>
+    public static BatchGetItemResult BatchGetItem(Dictionary<string, KeysAndAttributes> requestItems, ReturnConsumedCapacity? returnConsumedCapacity = null, RegionEndpoint? region = null)
+        => BatchGetItemAsync(requestItems, returnConsumedCapacity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTableAsync"/>.</summary>
+    public static CreateTableResult CreateTable(string tableName, List<AttributeDefinition> attributeDefinitions, List<KeySchemaElement> keySchema, List<LocalSecondaryIndex>? localSecondaryIndexes = null, List<GlobalSecondaryIndex>? globalSecondaryIndexes = null, BillingMode? billingMode = null, ProvisionedThroughput? provisionedThroughput = null, StreamSpecification? streamSpecification = null, SSESpecification? sseSpecification = null, List<Tag>? tags = null, TableClass? tableClass = null, bool? deletionProtectionEnabled = null, RegionEndpoint? region = null)
+        => CreateTableAsync(tableName, attributeDefinitions, keySchema, localSecondaryIndexes, globalSecondaryIndexes, billingMode, provisionedThroughput, streamSpecification, sseSpecification, tags, tableClass, deletionProtectionEnabled, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTableAsync"/>.</summary>
+    public static DeleteTableResult DeleteTable(string tableName, RegionEndpoint? region = null)
+        => DeleteTableAsync(tableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTableAsync"/>.</summary>
+    public static DescribeTableResult DescribeTable(string tableName, RegionEndpoint? region = null)
+        => DescribeTableAsync(tableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTablesAsync"/>.</summary>
+    public static ListTablesResult ListTables(string? exclusiveStartTableName = null, int? limit = null, RegionEndpoint? region = null)
+        => ListTablesAsync(exclusiveStartTableName, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateTableAsync"/>.</summary>
+    public static UpdateTableResult UpdateTable(string tableName, List<AttributeDefinition>? attributeDefinitions = null, BillingMode? billingMode = null, ProvisionedThroughput? provisionedThroughput = null, List<GlobalSecondaryIndexUpdate>? globalSecondaryIndexUpdates = null, StreamSpecification? streamSpecification = null, SSESpecification? sseSpecification = null, List<ReplicationGroupUpdate>? replicaUpdates = null, TableClass? tableClass = null, bool? deletionProtectionEnabled = null, RegionEndpoint? region = null)
+        => UpdateTableAsync(tableName, attributeDefinitions, billingMode, provisionedThroughput, globalSecondaryIndexUpdates, streamSpecification, sseSpecification, replicaUpdates, tableClass, deletionProtectionEnabled, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AtomicIncrementAsync"/>.</summary>
+    public static long AtomicIncrement(string tableName, Dictionary<string, AttributeValue> key, string attribute, long amount = 1, RegionEndpoint? region = null)
+        => AtomicIncrementAsync(tableName, key, attribute, amount, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TransactWriteItemsAsync"/>.</summary>
+    public static TransactWriteItemsResult TransactWriteItems(List<TransactWriteItem> transactItems, ReturnConsumedCapacity? returnConsumedCapacity = null, ReturnItemCollectionMetrics? returnItemCollectionMetrics = null, string? clientRequestToken = null, RegionEndpoint? region = null)
+        => TransactWriteItemsAsync(transactItems, returnConsumedCapacity, returnItemCollectionMetrics, clientRequestToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TransactGetItemsAsync"/>.</summary>
+    public static TransactGetItemsResult TransactGetItems(List<TransactGetItem> transactItems, ReturnConsumedCapacity? returnConsumedCapacity = null, RegionEndpoint? region = null)
+        => TransactGetItemsAsync(transactItems, returnConsumedCapacity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ExecuteStatementAsync"/>.</summary>
+    public static ExecuteStatementResult ExecuteStatement(string statement, List<AttributeValue>? parameters = null, bool? consistentRead = null, string? nextToken = null, ReturnConsumedCapacity? returnConsumedCapacity = null, int? limit = null, RegionEndpoint? region = null)
+        => ExecuteStatementAsync(statement, parameters, consistentRead, nextToken, returnConsumedCapacity, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchExecuteStatementAsync"/>.</summary>
+    public static BatchExecuteStatementResult BatchExecuteStatement(List<BatchStatementRequest> statements, ReturnConsumedCapacity? returnConsumedCapacity = null, RegionEndpoint? region = null)
+        => BatchExecuteStatementAsync(statements, returnConsumedCapacity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ExecuteTransactionAsync"/>.</summary>
+    public static ExecuteTransactionResult ExecuteTransaction(List<ParameterizedStatement> transactStatements, string? clientRequestToken = null, ReturnConsumedCapacity? returnConsumedCapacity = null, RegionEndpoint? region = null)
+        => ExecuteTransactionAsync(transactStatements, clientRequestToken, returnConsumedCapacity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateBackupAsync"/>.</summary>
+    public static CreateBackupResult CreateBackup(string tableName, string backupName, RegionEndpoint? region = null)
+        => CreateBackupAsync(tableName, backupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteBackupAsync"/>.</summary>
+    public static DeleteBackupResult DeleteBackup(string backupArn, RegionEndpoint? region = null)
+        => DeleteBackupAsync(backupArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeBackupAsync"/>.</summary>
+    public static DescribeBackupResult DescribeBackup(string backupArn, RegionEndpoint? region = null)
+        => DescribeBackupAsync(backupArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListBackupsAsync"/>.</summary>
+    public static ListBackupsResult ListBackups(string? tableName = null, int? limit = null, string? exclusiveStartBackupArn = null, BackupTypeFilter? backupType = null, RegionEndpoint? region = null)
+        => ListBackupsAsync(tableName, limit, exclusiveStartBackupArn, backupType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTimeToLiveAsync"/>.</summary>
+    public static DescribeTimeToLiveResult DescribeTimeToLive(string tableName, RegionEndpoint? region = null)
+        => DescribeTimeToLiveAsync(tableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateTimeToLiveAsync"/>.</summary>
+    public static UpdateTimeToLiveResult UpdateTimeToLive(string tableName, TimeToLiveSpecification timeToLiveSpecification, RegionEndpoint? region = null)
+        => UpdateTimeToLiveAsync(tableName, timeToLiveSpecification, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeContinuousBackupsAsync"/>.</summary>
+    public static DescribeContinuousBackupsResult DescribeContinuousBackups(string tableName, RegionEndpoint? region = null)
+        => DescribeContinuousBackupsAsync(tableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateContinuousBackupsAsync"/>.</summary>
+    public static UpdateContinuousBackupsResult UpdateContinuousBackups(string tableName, PointInTimeRecoverySpecification pointInTimeRecoverySpecification, RegionEndpoint? region = null)
+        => UpdateContinuousBackupsAsync(tableName, pointInTimeRecoverySpecification, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ExportTableToPointInTimeAsync"/>.</summary>
+    public static ExportTableToPointInTimeResult ExportTableToPointInTime(string tableArn, string s3Bucket, string? s3Prefix = null, string? s3SseKmsKeyId = null, ExportFormat? exportFormat = null, DateTime? exportTime = null, string? clientToken = null, RegionEndpoint? region = null)
+        => ExportTableToPointInTimeAsync(tableArn, s3Bucket, s3Prefix, s3SseKmsKeyId, exportFormat, exportTime, clientToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeExportAsync"/>.</summary>
+    public static DescribeExportResult DescribeExport(string exportArn, RegionEndpoint? region = null)
+        => DescribeExportAsync(exportArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListExportsAsync"/>.</summary>
+    public static DynamoDbListExportsResult ListExports(string? tableArn = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListExportsAsync(tableArn, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ImportTableAsync"/>.</summary>
+    public static ImportTableResult ImportTable(S3BucketSource s3BucketSource, InputFormat inputFormat, TableCreationParameters tableCreationParameters, string? clientToken = null, InputFormatOptions? inputFormatOptions = null, InputCompressionType? inputCompressionType = null, RegionEndpoint? region = null)
+        => ImportTableAsync(s3BucketSource, inputFormat, tableCreationParameters, clientToken, inputFormatOptions, inputCompressionType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeImportAsync"/>.</summary>
+    public static DescribeImportResult DescribeImport(string importArn, RegionEndpoint? region = null)
+        => DescribeImportAsync(importArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListImportsAsync"/>.</summary>
+    public static DynamoDbListImportsResult ListImports(string? tableArn = null, int? pageSize = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListImportsAsync(tableArn, pageSize, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeLimitsAsync"/>.</summary>
+    public static DescribeLimitsResult DescribeLimits(RegionEndpoint? region = null)
+        => DescribeLimitsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGlobalTableAsync"/>.</summary>
+    public static CreateGlobalTableResult CreateGlobalTable(string globalTableName, List<Replica> replicationGroup, RegionEndpoint? region = null)
+        => CreateGlobalTableAsync(globalTableName, replicationGroup, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeGlobalTableAsync"/>.</summary>
+    public static DescribeGlobalTableResult DescribeGlobalTable(string globalTableName, RegionEndpoint? region = null)
+        => DescribeGlobalTableAsync(globalTableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateGlobalTableAsync"/>.</summary>
+    public static UpdateGlobalTableResult UpdateGlobalTable(string globalTableName, List<ReplicaUpdate> replicaUpdates, RegionEndpoint? region = null)
+        => UpdateGlobalTableAsync(globalTableName, replicaUpdates, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGlobalTablesAsync"/>.</summary>
+    public static ListGlobalTablesResult ListGlobalTables(string? exclusiveStartGlobalTableName = null, int? limit = null, string? regionName = null, RegionEndpoint? region = null)
+        => ListGlobalTablesAsync(exclusiveStartGlobalTableName, limit, regionName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsOfResourceAsync"/>.</summary>
+    public static ListTagsOfResourceResult ListTagsOfResource(string resourceArn, string? nextToken = null, RegionEndpoint? region = null)
+        => ListTagsOfResourceAsync(resourceArn, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableKinesisStreamingDestinationAsync"/>.</summary>
+    public static EnableKinesisStreamingDestinationResult EnableKinesisStreamingDestination(string tableName, string streamArn, RegionEndpoint? region = null)
+        => EnableKinesisStreamingDestinationAsync(tableName, streamArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableKinesisStreamingDestinationAsync"/>.</summary>
+    public static DisableKinesisStreamingDestinationResult DisableKinesisStreamingDestination(string tableName, string streamArn, RegionEndpoint? region = null)
+        => DisableKinesisStreamingDestinationAsync(tableName, streamArn, region).GetAwaiter().GetResult();
+
 }

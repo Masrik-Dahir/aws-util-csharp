@@ -860,4 +860,146 @@ public static class CloudFrontService
                 $"Failed to list tags for resource '{resource}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDistributionAsync"/>.</summary>
+    public static CreateDistributionResult CreateDistribution(CreateDistributionRequest request, RegionEndpoint? region = null)
+        => CreateDistributionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDistributionAsync"/>.</summary>
+    public static void DeleteDistribution(string id, string ifMatch, RegionEndpoint? region = null)
+        => DeleteDistributionAsync(id, ifMatch, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDistributionAsync"/>.</summary>
+    public static GetDistributionResult GetDistribution(string id, RegionEndpoint? region = null)
+        => GetDistributionAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDistributionsAsync"/>.</summary>
+    public static ListDistributionsResult ListDistributions(string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListDistributionsAsync(marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDistributionAsync"/>.</summary>
+    public static UpdateDistributionResult UpdateDistribution(UpdateDistributionRequest request, RegionEndpoint? region = null)
+        => UpdateDistributionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDistributionConfigAsync"/>.</summary>
+    public static GetDistributionConfigResult GetDistributionConfig(string id, RegionEndpoint? region = null)
+        => GetDistributionConfigAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateInvalidationAsync"/>.</summary>
+    public static CreateInvalidationResult CreateInvalidation(CreateInvalidationRequest request, RegionEndpoint? region = null)
+        => CreateInvalidationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetInvalidationAsync"/>.</summary>
+    public static GetInvalidationResult GetInvalidation(string distributionId, string id, RegionEndpoint? region = null)
+        => GetInvalidationAsync(distributionId, id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListInvalidationsAsync"/>.</summary>
+    public static ListInvalidationsResult ListInvalidations(string distributionId, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListInvalidationsAsync(distributionId, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateOriginAccessControlAsync"/>.</summary>
+    public static CreateOriginAccessControlResult CreateOriginAccessControl(CreateOriginAccessControlRequest request, RegionEndpoint? region = null)
+        => CreateOriginAccessControlAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteOriginAccessControlAsync"/>.</summary>
+    public static void DeleteOriginAccessControl(string id, string ifMatch, RegionEndpoint? region = null)
+        => DeleteOriginAccessControlAsync(id, ifMatch, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetOriginAccessControlAsync"/>.</summary>
+    public static GetOriginAccessControlResult GetOriginAccessControl(string id, RegionEndpoint? region = null)
+        => GetOriginAccessControlAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListOriginAccessControlsAsync"/>.</summary>
+    public static ListOriginAccessControlsResult ListOriginAccessControls(string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListOriginAccessControlsAsync(marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateOriginAccessControlAsync"/>.</summary>
+    public static UpdateOriginAccessControlResult UpdateOriginAccessControl(UpdateOriginAccessControlRequest request, RegionEndpoint? region = null)
+        => UpdateOriginAccessControlAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCachePolicyAsync"/>.</summary>
+    public static CreateCachePolicyResult CreateCachePolicy(CreateCachePolicyRequest request, RegionEndpoint? region = null)
+        => CreateCachePolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCachePolicyAsync"/>.</summary>
+    public static void DeleteCachePolicy(string id, string ifMatch, RegionEndpoint? region = null)
+        => DeleteCachePolicyAsync(id, ifMatch, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCachePolicyAsync"/>.</summary>
+    public static GetCachePolicyResult GetCachePolicy(string id, RegionEndpoint? region = null)
+        => GetCachePolicyAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCachePoliciesAsync"/>.</summary>
+    public static ListCachePoliciesResult ListCachePolicies(string? type = null, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListCachePoliciesAsync(type, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateCachePolicyAsync"/>.</summary>
+    public static UpdateCachePolicyResult UpdateCachePolicy(UpdateCachePolicyRequest request, RegionEndpoint? region = null)
+        => UpdateCachePolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFunctionAsync"/>.</summary>
+    public static CreateFunctionResult CreateFunction(CreateFunctionRequest request, RegionEndpoint? region = null)
+        => CreateFunctionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFunctionAsync"/>.</summary>
+    public static void DeleteFunction(string name, string ifMatch, RegionEndpoint? region = null)
+        => DeleteFunctionAsync(name, ifMatch, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeFunctionAsync"/>.</summary>
+    public static DescribeFunctionResult DescribeFunction(string name, string? stage = null, RegionEndpoint? region = null)
+        => DescribeFunctionAsync(name, stage, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFunctionAsync"/>.</summary>
+    public static CloudFrontGetFunctionResult GetFunction(string name, string? stage = null, RegionEndpoint? region = null)
+        => GetFunctionAsync(name, stage, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFunctionsAsync"/>.</summary>
+    public static CloudFrontListFunctionsResult ListFunctions(string? marker = null, int? maxItems = null, string? stage = null, RegionEndpoint? region = null)
+        => ListFunctionsAsync(marker, maxItems, stage, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PublishFunctionAsync"/>.</summary>
+    public static PublishFunctionResult PublishFunction(string name, string ifMatch, RegionEndpoint? region = null)
+        => PublishFunctionAsync(name, ifMatch, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TestFunctionAsync"/>.</summary>
+    public static TestFunctionResult TestFunction(TestFunctionRequest request, RegionEndpoint? region = null)
+        => TestFunctionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateFunctionAsync"/>.</summary>
+    public static UpdateFunctionResult UpdateFunction(UpdateFunctionRequest request, RegionEndpoint? region = null)
+        => UpdateFunctionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateResponseHeadersPolicyAsync"/>.</summary>
+    public static CreateResponseHeadersPolicyResult CreateResponseHeadersPolicy(CreateResponseHeadersPolicyRequest request, RegionEndpoint? region = null)
+        => CreateResponseHeadersPolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteResponseHeadersPolicyAsync"/>.</summary>
+    public static void DeleteResponseHeadersPolicy(string id, string ifMatch, RegionEndpoint? region = null)
+        => DeleteResponseHeadersPolicyAsync(id, ifMatch, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetResponseHeadersPolicyAsync"/>.</summary>
+    public static GetResponseHeadersPolicyResult GetResponseHeadersPolicy(string id, RegionEndpoint? region = null)
+        => GetResponseHeadersPolicyAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListResponseHeadersPoliciesAsync"/>.</summary>
+    public static ListResponseHeadersPoliciesResult ListResponseHeadersPolicies(string? type = null, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListResponseHeadersPoliciesAsync(type, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resource, Tags tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resource, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resource, TagKeys tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resource, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static CloudFrontTagsResult ListTagsForResource(string resource, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resource, region).GetAwaiter().GetResult();
+
 }

@@ -1,0 +1,78 @@
+name: NuGet Stats
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # Every Monday at 9 AM UTC
+  workflow_dispatch:
+
+jobs:
+  stats:
+    name: Collect NuGet Download Stats
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch NuGet package stats
+        id: nuget
+        run: |
+          PACKAGE_ID="AwsUtil"
+          API_URL="https://azuresearch-usnc.nuget.org/query?q=packageid:${PACKAGE_ID}&prerelease=false&take=1"
+
+          RESPONSE=$(curl -sS "$API_URL")
+
+          TOTAL_DOWNLOADS=$(echo "$RESPONSE" | jq -r '.data[0].totalDownloads // 0')
+          LATEST_VERSION=$(echo "$RESPONSE" | jq -r '.data[0].version // "unknown"')
+          VERSIONS_COUNT=$(echo "$RESPONSE" | jq -r '.data[0].versions | length // 0')
+          DESCRIPTION=$(echo "$RESPONSE" | jq -r '.data[0].description // "N/A"')
+
+          # Per-version downloads (last 5 versions)
+          VERSION_DETAILS=$(echo "$RESPONSE" | jq -r '
+            .data[0].versions
+            | sort_by(.version)
+            | reverse
+            | .[0:5]
+            | .[] | "| \(.version) | \(.downloads) |"
+          ')
+
+          echo "total_downloads=$TOTAL_DOWNLOADS" >> "$GITHUB_OUTPUT"
+          echo "latest_version=$LATEST_VERSION" >> "$GITHUB_OUTPUT"
+          echo "versions_count=$VERSIONS_COUNT" >> "$GITHUB_OUTPUT"
+
+          # Build summary
+          {
+            echo "## NuGet Download Stats for \`${PACKAGE_ID}\`"
+            echo ""
+            echo "| Metric | Value |"
+            echo "|--------|-------|"
+            echo "| **Total Downloads** | ${TOTAL_DOWNLOADS} |"
+            echo "| **Latest Version** | ${LATEST_VERSION} |"
+            echo "| **Published Versions** | ${VERSIONS_COUNT} |"
+            echo "| **Collected At** | $(date -u '+%Y-%m-%d %H:%M UTC') |"
+            echo ""
+            echo "### Downloads by Version (Latest 5)"
+            echo ""
+            echo "| Version | Downloads |"
+            echo "|---------|-----------|"
+            echo "$VERSION_DETAILS"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Save stats artifact
+        run: |
+          mkdir -p stats
+          PACKAGE_ID="AwsUtil"
+          curl -sS "https://azuresearch-usnc.nuget.org/query?q=packageid:${PACKAGE_ID}&prerelease=false&take=1" \
+            | jq '{
+                collected_at: (now | strftime("%Y-%m-%dT%H:%M:%SZ")),
+                package_id: .data[0].id,
+                total_downloads: .data[0].totalDownloads,
+                latest_version: .data[0].version,
+                versions: [.data[0].versions[] | {version, downloads}]
+              }' > stats/nuget-stats.json
+
+      - name: Upload stats artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-stats-${{ github.run_number }}
+          path: stats/nuget-stats.json
+          retention-days: 90

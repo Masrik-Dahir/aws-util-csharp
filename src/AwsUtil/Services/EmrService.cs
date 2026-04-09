@@ -927,4 +927,130 @@ public static class EmrService
                 "Failed to list EMR security configurations");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="RunJobFlowAsync"/>.</summary>
+    public static RunJobFlowResult RunJobFlow(RunJobFlowRequest request, RegionEndpoint? region = null)
+        => RunJobFlowAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TerminateJobFlowsAsync"/>.</summary>
+    public static void TerminateJobFlows(List<string> jobFlowIds, RegionEndpoint? region = null)
+        => TerminateJobFlowsAsync(jobFlowIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClusterAsync"/>.</summary>
+    public static DescribeEmrClusterResult DescribeCluster(string clusterId, RegionEndpoint? region = null)
+        => DescribeClusterAsync(clusterId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListClustersAsync"/>.</summary>
+    public static ListEmrClustersResult ListClusters(List<string>? clusterStates = null, DateTime? createdAfter = null, DateTime? createdBefore = null, string? marker = null, RegionEndpoint? region = null)
+        => ListClustersAsync(clusterStates, createdAfter, createdBefore, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddJobFlowStepsAsync"/>.</summary>
+    public static AddJobFlowStepsResult AddJobFlowSteps(string jobFlowId, List<StepConfig> steps, string? executionRoleArn = null, RegionEndpoint? region = null)
+        => AddJobFlowStepsAsync(jobFlowId, steps, executionRoleArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStepsAsync"/>.</summary>
+    public static ListEmrStepsResult ListSteps(string clusterId, List<string>? stepStates = null, List<string>? stepIds = null, string? marker = null, RegionEndpoint? region = null)
+        => ListStepsAsync(clusterId, stepStates, stepIds, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStepAsync"/>.</summary>
+    public static DescribeEmrStepResult DescribeStep(string clusterId, string stepId, RegionEndpoint? region = null)
+        => DescribeStepAsync(clusterId, stepId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelStepsAsync"/>.</summary>
+    public static CancelEmrStepsResult CancelSteps(string clusterId, List<string> stepIds, string? stepCancellationOption = null, RegionEndpoint? region = null)
+        => CancelStepsAsync(clusterId, stepIds, stepCancellationOption, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetTerminationProtectionAsync"/>.</summary>
+    public static void SetTerminationProtection(List<string> jobFlowIds, bool terminationProtected, RegionEndpoint? region = null)
+        => SetTerminationProtectionAsync(jobFlowIds, terminationProtected, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetVisibleToAllUsersAsync"/>.</summary>
+    public static void SetVisibleToAllUsers(List<string> jobFlowIds, bool visibleToAllUsers, RegionEndpoint? region = null)
+        => SetVisibleToAllUsersAsync(jobFlowIds, visibleToAllUsers, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyClusterAsync"/>.</summary>
+    public static ModifyEmrClusterResult ModifyCluster(string clusterId, int? stepConcurrencyLevel = null, RegionEndpoint? region = null)
+        => ModifyClusterAsync(clusterId, stepConcurrencyLevel, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutAutoScalingPolicyAsync"/>.</summary>
+    public static PutAutoScalingPolicyResult PutAutoScalingPolicy(string clusterId, string instanceGroupId, AutoScalingPolicy autoScalingPolicy, RegionEndpoint? region = null)
+        => PutAutoScalingPolicyAsync(clusterId, instanceGroupId, autoScalingPolicy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveAutoScalingPolicyAsync"/>.</summary>
+    public static void RemoveAutoScalingPolicy(string clusterId, string instanceGroupId, RegionEndpoint? region = null)
+        => RemoveAutoScalingPolicyAsync(clusterId, instanceGroupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddInstanceGroupsAsync"/>.</summary>
+    public static AddInstanceGroupsResult AddInstanceGroups(string jobFlowId, List<InstanceGroupConfig> instanceGroups, RegionEndpoint? region = null)
+        => AddInstanceGroupsAsync(jobFlowId, instanceGroups, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyInstanceGroupsAsync"/>.</summary>
+    public static void ModifyInstanceGroups(string? clusterId, List<InstanceGroupModifyConfig> instanceGroups, RegionEndpoint? region = null)
+        => ModifyInstanceGroupsAsync(clusterId, instanceGroups, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListInstanceGroupsAsync"/>.</summary>
+    public static ListInstanceGroupsResult ListInstanceGroups(string clusterId, string? marker = null, RegionEndpoint? region = null)
+        => ListInstanceGroupsAsync(clusterId, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListInstancesAsync"/>.</summary>
+    public static ListEmrInstancesResult ListInstances(string clusterId, string? instanceGroupId = null, List<string>? instanceGroupTypes = null, List<string>? instanceStates = null, string? instanceFleetId = null, string? instanceFleetType = null, string? marker = null, RegionEndpoint? region = null)
+        => ListInstancesAsync(clusterId, instanceGroupId, instanceGroupTypes, instanceStates, instanceFleetId, instanceFleetType, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsAsync"/>.</summary>
+    public static void AddTags(string resourceId, List<Tag> tags, RegionEndpoint? region = null)
+        => AddTagsAsync(resourceId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsAsync"/>.</summary>
+    public static void RemoveTags(string resourceId, List<string> tagKeys, RegionEndpoint? region = null)
+        => RemoveTagsAsync(resourceId, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutManagedScalingPolicyAsync"/>.</summary>
+    public static void PutManagedScalingPolicy(string clusterId, ManagedScalingPolicy managedScalingPolicy, RegionEndpoint? region = null)
+        => PutManagedScalingPolicyAsync(clusterId, managedScalingPolicy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveManagedScalingPolicyAsync"/>.</summary>
+    public static void RemoveManagedScalingPolicy(string clusterId, RegionEndpoint? region = null)
+        => RemoveManagedScalingPolicyAsync(clusterId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetManagedScalingPolicyAsync"/>.</summary>
+    public static GetManagedScalingPolicyResult GetManagedScalingPolicy(string clusterId, RegionEndpoint? region = null)
+        => GetManagedScalingPolicyAsync(clusterId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateStudioAsync"/>.</summary>
+    public static CreateEmrStudioResult CreateStudio(CreateStudioRequest request, RegionEndpoint? region = null)
+        => CreateStudioAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteStudioAsync"/>.</summary>
+    public static void DeleteStudio(string studioId, RegionEndpoint? region = null)
+        => DeleteStudioAsync(studioId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStudioAsync"/>.</summary>
+    public static DescribeEmrStudioResult DescribeStudio(string studioId, RegionEndpoint? region = null)
+        => DescribeStudioAsync(studioId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStudiosAsync"/>.</summary>
+    public static ListEmrStudiosResult ListStudios(string? marker = null, RegionEndpoint? region = null)
+        => ListStudiosAsync(marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSecurityConfigurationAsync"/>.</summary>
+    public static CreateSecurityConfigurationResult CreateSecurityConfiguration(string name, string securityConfiguration, RegionEndpoint? region = null)
+        => CreateSecurityConfigurationAsync(name, securityConfiguration, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSecurityConfigurationAsync"/>.</summary>
+    public static void DeleteSecurityConfiguration(string name, RegionEndpoint? region = null)
+        => DeleteSecurityConfigurationAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSecurityConfigurationAsync"/>.</summary>
+    public static DescribeSecurityConfigurationResult DescribeSecurityConfiguration(string name, RegionEndpoint? region = null)
+        => DescribeSecurityConfigurationAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSecurityConfigurationsAsync"/>.</summary>
+    public static ListSecurityConfigurationsResult ListSecurityConfigurations(string? marker = null, RegionEndpoint? region = null)
+        => ListSecurityConfigurationsAsync(marker, region).GetAwaiter().GetResult();
+
 }

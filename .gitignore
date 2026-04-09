@@ -35,6 +35,7 @@ bld/
 ## Rider
 .idea/
 *.sln.iml
+.claude/
 
 ## Test results
 [Tt]est[Rr]esult*/

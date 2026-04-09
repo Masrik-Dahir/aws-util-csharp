@@ -472,4 +472,34 @@ public static class ConfigStateService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to load feature flags");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="ConfigResolverAsync"/>.</summary>
+    public static ConfigResolverResult ConfigResolver(List<string> keys, string? parameterStorePrefix = null, string? secretsManagerPrefix = null, Dictionary<string, string>? environmentOverrides = null, RegionEndpoint? region = null)
+        => ConfigResolverAsync(keys, parameterStorePrefix, secretsManagerPrefix, environmentOverrides, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DistributedLockAsync"/>.</summary>
+    public static DistributedLockResult DistributedLock(string tableName, string resourceName, string ownerId, int ttlSeconds = 30, bool release = false, RegionEndpoint? region = null)
+        => DistributedLockAsync(tableName, resourceName, ownerId, ttlSeconds, release, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StateMachineCheckpointAsync"/>.</summary>
+    public static StateMachineCheckpointResult StateMachineCheckpoint(string tableName, string executionId, string? stateName = null, string? status = null, Dictionary<string, object?>? stateData = null, bool retrieve = false, RegionEndpoint? region = null)
+        => StateMachineCheckpointAsync(tableName, executionId, stateName, status, stateData, retrieve, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CrossAccountRoleAssumerAsync"/>.</summary>
+    public static CrossAccountRoleAssumerResult CrossAccountRoleAssumer(string roleArn, string sessionName, int? durationSeconds = null, string? externalId = null, RegionEndpoint? region = null)
+        => CrossAccountRoleAssumerAsync(roleArn, sessionName, durationSeconds, externalId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnvironmentVariableSyncAsync"/>.</summary>
+    public static EnvironmentVariableSyncResult EnvironmentVariableSync(List<string> functionNames, string parameterStorePrefix, List<string> variableNames, RegionEndpoint? region = null)
+        => EnvironmentVariableSyncAsync(functionNames, parameterStorePrefix, variableNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AppConfigFeatureLoaderAsync"/>.</summary>
+    public static AppConfigFeatureLoaderResult AppConfigFeatureLoader(string parameterPrefix, List<string> featureNames, RegionEndpoint? region = null)
+        => AppConfigFeatureLoaderAsync(parameterPrefix, featureNames, region).GetAwaiter().GetResult();
+
 }

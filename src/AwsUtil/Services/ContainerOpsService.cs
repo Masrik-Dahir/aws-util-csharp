@@ -334,4 +334,26 @@ public static class ContainerOpsService
             throw ErrorClassifier.WrapAwsError(exc, "ECS service auto-scaling configuration failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="EcsTaskRunnerAsync"/>.</summary>
+    public static EcsTaskRunnerResult EcsTaskRunner(string clusterName, string taskDefinition, int count = 1, string launchType = "FARGATE", List<string>? subnets = null, List<string>? securityGroups = null, Dictionary<string, string>? environmentOverrides = null, RegionEndpoint? region = null)
+        => EcsTaskRunnerAsync(clusterName, taskDefinition, count, launchType, subnets, securityGroups, environmentOverrides, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="FargateSpotManagerAsync"/>.</summary>
+    public static FargateSpotManagerResult FargateSpotManager(string clusterName, string serviceName, int spotPercentage = 70, RegionEndpoint? region = null)
+        => FargateSpotManagerAsync(clusterName, serviceName, spotPercentage, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ContainerHealthCheckerAsync"/>.</summary>
+    public static ContainerHealthCheckResult ContainerHealthChecker(string clusterName, string serviceName, RegionEndpoint? region = null)
+        => ContainerHealthCheckerAsync(clusterName, serviceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EcsServiceAutoScalerAsync"/>.</summary>
+    public static EcsServiceAutoScalerResult EcsServiceAutoScaler(string clusterName, string serviceName, int minCapacity, int maxCapacity, string metricType = "CPU", double targetValue = 70.0, RegionEndpoint? region = null)
+        => EcsServiceAutoScalerAsync(clusterName, serviceName, minCapacity, maxCapacity, metricType, targetValue, region).GetAwaiter().GetResult();
+
 }

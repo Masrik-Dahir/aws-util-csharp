@@ -1112,4 +1112,150 @@ public static class SecurityHubService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="EnableSecurityHubAsync"/>.</summary>
+    public static string EnableSecurityHub(bool? enableDefaultStandards = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => EnableSecurityHubAsync(enableDefaultStandards, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableSecurityHubAsync"/>.</summary>
+    public static void DisableSecurityHub(RegionEndpoint? region = null)
+        => DisableSecurityHubAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeHubAsync"/>.</summary>
+    public static SecurityHubResult DescribeHub(RegionEndpoint? region = null)
+        => DescribeHubAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFindingsAsync"/>.</summary>
+    public static List<SecurityHubFindingResult> GetFindings(AwsSecurityFindingFilters? filters = null, List<SortCriterion>? sortCriteria = null, int? maxResults = null, RegionEndpoint? region = null)
+        => GetFindingsAsync(filters, sortCriteria, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchImportFindingsAsync"/>.</summary>
+    public static SecurityHubBatchImportResult BatchImportFindings(List<AwsSecurityFinding> findings, RegionEndpoint? region = null)
+        => BatchImportFindingsAsync(findings, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchUpdateFindingsAsync"/>.</summary>
+    public static SecurityHubBatchUpdateResult BatchUpdateFindings(List<AwsSecurityFindingIdentifier> findingIdentifiers, NoteUpdate? note = null, SeverityUpdate? severity = null, WorkflowUpdate? workflow = null, RegionEndpoint? region = null)
+        => BatchUpdateFindingsAsync(findingIdentifiers, note, severity, workflow, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetInsightsAsync"/>.</summary>
+    public static List<SecurityHubInsightResult> GetInsights(List<string>? insightArns = null, RegionEndpoint? region = null)
+        => GetInsightsAsync(insightArns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetInsightResultsAsync"/>.</summary>
+    public static SecurityHubInsightResultsResult GetInsightResults(string insightArn, RegionEndpoint? region = null)
+        => GetInsightResultsAsync(insightArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateInsightAsync"/>.</summary>
+    public static string CreateInsight(string name, AwsSecurityFindingFilters filters, string groupByAttribute, RegionEndpoint? region = null)
+        => CreateInsightAsync(name, filters, groupByAttribute, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteInsightAsync"/>.</summary>
+    public static string DeleteInsight(string insightArn, RegionEndpoint? region = null)
+        => DeleteInsightAsync(insightArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateInsightAsync"/>.</summary>
+    public static void UpdateInsight(string insightArn, string? name = null, AwsSecurityFindingFilters? filters = null, string? groupByAttribute = null, RegionEndpoint? region = null)
+        => UpdateInsightAsync(insightArn, name, filters, groupByAttribute, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableImportFindingsForProductAsync"/>.</summary>
+    public static SecurityHubProductSubscriptionResult EnableImportFindingsForProduct(string productArn, RegionEndpoint? region = null)
+        => EnableImportFindingsForProductAsync(productArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableImportFindingsForProductAsync"/>.</summary>
+    public static void DisableImportFindingsForProduct(string productSubscriptionArn, RegionEndpoint? region = null)
+        => DisableImportFindingsForProductAsync(productSubscriptionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListEnabledProductsForImportAsync"/>.</summary>
+    public static List<string> ListEnabledProductsForImport(RegionEndpoint? region = null)
+        => ListEnabledProductsForImportAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeProductsAsync"/>.</summary>
+    public static List<SecurityHubProductResult> DescribeProducts(RegionEndpoint? region = null)
+        => DescribeProductsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchEnableStandardsAsync"/>.</summary>
+    public static List<SecurityHubStandardsSubscriptionResult> BatchEnableStandards(List<StandardsSubscriptionRequest> standardsSubscriptionRequests, RegionEndpoint? region = null)
+        => BatchEnableStandardsAsync(standardsSubscriptionRequests, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchDisableStandardsAsync"/>.</summary>
+    public static List<SecurityHubStandardsSubscriptionResult> BatchDisableStandards(List<string> standardsSubscriptionArns, RegionEndpoint? region = null)
+        => BatchDisableStandardsAsync(standardsSubscriptionArns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetEnabledStandardsAsync"/>.</summary>
+    public static List<SecurityHubStandardsSubscriptionResult> GetEnabledStandards(List<string>? standardsSubscriptionArns = null, RegionEndpoint? region = null)
+        => GetEnabledStandardsAsync(standardsSubscriptionArns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStandardsAsync"/>.</summary>
+    public static List<SecurityHubStandardResult> DescribeStandards(RegionEndpoint? region = null)
+        => DescribeStandardsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStandardsControlsAsync"/>.</summary>
+    public static List<SecurityHubStandardsControlResult> DescribeStandardsControls(string standardsSubscriptionArn, RegionEndpoint? region = null)
+        => DescribeStandardsControlsAsync(standardsSubscriptionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateStandardsControlAsync"/>.</summary>
+    public static void UpdateStandardsControl(string standardsControlArn, string? controlStatus = null, string? disabledReason = null, RegionEndpoint? region = null)
+        => UpdateStandardsControlAsync(standardsControlArn, controlStatus, disabledReason, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateMembersAsync"/>.</summary>
+    public static List<string> CreateMembers(List<AccountDetails> accountDetails, RegionEndpoint? region = null)
+        => CreateMembersAsync(accountDetails, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteMembersAsync"/>.</summary>
+    public static List<string> DeleteMembers(List<string> accountIds, RegionEndpoint? region = null)
+        => DeleteMembersAsync(accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetMembersAsync"/>.</summary>
+    public static List<SecurityHubMemberResult> GetMembers(List<string> accountIds, RegionEndpoint? region = null)
+        => GetMembersAsync(accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListMembersAsync"/>.</summary>
+    public static List<SecurityHubMemberResult> ListMembers(bool? onlyAssociated = null, RegionEndpoint? region = null)
+        => ListMembersAsync(onlyAssociated, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="InviteMembersAsync"/>.</summary>
+    public static List<string> InviteMembers(List<string> accountIds, RegionEndpoint? region = null)
+        => InviteMembersAsync(accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AcceptInvitationAsync"/>.</summary>
+    public static void AcceptInvitation(string masterId, string invitationId, RegionEndpoint? region = null)
+        => AcceptInvitationAsync(masterId, invitationId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeclineInvitationsAsync"/>.</summary>
+    public static List<string> DeclineInvitations(List<string> accountIds, RegionEndpoint? region = null)
+        => DeclineInvitationsAsync(accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateActionTargetAsync"/>.</summary>
+    public static string CreateActionTarget(string name, string description, string id, RegionEndpoint? region = null)
+        => CreateActionTargetAsync(name, description, id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteActionTargetAsync"/>.</summary>
+    public static string DeleteActionTarget(string actionTargetArn, RegionEndpoint? region = null)
+        => DeleteActionTargetAsync(actionTargetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeActionTargetsAsync"/>.</summary>
+    public static List<SecurityHubActionTargetResult> DescribeActionTargets(List<string>? actionTargetArns = null, RegionEndpoint? region = null)
+        => DescribeActionTargetsAsync(actionTargetArns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateActionTargetAsync"/>.</summary>
+    public static void UpdateActionTarget(string actionTargetArn, string? name = null, string? description = null, RegionEndpoint? region = null)
+        => UpdateActionTargetAsync(actionTargetArn, name, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static List<SecurityHubTagResult> ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

@@ -1397,4 +1397,202 @@ public static class AutoScalingService
                 $"Failed to rollback instance refresh for '{autoScalingGroupName}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAutoScalingGroupAsync"/>.</summary>
+    public static CreateAutoScalingGroupResult CreateAutoScalingGroup(CreateAutoScalingGroupRequest request, RegionEndpoint? region = null)
+        => CreateAutoScalingGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAutoScalingGroupAsync"/>.</summary>
+    public static DeleteAutoScalingGroupResult DeleteAutoScalingGroup(string autoScalingGroupName, bool? forceDelete = null, RegionEndpoint? region = null)
+        => DeleteAutoScalingGroupAsync(autoScalingGroupName, forceDelete, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAutoScalingGroupsAsync"/>.</summary>
+    public static DescribeAutoScalingGroupsResult DescribeAutoScalingGroups(DescribeAutoScalingGroupsRequest request, RegionEndpoint? region = null)
+        => DescribeAutoScalingGroupsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAutoScalingGroupAsync"/>.</summary>
+    public static UpdateAutoScalingGroupResult UpdateAutoScalingGroup(UpdateAutoScalingGroupRequest request, RegionEndpoint? region = null)
+        => UpdateAutoScalingGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateLaunchConfigurationAsync"/>.</summary>
+    public static CreateLaunchConfigurationResult CreateLaunchConfiguration(CreateLaunchConfigurationRequest request, RegionEndpoint? region = null)
+        => CreateLaunchConfigurationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteLaunchConfigurationAsync"/>.</summary>
+    public static DeleteLaunchConfigurationResult DeleteLaunchConfiguration(string launchConfigurationName, RegionEndpoint? region = null)
+        => DeleteLaunchConfigurationAsync(launchConfigurationName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeLaunchConfigurationsAsync"/>.</summary>
+    public static DescribeLaunchConfigurationsResult DescribeLaunchConfigurations(DescribeLaunchConfigurationsRequest request, RegionEndpoint? region = null)
+        => DescribeLaunchConfigurationsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetDesiredCapacityAsync"/>.</summary>
+    public static SetDesiredCapacityResult SetDesiredCapacity(string autoScalingGroupName, int desiredCapacity, bool? honorCooldown = null, RegionEndpoint? region = null)
+        => SetDesiredCapacityAsync(autoScalingGroupName, desiredCapacity, honorCooldown, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TerminateInstanceInAutoScalingGroupAsync"/>.</summary>
+    public static TerminateInstanceInAutoScalingGroupResult TerminateInstanceInAutoScalingGroup(string instanceId, bool shouldDecrementDesiredCapacity, RegionEndpoint? region = null)
+        => TerminateInstanceInAutoScalingGroupAsync(instanceId, shouldDecrementDesiredCapacity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AttachInstancesAsync"/>.</summary>
+    public static AttachInstancesResult AttachInstances(string autoScalingGroupName, List<string> instanceIds, RegionEndpoint? region = null)
+        => AttachInstancesAsync(autoScalingGroupName, instanceIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetachInstancesAsync"/>.</summary>
+    public static DetachInstancesResult DetachInstances(string autoScalingGroupName, List<string> instanceIds, bool shouldDecrementDesiredCapacity, RegionEndpoint? region = null)
+        => DetachInstancesAsync(autoScalingGroupName, instanceIds, shouldDecrementDesiredCapacity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnterStandbyAsync"/>.</summary>
+    public static EnterStandbyResult EnterStandby(string autoScalingGroupName, List<string> instanceIds, bool shouldDecrementDesiredCapacity, RegionEndpoint? region = null)
+        => EnterStandbyAsync(autoScalingGroupName, instanceIds, shouldDecrementDesiredCapacity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ExitStandbyAsync"/>.</summary>
+    public static ExitStandbyResult ExitStandby(string autoScalingGroupName, List<string> instanceIds, RegionEndpoint? region = null)
+        => ExitStandbyAsync(autoScalingGroupName, instanceIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SuspendProcessesAsync"/>.</summary>
+    public static SuspendProcessesResult SuspendProcesses(string autoScalingGroupName, List<string>? scalingProcesses = null, RegionEndpoint? region = null)
+        => SuspendProcessesAsync(autoScalingGroupName, scalingProcesses, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResumeProcessesAsync"/>.</summary>
+    public static ResumeProcessesResult ResumeProcesses(string autoScalingGroupName, List<string>? scalingProcesses = null, RegionEndpoint? region = null)
+        => ResumeProcessesAsync(autoScalingGroupName, scalingProcesses, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutScalingPolicyAsync"/>.</summary>
+    public static PutScalingPolicyResult PutScalingPolicy(PutScalingPolicyRequest request, RegionEndpoint? region = null)
+        => PutScalingPolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePolicyAsync"/>.</summary>
+    public static DeleteScalingPolicyResult DeletePolicy(string autoScalingGroupName, string policyName, RegionEndpoint? region = null)
+        => DeletePolicyAsync(autoScalingGroupName, policyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribePoliciesAsync"/>.</summary>
+    public static DescribePoliciesResult DescribePolicies(DescribePoliciesRequest request, RegionEndpoint? region = null)
+        => DescribePoliciesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ExecutePolicyAsync"/>.</summary>
+    public static ExecutePolicyResult ExecutePolicy(ExecutePolicyRequest request, RegionEndpoint? region = null)
+        => ExecutePolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutScheduledUpdateGroupActionAsync"/>.</summary>
+    public static PutScheduledUpdateGroupActionResult PutScheduledUpdateGroupAction(PutScheduledUpdateGroupActionRequest request, RegionEndpoint? region = null)
+        => PutScheduledUpdateGroupActionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteScheduledActionAsync"/>.</summary>
+    public static DeleteScheduledActionResult DeleteScheduledAction(string autoScalingGroupName, string scheduledActionName, RegionEndpoint? region = null)
+        => DeleteScheduledActionAsync(autoScalingGroupName, scheduledActionName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeScheduledActionsAsync"/>.</summary>
+    public static DescribeScheduledActionsResult DescribeScheduledActions(DescribeScheduledActionsRequest request, RegionEndpoint? region = null)
+        => DescribeScheduledActionsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetInstanceProtectionAsync"/>.</summary>
+    public static SetInstanceProtectionResult SetInstanceProtection(string autoScalingGroupName, List<string> instanceIds, bool protectedFromScaleIn, RegionEndpoint? region = null)
+        => SetInstanceProtectionAsync(autoScalingGroupName, instanceIds, protectedFromScaleIn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetInstanceHealthAsync"/>.</summary>
+    public static SetInstanceHealthResult SetInstanceHealth(string instanceId, string healthStatus, bool? shouldRespectGracePeriod = null, RegionEndpoint? region = null)
+        => SetInstanceHealthAsync(instanceId, healthStatus, shouldRespectGracePeriod, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAutoScalingInstancesAsync"/>.</summary>
+    public static DescribeAutoScalingInstancesResult DescribeAutoScalingInstances(List<string>? instanceIds = null, string? nextToken = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeAutoScalingInstancesAsync(instanceIds, nextToken, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateOrUpdateTagsAsync"/>.</summary>
+    public static CreateOrUpdateTagsResult CreateOrUpdateTags(List<Tag> tags, RegionEndpoint? region = null)
+        => CreateOrUpdateTagsAsync(tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTagsAsync"/>.</summary>
+    public static DeleteAutoScalingTagsResult DeleteTags(List<Tag> tags, RegionEndpoint? region = null)
+        => DeleteTagsAsync(tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTagsAsync"/>.</summary>
+    public static DescribeAutoScalingTagsResult DescribeTags(DescribeTagsRequest request, RegionEndpoint? region = null)
+        => DescribeTagsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutLifecycleHookAsync"/>.</summary>
+    public static PutLifecycleHookResult PutLifecycleHook(PutLifecycleHookRequest request, RegionEndpoint? region = null)
+        => PutLifecycleHookAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteLifecycleHookAsync"/>.</summary>
+    public static DeleteLifecycleHookResult DeleteLifecycleHook(string autoScalingGroupName, string lifecycleHookName, RegionEndpoint? region = null)
+        => DeleteLifecycleHookAsync(autoScalingGroupName, lifecycleHookName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeLifecycleHooksAsync"/>.</summary>
+    public static DescribeLifecycleHooksResult DescribeLifecycleHooks(string autoScalingGroupName, List<string>? lifecycleHookNames = null, RegionEndpoint? region = null)
+        => DescribeLifecycleHooksAsync(autoScalingGroupName, lifecycleHookNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CompleteLifecycleActionAsync"/>.</summary>
+    public static CompleteLifecycleActionResult CompleteLifecycleAction(CompleteLifecycleActionRequest request, RegionEndpoint? region = null)
+        => CompleteLifecycleActionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RecordLifecycleActionHeartbeatAsync"/>.</summary>
+    public static RecordLifecycleActionHeartbeatResult RecordLifecycleActionHeartbeat(RecordLifecycleActionHeartbeatRequest request, RegionEndpoint? region = null)
+        => RecordLifecycleActionHeartbeatAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutNotificationConfigurationAsync"/>.</summary>
+    public static PutNotificationConfigurationResult PutNotificationConfiguration(string autoScalingGroupName, string topicArn, List<string> notificationTypes, RegionEndpoint? region = null)
+        => PutNotificationConfigurationAsync(autoScalingGroupName, topicArn, notificationTypes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteNotificationConfigurationAsync"/>.</summary>
+    public static DeleteNotificationConfigurationResult DeleteNotificationConfiguration(string autoScalingGroupName, string topicArn, RegionEndpoint? region = null)
+        => DeleteNotificationConfigurationAsync(autoScalingGroupName, topicArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeNotificationConfigurationsAsync"/>.</summary>
+    public static DescribeNotificationConfigurationsResult DescribeNotificationConfigurations(DescribeNotificationConfigurationsRequest request, RegionEndpoint? region = null)
+        => DescribeNotificationConfigurationsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAccountLimitsAsync"/>.</summary>
+    public static DescribeAccountLimitsResult DescribeAccountLimits(RegionEndpoint? region = null)
+        => DescribeAccountLimitsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAdjustmentTypesAsync"/>.</summary>
+    public static DescribeAdjustmentTypesResult DescribeAdjustmentTypes(RegionEndpoint? region = null)
+        => DescribeAdjustmentTypesAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeMetricCollectionTypesAsync"/>.</summary>
+    public static DescribeMetricCollectionTypesResult DescribeMetricCollectionTypes(RegionEndpoint? region = null)
+        => DescribeMetricCollectionTypesAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableMetricsCollectionAsync"/>.</summary>
+    public static EnableMetricsCollectionResult EnableMetricsCollection(string autoScalingGroupName, string granularity, List<string>? metrics = null, RegionEndpoint? region = null)
+        => EnableMetricsCollectionAsync(autoScalingGroupName, granularity, metrics, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableMetricsCollectionAsync"/>.</summary>
+    public static DisableMetricsCollectionResult DisableMetricsCollection(string autoScalingGroupName, List<string>? metrics = null, RegionEndpoint? region = null)
+        => DisableMetricsCollectionAsync(autoScalingGroupName, metrics, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutWarmPoolAsync"/>.</summary>
+    public static PutWarmPoolResult PutWarmPool(PutWarmPoolRequest request, RegionEndpoint? region = null)
+        => PutWarmPoolAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteWarmPoolAsync"/>.</summary>
+    public static DeleteWarmPoolResult DeleteWarmPool(string autoScalingGroupName, bool? forceDelete = null, RegionEndpoint? region = null)
+        => DeleteWarmPoolAsync(autoScalingGroupName, forceDelete, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeWarmPoolAsync"/>.</summary>
+    public static DescribeWarmPoolResult DescribeWarmPool(string autoScalingGroupName, string? nextToken = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeWarmPoolAsync(autoScalingGroupName, nextToken, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartInstanceRefreshAsync"/>.</summary>
+    public static StartInstanceRefreshResult StartInstanceRefresh(StartInstanceRefreshRequest request, RegionEndpoint? region = null)
+        => StartInstanceRefreshAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelInstanceRefreshAsync"/>.</summary>
+    public static CancelInstanceRefreshResult CancelInstanceRefresh(string autoScalingGroupName, RegionEndpoint? region = null)
+        => CancelInstanceRefreshAsync(autoScalingGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeInstanceRefreshesAsync"/>.</summary>
+    public static DescribeInstanceRefreshesResult DescribeInstanceRefreshes(DescribeInstanceRefreshesRequest request, RegionEndpoint? region = null)
+        => DescribeInstanceRefreshesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RollbackInstanceRefreshAsync"/>.</summary>
+    public static RollbackInstanceRefreshResult RollbackInstanceRefresh(string autoScalingGroupName, RegionEndpoint? region = null)
+        => RollbackInstanceRefreshAsync(autoScalingGroupName, region).GetAwaiter().GetResult();
+
 }

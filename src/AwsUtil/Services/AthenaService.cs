@@ -957,4 +957,142 @@ public static class AthenaService
                 $"Failed to list tags for Athena resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="StartQueryExecutionAsync"/>.</summary>
+    public static StartQueryExecutionResult StartQueryExecution(string queryString, string? database = null, string? catalog = null, string? outputLocation = null, string? workGroup = null, RegionEndpoint? region = null)
+        => StartQueryExecutionAsync(queryString, database, catalog, outputLocation, workGroup, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopQueryExecutionAsync"/>.</summary>
+    public static void StopQueryExecution(string queryExecutionId, RegionEndpoint? region = null)
+        => StopQueryExecutionAsync(queryExecutionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetQueryExecutionAsync"/>.</summary>
+    public static GetQueryExecutionResult GetQueryExecution(string queryExecutionId, RegionEndpoint? region = null)
+        => GetQueryExecutionAsync(queryExecutionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetQueryResultsAsync"/>.</summary>
+    public static GetAthenaQueryResultsResult GetQueryResults(string queryExecutionId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetQueryResultsAsync(queryExecutionId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListQueryExecutionsAsync"/>.</summary>
+    public static ListQueryExecutionsResult ListQueryExecutions(string? workGroup = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListQueryExecutionsAsync(workGroup, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetQueryExecutionAsync"/>.</summary>
+    public static BatchGetQueryExecutionResult BatchGetQueryExecution(List<string> queryExecutionIds, RegionEndpoint? region = null)
+        => BatchGetQueryExecutionAsync(queryExecutionIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateWorkGroupAsync"/>.</summary>
+    public static CreateWorkGroupResult CreateWorkGroup(string name, WorkGroupConfiguration? configuration = null, string? description = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateWorkGroupAsync(name, configuration, description, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteWorkGroupAsync"/>.</summary>
+    public static void DeleteWorkGroup(string workGroup, bool recursiveDeleteOption = false, RegionEndpoint? region = null)
+        => DeleteWorkGroupAsync(workGroup, recursiveDeleteOption, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetWorkGroupAsync"/>.</summary>
+    public static GetWorkGroupResult GetWorkGroup(string workGroup, RegionEndpoint? region = null)
+        => GetWorkGroupAsync(workGroup, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListWorkGroupsAsync"/>.</summary>
+    public static ListWorkGroupsResult ListWorkGroups(RegionEndpoint? region = null)
+        => ListWorkGroupsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateWorkGroupAsync"/>.</summary>
+    public static void UpdateWorkGroup(string workGroup, WorkGroupConfigurationUpdates? configurationUpdates = null, string? description = null, WorkGroupState? state = null, RegionEndpoint? region = null)
+        => UpdateWorkGroupAsync(workGroup, configurationUpdates, description, state, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateNamedQueryAsync"/>.</summary>
+    public static CreateNamedQueryResult CreateNamedQuery(string name, string database, string queryString, string? description = null, string? workGroup = null, RegionEndpoint? region = null)
+        => CreateNamedQueryAsync(name, database, queryString, description, workGroup, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteNamedQueryAsync"/>.</summary>
+    public static void DeleteNamedQuery(string namedQueryId, RegionEndpoint? region = null)
+        => DeleteNamedQueryAsync(namedQueryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetNamedQueryAsync"/>.</summary>
+    public static GetNamedQueryResult GetNamedQuery(string namedQueryId, RegionEndpoint? region = null)
+        => GetNamedQueryAsync(namedQueryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListNamedQueriesAsync"/>.</summary>
+    public static ListNamedQueriesResult ListNamedQueries(string? workGroup = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListNamedQueriesAsync(workGroup, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetNamedQueryAsync"/>.</summary>
+    public static BatchGetNamedQueryResult BatchGetNamedQuery(List<string> namedQueryIds, RegionEndpoint? region = null)
+        => BatchGetNamedQueryAsync(namedQueryIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDataCatalogAsync"/>.</summary>
+    public static CreateDataCatalogResult CreateDataCatalog(string name, DataCatalogType type, string? description = null, Dictionary<string, string>? parameters = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateDataCatalogAsync(name, type, description, parameters, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDataCatalogAsync"/>.</summary>
+    public static void DeleteDataCatalog(string name, RegionEndpoint? region = null)
+        => DeleteDataCatalogAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDataCatalogAsync"/>.</summary>
+    public static GetDataCatalogResult GetDataCatalog(string name, RegionEndpoint? region = null)
+        => GetDataCatalogAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDataCatalogsAsync"/>.</summary>
+    public static ListDataCatalogsResult ListDataCatalogs(RegionEndpoint? region = null)
+        => ListDataCatalogsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDataCatalogAsync"/>.</summary>
+    public static void UpdateDataCatalog(string name, DataCatalogType type, string? description = null, Dictionary<string, string>? parameters = null, RegionEndpoint? region = null)
+        => UpdateDataCatalogAsync(name, type, description, parameters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDatabaseAsync"/>.</summary>
+    public static GetAthenaDatabaseResult GetDatabase(string catalogName, string databaseName, RegionEndpoint? region = null)
+        => GetDatabaseAsync(catalogName, databaseName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatabasesAsync"/>.</summary>
+    public static ListAthenaDatabasesResult ListDatabases(string catalogName, RegionEndpoint? region = null)
+        => ListDatabasesAsync(catalogName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTableMetadataAsync"/>.</summary>
+    public static GetTableMetadataResult GetTableMetadata(string catalogName, string databaseName, string tableName, RegionEndpoint? region = null)
+        => GetTableMetadataAsync(catalogName, databaseName, tableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTableMetadataAsync"/>.</summary>
+    public static ListTableMetadataResult ListTableMetadata(string catalogName, string databaseName, RegionEndpoint? region = null)
+        => ListTableMetadataAsync(catalogName, databaseName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePreparedStatementAsync"/>.</summary>
+    public static CreatePreparedStatementResult CreatePreparedStatement(string statementName, string workGroup, string queryStatement, string? description = null, RegionEndpoint? region = null)
+        => CreatePreparedStatementAsync(statementName, workGroup, queryStatement, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePreparedStatementAsync"/>.</summary>
+    public static void DeletePreparedStatement(string statementName, string workGroup, RegionEndpoint? region = null)
+        => DeletePreparedStatementAsync(statementName, workGroup, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPreparedStatementAsync"/>.</summary>
+    public static GetPreparedStatementResult GetPreparedStatement(string statementName, string workGroup, RegionEndpoint? region = null)
+        => GetPreparedStatementAsync(statementName, workGroup, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPreparedStatementsAsync"/>.</summary>
+    public static ListPreparedStatementsResult ListPreparedStatements(string workGroup, RegionEndpoint? region = null)
+        => ListPreparedStatementsAsync(workGroup, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdatePreparedStatementAsync"/>.</summary>
+    public static void UpdatePreparedStatement(string statementName, string workGroup, string queryStatement, string? description = null, RegionEndpoint? region = null)
+        => UpdatePreparedStatementAsync(statementName, workGroup, queryStatement, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ListAthenaTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

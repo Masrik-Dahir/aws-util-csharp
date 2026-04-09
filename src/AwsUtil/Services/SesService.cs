@@ -498,4 +498,86 @@ public static class SesService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to send bulk templated email");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="SendEmailAsync"/>.</summary>
+    public static SendEmailResult SendEmail(string source, Destination destination, Message message, string? replyToAddress = null, string? returnPath = null, string? configurationSetName = null, List<MessageTag>? tags = null, RegionEndpoint? region = null)
+        => SendEmailAsync(source, destination, message, replyToAddress, returnPath, configurationSetName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SendRawEmailAsync"/>.</summary>
+    public static SendRawEmailResult SendRawEmail(RawMessage rawMessage, string? source = null, List<string>? destinations = null, string? configurationSetName = null, List<MessageTag>? tags = null, RegionEndpoint? region = null)
+        => SendRawEmailAsync(rawMessage, source, destinations, configurationSetName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="VerifyEmailIdentityAsync"/>.</summary>
+    public static void VerifyEmailIdentity(string emailAddress, RegionEndpoint? region = null)
+        => VerifyEmailIdentityAsync(emailAddress, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteIdentityAsync"/>.</summary>
+    public static void DeleteIdentity(string identity, RegionEndpoint? region = null)
+        => DeleteIdentityAsync(identity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListIdentitiesAsync"/>.</summary>
+    public static ListIdentitiesResult ListIdentities(string? identityType = null, RegionEndpoint? region = null)
+        => ListIdentitiesAsync(identityType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetIdentityVerificationAttributesAsync"/>.</summary>
+    public static VerificationAttributesResult GetIdentityVerificationAttributes(List<string> identities, RegionEndpoint? region = null)
+        => GetIdentityVerificationAttributesAsync(identities, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetIdentityNotificationTopicAsync"/>.</summary>
+    public static void SetIdentityNotificationTopic(string identity, string notificationType, string? snsTopic = null, RegionEndpoint? region = null)
+        => SetIdentityNotificationTopicAsync(identity, notificationType, snsTopic, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSendQuotaAsync"/>.</summary>
+    public static SendQuotaResult GetSendQuota(RegionEndpoint? region = null)
+        => GetSendQuotaAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSendStatisticsAsync"/>.</summary>
+    public static SendStatisticsResult GetSendStatistics(RegionEndpoint? region = null)
+        => GetSendStatisticsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateReceiptRuleAsync"/>.</summary>
+    public static void CreateReceiptRule(string ruleSetName, ReceiptRule rule, string? after = null, RegionEndpoint? region = null)
+        => CreateReceiptRuleAsync(ruleSetName, rule, after, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteReceiptRuleAsync"/>.</summary>
+    public static void DeleteReceiptRule(string ruleSetName, string ruleName, RegionEndpoint? region = null)
+        => DeleteReceiptRuleAsync(ruleSetName, ruleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateReceiptRuleSetAsync"/>.</summary>
+    public static void CreateReceiptRuleSet(string ruleSetName, RegionEndpoint? region = null)
+        => CreateReceiptRuleSetAsync(ruleSetName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetActiveReceiptRuleSetAsync"/>.</summary>
+    public static void SetActiveReceiptRuleSet(string? ruleSetName = null, RegionEndpoint? region = null)
+        => SetActiveReceiptRuleSetAsync(ruleSetName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTemplateAsync"/>.</summary>
+    public static void CreateTemplate(Template template, RegionEndpoint? region = null)
+        => CreateTemplateAsync(template, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTemplateAsync"/>.</summary>
+    public static void DeleteTemplate(string templateName, RegionEndpoint? region = null)
+        => DeleteTemplateAsync(templateName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTemplateAsync"/>.</summary>
+    public static Template GetTemplate(string templateName, RegionEndpoint? region = null)
+        => GetTemplateAsync(templateName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateTemplateAsync"/>.</summary>
+    public static void UpdateTemplate(Template template, RegionEndpoint? region = null)
+        => UpdateTemplateAsync(template, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SendTemplatedEmailAsync"/>.</summary>
+    public static SendTemplatedEmailResult SendTemplatedEmail(string source, Destination destination, string template, string templateData, string? replyToAddress = null, string? returnPath = null, string? configurationSetName = null, List<MessageTag>? tags = null, RegionEndpoint? region = null)
+        => SendTemplatedEmailAsync(source, destination, template, templateData, replyToAddress, returnPath, configurationSetName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SendBulkTemplatedEmailAsync"/>.</summary>
+    public static SendBulkTemplatedEmailResult SendBulkTemplatedEmail(string source, string template, string defaultTemplateData, List<BulkEmailDestination> destinations, string? replyToAddress = null, string? returnPath = null, string? configurationSetName = null, List<MessageTag>? defaultTags = null, RegionEndpoint? region = null)
+        => SendBulkTemplatedEmailAsync(source, template, defaultTemplateData, destinations, replyToAddress, returnPath, configurationSetName, defaultTags, region).GetAwaiter().GetResult();
+
 }

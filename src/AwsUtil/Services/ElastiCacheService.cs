@@ -1648,4 +1648,198 @@ public static class ElastiCacheService
                 "Failed to modify serverless cache");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCacheClusterAsync"/>.</summary>
+    public static ElastiCacheClusterInfo CreateCacheCluster(CreateCacheClusterRequest request, RegionEndpoint? region = null)
+        => CreateCacheClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCacheClusterAsync"/>.</summary>
+    public static ElastiCacheClusterInfo DeleteCacheCluster(string cacheClusterId, string? finalSnapshotIdentifier = null, RegionEndpoint? region = null)
+        => DeleteCacheClusterAsync(cacheClusterId, finalSnapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeCacheClustersAsync"/>.</summary>
+    public static List<ElastiCacheClusterInfo> DescribeCacheClusters(string? cacheClusterId = null, bool? showCacheNodeInfo = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeCacheClustersAsync(cacheClusterId, showCacheNodeInfo, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyCacheClusterAsync"/>.</summary>
+    public static ElastiCacheClusterInfo ModifyCacheCluster(ModifyCacheClusterRequest request, RegionEndpoint? region = null)
+        => ModifyCacheClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RebootCacheClusterAsync"/>.</summary>
+    public static ElastiCacheClusterInfo RebootCacheCluster(string cacheClusterId, List<string> cacheNodeIdsToReboot, RegionEndpoint? region = null)
+        => RebootCacheClusterAsync(cacheClusterId, cacheNodeIdsToReboot, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateReplicationGroupAsync"/>.</summary>
+    public static ElastiCacheReplicationGroupInfo CreateReplicationGroup(CreateReplicationGroupRequest request, RegionEndpoint? region = null)
+        => CreateReplicationGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteReplicationGroupAsync"/>.</summary>
+    public static ElastiCacheReplicationGroupInfo DeleteReplicationGroup(string replicationGroupId, bool? retainPrimaryCluster = null, string? finalSnapshotIdentifier = null, RegionEndpoint? region = null)
+        => DeleteReplicationGroupAsync(replicationGroupId, retainPrimaryCluster, finalSnapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeReplicationGroupsAsync"/>.</summary>
+    public static List<ElastiCacheReplicationGroupInfo> DescribeReplicationGroups(string? replicationGroupId = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeReplicationGroupsAsync(replicationGroupId, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyReplicationGroupAsync"/>.</summary>
+    public static ElastiCacheReplicationGroupInfo ModifyReplicationGroup(ModifyReplicationGroupRequest request, RegionEndpoint? region = null)
+        => ModifyReplicationGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="IncreaseReplicaCountAsync"/>.</summary>
+    public static ElastiCacheReplicationGroupInfo IncreaseReplicaCount(IncreaseReplicaCountRequest request, RegionEndpoint? region = null)
+        => IncreaseReplicaCountAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DecreaseReplicaCountAsync"/>.</summary>
+    public static ElastiCacheReplicationGroupInfo DecreaseReplicaCount(DecreaseReplicaCountRequest request, RegionEndpoint? region = null)
+        => DecreaseReplicaCountAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCacheSubnetGroupAsync"/>.</summary>
+    public static ElastiCacheSubnetGroupInfo CreateCacheSubnetGroup(string cacheSubnetGroupName, string cacheSubnetGroupDescription, List<string> subnetIds, List<Amazon.ElastiCache.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateCacheSubnetGroupAsync(cacheSubnetGroupName, cacheSubnetGroupDescription, subnetIds, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCacheSubnetGroupAsync"/>.</summary>
+    public static void DeleteCacheSubnetGroup(string cacheSubnetGroupName, RegionEndpoint? region = null)
+        => DeleteCacheSubnetGroupAsync(cacheSubnetGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeCacheSubnetGroupsAsync"/>.</summary>
+    public static List<ElastiCacheSubnetGroupInfo> DescribeCacheSubnetGroups(string? cacheSubnetGroupName = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeCacheSubnetGroupsAsync(cacheSubnetGroupName, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyCacheSubnetGroupAsync"/>.</summary>
+    public static ElastiCacheSubnetGroupInfo ModifyCacheSubnetGroup(string cacheSubnetGroupName, string? cacheSubnetGroupDescription = null, List<string>? subnetIds = null, RegionEndpoint? region = null)
+        => ModifyCacheSubnetGroupAsync(cacheSubnetGroupName, cacheSubnetGroupDescription, subnetIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCacheParameterGroupAsync"/>.</summary>
+    public static ElastiCacheParameterGroupInfo CreateCacheParameterGroup(string cacheParameterGroupName, string cacheParameterGroupFamily, string description, List<Amazon.ElastiCache.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateCacheParameterGroupAsync(cacheParameterGroupName, cacheParameterGroupFamily, description, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCacheParameterGroupAsync"/>.</summary>
+    public static void DeleteCacheParameterGroup(string cacheParameterGroupName, RegionEndpoint? region = null)
+        => DeleteCacheParameterGroupAsync(cacheParameterGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeCacheParameterGroupsAsync"/>.</summary>
+    public static List<ElastiCacheParameterGroupInfo> DescribeCacheParameterGroups(string? cacheParameterGroupName = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeCacheParameterGroupsAsync(cacheParameterGroupName, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyCacheParameterGroupAsync"/>.</summary>
+    public static ElastiCacheModifyResult ModifyCacheParameterGroup(string cacheParameterGroupName, List<ParameterNameValue> parameterNameValues, RegionEndpoint? region = null)
+        => ModifyCacheParameterGroupAsync(cacheParameterGroupName, parameterNameValues, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeCacheParametersAsync"/>.</summary>
+    public static List<ElastiCacheParameterInfo> DescribeCacheParameters(string cacheParameterGroupName, string? source = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeCacheParametersAsync(cacheParameterGroupName, source, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSnapshotAsync"/>.</summary>
+    public static ElastiCacheSnapshotInfo CreateSnapshot(CreateSnapshotRequest request, RegionEndpoint? region = null)
+        => CreateSnapshotAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSnapshotAsync"/>.</summary>
+    public static ElastiCacheSnapshotInfo DeleteSnapshot(string snapshotName, RegionEndpoint? region = null)
+        => DeleteSnapshotAsync(snapshotName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSnapshotsAsync"/>.</summary>
+    public static List<ElastiCacheSnapshotInfo> DescribeSnapshots(string? cacheClusterId = null, string? snapshotName = null, string? replicationGroupId = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeSnapshotsAsync(cacheClusterId, snapshotName, replicationGroupId, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CopySnapshotAsync"/>.</summary>
+    public static ElastiCacheSnapshotInfo CopySnapshot(string sourceSnapshotName, string targetSnapshotName, string? targetBucket = null, string? kmsKeyId = null, List<Amazon.ElastiCache.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CopySnapshotAsync(sourceSnapshotName, targetSnapshotName, targetBucket, kmsKeyId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGlobalReplicationGroupAsync"/>.</summary>
+    public static ElastiCacheGlobalReplicationGroupInfo CreateGlobalReplicationGroup(CreateGlobalReplicationGroupRequest request, RegionEndpoint? region = null)
+        => CreateGlobalReplicationGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGlobalReplicationGroupAsync"/>.</summary>
+    public static ElastiCacheGlobalReplicationGroupInfo DeleteGlobalReplicationGroup(string globalReplicationGroupId, bool retainPrimaryReplicationGroup, RegionEndpoint? region = null)
+        => DeleteGlobalReplicationGroupAsync(globalReplicationGroupId, retainPrimaryReplicationGroup, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeGlobalReplicationGroupsAsync"/>.</summary>
+    public static List<ElastiCacheGlobalReplicationGroupInfo> DescribeGlobalReplicationGroups(string? globalReplicationGroupId = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeGlobalReplicationGroupsAsync(globalReplicationGroupId, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyGlobalReplicationGroupAsync"/>.</summary>
+    public static ElastiCacheGlobalReplicationGroupInfo ModifyGlobalReplicationGroup(ModifyGlobalReplicationGroupRequest request, RegionEndpoint? region = null)
+        => ModifyGlobalReplicationGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateUserAsync"/>.</summary>
+    public static ElastiCacheUserInfo CreateUser(CreateUserRequest request, RegionEndpoint? region = null)
+        => CreateUserAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUserAsync"/>.</summary>
+    public static ElastiCacheUserInfo DeleteUser(string userId, RegionEndpoint? region = null)
+        => DeleteUserAsync(userId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeUsersAsync"/>.</summary>
+    public static List<ElastiCacheUserInfo> DescribeUsers(string? userId = null, string? engine = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeUsersAsync(userId, engine, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyUserAsync"/>.</summary>
+    public static ElastiCacheUserInfo ModifyUser(ModifyUserRequest request, RegionEndpoint? region = null)
+        => ModifyUserAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateUserGroupAsync"/>.</summary>
+    public static ElastiCacheUserGroupInfo CreateUserGroup(CreateUserGroupRequest request, RegionEndpoint? region = null)
+        => CreateUserGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUserGroupAsync"/>.</summary>
+    public static ElastiCacheUserGroupInfo DeleteUserGroup(string userGroupId, RegionEndpoint? region = null)
+        => DeleteUserGroupAsync(userGroupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeUserGroupsAsync"/>.</summary>
+    public static List<ElastiCacheUserGroupInfo> DescribeUserGroups(string? userGroupId = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeUserGroupsAsync(userGroupId, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyUserGroupAsync"/>.</summary>
+    public static ElastiCacheUserGroupInfo ModifyUserGroup(ModifyUserGroupRequest request, RegionEndpoint? region = null)
+        => ModifyUserGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeCacheEngineVersionsAsync"/>.</summary>
+    public static List<ElastiCacheEngineVersionInfo> DescribeCacheEngineVersions(string? engine = null, string? engineVersion = null, string? cacheParameterGroupFamily = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeCacheEngineVersionsAsync(engine, engineVersion, cacheParameterGroupFamily, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeReservedCacheNodesAsync"/>.</summary>
+    public static List<ElastiCacheReservedNodeInfo> DescribeReservedCacheNodes(string? reservedCacheNodeId = null, string? cacheNodeType = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeReservedCacheNodesAsync(reservedCacheNodeId, cacheNodeType, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsToResourceAsync"/>.</summary>
+    public static ElastiCacheTagResult AddTagsToResource(string resourceName, List<Amazon.ElastiCache.Model.Tag> tags, RegionEndpoint? region = null)
+        => AddTagsToResourceAsync(resourceName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsFromResourceAsync"/>.</summary>
+    public static ElastiCacheTagResult RemoveTagsFromResource(string resourceName, List<string> tagKeys, RegionEndpoint? region = null)
+        => RemoveTagsFromResourceAsync(resourceName, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ElastiCacheTagResult ListTagsForResource(string resourceName, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TestFailoverAsync"/>.</summary>
+    public static ElastiCacheTestFailoverResult TestFailover(string replicationGroupId, string nodeGroupId, RegionEndpoint? region = null)
+        => TestFailoverAsync(replicationGroupId, nodeGroupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventsAsync"/>.</summary>
+    public static List<ElastiCacheEventInfo> DescribeEvents(string? sourceIdentifier = null, string? sourceType = null, int? maxRecords = null, string? marker = null, int? duration = null, RegionEndpoint? region = null)
+        => DescribeEventsAsync(sourceIdentifier, sourceType, maxRecords, marker, duration, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateServerlessCacheAsync"/>.</summary>
+    public static ElastiCacheServerlessCacheInfo CreateServerlessCache(CreateServerlessCacheRequest request, RegionEndpoint? region = null)
+        => CreateServerlessCacheAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteServerlessCacheAsync"/>.</summary>
+    public static ElastiCacheServerlessCacheInfo DeleteServerlessCache(string serverlessCacheName, string? finalSnapshotName = null, RegionEndpoint? region = null)
+        => DeleteServerlessCacheAsync(serverlessCacheName, finalSnapshotName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeServerlessCachesAsync"/>.</summary>
+    public static List<ElastiCacheServerlessCacheInfo> DescribeServerlessCaches(string? serverlessCacheName = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeServerlessCachesAsync(serverlessCacheName, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyServerlessCacheAsync"/>.</summary>
+    public static ElastiCacheServerlessCacheInfo ModifyServerlessCache(ModifyServerlessCacheRequest request, RegionEndpoint? region = null)
+        => ModifyServerlessCacheAsync(request, region).GetAwaiter().GetResult();
+
 }

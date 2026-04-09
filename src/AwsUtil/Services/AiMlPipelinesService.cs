@@ -353,4 +353,30 @@ public static class AiMlPipelinesService
             throw ErrorClassifier.WrapAwsError(exc, "Embedding indexing failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="BedrockServerlessChainAsync"/>.</summary>
+    public static BedrockServerlessChainResult BedrockServerlessChain(List<(string ModelId, string PromptTemplate)> steps, string initialInput, RegionEndpoint? region = null)
+        => BedrockServerlessChainAsync(steps, initialInput, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="S3DocumentProcessorAsync"/>.</summary>
+    public static S3DocumentProcessorResult S3DocumentProcessor(string bucket, string key, bool extractTables = false, bool extractKeyValues = false, RegionEndpoint? region = null)
+        => S3DocumentProcessorAsync(bucket, key, extractTables, extractKeyValues, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ImageModerationPipelineAsync"/>.</summary>
+    public static ImageModerationPipelineResult ImageModerationPipeline(string bucket, string key, double confidenceThreshold = 75.0, RegionEndpoint? region = null)
+        => ImageModerationPipelineAsync(bucket, key, confidenceThreshold, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TranslationPipelineAsync"/>.</summary>
+    public static TranslationPipelineResult TranslationPipeline(string text, string sourceLanguage, string targetLanguage, string? outputBucket = null, string? outputKeyPrefix = null, RegionEndpoint? region = null)
+        => TranslationPipelineAsync(text, sourceLanguage, targetLanguage, outputBucket, outputKeyPrefix, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EmbeddingIndexerAsync"/>.</summary>
+    public static EmbeddingIndexerResult EmbeddingIndexer(string documentId, string text, string indexTableName, string modelId = "amazon.titan-embed-text-v1", int chunkSize = 512, RegionEndpoint? region = null)
+        => EmbeddingIndexerAsync(documentId, text, indexTableName, modelId, chunkSize, region).GetAwaiter().GetResult();
+
 }

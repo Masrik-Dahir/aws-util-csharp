@@ -440,4 +440,70 @@ public static class TimestreamQueryService
                 "Failed to update Timestream account settings");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="QueryAsync"/>.</summary>
+    public static TsqQueryResult Query(string queryString, string? clientToken = null, string? nextToken = null, int? maxRows = null, RegionEndpoint? region = null)
+        => QueryAsync(queryString, clientToken, nextToken, maxRows, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelQueryAsync"/>.</summary>
+    public static TsqCancelQueryResult CancelQuery(string queryId, RegionEndpoint? region = null)
+        => CancelQueryAsync(queryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEndpointsAsync"/>.</summary>
+    public static TsqDescribeEndpointsResult DescribeEndpoints(RegionEndpoint? region = null)
+        => DescribeEndpointsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateScheduledQueryAsync"/>.</summary>
+    public static TsqCreateScheduledQueryResult CreateScheduledQuery(CreateScheduledQueryRequest request, RegionEndpoint? region = null)
+        => CreateScheduledQueryAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteScheduledQueryAsync"/>.</summary>
+    public static TsqDeleteScheduledQueryResult DeleteScheduledQuery(string scheduledQueryArn, RegionEndpoint? region = null)
+        => DeleteScheduledQueryAsync(scheduledQueryArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeScheduledQueryAsync"/>.</summary>
+    public static TsqDescribeScheduledQueryResult DescribeScheduledQuery(string scheduledQueryArn, RegionEndpoint? region = null)
+        => DescribeScheduledQueryAsync(scheduledQueryArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListScheduledQueriesAsync"/>.</summary>
+    public static TsqListScheduledQueriesResult ListScheduledQueries(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListScheduledQueriesAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateScheduledQueryAsync"/>.</summary>
+    public static TsqUpdateScheduledQueryResult UpdateScheduledQuery(string scheduledQueryArn, ScheduledQueryState state, RegionEndpoint? region = null)
+        => UpdateScheduledQueryAsync(scheduledQueryArn, state, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ExecuteScheduledQueryAsync"/>.</summary>
+    public static TsqExecuteScheduledQueryResult ExecuteScheduledQuery(string scheduledQueryArn, DateTime invocationTime, string? clientToken = null, RegionEndpoint? region = null)
+        => ExecuteScheduledQueryAsync(scheduledQueryArn, invocationTime, clientToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PrepareQueryAsync"/>.</summary>
+    public static TsqPrepareQueryResult PrepareQuery(string queryString, RegionEndpoint? region = null)
+        => PrepareQueryAsync(queryString, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static TsqTagResourceResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static TsqUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static TsqListTagsForResourceResult ListTagsForResource(string resourceArn, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAccountSettingsAsync"/>.</summary>
+    public static TsqDescribeAccountSettingsResult DescribeAccountSettings(RegionEndpoint? region = null)
+        => DescribeAccountSettingsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAccountSettingsAsync"/>.</summary>
+    public static TsqUpdateAccountSettingsResult UpdateAccountSettings(int? maxQueryTcu = null, QueryPricingModel? queryPricingModel = null, RegionEndpoint? region = null)
+        => UpdateAccountSettingsAsync(maxQueryTcu, queryPricingModel, region).GetAwaiter().GetResult();
+
 }

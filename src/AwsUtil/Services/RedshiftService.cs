@@ -1179,4 +1179,146 @@ public static class RedshiftService
                 "Failed to describe Redshift orderable cluster options");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClusterAsync"/>.</summary>
+    public static CreateRedshiftClusterResult CreateCluster(CreateClusterRequest request, RegionEndpoint? region = null)
+        => CreateClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteClusterAsync"/>.</summary>
+    public static DeleteRedshiftClusterResult DeleteCluster(string clusterIdentifier, bool? skipFinalClusterSnapshot = null, string? finalClusterSnapshotIdentifier = null, int? finalClusterSnapshotRetentionPeriod = null, RegionEndpoint? region = null)
+        => DeleteClusterAsync(clusterIdentifier, skipFinalClusterSnapshot, finalClusterSnapshotIdentifier, finalClusterSnapshotRetentionPeriod, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClustersAsync"/>.</summary>
+    public static DescribeRedshiftClustersResult DescribeClusters(string? clusterIdentifier = null, int? maxRecords = null, string? marker = null, List<string>? tagKeys = null, List<string>? tagValues = null, RegionEndpoint? region = null)
+        => DescribeClustersAsync(clusterIdentifier, maxRecords, marker, tagKeys, tagValues, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyClusterAsync"/>.</summary>
+    public static ModifyRedshiftClusterResult ModifyCluster(ModifyClusterRequest request, RegionEndpoint? region = null)
+        => ModifyClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RebootClusterAsync"/>.</summary>
+    public static RebootRedshiftClusterResult RebootCluster(string clusterIdentifier, RegionEndpoint? region = null)
+        => RebootClusterAsync(clusterIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PauseClusterAsync"/>.</summary>
+    public static PauseRedshiftClusterResult PauseCluster(string clusterIdentifier, RegionEndpoint? region = null)
+        => PauseClusterAsync(clusterIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResumeClusterAsync"/>.</summary>
+    public static ResumeRedshiftClusterResult ResumeCluster(string clusterIdentifier, RegionEndpoint? region = null)
+        => ResumeClusterAsync(clusterIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResizeClusterAsync"/>.</summary>
+    public static ResizeRedshiftClusterResult ResizeCluster(ResizeClusterRequest request, RegionEndpoint? region = null)
+        => ResizeClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClusterSnapshotAsync"/>.</summary>
+    public static CreateRedshiftSnapshotResult CreateClusterSnapshot(string clusterIdentifier, string snapshotIdentifier, int? manualSnapshotRetentionPeriod = null, List<Amazon.Redshift.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateClusterSnapshotAsync(clusterIdentifier, snapshotIdentifier, manualSnapshotRetentionPeriod, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteClusterSnapshotAsync"/>.</summary>
+    public static DeleteRedshiftSnapshotResult DeleteClusterSnapshot(string snapshotIdentifier, string? snapshotClusterIdentifier = null, RegionEndpoint? region = null)
+        => DeleteClusterSnapshotAsync(snapshotIdentifier, snapshotClusterIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClusterSnapshotsAsync"/>.</summary>
+    public static DescribeRedshiftSnapshotsResult DescribeClusterSnapshots(string? clusterIdentifier = null, string? snapshotIdentifier = null, string? snapshotType = null, DateTime? startTime = null, DateTime? endTime = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeClusterSnapshotsAsync(clusterIdentifier, snapshotIdentifier, snapshotType, startTime, endTime, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RestoreFromClusterSnapshotAsync"/>.</summary>
+    public static RestoreFromRedshiftSnapshotResult RestoreFromClusterSnapshot(RestoreFromClusterSnapshotRequest request, RegionEndpoint? region = null)
+        => RestoreFromClusterSnapshotAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClusterSubnetGroupAsync"/>.</summary>
+    public static CreateRedshiftSubnetGroupResult CreateClusterSubnetGroup(string clusterSubnetGroupName, string description, List<string> subnetIds, List<Amazon.Redshift.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateClusterSubnetGroupAsync(clusterSubnetGroupName, description, subnetIds, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteClusterSubnetGroupAsync"/>.</summary>
+    public static void DeleteClusterSubnetGroup(string clusterSubnetGroupName, RegionEndpoint? region = null)
+        => DeleteClusterSubnetGroupAsync(clusterSubnetGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClusterSubnetGroupsAsync"/>.</summary>
+    public static DescribeRedshiftSubnetGroupsResult DescribeClusterSubnetGroups(string? clusterSubnetGroupName = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeClusterSubnetGroupsAsync(clusterSubnetGroupName, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClusterParameterGroupAsync"/>.</summary>
+    public static CreateRedshiftParameterGroupResult CreateClusterParameterGroup(string parameterGroupName, string parameterGroupFamily, string description, List<Amazon.Redshift.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateClusterParameterGroupAsync(parameterGroupName, parameterGroupFamily, description, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteClusterParameterGroupAsync"/>.</summary>
+    public static void DeleteClusterParameterGroup(string parameterGroupName, RegionEndpoint? region = null)
+        => DeleteClusterParameterGroupAsync(parameterGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClusterParameterGroupsAsync"/>.</summary>
+    public static DescribeRedshiftParameterGroupsResult DescribeClusterParameterGroups(string? parameterGroupName = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeClusterParameterGroupsAsync(parameterGroupName, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClusterParametersAsync"/>.</summary>
+    public static DescribeRedshiftParametersResult DescribeClusterParameters(string parameterGroupName, string? source = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeClusterParametersAsync(parameterGroupName, source, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyClusterParameterGroupAsync"/>.</summary>
+    public static ModifyRedshiftParameterGroupResult ModifyClusterParameterGroup(string parameterGroupName, List<Parameter> parameters, RegionEndpoint? region = null)
+        => ModifyClusterParameterGroupAsync(parameterGroupName, parameters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClusterSecurityGroupAsync"/>.</summary>
+    public static CreateRedshiftSecurityGroupResult CreateClusterSecurityGroup(string clusterSecurityGroupName, string description, List<Amazon.Redshift.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateClusterSecurityGroupAsync(clusterSecurityGroupName, description, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteClusterSecurityGroupAsync"/>.</summary>
+    public static void DeleteClusterSecurityGroup(string clusterSecurityGroupName, RegionEndpoint? region = null)
+        => DeleteClusterSecurityGroupAsync(clusterSecurityGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClusterSecurityGroupsAsync"/>.</summary>
+    public static DescribeRedshiftSecurityGroupsResult DescribeClusterSecurityGroups(string? clusterSecurityGroupName = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeClusterSecurityGroupsAsync(clusterSecurityGroupName, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AuthorizeClusterSecurityGroupIngressAsync"/>.</summary>
+    public static AuthorizeRedshiftIngressResult AuthorizeClusterSecurityGroupIngress(string clusterSecurityGroupName, string? cidrip = null, string? ec2SecurityGroupName = null, string? ec2SecurityGroupOwnerId = null, RegionEndpoint? region = null)
+        => AuthorizeClusterSecurityGroupIngressAsync(clusterSecurityGroupName, cidrip, ec2SecurityGroupName, ec2SecurityGroupOwnerId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RevokeClusterSecurityGroupIngressAsync"/>.</summary>
+    public static RevokeRedshiftIngressResult RevokeClusterSecurityGroupIngress(string clusterSecurityGroupName, string? cidrip = null, string? ec2SecurityGroupName = null, string? ec2SecurityGroupOwnerId = null, RegionEndpoint? region = null)
+        => RevokeClusterSecurityGroupIngressAsync(clusterSecurityGroupName, cidrip, ec2SecurityGroupName, ec2SecurityGroupOwnerId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTagsAsync"/>.</summary>
+    public static void CreateTags(string resourceName, List<Amazon.Redshift.Model.Tag> tags, RegionEndpoint? region = null)
+        => CreateTagsAsync(resourceName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTagsAsync"/>.</summary>
+    public static void DeleteTags(string resourceName, List<string> tagKeys, RegionEndpoint? region = null)
+        => DeleteTagsAsync(resourceName, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTagsAsync"/>.</summary>
+    public static DescribeRedshiftTagsResult DescribeTags(string? resourceName = null, string? resourceType = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeTagsAsync(resourceName, resourceType, maxRecords, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeLoggingStatusAsync"/>.</summary>
+    public static DescribeRedshiftLoggingStatusResult DescribeLoggingStatus(string clusterIdentifier, RegionEndpoint? region = null)
+        => DescribeLoggingStatusAsync(clusterIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableLoggingAsync"/>.</summary>
+    public static EnableRedshiftLoggingResult EnableLogging(string clusterIdentifier, string? bucketName = null, string? s3KeyPrefix = null, string? logDestinationType = null, List<string>? logExports = null, RegionEndpoint? region = null)
+        => EnableLoggingAsync(clusterIdentifier, bucketName, s3KeyPrefix, logDestinationType, logExports, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableLoggingAsync"/>.</summary>
+    public static DisableRedshiftLoggingResult DisableLogging(string clusterIdentifier, RegionEndpoint? region = null)
+        => DisableLoggingAsync(clusterIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetClusterCredentialsAsync"/>.</summary>
+    public static GetRedshiftClusterCredentialsResult GetClusterCredentials(string clusterIdentifier, string dbUser, string? dbName = null, List<string>? dbGroups = null, bool? autoCreate = null, int? durationSeconds = null, RegionEndpoint? region = null)
+        => GetClusterCredentialsAsync(clusterIdentifier, dbUser, dbName, dbGroups, autoCreate, durationSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeNodeConfigurationOptionsAsync"/>.</summary>
+    public static DescribeNodeConfigurationOptionsResult DescribeNodeConfigurationOptions(DescribeNodeConfigurationOptionsRequest request, RegionEndpoint? region = null)
+        => DescribeNodeConfigurationOptionsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeOrderableClusterOptionsAsync"/>.</summary>
+    public static DescribeOrderableClusterOptionsResult DescribeOrderableClusterOptions(string? clusterVersion = null, string? nodeType = null, int? maxRecords = null, string? marker = null, RegionEndpoint? region = null)
+        => DescribeOrderableClusterOptionsAsync(clusterVersion, nodeType, maxRecords, marker, region).GetAwaiter().GetResult();
+
 }

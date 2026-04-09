@@ -614,4 +614,46 @@ public static class DataFlowEtlService
                 $"Failed to repair partitions in s3://{bucket}/{prefix}");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="S3EventToDynamoDbAsync"/>.</summary>
+    public static S3EventToDynamoDbResult S3EventToDynamoDb(string bucket, string key, string tableName, string partitionKeyName = "pk", string? sortKeyName = null, RegionEndpoint? region = null)
+        => S3EventToDynamoDbAsync(bucket, key, tableName, partitionKeyName, sortKeyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DynamoDbStreamToS3ArchiveAsync"/>.</summary>
+    public static DynamoDbStreamToS3ArchiveResult DynamoDbStreamToS3Archive(List<Dictionary<string, AttributeValue>> records, string bucket, string keyPrefix, string? archiveKey = null, RegionEndpoint? region = null)
+        => DynamoDbStreamToS3ArchiveAsync(records, bucket, keyPrefix, archiveKey, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="S3CsvToDynamoDbBulkAsync"/>.</summary>
+    public static S3CsvToDynamoDbBulkResult S3CsvToDynamoDbBulk(string bucket, string key, string tableName, int batchSize = 25, RegionEndpoint? region = null)
+        => S3CsvToDynamoDbBulkAsync(bucket, key, tableName, batchSize, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="KinesisToFirehoseTransformerAsync"/>.</summary>
+    public static KinesisToFirehoseTransformerResult KinesisToFirehoseTransformer(string deliveryStreamName, List<string> records, Func<string, string>? transformer = null, RegionEndpoint? region = null)
+        => KinesisToFirehoseTransformerAsync(deliveryStreamName, records, transformer, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CrossRegionS3ReplicatorAsync"/>.</summary>
+    public static CrossRegionS3ReplicatorResult CrossRegionS3Replicator(string sourceBucket, string sourceKey, string destinationBucket, string? destinationKey = null, RegionEndpoint? sourceRegion = null, RegionEndpoint? destinationRegion = null)
+        => CrossRegionS3ReplicatorAsync(sourceBucket, sourceKey, destinationBucket, destinationKey, sourceRegion, destinationRegion).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EtlStatusTrackerAsync"/>.</summary>
+    public static EtlStatusTrackerResult EtlStatusTracker(string tableName, string jobId, string status, Dictionary<string, string>? metadata = null, RegionEndpoint? region = null)
+        => EtlStatusTrackerAsync(tableName, jobId, status, metadata, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="S3MultipartUploadManagerAsync"/>.</summary>
+    public static S3MultipartUploadManagerResult S3MultipartUploadManager(string bucket, string key, Stream content, long partSizeBytes = 5 * 1024 * 1024, string? contentType = null, RegionEndpoint? region = null)
+        => S3MultipartUploadManagerAsync(bucket, key, content, partSizeBytes, contentType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DataLakePartitionManagerAsync"/>.</summary>
+    public static DataLakePartitionManagerResult DataLakePartitionManager(string bucket, string prefix, DateTime startDate, DateTime endDate, string partitionFormat = "year={0:yyyy}/month={0:MM}/day={0:dd}", RegionEndpoint? region = null)
+        => DataLakePartitionManagerAsync(bucket, prefix, startDate, endDate, partitionFormat, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RepairPartitionsAsync"/>.</summary>
+    public static RepairPartitionsResult RepairPartitions(string bucket, string prefix, DateTime startDate, DateTime endDate, string partitionFormat = "year={0:yyyy}/month={0:MM}/day={0:dd}", RegionEndpoint? region = null)
+        => RepairPartitionsAsync(bucket, prefix, startDate, endDate, partitionFormat, region).GetAwaiter().GetResult();
+
 }

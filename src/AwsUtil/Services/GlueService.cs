@@ -1383,4 +1383,230 @@ public static class GlueService
             throw ErrorClassifier.WrapAwsError(exc, $"Failed to start Glue workflow run for '{name}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDatabaseAsync"/>.</summary>
+    public static CreateGlueDatabaseResult CreateDatabase(DatabaseInput databaseInput, string? catalogId = null, RegionEndpoint? region = null)
+        => CreateDatabaseAsync(databaseInput, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDatabaseAsync"/>.</summary>
+    public static void DeleteDatabase(string name, string? catalogId = null, RegionEndpoint? region = null)
+        => DeleteDatabaseAsync(name, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDatabaseAsync"/>.</summary>
+    public static GetGlueDatabaseResult GetDatabase(string name, string? catalogId = null, RegionEndpoint? region = null)
+        => GetDatabaseAsync(name, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDatabasesAsync"/>.</summary>
+    public static GetGlueDatabasesResult GetDatabases(string? catalogId = null, RegionEndpoint? region = null)
+        => GetDatabasesAsync(catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTableAsync"/>.</summary>
+    public static CreateGlueTableResult CreateTable(string databaseName, TableInput tableInput, string? catalogId = null, RegionEndpoint? region = null)
+        => CreateTableAsync(databaseName, tableInput, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTableAsync"/>.</summary>
+    public static void DeleteTable(string databaseName, string name, string? catalogId = null, RegionEndpoint? region = null)
+        => DeleteTableAsync(databaseName, name, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTableAsync"/>.</summary>
+    public static GetGlueTableResult GetTable(string databaseName, string name, string? catalogId = null, RegionEndpoint? region = null)
+        => GetTableAsync(databaseName, name, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTablesAsync"/>.</summary>
+    public static GetGlueTablesResult GetTables(string databaseName, string? catalogId = null, RegionEndpoint? region = null)
+        => GetTablesAsync(databaseName, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateTableAsync"/>.</summary>
+    public static void UpdateTable(string databaseName, TableInput tableInput, string? catalogId = null, RegionEndpoint? region = null)
+        => UpdateTableAsync(databaseName, tableInput, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCrawlerAsync"/>.</summary>
+    public static CreateCrawlerResult CreateCrawler(CreateCrawlerRequest request, RegionEndpoint? region = null)
+        => CreateCrawlerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCrawlerAsync"/>.</summary>
+    public static void DeleteCrawler(string name, RegionEndpoint? region = null)
+        => DeleteCrawlerAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCrawlerAsync"/>.</summary>
+    public static GetCrawlerResult GetCrawler(string name, RegionEndpoint? region = null)
+        => GetCrawlerAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCrawlersAsync"/>.</summary>
+    public static GetCrawlersResult GetCrawlers(RegionEndpoint? region = null)
+        => GetCrawlersAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartCrawlerAsync"/>.</summary>
+    public static void StartCrawler(string name, RegionEndpoint? region = null)
+        => StartCrawlerAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopCrawlerAsync"/>.</summary>
+    public static void StopCrawler(string name, RegionEndpoint? region = null)
+        => StopCrawlerAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateCrawlerAsync"/>.</summary>
+    public static void UpdateCrawler(UpdateCrawlerRequest request, RegionEndpoint? region = null)
+        => UpdateCrawlerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateJobAsync"/>.</summary>
+    public static CreateGlueJobResult CreateJob(CreateJobRequest request, RegionEndpoint? region = null)
+        => CreateJobAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteJobAsync"/>.</summary>
+    public static void DeleteJob(string jobName, RegionEndpoint? region = null)
+        => DeleteJobAsync(jobName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetJobAsync"/>.</summary>
+    public static GetGlueJobResult GetJob(string jobName, RegionEndpoint? region = null)
+        => GetJobAsync(jobName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetJobsAsync"/>.</summary>
+    public static GetGlueJobsResult GetJobs(RegionEndpoint? region = null)
+        => GetJobsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartJobRunAsync"/>.</summary>
+    public static StartJobRunResult StartJobRun(string jobName, Dictionary<string, string>? arguments = null, int? timeout = null, string? workerType = null, int? numberOfWorkers = null, RegionEndpoint? region = null)
+        => StartJobRunAsync(jobName, arguments, timeout, workerType, numberOfWorkers, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetJobRunAsync"/>.</summary>
+    public static GetJobRunResult GetJobRun(string jobName, string runId, bool predecessorsIncluded = false, RegionEndpoint? region = null)
+        => GetJobRunAsync(jobName, runId, predecessorsIncluded, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetJobRunsAsync"/>.</summary>
+    public static GetJobRunsResult GetJobRuns(string jobName, RegionEndpoint? region = null)
+        => GetJobRunsAsync(jobName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchStopJobRunAsync"/>.</summary>
+    public static BatchStopJobRunResult BatchStopJobRun(string jobName, List<string> jobRunIds, RegionEndpoint? region = null)
+        => BatchStopJobRunAsync(jobName, jobRunIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateJobAsync"/>.</summary>
+    public static UpdateGlueJobResult UpdateJob(string jobName, JobUpdate jobUpdate, RegionEndpoint? region = null)
+        => UpdateJobAsync(jobName, jobUpdate, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTriggerAsync"/>.</summary>
+    public static CreateTriggerResult CreateTrigger(CreateTriggerRequest request, RegionEndpoint? region = null)
+        => CreateTriggerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTriggerAsync"/>.</summary>
+    public static void DeleteTrigger(string name, RegionEndpoint? region = null)
+        => DeleteTriggerAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTriggerAsync"/>.</summary>
+    public static GetTriggerResult GetTrigger(string name, RegionEndpoint? region = null)
+        => GetTriggerAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTriggersAsync"/>.</summary>
+    public static GetTriggersResult GetTriggers(RegionEndpoint? region = null)
+        => GetTriggersAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartTriggerAsync"/>.</summary>
+    public static void StartTrigger(string name, RegionEndpoint? region = null)
+        => StartTriggerAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopTriggerAsync"/>.</summary>
+    public static void StopTrigger(string name, RegionEndpoint? region = null)
+        => StopTriggerAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateTriggerAsync"/>.</summary>
+    public static void UpdateTrigger(string name, TriggerUpdate triggerUpdate, RegionEndpoint? region = null)
+        => UpdateTriggerAsync(name, triggerUpdate, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePartitionAsync"/>.</summary>
+    public static void CreatePartition(string databaseName, string tableName, PartitionInput partitionInput, string? catalogId = null, RegionEndpoint? region = null)
+        => CreatePartitionAsync(databaseName, tableName, partitionInput, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePartitionAsync"/>.</summary>
+    public static void DeletePartition(string databaseName, string tableName, List<string> partitionValues, string? catalogId = null, RegionEndpoint? region = null)
+        => DeletePartitionAsync(databaseName, tableName, partitionValues, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPartitionAsync"/>.</summary>
+    public static GetPartitionResult GetPartition(string databaseName, string tableName, List<string> partitionValues, string? catalogId = null, RegionEndpoint? region = null)
+        => GetPartitionAsync(databaseName, tableName, partitionValues, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPartitionsAsync"/>.</summary>
+    public static GetPartitionsResult GetPartitions(string databaseName, string tableName, string? catalogId = null, string? expression = null, RegionEndpoint? region = null)
+        => GetPartitionsAsync(databaseName, tableName, catalogId, expression, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchCreatePartitionAsync"/>.</summary>
+    public static BatchCreatePartitionResult BatchCreatePartition(string databaseName, string tableName, List<PartitionInput> partitionInputList, string? catalogId = null, RegionEndpoint? region = null)
+        => BatchCreatePartitionAsync(databaseName, tableName, partitionInputList, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchDeletePartitionAsync"/>.</summary>
+    public static BatchDeletePartitionResult BatchDeletePartition(string databaseName, string tableName, List<PartitionValueList> partitionsToDelete, string? catalogId = null, RegionEndpoint? region = null)
+        => BatchDeletePartitionAsync(databaseName, tableName, partitionsToDelete, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdatePartitionAsync"/>.</summary>
+    public static void UpdatePartition(string databaseName, string tableName, List<string> partitionValueList, PartitionInput partitionInput, string? catalogId = null, RegionEndpoint? region = null)
+        => UpdatePartitionAsync(databaseName, tableName, partitionValueList, partitionInput, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetConnectionAsync"/>.</summary>
+    public static GetConnectionResult GetConnection(string name, string? catalogId = null, RegionEndpoint? region = null)
+        => GetConnectionAsync(name, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetConnectionsAsync"/>.</summary>
+    public static GetConnectionsResult GetConnections(string? catalogId = null, RegionEndpoint? region = null)
+        => GetConnectionsAsync(catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateConnectionAsync"/>.</summary>
+    public static void CreateConnection(ConnectionInput connectionInput, string? catalogId = null, RegionEndpoint? region = null)
+        => CreateConnectionAsync(connectionInput, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConnectionAsync"/>.</summary>
+    public static void DeleteConnection(string connectionName, string? catalogId = null, RegionEndpoint? region = null)
+        => DeleteConnectionAsync(connectionName, catalogId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClassifierAsync"/>.</summary>
+    public static void CreateClassifier(CreateClassifierRequest request, RegionEndpoint? region = null)
+        => CreateClassifierAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteClassifierAsync"/>.</summary>
+    public static void DeleteClassifier(string name, RegionEndpoint? region = null)
+        => DeleteClassifierAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetClassifierAsync"/>.</summary>
+    public static GetClassifierResult GetClassifier(string name, RegionEndpoint? region = null)
+        => GetClassifierAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetClassifiersAsync"/>.</summary>
+    public static GetClassifiersResult GetClassifiers(RegionEndpoint? region = null)
+        => GetClassifiersAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagsToRemove, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagsToRemove, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTagsAsync"/>.</summary>
+    public static GetGlueTagsResult GetTags(string resourceArn, RegionEndpoint? region = null)
+        => GetTagsAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateWorkflowAsync"/>.</summary>
+    public static CreateWorkflowResult CreateWorkflow(string name, string? description = null, Dictionary<string, string>? defaultRunProperties = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateWorkflowAsync(name, description, defaultRunProperties, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteWorkflowAsync"/>.</summary>
+    public static void DeleteWorkflow(string name, RegionEndpoint? region = null)
+        => DeleteWorkflowAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetWorkflowAsync"/>.</summary>
+    public static GetWorkflowResult GetWorkflow(string name, RegionEndpoint? region = null)
+        => GetWorkflowAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetWorkflowRunAsync"/>.</summary>
+    public static GetWorkflowRunResult GetWorkflowRun(string name, string runId, RegionEndpoint? region = null)
+        => GetWorkflowRunAsync(name, runId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartWorkflowRunAsync"/>.</summary>
+    public static StartWorkflowRunResult StartWorkflowRun(string name, Dictionary<string, string>? runProperties = null, RegionEndpoint? region = null)
+        => StartWorkflowRunAsync(name, runProperties, region).GetAwaiter().GetResult();
+
 }

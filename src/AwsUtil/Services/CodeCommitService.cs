@@ -947,4 +947,134 @@ public static class CodeCommitService
                 "Failed to list tags for CodeCommit resource");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRepositoryAsync"/>.</summary>
+    public static CcCreateRepositoryResult CreateRepository(string repositoryName, string? repositoryDescription = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateRepositoryAsync(repositoryName, repositoryDescription, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRepositoryAsync"/>.</summary>
+    public static CcDeleteRepositoryResult DeleteRepository(string repositoryName, RegionEndpoint? region = null)
+        => DeleteRepositoryAsync(repositoryName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRepositoryAsync"/>.</summary>
+    public static CcGetRepositoryResult GetRepository(string repositoryName, RegionEndpoint? region = null)
+        => GetRepositoryAsync(repositoryName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRepositoriesAsync"/>.</summary>
+    public static CcListRepositoriesResult ListRepositories(string? sortBy = null, string? order = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListRepositoriesAsync(sortBy, order, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateRepositoryNameAsync"/>.</summary>
+    public static CcUpdateRepositoryNameResult UpdateRepositoryName(string oldName, string newName, RegionEndpoint? region = null)
+        => UpdateRepositoryNameAsync(oldName, newName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateRepositoryDescriptionAsync"/>.</summary>
+    public static CcUpdateRepositoryDescriptionResult UpdateRepositoryDescription(string repositoryName, string repositoryDescription, RegionEndpoint? region = null)
+        => UpdateRepositoryDescriptionAsync(repositoryName, repositoryDescription, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBranchAsync"/>.</summary>
+    public static CcGetBranchResult GetBranch(string repositoryName, string branchName, RegionEndpoint? region = null)
+        => GetBranchAsync(repositoryName, branchName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateBranchAsync"/>.</summary>
+    public static CcCreateBranchResult CreateBranch(string repositoryName, string branchName, string commitId, RegionEndpoint? region = null)
+        => CreateBranchAsync(repositoryName, branchName, commitId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteBranchAsync"/>.</summary>
+    public static CcDeleteBranchResult DeleteBranch(string repositoryName, string branchName, RegionEndpoint? region = null)
+        => DeleteBranchAsync(repositoryName, branchName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListBranchesAsync"/>.</summary>
+    public static CcListBranchesResult ListBranches(string repositoryName, string? nextToken = null, RegionEndpoint? region = null)
+        => ListBranchesAsync(repositoryName, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCommitAsync"/>.</summary>
+    public static CcCreateCommitResult CreateCommit(CreateCommitRequest request, RegionEndpoint? region = null)
+        => CreateCommitAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCommitAsync"/>.</summary>
+    public static CcGetCommitResult GetCommit(string repositoryName, string commitId, RegionEndpoint? region = null)
+        => GetCommitAsync(repositoryName, commitId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDifferencesAsync"/>.</summary>
+    public static CcGetDifferencesResult GetDifferences(GetDifferencesRequest request, RegionEndpoint? region = null)
+        => GetDifferencesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MergeBranchesByFastForwardAsync"/>.</summary>
+    public static CcMergeBranchesByFastForwardResult MergeBranchesByFastForward(MergeBranchesByFastForwardRequest request, RegionEndpoint? region = null)
+        => MergeBranchesByFastForwardAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MergeBranchesBySquashAsync"/>.</summary>
+    public static CcMergeBranchesBySquashResult MergeBranchesBySquash(MergeBranchesBySquashRequest request, RegionEndpoint? region = null)
+        => MergeBranchesBySquashAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MergeBranchesByThreeWayAsync"/>.</summary>
+    public static CcMergeBranchesByThreeWayResult MergeBranchesByThreeWay(MergeBranchesByThreeWayRequest request, RegionEndpoint? region = null)
+        => MergeBranchesByThreeWayAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePullRequestAsync"/>.</summary>
+    public static CcCreatePullRequestResult CreatePullRequest(CreatePullRequestRequest request, RegionEndpoint? region = null)
+        => CreatePullRequestAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPullRequestAsync"/>.</summary>
+    public static CcGetPullRequestResult GetPullRequest(string pullRequestId, RegionEndpoint? region = null)
+        => GetPullRequestAsync(pullRequestId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPullRequestsAsync"/>.</summary>
+    public static CcListPullRequestsResult ListPullRequests(string repositoryName, string? pullRequestStatus = null, string? authorArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListPullRequestsAsync(repositoryName, pullRequestStatus, authorArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdatePullRequestStatusAsync"/>.</summary>
+    public static CcUpdatePullRequestStatusResult UpdatePullRequestStatus(string pullRequestId, string pullRequestStatus, RegionEndpoint? region = null)
+        => UpdatePullRequestStatusAsync(pullRequestId, pullRequestStatus, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MergePullRequestByFastForwardAsync"/>.</summary>
+    public static CcMergePullRequestByFastForwardResult MergePullRequestByFastForward(MergePullRequestByFastForwardRequest request, RegionEndpoint? region = null)
+        => MergePullRequestByFastForwardAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MergePullRequestBySquashAsync"/>.</summary>
+    public static CcMergePullRequestBySquashResult MergePullRequestBySquash(MergePullRequestBySquashRequest request, RegionEndpoint? region = null)
+        => MergePullRequestBySquashAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MergePullRequestByThreeWayAsync"/>.</summary>
+    public static CcMergePullRequestByThreeWayResult MergePullRequestByThreeWay(MergePullRequestByThreeWayRequest request, RegionEndpoint? region = null)
+        => MergePullRequestByThreeWayAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePullRequestApprovalRuleAsync"/>.</summary>
+    public static CcCreatePullRequestApprovalRuleResult CreatePullRequestApprovalRule(CreatePullRequestApprovalRuleRequest request, RegionEndpoint? region = null)
+        => CreatePullRequestApprovalRuleAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutFileAsync"/>.</summary>
+    public static CcPutFileResult PutFile(PutFileRequest request, RegionEndpoint? region = null)
+        => PutFileAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFileAsync"/>.</summary>
+    public static CcGetFileResult GetFile(string repositoryName, string filePath, string? commitSpecifier = null, RegionEndpoint? region = null)
+        => GetFileAsync(repositoryName, filePath, commitSpecifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFileAsync"/>.</summary>
+    public static CcDeleteFileResult DeleteFile(DeleteFileRequest request, RegionEndpoint? region = null)
+        => DeleteFileAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFolderAsync"/>.</summary>
+    public static CcGetFolderResult GetFolder(string repositoryName, string folderPath, string? commitSpecifier = null, RegionEndpoint? region = null)
+        => GetFolderAsync(repositoryName, folderPath, commitSpecifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static CcTagResourceResult TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static CcUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static CcListTagsForResourceResult ListTagsForResource(string resourceArn, string? nextToken = null, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, nextToken, region).GetAwaiter().GetResult();
+
 }

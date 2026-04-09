@@ -1179,4 +1179,158 @@ public static class MacieService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="EnableMacieAsync"/>.</summary>
+    public static void EnableMacie(string? findingPublishingFrequency = null, string? clientToken = null, string? status = null, RegionEndpoint? region = null)
+        => EnableMacieAsync(findingPublishingFrequency, clientToken, status, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableMacieAsync"/>.</summary>
+    public static void DisableMacie(RegionEndpoint? region = null)
+        => DisableMacieAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetMacieSessionAsync"/>.</summary>
+    public static MacieSessionResult GetMacieSession(RegionEndpoint? region = null)
+        => GetMacieSessionAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateMacieSessionAsync"/>.</summary>
+    public static void UpdateMacieSession(string? findingPublishingFrequency = null, string? status = null, RegionEndpoint? region = null)
+        => UpdateMacieSessionAsync(findingPublishingFrequency, status, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClassificationJobAsync"/>.</summary>
+    public static MacieClassificationJobResult CreateClassificationJob(string name, string jobType, S3JobDefinition s3JobDefinition, string? clientToken = null, string? description = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateClassificationJobAsync(name, jobType, s3JobDefinition, clientToken, description, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClassificationJobAsync"/>.</summary>
+    public static MacieClassificationJobResult DescribeClassificationJob(string jobId, RegionEndpoint? region = null)
+        => DescribeClassificationJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListClassificationJobsAsync"/>.</summary>
+    public static List<MacieClassificationJobResult> ListClassificationJobs(ListJobsFilterCriteria? filterCriteria = null, ListJobsSortCriteria? sortCriteria = null, RegionEndpoint? region = null)
+        => ListClassificationJobsAsync(filterCriteria, sortCriteria, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateClassificationJobAsync"/>.</summary>
+    public static void UpdateClassificationJob(string jobId, string jobStatus, RegionEndpoint? region = null)
+        => UpdateClassificationJobAsync(jobId, jobStatus, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFindingsAsync"/>.</summary>
+    public static List<MacieFindingResult> GetFindings(List<string> findingIds, SortCriteria? sortCriteria = null, RegionEndpoint? region = null)
+        => GetFindingsAsync(findingIds, sortCriteria, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFindingStatisticsAsync"/>.</summary>
+    public static MacieFindingStatisticsResult GetFindingStatistics(string groupBy, FindingCriteria? findingCriteria = null, RegionEndpoint? region = null)
+        => GetFindingStatisticsAsync(groupBy, findingCriteria, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFindingsAsync"/>.</summary>
+    public static List<string> ListFindings(FindingCriteria? findingCriteria = null, SortCriteria? sortCriteria = null, RegionEndpoint? region = null)
+        => ListFindingsAsync(findingCriteria, sortCriteria, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFindingsFilterAsync"/>.</summary>
+    public static MacieFindingsFilterResult CreateFindingsFilter(string name, string action, FindingCriteria findingCriteria, string? clientToken = null, string? description = null, int? position = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateFindingsFilterAsync(name, action, findingCriteria, clientToken, description, position, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFindingsFilterAsync"/>.</summary>
+    public static void DeleteFindingsFilter(string id, RegionEndpoint? region = null)
+        => DeleteFindingsFilterAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFindingsFilterAsync"/>.</summary>
+    public static MacieFindingsFilterResult GetFindingsFilter(string id, RegionEndpoint? region = null)
+        => GetFindingsFilterAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFindingsFiltersAsync"/>.</summary>
+    public static List<MacieFindingsFilterResult> ListFindingsFilters(RegionEndpoint? region = null)
+        => ListFindingsFiltersAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateFindingsFilterAsync"/>.</summary>
+    public static MacieFindingsFilterResult UpdateFindingsFilter(string id, string? name = null, string? action = null, FindingCriteria? findingCriteria = null, string? description = null, int? position = null, RegionEndpoint? region = null)
+        => UpdateFindingsFilterAsync(id, name, action, findingCriteria, description, position, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCustomDataIdentifierAsync"/>.</summary>
+    public static MacieCustomDataIdentifierResult CreateCustomDataIdentifier(string name, string regex, string? clientToken = null, string? description = null, List<string>? keywords = null, int? maximumMatchDistance = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateCustomDataIdentifierAsync(name, regex, clientToken, description, keywords, maximumMatchDistance, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCustomDataIdentifierAsync"/>.</summary>
+    public static void DeleteCustomDataIdentifier(string id, RegionEndpoint? region = null)
+        => DeleteCustomDataIdentifierAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCustomDataIdentifierAsync"/>.</summary>
+    public static MacieCustomDataIdentifierResult GetCustomDataIdentifier(string id, RegionEndpoint? region = null)
+        => GetCustomDataIdentifierAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCustomDataIdentifiersAsync"/>.</summary>
+    public static List<MacieCustomDataIdentifierResult> ListCustomDataIdentifiers(RegionEndpoint? region = null)
+        => ListCustomDataIdentifiersAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAllowListAsync"/>.</summary>
+    public static MacieAllowListResult CreateAllowList(string name, AllowListCriteria criteria, string? clientToken = null, string? description = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateAllowListAsync(name, criteria, clientToken, description, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAllowListAsync"/>.</summary>
+    public static void DeleteAllowList(string id, RegionEndpoint? region = null)
+        => DeleteAllowListAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAllowListAsync"/>.</summary>
+    public static MacieAllowListResult GetAllowList(string id, RegionEndpoint? region = null)
+        => GetAllowListAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAllowListsAsync"/>.</summary>
+    public static List<MacieAllowListResult> ListAllowLists(RegionEndpoint? region = null)
+        => ListAllowListsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAllowListAsync"/>.</summary>
+    public static MacieAllowListResult UpdateAllowList(string id, string name, AllowListCriteria criteria, string? description = null, RegionEndpoint? region = null)
+        => UpdateAllowListAsync(id, name, criteria, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateMemberAsync"/>.</summary>
+    public static MacieMemberResult CreateMember(string accountId, string email, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateMemberAsync(accountId, email, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteMemberAsync"/>.</summary>
+    public static void DeleteMember(string id, RegionEndpoint? region = null)
+        => DeleteMemberAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetMemberAsync"/>.</summary>
+    public static MacieMemberResult GetMember(string id, RegionEndpoint? region = null)
+        => GetMemberAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListMembersAsync"/>.</summary>
+    public static List<MacieMemberResult> ListMembers(string? onlyAssociated = null, RegionEndpoint? region = null)
+        => ListMembersAsync(onlyAssociated, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateInvitationsAsync"/>.</summary>
+    public static List<string> CreateInvitations(List<string> accountIds, bool? disableEmailNotification = null, string? message = null, RegionEndpoint? region = null)
+        => CreateInvitationsAsync(accountIds, disableEmailNotification, message, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AcceptInvitationAsync"/>.</summary>
+    public static void AcceptInvitation(string invitationId, string administratorAccountId, RegionEndpoint? region = null)
+        => AcceptInvitationAsync(invitationId, administratorAccountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeclineInvitationsAsync"/>.</summary>
+    public static List<string> DeclineInvitations(List<string> accountIds, RegionEndpoint? region = null)
+        => DeclineInvitationsAsync(accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBucketStatisticsAsync"/>.</summary>
+    public static MacieBucketStatisticsResult GetBucketStatistics(string? accountId = null, RegionEndpoint? region = null)
+        => GetBucketStatisticsAsync(accountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeBucketsAsync"/>.</summary>
+    public static List<MacieBucketResult> DescribeBuckets(Dictionary<string, BucketCriteriaAdditionalProperties>? criteria = null, RegionEndpoint? region = null)
+        => DescribeBucketsAsync(criteria, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static List<MacieTagResult> ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

@@ -501,4 +501,78 @@ public static class KeyspacesService
                 "Failed to list tags for Keyspaces resource");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateKeyspaceAsync"/>.</summary>
+    public static KeyspacesCreateKeyspaceResult CreateKeyspace(CreateKeyspaceRequest request, RegionEndpoint? region = null)
+        => CreateKeyspaceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteKeyspaceAsync"/>.</summary>
+    public static void DeleteKeyspace(string keyspaceName, RegionEndpoint? region = null)
+        => DeleteKeyspaceAsync(keyspaceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetKeyspaceAsync"/>.</summary>
+    public static KeyspacesGetKeyspaceResult GetKeyspace(string keyspaceName, RegionEndpoint? region = null)
+        => GetKeyspaceAsync(keyspaceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListKeyspacesAsync"/>.</summary>
+    public static KeyspacesListKeyspacesResult ListKeyspaces(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListKeyspacesAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTableAsync"/>.</summary>
+    public static KeyspacesCreateTableResult CreateTable(CreateTableRequest request, RegionEndpoint? region = null)
+        => CreateTableAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTableAsync"/>.</summary>
+    public static void DeleteTable(string keyspaceName, string tableName, RegionEndpoint? region = null)
+        => DeleteTableAsync(keyspaceName, tableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTableAsync"/>.</summary>
+    public static KeyspacesGetTableResult GetTable(string keyspaceName, string tableName, RegionEndpoint? region = null)
+        => GetTableAsync(keyspaceName, tableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTablesAsync"/>.</summary>
+    public static KeyspacesListTablesResult ListTables(string keyspaceName, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListTablesAsync(keyspaceName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateTableAsync"/>.</summary>
+    public static KeyspacesUpdateTableResult UpdateTable(UpdateTableRequest request, RegionEndpoint? region = null)
+        => UpdateTableAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RestoreTableAsync"/>.</summary>
+    public static KeyspacesRestoreTableResult RestoreTable(RestoreTableRequest request, RegionEndpoint? region = null)
+        => RestoreTableAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTypeAsync"/>.</summary>
+    public static KeyspacesCreateTypeResult CreateType(CreateTypeRequest request, RegionEndpoint? region = null)
+        => CreateTypeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTypeAsync"/>.</summary>
+    public static void DeleteType(string keyspaceName, string typeName, RegionEndpoint? region = null)
+        => DeleteTypeAsync(keyspaceName, typeName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTypeAsync"/>.</summary>
+    public static KeyspacesGetTypeResult GetType(string keyspaceName, string typeName, RegionEndpoint? region = null)
+        => GetTypeAsync(keyspaceName, typeName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTypesAsync"/>.</summary>
+    public static KeyspacesListTypesResult ListTypes(string keyspaceName, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListTypesAsync(keyspaceName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static KeyspacesListTagsForResourceResult ListTagsForResource(string resourceArn, string? nextToken = null, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, nextToken, region).GetAwaiter().GetResult();
+
 }

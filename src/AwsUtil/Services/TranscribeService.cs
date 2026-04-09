@@ -1119,4 +1119,130 @@ public static class TranscribeService
                 $"Failed to list tags for Transcribe resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="StartTranscriptionJobAsync"/>.</summary>
+    public static StartTranscriptionJobResult StartTranscriptionJob(string transcriptionJobName, Media media, string? languageCode = null, string? mediaSampleRateHertz = null, string? mediaFormat = null, string? outputBucketName = null, string? outputKey = null, string? outputEncryptionKMSKeyId = null, Settings? settings = null, ModelSettings? modelSettings = null, JobExecutionSettings? jobExecutionSettings = null, ContentRedaction? contentRedaction = null, bool? identifyLanguage = null, bool? identifyMultipleLanguages = null, List<string>? languageOptions = null, Subtitles? subtitles = null, List<Tag>? tags = null, Dictionary<string, LanguageIdSettings>? languageIdSettings = null, List<ToxicityDetectionSettings>? toxicityDetection = null, RegionEndpoint? region = null)
+        => StartTranscriptionJobAsync(transcriptionJobName, media, languageCode, mediaSampleRateHertz, mediaFormat, outputBucketName, outputKey, outputEncryptionKMSKeyId, settings, modelSettings, jobExecutionSettings, contentRedaction, identifyLanguage, identifyMultipleLanguages, languageOptions, subtitles, tags, languageIdSettings, toxicityDetection, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTranscriptionJobAsync"/>.</summary>
+    public static GetTranscriptionJobResult GetTranscriptionJob(string transcriptionJobName, RegionEndpoint? region = null)
+        => GetTranscriptionJobAsync(transcriptionJobName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTranscriptionJobsAsync"/>.</summary>
+    public static ListTranscriptionJobsResult ListTranscriptionJobs(string? status = null, string? jobNameContains = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListTranscriptionJobsAsync(status, jobNameContains, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTranscriptionJobAsync"/>.</summary>
+    public static void DeleteTranscriptionJob(string transcriptionJobName, RegionEndpoint? region = null)
+        => DeleteTranscriptionJobAsync(transcriptionJobName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartMedicalTranscriptionJobAsync"/>.</summary>
+    public static StartMedicalTranscriptionJobResult StartMedicalTranscriptionJob(string medicalTranscriptionJobName, Media media, string outputBucketName, string languageCode, string specialty, string type, string? mediaFormat = null, string? outputKey = null, string? outputEncryptionKMSKeyId = null, MedicalTranscriptionSetting? settings = null, ContentRedaction? contentRedaction = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => StartMedicalTranscriptionJobAsync(medicalTranscriptionJobName, media, outputBucketName, languageCode, specialty, type, mediaFormat, outputKey, outputEncryptionKMSKeyId, settings, contentRedaction, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetMedicalTranscriptionJobAsync"/>.</summary>
+    public static GetMedicalTranscriptionJobResult GetMedicalTranscriptionJob(string medicalTranscriptionJobName, RegionEndpoint? region = null)
+        => GetMedicalTranscriptionJobAsync(medicalTranscriptionJobName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListMedicalTranscriptionJobsAsync"/>.</summary>
+    public static ListMedicalTranscriptionJobsResult ListMedicalTranscriptionJobs(string? status = null, string? jobNameContains = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListMedicalTranscriptionJobsAsync(status, jobNameContains, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteMedicalTranscriptionJobAsync"/>.</summary>
+    public static void DeleteMedicalTranscriptionJob(string medicalTranscriptionJobName, RegionEndpoint? region = null)
+        => DeleteMedicalTranscriptionJobAsync(medicalTranscriptionJobName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateVocabularyAsync"/>.</summary>
+    public static CreateVocabularyResult CreateVocabulary(string vocabularyName, string languageCode, List<string>? phrases = null, string? vocabularyFileUri = null, string? dataAccessRoleArn = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateVocabularyAsync(vocabularyName, languageCode, phrases, vocabularyFileUri, dataAccessRoleArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteVocabularyAsync"/>.</summary>
+    public static void DeleteVocabulary(string vocabularyName, RegionEndpoint? region = null)
+        => DeleteVocabularyAsync(vocabularyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetVocabularyAsync"/>.</summary>
+    public static GetVocabularyResult GetVocabulary(string vocabularyName, RegionEndpoint? region = null)
+        => GetVocabularyAsync(vocabularyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListVocabulariesAsync"/>.</summary>
+    public static ListVocabulariesResult ListVocabularies(string? stateEquals = null, string? nameContains = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListVocabulariesAsync(stateEquals, nameContains, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateVocabularyAsync"/>.</summary>
+    public static UpdateVocabularyResult UpdateVocabulary(string vocabularyName, string languageCode, List<string>? phrases = null, string? vocabularyFileUri = null, string? dataAccessRoleArn = null, RegionEndpoint? region = null)
+        => UpdateVocabularyAsync(vocabularyName, languageCode, phrases, vocabularyFileUri, dataAccessRoleArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateVocabularyFilterAsync"/>.</summary>
+    public static CreateVocabularyFilterResult CreateVocabularyFilter(string vocabularyFilterName, string languageCode, List<string>? words = null, string? vocabularyFilterFileUri = null, string? dataAccessRoleArn = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateVocabularyFilterAsync(vocabularyFilterName, languageCode, words, vocabularyFilterFileUri, dataAccessRoleArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteVocabularyFilterAsync"/>.</summary>
+    public static void DeleteVocabularyFilter(string vocabularyFilterName, RegionEndpoint? region = null)
+        => DeleteVocabularyFilterAsync(vocabularyFilterName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetVocabularyFilterAsync"/>.</summary>
+    public static GetVocabularyFilterResult GetVocabularyFilter(string vocabularyFilterName, RegionEndpoint? region = null)
+        => GetVocabularyFilterAsync(vocabularyFilterName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListVocabularyFiltersAsync"/>.</summary>
+    public static ListVocabularyFiltersResult ListVocabularyFilters(string? nameContains = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListVocabularyFiltersAsync(nameContains, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateVocabularyFilterAsync"/>.</summary>
+    public static UpdateVocabularyFilterResult UpdateVocabularyFilter(string vocabularyFilterName, List<string>? words = null, string? vocabularyFilterFileUri = null, string? dataAccessRoleArn = null, RegionEndpoint? region = null)
+        => UpdateVocabularyFilterAsync(vocabularyFilterName, words, vocabularyFilterFileUri, dataAccessRoleArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateLanguageModelAsync"/>.</summary>
+    public static CreateLanguageModelResult CreateLanguageModel(string modelName, string languageCode, string baseModelName, InputDataConfig inputDataConfig, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateLanguageModelAsync(modelName, languageCode, baseModelName, inputDataConfig, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteLanguageModelAsync"/>.</summary>
+    public static void DeleteLanguageModel(string modelName, RegionEndpoint? region = null)
+        => DeleteLanguageModelAsync(modelName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeLanguageModelAsync"/>.</summary>
+    public static DescribeLanguageModelResult DescribeLanguageModel(string modelName, RegionEndpoint? region = null)
+        => DescribeLanguageModelAsync(modelName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListLanguageModelsAsync"/>.</summary>
+    public static ListLanguageModelsResult ListLanguageModels(string? statusEquals = null, string? nameContains = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListLanguageModelsAsync(statusEquals, nameContains, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCallAnalyticsCategoryAsync"/>.</summary>
+    public static CreateCallAnalyticsCategoryResult CreateCallAnalyticsCategory(string categoryName, List<Rule> rules, string? inputType = null, RegionEndpoint? region = null)
+        => CreateCallAnalyticsCategoryAsync(categoryName, rules, inputType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCallAnalyticsCategoryAsync"/>.</summary>
+    public static void DeleteCallAnalyticsCategory(string categoryName, RegionEndpoint? region = null)
+        => DeleteCallAnalyticsCategoryAsync(categoryName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCallAnalyticsCategoryAsync"/>.</summary>
+    public static GetCallAnalyticsCategoryResult GetCallAnalyticsCategory(string categoryName, RegionEndpoint? region = null)
+        => GetCallAnalyticsCategoryAsync(categoryName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCallAnalyticsCategoriesAsync"/>.</summary>
+    public static ListCallAnalyticsCategoriesResult ListCallAnalyticsCategories(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListCallAnalyticsCategoriesAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateCallAnalyticsCategoryAsync"/>.</summary>
+    public static UpdateCallAnalyticsCategoryResult UpdateCallAnalyticsCategory(string categoryName, List<Rule> rules, string? inputType = null, RegionEndpoint? region = null)
+        => UpdateCallAnalyticsCategoryAsync(categoryName, rules, inputType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static TranscribeListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

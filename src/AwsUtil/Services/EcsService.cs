@@ -767,4 +767,126 @@ public static class EcsService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to describe task sets");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClusterAsync"/>.</summary>
+    public static CreateClusterResult CreateCluster(CreateClusterRequest request, RegionEndpoint? region = null)
+        => CreateClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteClusterAsync"/>.</summary>
+    public static DeleteClusterResult DeleteCluster(string cluster, RegionEndpoint? region = null)
+        => DeleteClusterAsync(cluster, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClustersAsync"/>.</summary>
+    public static DescribeClustersResult DescribeClusters(DescribeClustersRequest request, RegionEndpoint? region = null)
+        => DescribeClustersAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListClustersAsync"/>.</summary>
+    public static ListClustersResult ListClusters(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListClustersAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RegisterTaskDefinitionAsync"/>.</summary>
+    public static RegisterTaskDefinitionResult RegisterTaskDefinition(RegisterTaskDefinitionRequest request, RegionEndpoint? region = null)
+        => RegisterTaskDefinitionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeregisterTaskDefinitionAsync"/>.</summary>
+    public static DeregisterTaskDefinitionResult DeregisterTaskDefinition(string taskDefinition, RegionEndpoint? region = null)
+        => DeregisterTaskDefinitionAsync(taskDefinition, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTaskDefinitionAsync"/>.</summary>
+    public static DescribeTaskDefinitionResult DescribeTaskDefinition(string taskDefinition, List<string>? include = null, RegionEndpoint? region = null)
+        => DescribeTaskDefinitionAsync(taskDefinition, include, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTaskDefinitionsAsync"/>.</summary>
+    public static ListTaskDefinitionsResult ListTaskDefinitions(string? familyPrefix = null, string? status = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListTaskDefinitionsAsync(familyPrefix, status, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RunTaskAsync"/>.</summary>
+    public static RunTaskResult RunTask(RunTaskRequest request, RegionEndpoint? region = null)
+        => RunTaskAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopTaskAsync"/>.</summary>
+    public static StopTaskResult StopTask(string cluster, string task, string? reason = null, RegionEndpoint? region = null)
+        => StopTaskAsync(cluster, task, reason, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTasksAsync"/>.</summary>
+    public static DescribeTasksResult DescribeTasks(DescribeTasksRequest request, RegionEndpoint? region = null)
+        => DescribeTasksAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTasksAsync"/>.</summary>
+    public static ListTasksResult ListTasks(ListTasksRequest request, RegionEndpoint? region = null)
+        => ListTasksAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateServiceAsync"/>.</summary>
+    public static CreateEcsServiceResult CreateService(CreateServiceRequest request, RegionEndpoint? region = null)
+        => CreateServiceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteServiceAsync"/>.</summary>
+    public static DeleteEcsServiceResult DeleteService(string cluster, string service, bool? force = null, RegionEndpoint? region = null)
+        => DeleteServiceAsync(cluster, service, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateServiceAsync"/>.</summary>
+    public static UpdateEcsServiceResult UpdateService(UpdateServiceRequest request, RegionEndpoint? region = null)
+        => UpdateServiceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeServicesAsync"/>.</summary>
+    public static DescribeEcsServicesResult DescribeServices(DescribeServicesRequest request, RegionEndpoint? region = null)
+        => DescribeServicesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListServicesAsync"/>.</summary>
+    public static ListEcsServicesResult ListServices(ListServicesRequest request, RegionEndpoint? region = null)
+        => ListServicesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateClusterSettingsAsync"/>.</summary>
+    public static UpdateClusterSettingsResult UpdateClusterSettings(string cluster, List<ClusterSetting> settings, RegionEndpoint? region = null)
+        => UpdateClusterSettingsAsync(cluster, settings, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutClusterCapacityProvidersAsync"/>.</summary>
+    public static PutClusterCapacityProvidersResult PutClusterCapacityProviders(PutClusterCapacityProvidersRequest request, RegionEndpoint? region = null)
+        => PutClusterCapacityProvidersAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeContainerInstancesAsync"/>.</summary>
+    public static DescribeContainerInstancesResult DescribeContainerInstances(DescribeContainerInstancesRequest request, RegionEndpoint? region = null)
+        => DescribeContainerInstancesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListContainerInstancesAsync"/>.</summary>
+    public static ListContainerInstancesResult ListContainerInstances(ListContainerInstancesRequest request, RegionEndpoint? region = null)
+        => ListContainerInstancesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static EcsTagResourceResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static EcsUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static EcsListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ExecuteCommandAsync"/>.</summary>
+    public static ExecuteCommandResult ExecuteCommand(ExecuteCommandRequest request, RegionEndpoint? region = null)
+        => ExecuteCommandAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateServicePrimaryTaskSetAsync"/>.</summary>
+    public static UpdateServicePrimaryTaskSetResult UpdateServicePrimaryTaskSet(string cluster, string service, string primaryTaskSet, RegionEndpoint? region = null)
+        => UpdateServicePrimaryTaskSetAsync(cluster, service, primaryTaskSet, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTaskSetAsync"/>.</summary>
+    public static CreateTaskSetResult CreateTaskSet(CreateTaskSetRequest request, RegionEndpoint? region = null)
+        => CreateTaskSetAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTaskSetAsync"/>.</summary>
+    public static DeleteTaskSetResult DeleteTaskSet(string cluster, string service, string taskSet, bool? force = null, RegionEndpoint? region = null)
+        => DeleteTaskSetAsync(cluster, service, taskSet, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTaskSetsAsync"/>.</summary>
+    public static DescribeTaskSetsResult DescribeTaskSets(DescribeTaskSetsRequest request, RegionEndpoint? region = null)
+        => DescribeTaskSetsAsync(request, region).GetAwaiter().GetResult();
+
 }

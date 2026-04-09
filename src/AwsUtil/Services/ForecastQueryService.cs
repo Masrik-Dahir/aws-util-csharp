@@ -90,4 +90,18 @@ public static class ForecastQueryService
                 $"Failed to query what-if forecast '{whatIfForecastArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="QueryForecastAsync"/>.</summary>
+    public static QueryForecastResult QueryForecast(string forecastArn, Dictionary<string, string> filters, string? startDate = null, string? endDate = null, string? nextToken = null, RegionEndpoint? region = null)
+        => QueryForecastAsync(forecastArn, filters, startDate, endDate, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="QueryWhatIfForecastAsync"/>.</summary>
+    public static QueryWhatIfForecastResult QueryWhatIfForecast(string whatIfForecastArn, Dictionary<string, string> filters, string? startDate = null, string? endDate = null, string? nextToken = null, RegionEndpoint? region = null)
+        => QueryWhatIfForecastAsync(whatIfForecastArn, filters, startDate, endDate, nextToken, region).GetAwaiter().GetResult();
+
 }

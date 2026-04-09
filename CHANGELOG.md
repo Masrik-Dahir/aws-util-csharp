@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+### Added
+- CLAUDE.md project instructions for Claude Code sessions
+- Animated author banner SVG (.github/banner.svg)
+- Rich README.md with Mermaid architecture/structure diagrams, full service coverage docs, CI/CD pipeline flow
+
 ## [2.2.6] - 2026-04-09
 
 ### Added

@@ -864,4 +864,114 @@ public static class NeptuneGraphService
                 "Failed to list tags for Neptune graph resource");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGraphAsync"/>.</summary>
+    public static NeptuneGraphCreateGraphResult CreateGraph(CreateGraphRequest request, RegionEndpoint? region = null)
+        => CreateGraphAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGraphAsync"/>.</summary>
+    public static NeptuneGraphDeleteGraphResult DeleteGraph(string graphIdentifier, bool skipSnapshot = false, RegionEndpoint? region = null)
+        => DeleteGraphAsync(graphIdentifier, skipSnapshot, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetGraphAsync"/>.</summary>
+    public static NeptuneGraphGetGraphResult GetGraph(string graphIdentifier, RegionEndpoint? region = null)
+        => GetGraphAsync(graphIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGraphsAsync"/>.</summary>
+    public static NeptuneGraphListGraphsResult ListGraphs(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListGraphsAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateGraphAsync"/>.</summary>
+    public static NeptuneGraphUpdateGraphResult UpdateGraph(UpdateGraphRequest request, RegionEndpoint? region = null)
+        => UpdateGraphAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResetGraphAsync"/>.</summary>
+    public static NeptuneGraphResetGraphResult ResetGraph(string graphIdentifier, bool skipSnapshot = false, RegionEndpoint? region = null)
+        => ResetGraphAsync(graphIdentifier, skipSnapshot, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGraphSnapshotAsync"/>.</summary>
+    public static NeptuneGraphCreateSnapshotResult CreateGraphSnapshot(string graphIdentifier, string snapshotName, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateGraphSnapshotAsync(graphIdentifier, snapshotName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGraphSnapshotAsync"/>.</summary>
+    public static NeptuneGraphDeleteSnapshotResult DeleteGraphSnapshot(string snapshotIdentifier, RegionEndpoint? region = null)
+        => DeleteGraphSnapshotAsync(snapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetGraphSnapshotAsync"/>.</summary>
+    public static NeptuneGraphGetSnapshotResult GetGraphSnapshot(string snapshotIdentifier, RegionEndpoint? region = null)
+        => GetGraphSnapshotAsync(snapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGraphSnapshotsAsync"/>.</summary>
+    public static NeptuneGraphListSnapshotsResult ListGraphSnapshots(string? graphIdentifier = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListGraphSnapshotsAsync(graphIdentifier, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RestoreGraphFromSnapshotAsync"/>.</summary>
+    public static NeptuneGraphRestoreFromSnapshotResult RestoreGraphFromSnapshot(RestoreGraphFromSnapshotRequest request, RegionEndpoint? region = null)
+        => RestoreGraphFromSnapshotAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePrivateGraphEndpointAsync"/>.</summary>
+    public static NeptuneGraphCreatePrivateEndpointResult CreatePrivateGraphEndpoint(CreatePrivateGraphEndpointRequest request, RegionEndpoint? region = null)
+        => CreatePrivateGraphEndpointAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePrivateGraphEndpointAsync"/>.</summary>
+    public static NeptuneGraphDeletePrivateEndpointResult DeletePrivateGraphEndpoint(string graphIdentifier, string vpcId, RegionEndpoint? region = null)
+        => DeletePrivateGraphEndpointAsync(graphIdentifier, vpcId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPrivateGraphEndpointAsync"/>.</summary>
+    public static NeptuneGraphGetPrivateEndpointResult GetPrivateGraphEndpoint(string graphIdentifier, string vpcId, RegionEndpoint? region = null)
+        => GetPrivateGraphEndpointAsync(graphIdentifier, vpcId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPrivateGraphEndpointsAsync"/>.</summary>
+    public static NeptuneGraphListPrivateEndpointsResult ListPrivateGraphEndpoints(string graphIdentifier, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListPrivateGraphEndpointsAsync(graphIdentifier, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ExecuteQueryAsync"/>.</summary>
+    public static NeptuneGraphExecuteQueryResult ExecuteQuery(ExecuteQueryRequest request, RegionEndpoint? region = null)
+        => ExecuteQueryAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetQueryAsync"/>.</summary>
+    public static NeptuneGraphGetQueryResult GetQuery(string graphIdentifier, string queryId, RegionEndpoint? region = null)
+        => GetQueryAsync(graphIdentifier, queryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListQueriesAsync"/>.</summary>
+    public static NeptuneGraphListQueriesResult ListQueries(string graphIdentifier, int maxResults, string? state = null, RegionEndpoint? region = null)
+        => ListQueriesAsync(graphIdentifier, maxResults, state, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelQueryAsync"/>.</summary>
+    public static void CancelQuery(string graphIdentifier, string queryId, RegionEndpoint? region = null)
+        => CancelQueryAsync(graphIdentifier, queryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGraphUsingImportTaskAsync"/>.</summary>
+    public static NeptuneGraphCreateGraphUsingImportTaskResult CreateGraphUsingImportTask(CreateGraphUsingImportTaskRequest request, RegionEndpoint? region = null)
+        => CreateGraphUsingImportTaskAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetImportTaskAsync"/>.</summary>
+    public static NeptuneGraphGetImportTaskResult GetImportTask(string taskIdentifier, RegionEndpoint? region = null)
+        => GetImportTaskAsync(taskIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListImportTasksAsync"/>.</summary>
+    public static NeptuneGraphListImportTasksResult ListImportTasks(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListImportTasksAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelImportTaskAsync"/>.</summary>
+    public static NeptuneGraphCancelImportTaskResult CancelImportTask(string taskIdentifier, RegionEndpoint? region = null)
+        => CancelImportTaskAsync(taskIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static NeptuneGraphListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

@@ -949,4 +949,138 @@ public static class CodeDeployService
                 "Failed to list tags for CodeDeploy resource");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateApplicationAsync"/>.</summary>
+    public static CdCreateApplicationResult CreateApplication(string applicationName, string? computePlatform = null, List<Amazon.CodeDeploy.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateApplicationAsync(applicationName, computePlatform, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApplicationAsync"/>.</summary>
+    public static CdDeleteApplicationResult DeleteApplication(string applicationName, RegionEndpoint? region = null)
+        => DeleteApplicationAsync(applicationName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetApplicationAsync"/>.</summary>
+    public static CdGetApplicationResult GetApplication(string applicationName, RegionEndpoint? region = null)
+        => GetApplicationAsync(applicationName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListApplicationsAsync"/>.</summary>
+    public static CdListApplicationsResult ListApplications(string? nextToken = null, RegionEndpoint? region = null)
+        => ListApplicationsAsync(nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDeploymentGroupAsync"/>.</summary>
+    public static CdCreateDeploymentGroupResult CreateDeploymentGroup(CreateDeploymentGroupRequest request, RegionEndpoint? region = null)
+        => CreateDeploymentGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDeploymentGroupAsync"/>.</summary>
+    public static CdDeleteDeploymentGroupResult DeleteDeploymentGroup(string applicationName, string deploymentGroupName, RegionEndpoint? region = null)
+        => DeleteDeploymentGroupAsync(applicationName, deploymentGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDeploymentGroupAsync"/>.</summary>
+    public static CdGetDeploymentGroupResult GetDeploymentGroup(string applicationName, string deploymentGroupName, RegionEndpoint? region = null)
+        => GetDeploymentGroupAsync(applicationName, deploymentGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDeploymentGroupsAsync"/>.</summary>
+    public static CdListDeploymentGroupsResult ListDeploymentGroups(string applicationName, string? nextToken = null, RegionEndpoint? region = null)
+        => ListDeploymentGroupsAsync(applicationName, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDeploymentGroupAsync"/>.</summary>
+    public static CdUpdateDeploymentGroupResult UpdateDeploymentGroup(UpdateDeploymentGroupRequest request, RegionEndpoint? region = null)
+        => UpdateDeploymentGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDeploymentAsync"/>.</summary>
+    public static CdCreateDeploymentResult CreateDeployment(CreateDeploymentRequest request, RegionEndpoint? region = null)
+        => CreateDeploymentAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopDeploymentAsync"/>.</summary>
+    public static CdStopDeploymentResult StopDeployment(string deploymentId, bool? autoRollbackEnabled = null, RegionEndpoint? region = null)
+        => StopDeploymentAsync(deploymentId, autoRollbackEnabled, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDeploymentAsync"/>.</summary>
+    public static CdGetDeploymentResult GetDeployment(string deploymentId, RegionEndpoint? region = null)
+        => GetDeploymentAsync(deploymentId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDeploymentsAsync"/>.</summary>
+    public static CdListDeploymentsResult ListDeployments(ListDeploymentsRequest request, RegionEndpoint? region = null)
+        => ListDeploymentsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDeploymentInstanceAsync"/>.</summary>
+    public static CdGetDeploymentInstanceResult GetDeploymentInstance(string deploymentId, string instanceId, RegionEndpoint? region = null)
+        => GetDeploymentInstanceAsync(deploymentId, instanceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDeploymentInstancesAsync"/>.</summary>
+    public static CdListDeploymentInstancesResult ListDeploymentInstances(ListDeploymentInstancesRequest request, RegionEndpoint? region = null)
+        => ListDeploymentInstancesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ContinueDeploymentAsync"/>.</summary>
+    public static CdContinueDeploymentResult ContinueDeployment(string deploymentId, string? deploymentWaitType = null, RegionEndpoint? region = null)
+        => ContinueDeploymentAsync(deploymentId, deploymentWaitType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDeploymentConfigAsync"/>.</summary>
+    public static CdCreateDeploymentConfigResult CreateDeploymentConfig(CreateDeploymentConfigRequest request, RegionEndpoint? region = null)
+        => CreateDeploymentConfigAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDeploymentConfigAsync"/>.</summary>
+    public static CdDeleteDeploymentConfigResult DeleteDeploymentConfig(string deploymentConfigName, RegionEndpoint? region = null)
+        => DeleteDeploymentConfigAsync(deploymentConfigName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDeploymentConfigAsync"/>.</summary>
+    public static CdGetDeploymentConfigResult GetDeploymentConfig(string deploymentConfigName, RegionEndpoint? region = null)
+        => GetDeploymentConfigAsync(deploymentConfigName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDeploymentConfigsAsync"/>.</summary>
+    public static CdListDeploymentConfigsResult ListDeploymentConfigs(string? nextToken = null, RegionEndpoint? region = null)
+        => ListDeploymentConfigsAsync(nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RegisterOnPremisesInstanceAsync"/>.</summary>
+    public static CdRegisterOnPremisesInstanceResult RegisterOnPremisesInstance(RegisterOnPremisesInstanceRequest request, RegionEndpoint? region = null)
+        => RegisterOnPremisesInstanceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeregisterOnPremisesInstanceAsync"/>.</summary>
+    public static CdDeregisterOnPremisesInstanceResult DeregisterOnPremisesInstance(string instanceName, RegionEndpoint? region = null)
+        => DeregisterOnPremisesInstanceAsync(instanceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListOnPremisesInstancesAsync"/>.</summary>
+    public static CdListOnPremisesInstancesResult ListOnPremisesInstances(ListOnPremisesInstancesRequest request, RegionEndpoint? region = null)
+        => ListOnPremisesInstancesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsToOnPremisesInstancesAsync"/>.</summary>
+    public static CdAddTagsToOnPremisesInstancesResult AddTagsToOnPremisesInstances(List<Amazon.CodeDeploy.Model.Tag> tags, List<string> instanceNames, RegionEndpoint? region = null)
+        => AddTagsToOnPremisesInstancesAsync(tags, instanceNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsFromOnPremisesInstancesAsync"/>.</summary>
+    public static CdRemoveTagsFromOnPremisesInstancesResult RemoveTagsFromOnPremisesInstances(List<Amazon.CodeDeploy.Model.Tag> tags, List<string> instanceNames, RegionEndpoint? region = null)
+        => RemoveTagsFromOnPremisesInstancesAsync(tags, instanceNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetApplicationsAsync"/>.</summary>
+    public static CdBatchGetApplicationsResult BatchGetApplications(List<string> applicationNames, RegionEndpoint? region = null)
+        => BatchGetApplicationsAsync(applicationNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetDeploymentGroupsAsync"/>.</summary>
+    public static CdBatchGetDeploymentGroupsResult BatchGetDeploymentGroups(string applicationName, List<string> deploymentGroupNames, RegionEndpoint? region = null)
+        => BatchGetDeploymentGroupsAsync(applicationName, deploymentGroupNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetDeploymentsAsync"/>.</summary>
+    public static CdBatchGetDeploymentsResult BatchGetDeployments(List<string> deploymentIds, RegionEndpoint? region = null)
+        => BatchGetDeploymentsAsync(deploymentIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutLifecycleEventHookExecutionStatusAsync"/>.</summary>
+    public static CdPutLifecycleEventHookExecutionStatusResult PutLifecycleEventHookExecutionStatus(string deploymentId, string lifecycleEventHookExecutionId, string status, RegionEndpoint? region = null)
+        => PutLifecycleEventHookExecutionStatusAsync(deploymentId, lifecycleEventHookExecutionId, status, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static CdTagResourceResult TagResource(string resourceArn, List<Amazon.CodeDeploy.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static CdUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static CdListTagsForResourceResult ListTagsForResource(string resourceArn, string? nextToken = null, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, nextToken, region).GetAwaiter().GetResult();
+
 }

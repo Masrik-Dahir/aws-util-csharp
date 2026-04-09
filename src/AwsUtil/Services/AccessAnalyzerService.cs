@@ -1045,4 +1045,130 @@ public static class AccessAnalyzerService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAnalyzerAsync"/>.</summary>
+    public static AnalyzerResult CreateAnalyzer(string analyzerName, string type, List<InlineArchiveRule>? archiveRules = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateAnalyzerAsync(analyzerName, type, archiveRules, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAnalyzerAsync"/>.</summary>
+    public static void DeleteAnalyzer(string analyzerName, RegionEndpoint? region = null)
+        => DeleteAnalyzerAsync(analyzerName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAnalyzerAsync"/>.</summary>
+    public static AnalyzerResult GetAnalyzer(string analyzerName, RegionEndpoint? region = null)
+        => GetAnalyzerAsync(analyzerName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAnalyzersAsync"/>.</summary>
+    public static List<AnalyzerResult> ListAnalyzers(string? type = null, RegionEndpoint? region = null)
+        => ListAnalyzersAsync(type, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateFindingsAsync"/>.</summary>
+    public static void UpdateFindings(string analyzerArn, string status, List<string>? ids = null, string? resourceArn = null, RegionEndpoint? region = null)
+        => UpdateFindingsAsync(analyzerArn, status, ids, resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFindingAsync"/>.</summary>
+    public static AnalyzerFindingResult GetFinding(string analyzerArn, string id, RegionEndpoint? region = null)
+        => GetFindingAsync(analyzerArn, id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFindingsAsync"/>.</summary>
+    public static List<AnalyzerFindingResult> ListFindings(string analyzerArn, Dictionary<string, Criterion>? filter = null, RegionEndpoint? region = null)
+        => ListFindingsAsync(analyzerArn, filter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartResourceScanAsync"/>.</summary>
+    public static void StartResourceScan(string analyzerArn, string resourceArn, RegionEndpoint? region = null)
+        => StartResourceScanAsync(analyzerArn, resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAnalyzedResourceAsync"/>.</summary>
+    public static AnalyzedResourceResult GetAnalyzedResource(string analyzerArn, string resourceArn, RegionEndpoint? region = null)
+        => GetAnalyzedResourceAsync(analyzerArn, resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAnalyzedResourcesAsync"/>.</summary>
+    public static List<AnalyzedResourceResult> ListAnalyzedResources(string analyzerArn, string? resourceType = null, RegionEndpoint? region = null)
+        => ListAnalyzedResourcesAsync(analyzerArn, resourceType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateArchiveRuleAsync"/>.</summary>
+    public static void CreateArchiveRule(string analyzerName, string ruleName, Dictionary<string, Criterion> filter, RegionEndpoint? region = null)
+        => CreateArchiveRuleAsync(analyzerName, ruleName, filter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteArchiveRuleAsync"/>.</summary>
+    public static void DeleteArchiveRule(string analyzerName, string ruleName, RegionEndpoint? region = null)
+        => DeleteArchiveRuleAsync(analyzerName, ruleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetArchiveRuleAsync"/>.</summary>
+    public static ArchiveRuleResult GetArchiveRule(string analyzerName, string ruleName, RegionEndpoint? region = null)
+        => GetArchiveRuleAsync(analyzerName, ruleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListArchiveRulesAsync"/>.</summary>
+    public static List<ArchiveRuleResult> ListArchiveRules(string analyzerName, RegionEndpoint? region = null)
+        => ListArchiveRulesAsync(analyzerName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateArchiveRuleAsync"/>.</summary>
+    public static void UpdateArchiveRule(string analyzerName, string ruleName, Dictionary<string, Criterion> filter, RegionEndpoint? region = null)
+        => UpdateArchiveRuleAsync(analyzerName, ruleName, filter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ApplyArchiveRuleAsync"/>.</summary>
+    public static void ApplyArchiveRule(string analyzerArn, string ruleName, RegionEndpoint? region = null)
+        => ApplyArchiveRuleAsync(analyzerArn, ruleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartPolicyGenerationAsync"/>.</summary>
+    public static string StartPolicyGeneration(PolicyGenerationDetails policyGenerationDetails, string? clientToken = null, RegionEndpoint? region = null)
+        => StartPolicyGenerationAsync(policyGenerationDetails, clientToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetGeneratedPolicyAsync"/>.</summary>
+    public static PolicyGenerationResult GetGeneratedPolicy(string jobId, RegionEndpoint? region = null)
+        => GetGeneratedPolicyAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelPolicyGenerationAsync"/>.</summary>
+    public static void CancelPolicyGeneration(string jobId, RegionEndpoint? region = null)
+        => CancelPolicyGenerationAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ValidatePolicyAsync"/>.</summary>
+    public static List<ValidatePolicyFindingResult> ValidatePolicy(string policyDocument, string policyType, string? locale = null, RegionEndpoint? region = null)
+        => ValidatePolicyAsync(policyDocument, policyType, locale, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAccessPreviewAsync"/>.</summary>
+    public static AccessPreviewResult CreateAccessPreview(string analyzerArn, Dictionary<string, Configuration> configurations, RegionEndpoint? region = null)
+        => CreateAccessPreviewAsync(analyzerArn, configurations, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAccessPreviewAsync"/>.</summary>
+    public static AccessPreviewResult GetAccessPreview(string analyzerArn, string accessPreviewId, RegionEndpoint? region = null)
+        => GetAccessPreviewAsync(analyzerArn, accessPreviewId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccessPreviewsAsync"/>.</summary>
+    public static List<AccessPreviewResult> ListAccessPreviews(string analyzerArn, RegionEndpoint? region = null)
+        => ListAccessPreviewsAsync(analyzerArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccessPreviewFindingsAsync"/>.</summary>
+    public static List<AccessPreviewFindingResult> ListAccessPreviewFindings(string analyzerArn, string accessPreviewId, Dictionary<string, Criterion>? filter = null, RegionEndpoint? region = null)
+        => ListAccessPreviewFindingsAsync(analyzerArn, accessPreviewId, filter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CheckNoNewAccessAsync"/>.</summary>
+    public static CheckResultResult CheckNoNewAccess(string newPolicyDocument, string existingPolicyDocument, string policyType, RegionEndpoint? region = null)
+        => CheckNoNewAccessAsync(newPolicyDocument, existingPolicyDocument, policyType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CheckAccessNotGrantedAsync"/>.</summary>
+    public static CheckResultResult CheckAccessNotGranted(string policyDocument, List<Access> access, string policyType, RegionEndpoint? region = null)
+        => CheckAccessNotGrantedAsync(policyDocument, access, policyType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CheckNoPublicAccessAsync"/>.</summary>
+    public static CheckResultResult CheckNoPublicAccess(string policyDocument, string resourceType, RegionEndpoint? region = null)
+        => CheckNoPublicAccessAsync(policyDocument, resourceType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static List<AccessAnalyzerTagResult> ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

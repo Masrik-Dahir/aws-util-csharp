@@ -128,4 +128,26 @@ public static class SageMakerFeatureStoreRuntimeService
                 "Failed to batch get records from Feature Store");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="PutRecordAsync"/>.</summary>
+    public static PutFeatureStoreRecordResult PutRecord(PutRecordRequest request, RegionEndpoint? region = null)
+        => PutRecordAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRecordAsync"/>.</summary>
+    public static GetFeatureStoreRecordResult GetRecord(string featureGroupName, string recordIdentifierValueAsString, List<string>? featureNames = null, RegionEndpoint? region = null)
+        => GetRecordAsync(featureGroupName, recordIdentifierValueAsString, featureNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRecordAsync"/>.</summary>
+    public static DeleteFeatureStoreRecordResult DeleteRecord(string featureGroupName, string recordIdentifierValueAsString, string eventTime, RegionEndpoint? region = null)
+        => DeleteRecordAsync(featureGroupName, recordIdentifierValueAsString, eventTime, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetRecordAsync"/>.</summary>
+    public static BatchGetFeatureStoreRecordResult BatchGetRecord(List<BatchGetRecordIdentifier> identifiers, RegionEndpoint? region = null)
+        => BatchGetRecordAsync(identifiers, region).GetAwaiter().GetResult();
+
 }

@@ -1107,4 +1107,186 @@ public static class DataBrewService
                 $"Failed to batch delete DataBrew recipe versions for '{name}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDatasetAsync"/>.</summary>
+    public static CreateDataBrewDatasetResult CreateDataset(CreateDatasetRequest request, RegionEndpoint? region = null)
+        => CreateDatasetAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDatasetAsync"/>.</summary>
+    public static void DeleteDataset(string name, RegionEndpoint? region = null)
+        => DeleteDatasetAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDatasetAsync"/>.</summary>
+    public static DescribeDataBrewDatasetResult DescribeDataset(string name, RegionEndpoint? region = null)
+        => DescribeDatasetAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatasetsAsync"/>.</summary>
+    public static ListDataBrewDatasetsResult ListDatasets(RegionEndpoint? region = null)
+        => ListDatasetsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDatasetAsync"/>.</summary>
+    public static UpdateDataBrewDatasetResult UpdateDataset(UpdateDatasetRequest request, RegionEndpoint? region = null)
+        => UpdateDatasetAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateProjectAsync"/>.</summary>
+    public static CreateDataBrewProjectResult CreateProject(CreateProjectRequest request, RegionEndpoint? region = null)
+        => CreateProjectAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteProjectAsync"/>.</summary>
+    public static void DeleteProject(string name, RegionEndpoint? region = null)
+        => DeleteProjectAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeProjectAsync"/>.</summary>
+    public static DescribeDataBrewProjectResult DescribeProject(string name, RegionEndpoint? region = null)
+        => DescribeProjectAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListProjectsAsync"/>.</summary>
+    public static ListDataBrewProjectsResult ListProjects(RegionEndpoint? region = null)
+        => ListProjectsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateProjectAsync"/>.</summary>
+    public static UpdateDataBrewProjectResult UpdateProject(UpdateProjectRequest request, RegionEndpoint? region = null)
+        => UpdateProjectAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRecipeAsync"/>.</summary>
+    public static CreateDataBrewRecipeResult CreateRecipe(CreateRecipeRequest request, RegionEndpoint? region = null)
+        => CreateRecipeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRecipeVersionAsync"/>.</summary>
+    public static DeleteDataBrewRecipeVersionResult DeleteRecipeVersion(string name, string recipeVersion, RegionEndpoint? region = null)
+        => DeleteRecipeVersionAsync(name, recipeVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeRecipeAsync"/>.</summary>
+    public static DescribeDataBrewRecipeResult DescribeRecipe(string name, string? recipeVersion = null, RegionEndpoint? region = null)
+        => DescribeRecipeAsync(name, recipeVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRecipesAsync"/>.</summary>
+    public static ListDataBrewRecipesResult ListRecipes(RegionEndpoint? region = null)
+        => ListRecipesAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRecipeVersionsAsync"/>.</summary>
+    public static ListDataBrewRecipeVersionsResult ListRecipeVersions(string name, RegionEndpoint? region = null)
+        => ListRecipeVersionsAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PublishRecipeAsync"/>.</summary>
+    public static PublishDataBrewRecipeResult PublishRecipe(string name, string? description = null, RegionEndpoint? region = null)
+        => PublishRecipeAsync(name, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateRecipeAsync"/>.</summary>
+    public static UpdateDataBrewRecipeResult UpdateRecipe(UpdateRecipeRequest request, RegionEndpoint? region = null)
+        => UpdateRecipeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRecipeJobAsync"/>.</summary>
+    public static CreateDataBrewRecipeJobResult CreateRecipeJob(CreateRecipeJobRequest request, RegionEndpoint? region = null)
+        => CreateRecipeJobAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteJobAsync"/>.</summary>
+    public static void DeleteJob(string name, RegionEndpoint? region = null)
+        => DeleteJobAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeJobAsync"/>.</summary>
+    public static DescribeDataBrewJobResult DescribeJob(string name, RegionEndpoint? region = null)
+        => DescribeJobAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListJobsAsync"/>.</summary>
+    public static ListDataBrewJobsResult ListJobs(string? datasetName = null, string? projectName = null, RegionEndpoint? region = null)
+        => ListJobsAsync(datasetName, projectName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateRecipeJobAsync"/>.</summary>
+    public static UpdateDataBrewRecipeJobResult UpdateRecipeJob(UpdateRecipeJobRequest request, RegionEndpoint? region = null)
+        => UpdateRecipeJobAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateProfileJobAsync"/>.</summary>
+    public static CreateDataBrewProfileJobResult CreateProfileJob(CreateProfileJobRequest request, RegionEndpoint? region = null)
+        => CreateProfileJobAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateProfileJobAsync"/>.</summary>
+    public static UpdateDataBrewProfileJobResult UpdateProfileJob(UpdateProfileJobRequest request, RegionEndpoint? region = null)
+        => UpdateProfileJobAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartJobRunAsync"/>.</summary>
+    public static StartDataBrewJobRunResult StartJobRun(string name, RegionEndpoint? region = null)
+        => StartJobRunAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopJobRunAsync"/>.</summary>
+    public static StopDataBrewJobRunResult StopJobRun(string name, string runId, RegionEndpoint? region = null)
+        => StopJobRunAsync(name, runId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeJobRunAsync"/>.</summary>
+    public static DescribeDataBrewJobRunResult DescribeJobRun(string name, string runId, RegionEndpoint? region = null)
+        => DescribeJobRunAsync(name, runId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListJobRunsAsync"/>.</summary>
+    public static ListDataBrewJobRunsResult ListJobRuns(string name, RegionEndpoint? region = null)
+        => ListJobRunsAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRulesetAsync"/>.</summary>
+    public static CreateDataBrewRulesetResult CreateRuleset(CreateRulesetRequest request, RegionEndpoint? region = null)
+        => CreateRulesetAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRulesetAsync"/>.</summary>
+    public static void DeleteRuleset(string name, RegionEndpoint? region = null)
+        => DeleteRulesetAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeRulesetAsync"/>.</summary>
+    public static DescribeDataBrewRulesetResult DescribeRuleset(string name, RegionEndpoint? region = null)
+        => DescribeRulesetAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRulesetsAsync"/>.</summary>
+    public static ListDataBrewRulesetsResult ListRulesets(RegionEndpoint? region = null)
+        => ListRulesetsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateRulesetAsync"/>.</summary>
+    public static UpdateDataBrewRulesetResult UpdateRuleset(UpdateRulesetRequest request, RegionEndpoint? region = null)
+        => UpdateRulesetAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateScheduleAsync"/>.</summary>
+    public static CreateDataBrewScheduleResult CreateSchedule(CreateScheduleRequest request, RegionEndpoint? region = null)
+        => CreateScheduleAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteScheduleAsync"/>.</summary>
+    public static void DeleteSchedule(string name, RegionEndpoint? region = null)
+        => DeleteScheduleAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeScheduleAsync"/>.</summary>
+    public static DescribeDataBrewScheduleResult DescribeSchedule(string name, RegionEndpoint? region = null)
+        => DescribeScheduleAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSchedulesAsync"/>.</summary>
+    public static ListDataBrewSchedulesResult ListSchedules(string? jobName = null, RegionEndpoint? region = null)
+        => ListSchedulesAsync(jobName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateScheduleAsync"/>.</summary>
+    public static UpdateDataBrewScheduleResult UpdateSchedule(UpdateScheduleRequest request, RegionEndpoint? region = null)
+        => UpdateScheduleAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SendProjectSessionActionAsync"/>.</summary>
+    public static SendProjectSessionActionResult SendProjectSessionAction(SendProjectSessionActionRequest request, RegionEndpoint? region = null)
+        => SendProjectSessionActionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartProjectSessionAsync"/>.</summary>
+    public static StartProjectSessionResult StartProjectSession(string name, bool? assumeControl = null, RegionEndpoint? region = null)
+        => StartProjectSessionAsync(name, assumeControl, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static DataBrewTagResourceResult TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static DataBrewUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ListDataBrewTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchDeleteRecipeVersionAsync"/>.</summary>
+    public static BatchDeleteRecipeVersionResult BatchDeleteRecipeVersion(string name, List<string> recipeVersions, RegionEndpoint? region = null)
+        => BatchDeleteRecipeVersionAsync(name, recipeVersions, region).GetAwaiter().GetResult();
+
 }

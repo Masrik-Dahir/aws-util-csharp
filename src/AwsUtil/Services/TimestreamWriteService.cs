@@ -591,4 +591,86 @@ public static class TimestreamWriteService
                 "Failed to describe Timestream write endpoints");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDatabaseAsync"/>.</summary>
+    public static TswCreateDatabaseResult CreateDatabase(string databaseName, string? kmsKeyId = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDatabaseAsync(databaseName, kmsKeyId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDatabaseAsync"/>.</summary>
+    public static TswDeleteDatabaseResult DeleteDatabase(string databaseName, RegionEndpoint? region = null)
+        => DeleteDatabaseAsync(databaseName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDatabaseAsync"/>.</summary>
+    public static TswDescribeDatabaseResult DescribeDatabase(string databaseName, RegionEndpoint? region = null)
+        => DescribeDatabaseAsync(databaseName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatabasesAsync"/>.</summary>
+    public static TswListDatabasesResult ListDatabases(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListDatabasesAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDatabaseAsync"/>.</summary>
+    public static TswUpdateDatabaseResult UpdateDatabase(string databaseName, string kmsKeyId, RegionEndpoint? region = null)
+        => UpdateDatabaseAsync(databaseName, kmsKeyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTableAsync"/>.</summary>
+    public static TswCreateTableResult CreateTable(string databaseName, string tableName, RetentionProperties? retentionProperties = null, MagneticStoreWriteProperties? magneticStoreWriteProperties = null, Schema? schema = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateTableAsync(databaseName, tableName, retentionProperties, magneticStoreWriteProperties, schema, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTableAsync"/>.</summary>
+    public static TswDeleteTableResult DeleteTable(string databaseName, string tableName, RegionEndpoint? region = null)
+        => DeleteTableAsync(databaseName, tableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTableAsync"/>.</summary>
+    public static TswDescribeTableResult DescribeTable(string databaseName, string tableName, RegionEndpoint? region = null)
+        => DescribeTableAsync(databaseName, tableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTablesAsync"/>.</summary>
+    public static TswListTablesResult ListTables(string databaseName, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListTablesAsync(databaseName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateTableAsync"/>.</summary>
+    public static TswUpdateTableResult UpdateTable(string databaseName, string tableName, RetentionProperties? retentionProperties = null, MagneticStoreWriteProperties? magneticStoreWriteProperties = null, Schema? schema = null, RegionEndpoint? region = null)
+        => UpdateTableAsync(databaseName, tableName, retentionProperties, magneticStoreWriteProperties, schema, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="WriteRecordsAsync"/>.</summary>
+    public static TswWriteRecordsResult WriteRecords(string databaseName, string tableName, List<Record> records, Record? commonAttributes = null, RegionEndpoint? region = null)
+        => WriteRecordsAsync(databaseName, tableName, records, commonAttributes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateBatchLoadTaskAsync"/>.</summary>
+    public static TswCreateBatchLoadTaskResult CreateBatchLoadTask(CreateBatchLoadTaskRequest request, RegionEndpoint? region = null)
+        => CreateBatchLoadTaskAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeBatchLoadTaskAsync"/>.</summary>
+    public static TswDescribeBatchLoadTaskResult DescribeBatchLoadTask(string taskId, RegionEndpoint? region = null)
+        => DescribeBatchLoadTaskAsync(taskId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListBatchLoadTasksAsync"/>.</summary>
+    public static TswListBatchLoadTasksResult ListBatchLoadTasks(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListBatchLoadTasksAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResumeBatchLoadTaskAsync"/>.</summary>
+    public static TswResumeBatchLoadTaskResult ResumeBatchLoadTask(string taskId, RegionEndpoint? region = null)
+        => ResumeBatchLoadTaskAsync(taskId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static TswTagResourceResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static TswUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static TswListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEndpointsAsync"/>.</summary>
+    public static TswDescribeEndpointsResult DescribeEndpoints(RegionEndpoint? region = null)
+        => DescribeEndpointsAsync(region).GetAwaiter().GetResult();
+
 }

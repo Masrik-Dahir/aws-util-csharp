@@ -352,4 +352,50 @@ public static class RedshiftDataService
                 "Failed to list Redshift databases");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="ExecuteStatementAsync"/>.</summary>
+    public static ExecuteRedshiftStatementResult ExecuteStatement(ExecuteStatementRequest request, RegionEndpoint? region = null)
+        => ExecuteStatementAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchExecuteStatementAsync"/>.</summary>
+    public static BatchExecuteRedshiftStatementResult BatchExecuteStatement(BatchExecuteStatementRequest request, RegionEndpoint? region = null)
+        => BatchExecuteStatementAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelStatementAsync"/>.</summary>
+    public static CancelRedshiftStatementResult CancelStatement(string id, RegionEndpoint? region = null)
+        => CancelStatementAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStatementAsync"/>.</summary>
+    public static DescribeRedshiftStatementResult DescribeStatement(string id, RegionEndpoint? region = null)
+        => DescribeStatementAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetStatementResultAsync"/>.</summary>
+    public static GetRedshiftStatementResultResult GetStatementResult(string id, string? nextToken = null, RegionEndpoint? region = null)
+        => GetStatementResultAsync(id, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStatementsAsync"/>.</summary>
+    public static ListRedshiftStatementsResult ListStatements(string? status = null, string? statementName = null, bool? roleLevel = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListStatementsAsync(status, statementName, roleLevel, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTableAsync"/>.</summary>
+    public static DescribeRedshiftTableResult DescribeTable(DescribeTableRequest request, RegionEndpoint? region = null)
+        => DescribeTableAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTablesAsync"/>.</summary>
+    public static ListRedshiftTablesResult ListTables(ListTablesRequest request, RegionEndpoint? region = null)
+        => ListTablesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSchemasAsync"/>.</summary>
+    public static ListRedshiftSchemasResult ListSchemas(ListSchemasRequest request, RegionEndpoint? region = null)
+        => ListSchemasAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatabasesAsync"/>.</summary>
+    public static ListRedshiftDatabasesResult ListDatabases(ListDatabasesRequest request, RegionEndpoint? region = null)
+        => ListDatabasesAsync(request, region).GetAwaiter().GetResult();
+
 }

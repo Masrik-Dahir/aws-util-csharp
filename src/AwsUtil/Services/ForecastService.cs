@@ -1513,4 +1513,210 @@ public static class ForecastService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDatasetAsync"/>.</summary>
+    public static ForecastResourceResult CreateDataset(string datasetName, string domain, string datasetType, string dataFrequency, Schema schema, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDatasetAsync(datasetName, domain, datasetType, dataFrequency, schema, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDatasetAsync"/>.</summary>
+    public static ForecastDeleteResult DeleteDataset(string datasetArn, RegionEndpoint? region = null)
+        => DeleteDatasetAsync(datasetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDatasetAsync"/>.</summary>
+    public static ForecastDescribeDatasetResult DescribeDataset(string datasetArn, RegionEndpoint? region = null)
+        => DescribeDatasetAsync(datasetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatasetsAsync"/>.</summary>
+    public static ForecastListDatasetsResult ListDatasets(string? nextToken = null, RegionEndpoint? region = null)
+        => ListDatasetsAsync(nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDatasetAsync"/>.</summary>
+    public static ForecastResourceResult UpdateDataset(string datasetArn, Schema schema, RegionEndpoint? region = null)
+        => UpdateDatasetAsync(datasetArn, schema, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDatasetGroupAsync"/>.</summary>
+    public static ForecastResourceResult CreateDatasetGroup(string datasetGroupName, string domain, List<string>? datasetArns = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDatasetGroupAsync(datasetGroupName, domain, datasetArns, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDatasetGroupAsync"/>.</summary>
+    public static ForecastDeleteResult DeleteDatasetGroup(string datasetGroupArn, RegionEndpoint? region = null)
+        => DeleteDatasetGroupAsync(datasetGroupArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDatasetGroupAsync"/>.</summary>
+    public static ForecastDescribeDatasetGroupResult DescribeDatasetGroup(string datasetGroupArn, RegionEndpoint? region = null)
+        => DescribeDatasetGroupAsync(datasetGroupArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatasetGroupsAsync"/>.</summary>
+    public static ForecastListDatasetGroupsResult ListDatasetGroups(string? nextToken = null, RegionEndpoint? region = null)
+        => ListDatasetGroupsAsync(nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDatasetImportJobAsync"/>.</summary>
+    public static ForecastResourceResult CreateDatasetImportJob(string datasetImportJobName, string datasetArn, DataSource dataSource, string? timestampFormat = null, string? timeZone = null, string? geolocationFormat = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDatasetImportJobAsync(datasetImportJobName, datasetArn, dataSource, timestampFormat, timeZone, geolocationFormat, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDatasetImportJobAsync"/>.</summary>
+    public static ForecastDescribeDatasetImportJobResult DescribeDatasetImportJob(string datasetImportJobArn, RegionEndpoint? region = null)
+        => DescribeDatasetImportJobAsync(datasetImportJobArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatasetImportJobsAsync"/>.</summary>
+    public static ForecastListDatasetImportJobsResult ListDatasetImportJobs(List<Filter>? filters = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListDatasetImportJobsAsync(filters, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePredictorAsync"/>.</summary>
+    public static ForecastResourceResult CreatePredictor(string predictorName, string algorithmArn, int forecastHorizon, InputDataConfig inputDataConfig, FeaturizationConfig featurizationConfig, bool? performAutoML = null, bool? performHPO = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreatePredictorAsync(predictorName, algorithmArn, forecastHorizon, inputDataConfig, featurizationConfig, performAutoML, performHPO, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePredictorAsync"/>.</summary>
+    public static ForecastDeleteResult DeletePredictor(string predictorArn, RegionEndpoint? region = null)
+        => DeletePredictorAsync(predictorArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribePredictorAsync"/>.</summary>
+    public static ForecastDescribePredictorResult DescribePredictor(string predictorArn, RegionEndpoint? region = null)
+        => DescribePredictorAsync(predictorArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPredictorsAsync"/>.</summary>
+    public static ForecastListPredictorsResult ListPredictors(List<Filter>? filters = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListPredictorsAsync(filters, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAutoPredictorAsync"/>.</summary>
+    public static ForecastResourceResult CreateAutoPredictor(string predictorName, int? forecastHorizon = null, List<string>? forecastTypes = null, List<string>? forecastDimensions = null, DataConfig? dataConfig = null, string? referencePredictorArn = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateAutoPredictorAsync(predictorName, forecastHorizon, forecastTypes, forecastDimensions, dataConfig, referencePredictorArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateForecastAsync"/>.</summary>
+    public static ForecastResourceResult CreateForecast(string forecastName, string predictorArn, List<string>? forecastTypes = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateForecastAsync(forecastName, predictorArn, forecastTypes, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteForecastAsync"/>.</summary>
+    public static ForecastDeleteResult DeleteForecast(string forecastArn, RegionEndpoint? region = null)
+        => DeleteForecastAsync(forecastArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeForecastAsync"/>.</summary>
+    public static ForecastDescribeForecastResult DescribeForecast(string forecastArn, RegionEndpoint? region = null)
+        => DescribeForecastAsync(forecastArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListForecastsAsync"/>.</summary>
+    public static ForecastListForecastsResult ListForecasts(List<Filter>? filters = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListForecastsAsync(filters, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateForecastExportJobAsync"/>.</summary>
+    public static ForecastResourceResult CreateForecastExportJob(string forecastExportJobName, string forecastArn, DataDestination destination, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateForecastExportJobAsync(forecastExportJobName, forecastArn, destination, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeForecastExportJobAsync"/>.</summary>
+    public static ForecastDescribeForecastExportJobResult DescribeForecastExportJob(string forecastExportJobArn, RegionEndpoint? region = null)
+        => DescribeForecastExportJobAsync(forecastExportJobArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListForecastExportJobsAsync"/>.</summary>
+    public static ForecastListForecastExportJobsResult ListForecastExportJobs(List<Filter>? filters = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListForecastExportJobsAsync(filters, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateExplainabilityAsync"/>.</summary>
+    public static ForecastResourceResult CreateExplainability(string explainabilityName, string resourceArn, ExplainabilityConfig explainabilityConfig, DataSource? dataSource = null, Schema? schema = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateExplainabilityAsync(explainabilityName, resourceArn, explainabilityConfig, dataSource, schema, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteExplainabilityAsync"/>.</summary>
+    public static ForecastDeleteResult DeleteExplainability(string explainabilityArn, RegionEndpoint? region = null)
+        => DeleteExplainabilityAsync(explainabilityArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeExplainabilityAsync"/>.</summary>
+    public static ForecastDescribeExplainabilityResult DescribeExplainability(string explainabilityArn, RegionEndpoint? region = null)
+        => DescribeExplainabilityAsync(explainabilityArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListExplainabilitiesAsync"/>.</summary>
+    public static ForecastListExplainabilitiesResult ListExplainabilities(List<Filter>? filters = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListExplainabilitiesAsync(filters, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateExplainabilityExportAsync"/>.</summary>
+    public static ForecastResourceResult CreateExplainabilityExport(string explainabilityExportName, string explainabilityArn, DataDestination destination, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateExplainabilityExportAsync(explainabilityExportName, explainabilityArn, destination, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeExplainabilityExportAsync"/>.</summary>
+    public static ForecastDescribeExplainabilityExportResult DescribeExplainabilityExport(string explainabilityExportArn, RegionEndpoint? region = null)
+        => DescribeExplainabilityExportAsync(explainabilityExportArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListExplainabilityExportsAsync"/>.</summary>
+    public static ForecastListExplainabilityExportsResult ListExplainabilityExports(List<Filter>? filters = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListExplainabilityExportsAsync(filters, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateMonitorAsync"/>.</summary>
+    public static ForecastResourceResult CreateMonitor(string monitorName, string resourceArn, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateMonitorAsync(monitorName, resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteMonitorAsync"/>.</summary>
+    public static ForecastDeleteResult DeleteMonitor(string monitorArn, RegionEndpoint? region = null)
+        => DeleteMonitorAsync(monitorArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeMonitorAsync"/>.</summary>
+    public static ForecastDescribeMonitorResult DescribeMonitor(string monitorArn, RegionEndpoint? region = null)
+        => DescribeMonitorAsync(monitorArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListMonitorsAsync"/>.</summary>
+    public static ForecastListMonitorsResult ListMonitors(List<Filter>? filters = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListMonitorsAsync(filters, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateWhatIfAnalysisAsync"/>.</summary>
+    public static ForecastResourceResult CreateWhatIfAnalysis(string whatIfAnalysisName, string forecastArn, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateWhatIfAnalysisAsync(whatIfAnalysisName, forecastArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteWhatIfAnalysisAsync"/>.</summary>
+    public static ForecastDeleteResult DeleteWhatIfAnalysis(string whatIfAnalysisArn, RegionEndpoint? region = null)
+        => DeleteWhatIfAnalysisAsync(whatIfAnalysisArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeWhatIfAnalysisAsync"/>.</summary>
+    public static ForecastDescribeWhatIfAnalysisResult DescribeWhatIfAnalysis(string whatIfAnalysisArn, RegionEndpoint? region = null)
+        => DescribeWhatIfAnalysisAsync(whatIfAnalysisArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListWhatIfAnalysesAsync"/>.</summary>
+    public static ForecastListWhatIfAnalysesResult ListWhatIfAnalyses(List<Filter>? filters = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListWhatIfAnalysesAsync(filters, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateWhatIfForecastAsync"/>.</summary>
+    public static ForecastResourceResult CreateWhatIfForecast(string whatIfForecastName, string whatIfAnalysisArn, List<TimeSeriesTransformation>? timeSeriesTransformations = null, TimeSeriesReplacementsDataSource? timeSeriesReplacementsDataSource = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateWhatIfForecastAsync(whatIfForecastName, whatIfAnalysisArn, timeSeriesTransformations, timeSeriesReplacementsDataSource, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteWhatIfForecastAsync"/>.</summary>
+    public static ForecastDeleteResult DeleteWhatIfForecast(string whatIfForecastArn, RegionEndpoint? region = null)
+        => DeleteWhatIfForecastAsync(whatIfForecastArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeWhatIfForecastAsync"/>.</summary>
+    public static ForecastDescribeWhatIfForecastResult DescribeWhatIfForecast(string whatIfForecastArn, RegionEndpoint? region = null)
+        => DescribeWhatIfForecastAsync(whatIfForecastArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListWhatIfForecastsAsync"/>.</summary>
+    public static ForecastListWhatIfForecastsResult ListWhatIfForecasts(List<Filter>? filters = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListWhatIfForecastsAsync(filters, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateWhatIfForecastExportAsync"/>.</summary>
+    public static ForecastResourceResult CreateWhatIfForecastExport(string whatIfForecastExportName, List<string> whatIfForecastArns, DataDestination destination, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateWhatIfForecastExportAsync(whatIfForecastExportName, whatIfForecastArns, destination, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteWhatIfForecastExportAsync"/>.</summary>
+    public static ForecastDeleteResult DeleteWhatIfForecastExport(string whatIfForecastExportArn, RegionEndpoint? region = null)
+        => DeleteWhatIfForecastExportAsync(whatIfForecastExportArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeWhatIfForecastExportAsync"/>.</summary>
+    public static ForecastDescribeWhatIfForecastExportResult DescribeWhatIfForecastExport(string whatIfForecastExportArn, RegionEndpoint? region = null)
+        => DescribeWhatIfForecastExportAsync(whatIfForecastExportArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListWhatIfForecastExportsAsync"/>.</summary>
+    public static ForecastListWhatIfForecastExportsResult ListWhatIfForecastExports(List<Filter>? filters = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListWhatIfForecastExportsAsync(filters, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static ForecastTagResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static ForecastTagResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ForecastListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

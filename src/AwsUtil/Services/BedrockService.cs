@@ -853,4 +853,122 @@ public static class BedrockService
                 $"Failed to converse stream with Bedrock model '{modelId}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="ListFoundationModelsAsync"/>.</summary>
+    public static ListFoundationModelsResult ListFoundationModels(string? byProvider = null, string? byOutputModality = null, string? byInferenceType = null, RegionEndpoint? region = null)
+        => ListFoundationModelsAsync(byProvider, byOutputModality, byInferenceType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFoundationModelAsync"/>.</summary>
+    public static GetFoundationModelResult GetFoundationModel(string modelIdentifier, RegionEndpoint? region = null)
+        => GetFoundationModelAsync(modelIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateModelCustomizationJobAsync"/>.</summary>
+    public static CreateModelCustomizationJobResult CreateModelCustomizationJob(CreateModelCustomizationJobRequest request, RegionEndpoint? region = null)
+        => CreateModelCustomizationJobAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetModelCustomizationJobAsync"/>.</summary>
+    public static GetModelCustomizationJobResult GetModelCustomizationJob(string jobIdentifier, RegionEndpoint? region = null)
+        => GetModelCustomizationJobAsync(jobIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListModelCustomizationJobsAsync"/>.</summary>
+    public static ListModelCustomizationJobsResult ListModelCustomizationJobs(RegionEndpoint? region = null)
+        => ListModelCustomizationJobsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopModelCustomizationJobAsync"/>.</summary>
+    public static void StopModelCustomizationJob(string jobIdentifier, RegionEndpoint? region = null)
+        => StopModelCustomizationJobAsync(jobIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateProvisionedModelThroughputAsync"/>.</summary>
+    public static CreateProvisionedModelThroughputResult CreateProvisionedModelThroughput(string provisionedModelName, string modelId, int modelUnits, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateProvisionedModelThroughputAsync(provisionedModelName, modelId, modelUnits, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteProvisionedModelThroughputAsync"/>.</summary>
+    public static void DeleteProvisionedModelThroughput(string provisionedModelId, RegionEndpoint? region = null)
+        => DeleteProvisionedModelThroughputAsync(provisionedModelId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetProvisionedModelThroughputAsync"/>.</summary>
+    public static GetProvisionedModelThroughputResult GetProvisionedModelThroughput(string provisionedModelId, RegionEndpoint? region = null)
+        => GetProvisionedModelThroughputAsync(provisionedModelId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListProvisionedModelThroughputsAsync"/>.</summary>
+    public static ListProvisionedModelThroughputsResult ListProvisionedModelThroughputs(RegionEndpoint? region = null)
+        => ListProvisionedModelThroughputsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateProvisionedModelThroughputAsync"/>.</summary>
+    public static void UpdateProvisionedModelThroughput(string provisionedModelId, string? desiredProvisionedModelName = null, string? desiredModelId = null, RegionEndpoint? region = null)
+        => UpdateProvisionedModelThroughputAsync(provisionedModelId, desiredProvisionedModelName, desiredModelId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetModelInvocationLoggingConfigurationAsync"/>.</summary>
+    public static GetModelInvocationLoggingConfigurationResult GetModelInvocationLoggingConfiguration(RegionEndpoint? region = null)
+        => GetModelInvocationLoggingConfigurationAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutModelInvocationLoggingConfigurationAsync"/>.</summary>
+    public static void PutModelInvocationLoggingConfiguration(LoggingConfig loggingConfig, RegionEndpoint? region = null)
+        => PutModelInvocationLoggingConfigurationAsync(loggingConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCustomModelsAsync"/>.</summary>
+    public static ListCustomModelsResult ListCustomModels(RegionEndpoint? region = null)
+        => ListCustomModelsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCustomModelAsync"/>.</summary>
+    public static void DeleteCustomModel(string modelIdentifier, RegionEndpoint? region = null)
+        => DeleteCustomModelAsync(modelIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCustomModelAsync"/>.</summary>
+    public static GetCustomModelResult GetCustomModel(string modelIdentifier, RegionEndpoint? region = null)
+        => GetCustomModelAsync(modelIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGuardrailAsync"/>.</summary>
+    public static CreateGuardrailResult CreateGuardrail(CreateGuardrailRequest request, RegionEndpoint? region = null)
+        => CreateGuardrailAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGuardrailAsync"/>.</summary>
+    public static void DeleteGuardrail(string guardrailIdentifier, string? guardrailVersion = null, RegionEndpoint? region = null)
+        => DeleteGuardrailAsync(guardrailIdentifier, guardrailVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetGuardrailAsync"/>.</summary>
+    public static GetGuardrailResult GetGuardrail(string guardrailIdentifier, string? guardrailVersion = null, RegionEndpoint? region = null)
+        => GetGuardrailAsync(guardrailIdentifier, guardrailVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGuardrailsAsync"/>.</summary>
+    public static ListGuardrailsResult ListGuardrails(RegionEndpoint? region = null)
+        => ListGuardrailsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateGuardrailAsync"/>.</summary>
+    public static void UpdateGuardrail(UpdateGuardrailRequest request, RegionEndpoint? region = null)
+        => UpdateGuardrailAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ListBedrockTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="InvokeModelAsync"/>.</summary>
+    public static InvokeModelResult InvokeModel(string modelId, string body, string? contentType = null, string? accept = null, RegionEndpoint? region = null)
+        => InvokeModelAsync(modelId, body, contentType, accept, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="InvokeModelWithResponseStreamAsync"/>.</summary>
+    public static InvokeModelWithResponseStreamResponse InvokeModelWithResponseStream(string modelId, string body, string? contentType = null, string? accept = null, RegionEndpoint? region = null)
+        => InvokeModelWithResponseStreamAsync(modelId, body, contentType, accept, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ConverseAsync"/>.</summary>
+    public static ConverseResult Converse(string modelId, List<Message> messages, List<SystemContentBlock>? system = null, InferenceConfiguration? inferenceConfig = null, ToolConfiguration? toolConfig = null, RegionEndpoint? region = null)
+        => ConverseAsync(modelId, messages, system, inferenceConfig, toolConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ConverseStreamAsync"/>.</summary>
+    public static ConverseStreamResponse ConverseStream(string modelId, List<Message> messages, List<SystemContentBlock>? system = null, InferenceConfiguration? inferenceConfig = null, ToolConfiguration? toolConfig = null, RegionEndpoint? region = null)
+        => ConverseStreamAsync(modelId, messages, system, inferenceConfig, toolConfig, region).GetAwaiter().GetResult();
+
 }

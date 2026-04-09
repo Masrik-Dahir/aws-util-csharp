@@ -1729,4 +1729,242 @@ public static class Ec2Service
             throw ErrorClassifier.WrapAwsError(exc, "Failed to describe network ACLs");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeInstancesAsync"/>.</summary>
+    public static List<Ec2InstanceResult> DescribeInstances(List<string>? instanceIds = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeInstancesAsync(instanceIds, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RunInstancesAsync"/>.</summary>
+    public static RunInstancesResult RunInstances(string imageId, string instanceType, int minCount = 1, int maxCount = 1, string? keyName = null, List<string>? securityGroupIds = null, string? subnetId = null, string? userData = null, RegionEndpoint? region = null)
+        => RunInstancesAsync(imageId, instanceType, minCount, maxCount, keyName, securityGroupIds, subnetId, userData, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartInstancesAsync"/>.</summary>
+    public static List<InstanceStateChangeResult> StartInstances(List<string> instanceIds, RegionEndpoint? region = null)
+        => StartInstancesAsync(instanceIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopInstancesAsync"/>.</summary>
+    public static List<InstanceStateChangeResult> StopInstances(List<string> instanceIds, bool force = false, RegionEndpoint? region = null)
+        => StopInstancesAsync(instanceIds, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TerminateInstancesAsync"/>.</summary>
+    public static List<InstanceStateChangeResult> TerminateInstances(List<string> instanceIds, RegionEndpoint? region = null)
+        => TerminateInstancesAsync(instanceIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RebootInstancesAsync"/>.</summary>
+    public static void RebootInstances(List<string> instanceIds, RegionEndpoint? region = null)
+        => RebootInstancesAsync(instanceIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSecurityGroupsAsync"/>.</summary>
+    public static List<SecurityGroupResult> DescribeSecurityGroups(List<string>? groupIds = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeSecurityGroupsAsync(groupIds, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSecurityGroupAsync"/>.</summary>
+    public static CreateSecurityGroupResult CreateSecurityGroup(string groupName, string description, string? vpcId = null, RegionEndpoint? region = null)
+        => CreateSecurityGroupAsync(groupName, description, vpcId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSecurityGroupAsync"/>.</summary>
+    public static void DeleteSecurityGroup(string groupId, RegionEndpoint? region = null)
+        => DeleteSecurityGroupAsync(groupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AuthorizeSecurityGroupIngressAsync"/>.</summary>
+    public static void AuthorizeSecurityGroupIngress(string groupId, List<IpPermission> ipPermissions, RegionEndpoint? region = null)
+        => AuthorizeSecurityGroupIngressAsync(groupId, ipPermissions, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RevokeSecurityGroupIngressAsync"/>.</summary>
+    public static void RevokeSecurityGroupIngress(string groupId, List<IpPermission> ipPermissions, RegionEndpoint? region = null)
+        => RevokeSecurityGroupIngressAsync(groupId, ipPermissions, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeVpcsAsync"/>.</summary>
+    public static List<VpcResult> DescribeVpcs(List<string>? vpcIds = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeVpcsAsync(vpcIds, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateVpcAsync"/>.</summary>
+    public static CreateVpcResult CreateVpc(string cidrBlock, RegionEndpoint? region = null)
+        => CreateVpcAsync(cidrBlock, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteVpcAsync"/>.</summary>
+    public static void DeleteVpc(string vpcId, RegionEndpoint? region = null)
+        => DeleteVpcAsync(vpcId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSubnetsAsync"/>.</summary>
+    public static List<SubnetResult> DescribeSubnets(List<string>? subnetIds = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeSubnetsAsync(subnetIds, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSubnetAsync"/>.</summary>
+    public static CreateSubnetResult CreateSubnet(string vpcId, string cidrBlock, string? availabilityZone = null, RegionEndpoint? region = null)
+        => CreateSubnetAsync(vpcId, cidrBlock, availabilityZone, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSubnetAsync"/>.</summary>
+    public static void DeleteSubnet(string subnetId, RegionEndpoint? region = null)
+        => DeleteSubnetAsync(subnetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AllocateAddressAsync"/>.</summary>
+    public static AllocateAddressResult AllocateAddress(string domain = "vpc", RegionEndpoint? region = null)
+        => AllocateAddressAsync(domain, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ReleaseAddressAsync"/>.</summary>
+    public static void ReleaseAddress(string allocationId, RegionEndpoint? region = null)
+        => ReleaseAddressAsync(allocationId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssociateAddressAsync"/>.</summary>
+    public static AssociateAddressResult AssociateAddress(string allocationId, string? instanceId = null, string? networkInterfaceId = null, RegionEndpoint? region = null)
+        => AssociateAddressAsync(allocationId, instanceId, networkInterfaceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisassociateAddressAsync"/>.</summary>
+    public static void DisassociateAddress(string associationId, RegionEndpoint? region = null)
+        => DisassociateAddressAsync(associationId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTagsAsync"/>.</summary>
+    public static void CreateTags(List<string> resourceIds, List<Amazon.EC2.Model.Tag> tags, RegionEndpoint? region = null)
+        => CreateTagsAsync(resourceIds, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTagsAsync"/>.</summary>
+    public static void DeleteTags(List<string> resourceIds, List<Amazon.EC2.Model.Tag> tags, RegionEndpoint? region = null)
+        => DeleteTagsAsync(resourceIds, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeImagesAsync"/>.</summary>
+    public static List<ImageResult> DescribeImages(List<string>? imageIds = null, List<string>? owners = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeImagesAsync(imageIds, owners, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateImageAsync"/>.</summary>
+    public static CreateImageResult CreateImage(string instanceId, string name, string? description = null, bool noReboot = false, RegionEndpoint? region = null)
+        => CreateImageAsync(instanceId, name, description, noReboot, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeVolumesAsync"/>.</summary>
+    public static List<VolumeResult> DescribeVolumes(List<string>? volumeIds = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeVolumesAsync(volumeIds, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateVolumeAsync"/>.</summary>
+    public static CreateVolumeResult CreateVolume(string availabilityZone, int? size = null, string? volumeType = null, string? snapshotId = null, RegionEndpoint? region = null)
+        => CreateVolumeAsync(availabilityZone, size, volumeType, snapshotId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteVolumeAsync"/>.</summary>
+    public static void DeleteVolume(string volumeId, RegionEndpoint? region = null)
+        => DeleteVolumeAsync(volumeId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AttachVolumeAsync"/>.</summary>
+    public static AttachVolumeResult AttachVolume(string volumeId, string instanceId, string device, RegionEndpoint? region = null)
+        => AttachVolumeAsync(volumeId, instanceId, device, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetachVolumeAsync"/>.</summary>
+    public static DetachVolumeResult DetachVolume(string volumeId, string? instanceId = null, bool force = false, RegionEndpoint? region = null)
+        => DetachVolumeAsync(volumeId, instanceId, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSnapshotAsync"/>.</summary>
+    public static SnapshotResult CreateSnapshot(string volumeId, string? description = null, RegionEndpoint? region = null)
+        => CreateSnapshotAsync(volumeId, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSnapshotAsync"/>.</summary>
+    public static void DeleteSnapshot(string snapshotId, RegionEndpoint? region = null)
+        => DeleteSnapshotAsync(snapshotId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSnapshotsAsync"/>.</summary>
+    public static List<SnapshotResult> DescribeSnapshots(List<string>? snapshotIds = null, List<string>? ownerIds = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeSnapshotsAsync(snapshotIds, ownerIds, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeKeyPairsAsync"/>.</summary>
+    public static List<KeyPairResult> DescribeKeyPairs(List<string>? keyNames = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeKeyPairsAsync(keyNames, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateKeyPairAsync"/>.</summary>
+    public static CreateKeyPairResult CreateKeyPair(string keyName, string? keyType = null, RegionEndpoint? region = null)
+        => CreateKeyPairAsync(keyName, keyType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteKeyPairAsync"/>.</summary>
+    public static void DeleteKeyPair(string keyName, RegionEndpoint? region = null)
+        => DeleteKeyPairAsync(keyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeInternetGatewaysAsync"/>.</summary>
+    public static List<InternetGatewayResult> DescribeInternetGateways(List<string>? internetGatewayIds = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeInternetGatewaysAsync(internetGatewayIds, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateInternetGatewayAsync"/>.</summary>
+    public static CreateInternetGatewayResult CreateInternetGateway(RegionEndpoint? region = null)
+        => CreateInternetGatewayAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteInternetGatewayAsync"/>.</summary>
+    public static void DeleteInternetGateway(string internetGatewayId, RegionEndpoint? region = null)
+        => DeleteInternetGatewayAsync(internetGatewayId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AttachInternetGatewayAsync"/>.</summary>
+    public static void AttachInternetGateway(string internetGatewayId, string vpcId, RegionEndpoint? region = null)
+        => AttachInternetGatewayAsync(internetGatewayId, vpcId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetachInternetGatewayAsync"/>.</summary>
+    public static void DetachInternetGateway(string internetGatewayId, string vpcId, RegionEndpoint? region = null)
+        => DetachInternetGatewayAsync(internetGatewayId, vpcId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeRouteTablesAsync"/>.</summary>
+    public static List<RouteTableResult> DescribeRouteTables(List<string>? routeTableIds = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeRouteTablesAsync(routeTableIds, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRouteTableAsync"/>.</summary>
+    public static CreateRouteTableResult CreateRouteTable(string vpcId, RegionEndpoint? region = null)
+        => CreateRouteTableAsync(vpcId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRouteTableAsync"/>.</summary>
+    public static void DeleteRouteTable(string routeTableId, RegionEndpoint? region = null)
+        => DeleteRouteTableAsync(routeTableId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRouteAsync"/>.</summary>
+    public static void CreateRoute(string routeTableId, string destinationCidrBlock, string? gatewayId = null, string? natGatewayId = null, string? instanceId = null, string? networkInterfaceId = null, string? vpcPeeringConnectionId = null, string? transitGatewayId = null, RegionEndpoint? region = null)
+        => CreateRouteAsync(routeTableId, destinationCidrBlock, gatewayId, natGatewayId, instanceId, networkInterfaceId, vpcPeeringConnectionId, transitGatewayId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRouteAsync"/>.</summary>
+    public static void DeleteRoute(string routeTableId, string destinationCidrBlock, RegionEndpoint? region = null)
+        => DeleteRouteAsync(routeTableId, destinationCidrBlock, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeNatGatewaysAsync"/>.</summary>
+    public static List<NatGatewayResult> DescribeNatGateways(List<string>? natGatewayIds = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeNatGatewaysAsync(natGatewayIds, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateNatGatewayAsync"/>.</summary>
+    public static CreateNatGatewayResult CreateNatGateway(string subnetId, string allocationId, RegionEndpoint? region = null)
+        => CreateNatGatewayAsync(subnetId, allocationId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteNatGatewayAsync"/>.</summary>
+    public static void DeleteNatGateway(string natGatewayId, RegionEndpoint? region = null)
+        => DeleteNatGatewayAsync(natGatewayId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeNetworkInterfacesAsync"/>.</summary>
+    public static List<NetworkInterfaceResult> DescribeNetworkInterfaces(List<string>? networkInterfaceIds = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeNetworkInterfacesAsync(networkInterfaceIds, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyInstanceAttributeAsync"/>.</summary>
+    public static void ModifyInstanceAttribute(string instanceId, string? instanceType = null, bool? sourceDestCheck = null, List<string>? groups = null, string? userData = null, RegionEndpoint? region = null)
+        => ModifyInstanceAttributeAsync(instanceId, instanceType, sourceDestCheck, groups, userData, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeInstanceTypesAsync"/>.</summary>
+    public static List<InstanceTypeResult> DescribeInstanceTypes(List<string>? instanceTypes = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeInstanceTypesAsync(instanceTypes, filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateVpcPeeringConnectionAsync"/>.</summary>
+    public static VpcPeeringConnectionResult CreateVpcPeeringConnection(string vpcId, string peerVpcId, string? peerOwnerId = null, string? peerRegion = null, RegionEndpoint? region = null)
+        => CreateVpcPeeringConnectionAsync(vpcId, peerVpcId, peerOwnerId, peerRegion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AcceptVpcPeeringConnectionAsync"/>.</summary>
+    public static void AcceptVpcPeeringConnection(string vpcPeeringConnectionId, RegionEndpoint? region = null)
+        => AcceptVpcPeeringConnectionAsync(vpcPeeringConnectionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ReplaceRouteAsync"/>.</summary>
+    public static void ReplaceRoute(string routeTableId, string destinationCidrBlock, string? gatewayId = null, string? natGatewayId = null, string? instanceId = null, string? networkInterfaceId = null, string? vpcPeeringConnectionId = null, string? transitGatewayId = null, RegionEndpoint? region = null)
+        => ReplaceRouteAsync(routeTableId, destinationCidrBlock, gatewayId, natGatewayId, instanceId, networkInterfaceId, vpcPeeringConnectionId, transitGatewayId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTransitGatewayVpcAttachmentAsync"/>.</summary>
+    public static TransitGatewayVpcAttachmentResult CreateTransitGatewayVpcAttachment(string transitGatewayId, string vpcId, List<string> subnetIds, RegionEndpoint? region = null)
+        => CreateTransitGatewayVpcAttachmentAsync(transitGatewayId, vpcId, subnetIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateVpcEndpointAsync"/>.</summary>
+    public static VpcEndpointResult CreateVpcEndpoint(string vpcId, string serviceName, string? vpcEndpointType = null, List<string>? subnetIds = null, List<string>? securityGroupIds = null, List<string>? routeTableIds = null, RegionEndpoint? region = null)
+        => CreateVpcEndpointAsync(vpcId, serviceName, vpcEndpointType, subnetIds, securityGroupIds, routeTableIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeNetworkAclsAsync"/>.</summary>
+    public static DescribeNetworkAclsResult DescribeNetworkAcls(List<string>? networkAclIds = null, List<string>? vpcIds = null, List<Filter>? filters = null, RegionEndpoint? region = null)
+        => DescribeNetworkAclsAsync(networkAclIds, vpcIds, filters, region).GetAwaiter().GetResult();
+
 }

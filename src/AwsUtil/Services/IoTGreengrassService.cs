@@ -1163,4 +1163,154 @@ public static class IoTGreengrassService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGroupAsync"/>.</summary>
+    public static CreateGreengrassGroupResult CreateGroup(string name, GroupVersion? initialVersion = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateGroupAsync(name, initialVersion, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGroupAsync"/>.</summary>
+    public static void DeleteGroup(string groupId, RegionEndpoint? region = null)
+        => DeleteGroupAsync(groupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetGroupAsync"/>.</summary>
+    public static GetGreengrassGroupResult GetGroup(string groupId, RegionEndpoint? region = null)
+        => GetGroupAsync(groupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGroupsAsync"/>.</summary>
+    public static ListGreengrassGroupsResult ListGroups(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListGroupsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCoreDefinitionAsync"/>.</summary>
+    public static CreateCoreDefinitionResult CreateCoreDefinition(string name, CoreDefinitionVersion? initialVersion = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateCoreDefinitionAsync(name, initialVersion, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCoreDefinitionAsync"/>.</summary>
+    public static void DeleteCoreDefinition(string coreDefinitionId, RegionEndpoint? region = null)
+        => DeleteCoreDefinitionAsync(coreDefinitionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCoreDefinitionAsync"/>.</summary>
+    public static GetCoreDefinitionResult GetCoreDefinition(string coreDefinitionId, RegionEndpoint? region = null)
+        => GetCoreDefinitionAsync(coreDefinitionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCoreDefinitionsAsync"/>.</summary>
+    public static ListCoreDefinitionsResult ListCoreDefinitions(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListCoreDefinitionsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCoreDefinitionVersionAsync"/>.</summary>
+    public static CreateCoreDefinitionVersionResult CreateCoreDefinitionVersion(string coreDefinitionId, List<Core> cores, RegionEndpoint? region = null)
+        => CreateCoreDefinitionVersionAsync(coreDefinitionId, cores, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDeviceDefinitionAsync"/>.</summary>
+    public static CreateDeviceDefinitionResult CreateDeviceDefinition(string name, DeviceDefinitionVersion? initialVersion = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateDeviceDefinitionAsync(name, initialVersion, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDeviceDefinitionAsync"/>.</summary>
+    public static void DeleteDeviceDefinition(string deviceDefinitionId, RegionEndpoint? region = null)
+        => DeleteDeviceDefinitionAsync(deviceDefinitionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDeviceDefinitionAsync"/>.</summary>
+    public static GetDeviceDefinitionResult GetDeviceDefinition(string deviceDefinitionId, RegionEndpoint? region = null)
+        => GetDeviceDefinitionAsync(deviceDefinitionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDeviceDefinitionsAsync"/>.</summary>
+    public static ListDeviceDefinitionsResult ListDeviceDefinitions(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListDeviceDefinitionsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDeviceDefinitionVersionAsync"/>.</summary>
+    public static CreateDeviceDefinitionVersionResult CreateDeviceDefinitionVersion(string deviceDefinitionId, List<Device> devices, RegionEndpoint? region = null)
+        => CreateDeviceDefinitionVersionAsync(deviceDefinitionId, devices, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFunctionDefinitionAsync"/>.</summary>
+    public static CreateFunctionDefinitionResult CreateFunctionDefinition(string name, FunctionDefinitionVersion? initialVersion = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateFunctionDefinitionAsync(name, initialVersion, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFunctionDefinitionAsync"/>.</summary>
+    public static void DeleteFunctionDefinition(string functionDefinitionId, RegionEndpoint? region = null)
+        => DeleteFunctionDefinitionAsync(functionDefinitionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFunctionDefinitionAsync"/>.</summary>
+    public static GetFunctionDefinitionResult GetFunctionDefinition(string functionDefinitionId, RegionEndpoint? region = null)
+        => GetFunctionDefinitionAsync(functionDefinitionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFunctionDefinitionsAsync"/>.</summary>
+    public static ListFunctionDefinitionsResult ListFunctionDefinitions(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListFunctionDefinitionsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFunctionDefinitionVersionAsync"/>.</summary>
+    public static CreateFunctionDefinitionVersionResult CreateFunctionDefinitionVersion(string functionDefinitionId, List<Function>? functions = null, FunctionDefaultConfig? defaultConfig = null, RegionEndpoint? region = null)
+        => CreateFunctionDefinitionVersionAsync(functionDefinitionId, functions, defaultConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSubscriptionDefinitionAsync"/>.</summary>
+    public static CreateSubscriptionDefinitionResult CreateSubscriptionDefinition(string name, SubscriptionDefinitionVersion? initialVersion = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateSubscriptionDefinitionAsync(name, initialVersion, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSubscriptionDefinitionAsync"/>.</summary>
+    public static void DeleteSubscriptionDefinition(string subscriptionDefinitionId, RegionEndpoint? region = null)
+        => DeleteSubscriptionDefinitionAsync(subscriptionDefinitionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSubscriptionDefinitionAsync"/>.</summary>
+    public static GetSubscriptionDefinitionResult GetSubscriptionDefinition(string subscriptionDefinitionId, RegionEndpoint? region = null)
+        => GetSubscriptionDefinitionAsync(subscriptionDefinitionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSubscriptionDefinitionsAsync"/>.</summary>
+    public static ListSubscriptionDefinitionsResult ListSubscriptionDefinitions(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListSubscriptionDefinitionsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDeploymentAsync"/>.</summary>
+    public static CreateGreengrassDeploymentResult CreateDeployment(string groupId, DeploymentType deploymentType, string? groupVersionId = null, string? deploymentId = null, RegionEndpoint? region = null)
+        => CreateDeploymentAsync(groupId, deploymentType, groupVersionId, deploymentId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDeploymentStatusAsync"/>.</summary>
+    public static GetDeploymentStatusResult GetDeploymentStatus(string groupId, string deploymentId, RegionEndpoint? region = null)
+        => GetDeploymentStatusAsync(groupId, deploymentId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDeploymentsAsync"/>.</summary>
+    public static ListGreengrassDeploymentsResult ListDeployments(string groupId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListDeploymentsAsync(groupId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResetDeploymentsAsync"/>.</summary>
+    public static ResetDeploymentsResult ResetDeployments(string groupId, bool? force = null, RegionEndpoint? region = null)
+        => ResetDeploymentsAsync(groupId, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGroupVersionAsync"/>.</summary>
+    public static CreateGroupVersionResult CreateGroupVersion(string groupId, string? coreDefinitionVersionArn = null, string? deviceDefinitionVersionArn = null, string? functionDefinitionVersionArn = null, string? subscriptionDefinitionVersionArn = null, string? loggerDefinitionVersionArn = null, string? resourceDefinitionVersionArn = null, string? connectorDefinitionVersionArn = null, RegionEndpoint? region = null)
+        => CreateGroupVersionAsync(groupId, coreDefinitionVersionArn, deviceDefinitionVersionArn, functionDefinitionVersionArn, subscriptionDefinitionVersionArn, loggerDefinitionVersionArn, resourceDefinitionVersionArn, connectorDefinitionVersionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGroupVersionsAsync"/>.</summary>
+    public static ListGroupVersionsResult ListGroupVersions(string groupId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListGroupVersionsAsync(groupId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetGroupVersionAsync"/>.</summary>
+    public static GetGroupVersionResult GetGroupVersion(string groupId, string groupVersionId, RegionEndpoint? region = null)
+        => GetGroupVersionAsync(groupId, groupVersionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssociateRoleToGroupAsync"/>.</summary>
+    public static void AssociateRoleToGroup(string groupId, string roleArn, RegionEndpoint? region = null)
+        => AssociateRoleToGroupAsync(groupId, roleArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisassociateRoleFromGroupAsync"/>.</summary>
+    public static void DisassociateRoleFromGroup(string groupId, RegionEndpoint? region = null)
+        => DisassociateRoleFromGroupAsync(groupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAssociatedRoleAsync"/>.</summary>
+    public static GetAssociatedRoleResult GetAssociatedRole(string groupId, RegionEndpoint? region = null)
+        => GetAssociatedRoleAsync(groupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static GreengrassListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

@@ -288,4 +288,22 @@ public static class CredentialRotationService
             result[i] = chars[bytes[i] % chars.Length];
         return new string(result);
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="IamKeyRotatorAsync"/>.</summary>
+    public static IamKeyRotatorResult IamKeyRotator(string userName, string? secretName = null, bool deactivateOldKey = true, string? auditTableName = null, RegionEndpoint? region = null)
+        => IamKeyRotatorAsync(userName, secretName, deactivateOldKey, auditTableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RdsPasswordRotatorAsync"/>.</summary>
+    public static RdsPasswordRotatorResult RdsPasswordRotator(string dbInstanceIdentifier, string secretName, List<string>? dependentFunctions = null, string? environmentVariableName = null, RegionEndpoint? region = null)
+        => RdsPasswordRotatorAsync(dbInstanceIdentifier, secretName, dependentFunctions, environmentVariableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SecretsManagerAutoRotatorAsync"/>.</summary>
+    public static SecretsManagerAutoRotatorResult SecretsManagerAutoRotator(string secretName, string rotationLambdaArn, int rotationIntervalDays = 30, RegionEndpoint? region = null)
+        => SecretsManagerAutoRotatorAsync(secretName, rotationLambdaArn, rotationIntervalDays, region).GetAwaiter().GetResult();
+
 }

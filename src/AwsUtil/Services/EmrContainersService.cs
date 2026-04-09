@@ -662,4 +662,102 @@ public static class EmrContainersService
                 "Failed to list security configurations");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateVirtualClusterAsync"/>.</summary>
+    public static EmrcCreateVirtualClusterResult CreateVirtualCluster(CreateVirtualClusterRequest request, RegionEndpoint? region = null)
+        => CreateVirtualClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteVirtualClusterAsync"/>.</summary>
+    public static EmrcDeleteVirtualClusterResult DeleteVirtualCluster(string id, RegionEndpoint? region = null)
+        => DeleteVirtualClusterAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeVirtualClusterAsync"/>.</summary>
+    public static EmrcDescribeVirtualClusterResult DescribeVirtualCluster(string id, RegionEndpoint? region = null)
+        => DescribeVirtualClusterAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListVirtualClustersAsync"/>.</summary>
+    public static EmrcListVirtualClustersResult ListVirtualClusters(string? containerProviderId = null, string? containerProviderType = null, List<string>? states = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListVirtualClustersAsync(containerProviderId, containerProviderType, states, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartJobRunAsync"/>.</summary>
+    public static EmrcStartJobRunResult StartJobRun(StartJobRunRequest request, RegionEndpoint? region = null)
+        => StartJobRunAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelJobRunAsync"/>.</summary>
+    public static EmrcCancelJobRunResult CancelJobRun(string virtualClusterId, string id, RegionEndpoint? region = null)
+        => CancelJobRunAsync(virtualClusterId, id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeJobRunAsync"/>.</summary>
+    public static EmrcDescribeJobRunResult DescribeJobRun(string virtualClusterId, string id, RegionEndpoint? region = null)
+        => DescribeJobRunAsync(virtualClusterId, id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListJobRunsAsync"/>.</summary>
+    public static EmrcListJobRunsResult ListJobRuns(string virtualClusterId, string? name = null, List<string>? states = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListJobRunsAsync(virtualClusterId, name, states, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateManagedEndpointAsync"/>.</summary>
+    public static EmrcCreateManagedEndpointResult CreateManagedEndpoint(CreateManagedEndpointRequest request, RegionEndpoint? region = null)
+        => CreateManagedEndpointAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteManagedEndpointAsync"/>.</summary>
+    public static EmrcDeleteManagedEndpointResult DeleteManagedEndpoint(string virtualClusterId, string id, RegionEndpoint? region = null)
+        => DeleteManagedEndpointAsync(virtualClusterId, id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeManagedEndpointAsync"/>.</summary>
+    public static EmrcDescribeManagedEndpointResult DescribeManagedEndpoint(string virtualClusterId, string id, RegionEndpoint? region = null)
+        => DescribeManagedEndpointAsync(virtualClusterId, id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListManagedEndpointsAsync"/>.</summary>
+    public static EmrcListManagedEndpointsResult ListManagedEndpoints(string virtualClusterId, List<string>? states = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListManagedEndpointsAsync(virtualClusterId, states, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateJobTemplateAsync"/>.</summary>
+    public static EmrcCreateJobTemplateResult CreateJobTemplate(CreateJobTemplateRequest request, RegionEndpoint? region = null)
+        => CreateJobTemplateAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteJobTemplateAsync"/>.</summary>
+    public static EmrcDeleteJobTemplateResult DeleteJobTemplate(string id, RegionEndpoint? region = null)
+        => DeleteJobTemplateAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeJobTemplateAsync"/>.</summary>
+    public static EmrcDescribeJobTemplateResult DescribeJobTemplate(string id, RegionEndpoint? region = null)
+        => DescribeJobTemplateAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListJobTemplatesAsync"/>.</summary>
+    public static EmrcListJobTemplatesResult ListJobTemplates(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListJobTemplatesAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetManagedEndpointSessionCredentialsAsync"/>.</summary>
+    public static EmrcGetManagedEndpointSessionCredentialsResult GetManagedEndpointSessionCredentials(string endpointIdentifier, string virtualClusterIdentifier, string executionRoleArn, string credentialType, int? durationInSeconds = null, string? logContext = null, string? clientToken = null, RegionEndpoint? region = null)
+        => GetManagedEndpointSessionCredentialsAsync(endpointIdentifier, virtualClusterIdentifier, executionRoleArn, credentialType, durationInSeconds, logContext, clientToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static EmrcTagResourceResult TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static EmrcUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static EmrcListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSecurityConfigurationAsync"/>.</summary>
+    public static EmrcCreateSecurityConfigurationResult CreateSecurityConfiguration(CreateSecurityConfigurationRequest request, RegionEndpoint? region = null)
+        => CreateSecurityConfigurationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSecurityConfigurationAsync"/>.</summary>
+    public static EmrcDescribeSecurityConfigurationResult DescribeSecurityConfiguration(string id, RegionEndpoint? region = null)
+        => DescribeSecurityConfigurationAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSecurityConfigurationsAsync"/>.</summary>
+    public static EmrcListSecurityConfigurationsResult ListSecurityConfigurations(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListSecurityConfigurationsAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
 }

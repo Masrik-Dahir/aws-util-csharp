@@ -889,4 +889,142 @@ public static class Route53Service
                 $"Failed to disable DNSSEC for hosted zone '{hostedZoneId}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateHostedZoneAsync"/>.</summary>
+    public static CreateHostedZoneResult CreateHostedZone(CreateHostedZoneRequest request, RegionEndpoint? region = null)
+        => CreateHostedZoneAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteHostedZoneAsync"/>.</summary>
+    public static void DeleteHostedZone(string hostedZoneId, RegionEndpoint? region = null)
+        => DeleteHostedZoneAsync(hostedZoneId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetHostedZoneAsync"/>.</summary>
+    public static GetHostedZoneResult GetHostedZone(string hostedZoneId, RegionEndpoint? region = null)
+        => GetHostedZoneAsync(hostedZoneId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListHostedZonesAsync"/>.</summary>
+    public static ListHostedZonesResult ListHostedZones(string? marker = null, int? maxItems = null, string? delegationSetId = null, RegionEndpoint? region = null)
+        => ListHostedZonesAsync(marker, maxItems, delegationSetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ChangeResourceRecordSetsAsync"/>.</summary>
+    public static ChangeResourceRecordSetsResult ChangeResourceRecordSets(ChangeResourceRecordSetsRequest request, RegionEndpoint? region = null)
+        => ChangeResourceRecordSetsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListResourceRecordSetsAsync"/>.</summary>
+    public static ListResourceRecordSetsResult ListResourceRecordSets(string hostedZoneId, string? startRecordName = null, string? startRecordType = null, string? startRecordIdentifier = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListResourceRecordSetsAsync(hostedZoneId, startRecordName, startRecordType, startRecordIdentifier, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetHostedZoneCountAsync"/>.</summary>
+    public static GetHostedZoneCountResult GetHostedZoneCount(RegionEndpoint? region = null)
+        => GetHostedZoneCountAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateHealthCheckAsync"/>.</summary>
+    public static CreateHealthCheckResult CreateHealthCheck(CreateHealthCheckRequest request, RegionEndpoint? region = null)
+        => CreateHealthCheckAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteHealthCheckAsync"/>.</summary>
+    public static void DeleteHealthCheck(string healthCheckId, RegionEndpoint? region = null)
+        => DeleteHealthCheckAsync(healthCheckId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetHealthCheckAsync"/>.</summary>
+    public static GetHealthCheckResult GetHealthCheck(string healthCheckId, RegionEndpoint? region = null)
+        => GetHealthCheckAsync(healthCheckId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListHealthChecksAsync"/>.</summary>
+    public static ListHealthChecksResult ListHealthChecks(string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListHealthChecksAsync(marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateHealthCheckAsync"/>.</summary>
+    public static void UpdateHealthCheck(UpdateHealthCheckRequest request, RegionEndpoint? region = null)
+        => UpdateHealthCheckAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetHealthCheckStatusAsync"/>.</summary>
+    public static GetHealthCheckStatusResult GetHealthCheckStatus(string healthCheckId, RegionEndpoint? region = null)
+        => GetHealthCheckStatusAsync(healthCheckId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TestDNSAnswerAsync"/>.</summary>
+    public static TestDNSAnswerResult TestDNSAnswer(TestDNSAnswerRequest request, RegionEndpoint? region = null)
+        => TestDNSAnswerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ChangeTagsForResourceAsync"/>.</summary>
+    public static void ChangeTagsForResource(ChangeTagsForResourceRequest request, RegionEndpoint? region = null)
+        => ChangeTagsForResourceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static Route53TagsResult ListTagsForResource(TagResourceType resourceType, string resourceId, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceType, resourceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssociateVPCWithHostedZoneAsync"/>.</summary>
+    public static void AssociateVPCWithHostedZone(AssociateVPCWithHostedZoneRequest request, RegionEndpoint? region = null)
+        => AssociateVPCWithHostedZoneAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisassociateVPCFromHostedZoneAsync"/>.</summary>
+    public static void DisassociateVPCFromHostedZone(DisassociateVPCFromHostedZoneRequest request, RegionEndpoint? region = null)
+        => DisassociateVPCFromHostedZoneAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateQueryLoggingConfigAsync"/>.</summary>
+    public static CreateQueryLoggingConfigResult CreateQueryLoggingConfig(string hostedZoneId, string cloudWatchLogsLogGroupArn, RegionEndpoint? region = null)
+        => CreateQueryLoggingConfigAsync(hostedZoneId, cloudWatchLogsLogGroupArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteQueryLoggingConfigAsync"/>.</summary>
+    public static void DeleteQueryLoggingConfig(string id, RegionEndpoint? region = null)
+        => DeleteQueryLoggingConfigAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetQueryLoggingConfigAsync"/>.</summary>
+    public static GetQueryLoggingConfigResult GetQueryLoggingConfig(string id, RegionEndpoint? region = null)
+        => GetQueryLoggingConfigAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListQueryLoggingConfigsAsync"/>.</summary>
+    public static ListQueryLoggingConfigsResult ListQueryLoggingConfigs(string? hostedZoneId = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListQueryLoggingConfigsAsync(hostedZoneId, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateReusableDelegationSetAsync"/>.</summary>
+    public static CreateReusableDelegationSetResult CreateReusableDelegationSet(string callerReference, string? hostedZoneId = null, RegionEndpoint? region = null)
+        => CreateReusableDelegationSetAsync(callerReference, hostedZoneId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteReusableDelegationSetAsync"/>.</summary>
+    public static void DeleteReusableDelegationSet(string id, RegionEndpoint? region = null)
+        => DeleteReusableDelegationSetAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetReusableDelegationSetAsync"/>.</summary>
+    public static GetReusableDelegationSetResult GetReusableDelegationSet(string id, RegionEndpoint? region = null)
+        => GetReusableDelegationSetAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListReusableDelegationSetsAsync"/>.</summary>
+    public static ListReusableDelegationSetsResult ListReusableDelegationSets(string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListReusableDelegationSetsAsync(marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTrafficPolicyAsync"/>.</summary>
+    public static CreateTrafficPolicyResult CreateTrafficPolicy(CreateTrafficPolicyRequest request, RegionEndpoint? region = null)
+        => CreateTrafficPolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTrafficPolicyAsync"/>.</summary>
+    public static void DeleteTrafficPolicy(string id, int version, RegionEndpoint? region = null)
+        => DeleteTrafficPolicyAsync(id, version, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTrafficPolicyAsync"/>.</summary>
+    public static GetTrafficPolicyResult GetTrafficPolicy(string id, int version, RegionEndpoint? region = null)
+        => GetTrafficPolicyAsync(id, version, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTrafficPoliciesAsync"/>.</summary>
+    public static ListTrafficPoliciesResult ListTrafficPolicies(string? trafficPolicyIdMarker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListTrafficPoliciesAsync(trafficPolicyIdMarker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDNSSECAsync"/>.</summary>
+    public static GetDNSSECResult GetDNSSEC(string hostedZoneId, RegionEndpoint? region = null)
+        => GetDNSSECAsync(hostedZoneId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableHostedZoneDNSSECAsync"/>.</summary>
+    public static void EnableHostedZoneDNSSEC(string hostedZoneId, RegionEndpoint? region = null)
+        => EnableHostedZoneDNSSECAsync(hostedZoneId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableHostedZoneDNSSECAsync"/>.</summary>
+    public static void DisableHostedZoneDNSSEC(string hostedZoneId, RegionEndpoint? region = null)
+        => DisableHostedZoneDNSSECAsync(hostedZoneId, region).GetAwaiter().GetResult();
+
 }

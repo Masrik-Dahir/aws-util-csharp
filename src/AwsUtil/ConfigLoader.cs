@@ -127,4 +127,37 @@ public static class ConfigLoader
     {
         return await LoadConfigFromSsmAsync(path, stripPrefix: true, recursive: recursive, region: region);
     }
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="LoadConfigFromSsmAsync"/>.</summary>
+    public static Dictionary<string, string> LoadConfigFromSsm(
+        string path, bool stripPrefix = true, bool recursive = true, RegionEndpoint? region = null)
+        => LoadConfigFromSsmAsync(path, stripPrefix, recursive, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LoadConfigFromSecretAsync"/>.</summary>
+    public static Dictionary<string, object?> LoadConfigFromSecret(
+        string secretName, RegionEndpoint? region = null)
+        => LoadConfigFromSecretAsync(secretName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LoadAppConfigAsync"/>.</summary>
+    public static AppConfig LoadAppConfig(
+        string ssmPath, string? secretName = null, bool stripPrefix = true, RegionEndpoint? region = null)
+        => LoadAppConfigAsync(ssmPath, secretName, stripPrefix, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDbCredentialsAsync"/>.</summary>
+    public static Dictionary<string, string> GetDbCredentials(
+        string secretName, RegionEndpoint? region = null)
+        => GetDbCredentialsAsync(secretName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResolveConfigAsync"/>.</summary>
+    public static Dictionary<string, object?> ResolveConfig(Dictionary<string, object?> config)
+        => ResolveConfigAsync(config).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSsmParameterMapAsync"/>.</summary>
+    public static Dictionary<string, string> GetSsmParameterMap(
+        string path, bool recursive = true, RegionEndpoint? region = null)
+        => GetSsmParameterMapAsync(path, recursive, region).GetAwaiter().GetResult();
 }

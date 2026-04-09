@@ -394,4 +394,58 @@ public static class HealthService
                 "Failed to describe Health service status for organization");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventsAsync"/>.</summary>
+    public static HealthDescribeEventsResult DescribeEvents(EventFilter? filter = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeEventsAsync(filter, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventDetailsAsync"/>.</summary>
+    public static HealthDescribeEventDetailsResult DescribeEventDetails(List<string> eventArns, string? locale = null, RegionEndpoint? region = null)
+        => DescribeEventDetailsAsync(eventArns, locale, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAffectedEntitiesAsync"/>.</summary>
+    public static HealthDescribeAffectedEntitiesResult DescribeAffectedEntities(EntityFilter filter, string? locale = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeAffectedEntitiesAsync(filter, locale, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventTypesAsync"/>.</summary>
+    public static HealthDescribeEventTypesResult DescribeEventTypes(EventTypeFilter? filter = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeEventTypesAsync(filter, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventAggregatesAsync"/>.</summary>
+    public static HealthDescribeEventAggregatesResult DescribeEventAggregates(EventAggregateField aggregateField, EventFilter? filter = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeEventAggregatesAsync(aggregateField, filter, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAffectedAccountsForOrganizationAsync"/>.</summary>
+    public static HealthDescribeAffectedAccountsForOrganizationResult DescribeAffectedAccountsForOrganization(string eventArn, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeAffectedAccountsForOrganizationAsync(eventArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAffectedEntitiesForOrganizationAsync"/>.</summary>
+    public static HealthDescribeAffectedEntitiesForOrganizationResult DescribeAffectedEntitiesForOrganization(List<EventAccountFilter> organizationEntityFilters, string? locale = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeAffectedEntitiesForOrganizationAsync(organizationEntityFilters, locale, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventsForOrganizationAsync"/>.</summary>
+    public static HealthDescribeEventsForOrganizationResult DescribeEventsForOrganization(OrganizationEventFilter? filter = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeEventsForOrganizationAsync(filter, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventDetailsForOrganizationAsync"/>.</summary>
+    public static HealthDescribeEventDetailsForOrganizationResult DescribeEventDetailsForOrganization(List<EventAccountFilter> organizationEventDetailFilters, string? locale = null, RegionEndpoint? region = null)
+        => DescribeEventDetailsForOrganizationAsync(organizationEventDetailFilters, locale, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableHealthServiceAccessForOrganizationAsync"/>.</summary>
+    public static HealthEnableServiceAccessForOrganizationResult EnableHealthServiceAccessForOrganization(RegionEndpoint? region = null)
+        => EnableHealthServiceAccessForOrganizationAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableHealthServiceAccessForOrganizationAsync"/>.</summary>
+    public static HealthDisableServiceAccessForOrganizationResult DisableHealthServiceAccessForOrganization(RegionEndpoint? region = null)
+        => DisableHealthServiceAccessForOrganizationAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeHealthServiceStatusForOrganizationAsync"/>.</summary>
+    public static HealthDescribeServiceStatusForOrganizationResult DescribeHealthServiceStatusForOrganization(RegionEndpoint? region = null)
+        => DescribeHealthServiceStatusForOrganizationAsync(region).GetAwaiter().GetResult();
+
 }

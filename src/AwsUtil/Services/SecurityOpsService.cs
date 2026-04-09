@@ -275,4 +275,22 @@ public static class SecurityOpsService
                 "Failed to encrypt unencrypted EBS volumes");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="AuditPublicS3BucketsAsync"/>.</summary>
+    public static AuditPublicS3BucketsResult AuditPublicS3Buckets(RegionEndpoint? region = null)
+        => AuditPublicS3BucketsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RotateIamAccessKeyAsync"/>.</summary>
+    public static RotateIamAccessKeyResult RotateIamAccessKey(string userName, string? oldAccessKeyId = null, bool deleteOldKey = true, RegionEndpoint? region = null)
+        => RotateIamAccessKeyAsync(userName, oldAccessKeyId, deleteOldKey, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EncryptUnencryptedVolumesAsync"/>.</summary>
+    public static EncryptUnencryptedVolumesResult EncryptUnencryptedVolumes(string? kmsKeyId = null, List<string>? volumeIds = null, RegionEndpoint? region = null)
+        => EncryptUnencryptedVolumesAsync(kmsKeyId, volumeIds, region).GetAwaiter().GetResult();
+
 }

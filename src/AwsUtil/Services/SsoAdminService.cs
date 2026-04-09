@@ -1222,4 +1222,142 @@ public static class SsoAdminService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePermissionSetAsync"/>.</summary>
+    public static SsoPermissionSetResult CreatePermissionSet(string instanceArn, string name, string? description = null, string? sessionDuration = null, string? relayState = null, List<Amazon.SSOAdmin.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreatePermissionSetAsync(instanceArn, name, description, sessionDuration, relayState, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePermissionSetAsync"/>.</summary>
+    public static void DeletePermissionSet(string instanceArn, string permissionSetArn, RegionEndpoint? region = null)
+        => DeletePermissionSetAsync(instanceArn, permissionSetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribePermissionSetAsync"/>.</summary>
+    public static SsoPermissionSetResult DescribePermissionSet(string instanceArn, string permissionSetArn, RegionEndpoint? region = null)
+        => DescribePermissionSetAsync(instanceArn, permissionSetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPermissionSetsAsync"/>.</summary>
+    public static List<string> ListPermissionSets(string instanceArn, RegionEndpoint? region = null)
+        => ListPermissionSetsAsync(instanceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdatePermissionSetAsync"/>.</summary>
+    public static void UpdatePermissionSet(string instanceArn, string permissionSetArn, string? description = null, string? sessionDuration = null, string? relayState = null, RegionEndpoint? region = null)
+        => UpdatePermissionSetAsync(instanceArn, permissionSetArn, description, sessionDuration, relayState, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ProvisionPermissionSetAsync"/>.</summary>
+    public static SsoProvisioningStatusResult ProvisionPermissionSet(string instanceArn, string permissionSetArn, string targetType, string? targetId = null, RegionEndpoint? region = null)
+        => ProvisionPermissionSetAsync(instanceArn, permissionSetArn, targetType, targetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AttachManagedPolicyToPermissionSetAsync"/>.</summary>
+    public static void AttachManagedPolicyToPermissionSet(string instanceArn, string permissionSetArn, string managedPolicyArn, RegionEndpoint? region = null)
+        => AttachManagedPolicyToPermissionSetAsync(instanceArn, permissionSetArn, managedPolicyArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetachManagedPolicyFromPermissionSetAsync"/>.</summary>
+    public static void DetachManagedPolicyFromPermissionSet(string instanceArn, string permissionSetArn, string managedPolicyArn, RegionEndpoint? region = null)
+        => DetachManagedPolicyFromPermissionSetAsync(instanceArn, permissionSetArn, managedPolicyArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListManagedPoliciesInPermissionSetAsync"/>.</summary>
+    public static List<SsoManagedPolicyResult> ListManagedPoliciesInPermissionSet(string instanceArn, string permissionSetArn, RegionEndpoint? region = null)
+        => ListManagedPoliciesInPermissionSetAsync(instanceArn, permissionSetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutInlinePolicyToPermissionSetAsync"/>.</summary>
+    public static void PutInlinePolicyToPermissionSet(string instanceArn, string permissionSetArn, string inlinePolicy, RegionEndpoint? region = null)
+        => PutInlinePolicyToPermissionSetAsync(instanceArn, permissionSetArn, inlinePolicy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetInlinePolicyForPermissionSetAsync"/>.</summary>
+    public static SsoInlinePolicyResult GetInlinePolicyForPermissionSet(string instanceArn, string permissionSetArn, RegionEndpoint? region = null)
+        => GetInlinePolicyForPermissionSetAsync(instanceArn, permissionSetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteInlinePolicyFromPermissionSetAsync"/>.</summary>
+    public static void DeleteInlinePolicyFromPermissionSet(string instanceArn, string permissionSetArn, RegionEndpoint? region = null)
+        => DeleteInlinePolicyFromPermissionSetAsync(instanceArn, permissionSetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AttachCustomerManagedPolicyReferenceToPermissionSetAsync"/>.</summary>
+    public static void AttachCustomerManagedPolicyReferenceToPermissionSet(string instanceArn, string permissionSetArn, string policyName, string? policyPath = null, RegionEndpoint? region = null)
+        => AttachCustomerManagedPolicyReferenceToPermissionSetAsync(instanceArn, permissionSetArn, policyName, policyPath, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetachCustomerManagedPolicyReferenceFromPermissionSetAsync"/>.</summary>
+    public static void DetachCustomerManagedPolicyReferenceFromPermissionSet(string instanceArn, string permissionSetArn, string policyName, string? policyPath = null, RegionEndpoint? region = null)
+        => DetachCustomerManagedPolicyReferenceFromPermissionSetAsync(instanceArn, permissionSetArn, policyName, policyPath, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCustomerManagedPolicyReferencesInPermissionSetAsync"/>.</summary>
+    public static List<SsoCustomerManagedPolicyResult> ListCustomerManagedPolicyReferencesInPermissionSet(string instanceArn, string permissionSetArn, RegionEndpoint? region = null)
+        => ListCustomerManagedPolicyReferencesInPermissionSetAsync(instanceArn, permissionSetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAccountAssignmentAsync"/>.</summary>
+    public static SsoAccountAssignmentOperationResult CreateAccountAssignment(string instanceArn, string permissionSetArn, string targetId, string targetType, string principalType, string principalId, RegionEndpoint? region = null)
+        => CreateAccountAssignmentAsync(instanceArn, permissionSetArn, targetId, targetType, principalType, principalId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAccountAssignmentAsync"/>.</summary>
+    public static SsoAccountAssignmentOperationResult DeleteAccountAssignment(string instanceArn, string permissionSetArn, string targetId, string targetType, string principalType, string principalId, RegionEndpoint? region = null)
+        => DeleteAccountAssignmentAsync(instanceArn, permissionSetArn, targetId, targetType, principalType, principalId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccountAssignmentsAsync"/>.</summary>
+    public static List<SsoAccountAssignmentResult> ListAccountAssignments(string instanceArn, string accountId, string permissionSetArn, RegionEndpoint? region = null)
+        => ListAccountAssignmentsAsync(instanceArn, accountId, permissionSetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccountsForProvisionedPermissionSetAsync"/>.</summary>
+    public static List<string> ListAccountsForProvisionedPermissionSet(string instanceArn, string permissionSetArn, RegionEndpoint? region = null)
+        => ListAccountsForProvisionedPermissionSetAsync(instanceArn, permissionSetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPermissionSetsProvisionedToAccountAsync"/>.</summary>
+    public static List<string> ListPermissionSetsProvisionedToAccount(string instanceArn, string accountId, RegionEndpoint? region = null)
+        => ListPermissionSetsProvisionedToAccountAsync(instanceArn, accountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListInstancesAsync"/>.</summary>
+    public static List<SsoInstanceResult> ListInstances(RegionEndpoint? region = null)
+        => ListInstancesAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAccountAssignmentCreationStatusAsync"/>.</summary>
+    public static SsoAccountAssignmentOperationResult DescribeAccountAssignmentCreationStatus(string instanceArn, string requestId, RegionEndpoint? region = null)
+        => DescribeAccountAssignmentCreationStatusAsync(instanceArn, requestId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAccountAssignmentDeletionStatusAsync"/>.</summary>
+    public static SsoAccountAssignmentOperationResult DescribeAccountAssignmentDeletionStatus(string instanceArn, string requestId, RegionEndpoint? region = null)
+        => DescribeAccountAssignmentDeletionStatusAsync(instanceArn, requestId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccountAssignmentCreationStatusAsync"/>.</summary>
+    public static List<SsoAccountAssignmentOperationResult> ListAccountAssignmentCreationStatus(string instanceArn, OperationStatusFilter? filter = null, RegionEndpoint? region = null)
+        => ListAccountAssignmentCreationStatusAsync(instanceArn, filter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccountAssignmentDeletionStatusAsync"/>.</summary>
+    public static List<SsoAccountAssignmentOperationResult> ListAccountAssignmentDeletionStatus(string instanceArn, OperationStatusFilter? filter = null, RegionEndpoint? region = null)
+        => ListAccountAssignmentDeletionStatusAsync(instanceArn, filter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribePermissionSetProvisioningStatusAsync"/>.</summary>
+    public static SsoProvisioningStatusResult DescribePermissionSetProvisioningStatus(string instanceArn, string requestId, RegionEndpoint? region = null)
+        => DescribePermissionSetProvisioningStatusAsync(instanceArn, requestId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPermissionSetProvisioningStatusAsync"/>.</summary>
+    public static List<SsoProvisioningStatusResult> ListPermissionSetProvisioningStatus(string instanceArn, OperationStatusFilter? filter = null, RegionEndpoint? region = null)
+        => ListPermissionSetProvisioningStatusAsync(instanceArn, filter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutPermissionsBoundaryToPermissionSetAsync"/>.</summary>
+    public static void PutPermissionsBoundaryToPermissionSet(string instanceArn, string permissionSetArn, string? managedPolicyArn = null, string? customerManagedPolicyName = null, string? customerManagedPolicyPath = null, RegionEndpoint? region = null)
+        => PutPermissionsBoundaryToPermissionSetAsync(instanceArn, permissionSetArn, managedPolicyArn, customerManagedPolicyName, customerManagedPolicyPath, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePermissionsBoundaryFromPermissionSetAsync"/>.</summary>
+    public static void DeletePermissionsBoundaryFromPermissionSet(string instanceArn, string permissionSetArn, RegionEndpoint? region = null)
+        => DeletePermissionsBoundaryFromPermissionSetAsync(instanceArn, permissionSetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPermissionsBoundaryForPermissionSetAsync"/>.</summary>
+    public static SsoPermissionsBoundaryResult GetPermissionsBoundaryForPermissionSet(string instanceArn, string permissionSetArn, RegionEndpoint? region = null)
+        => GetPermissionsBoundaryForPermissionSetAsync(instanceArn, permissionSetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string instanceArn, string resourceArn, List<Amazon.SSOAdmin.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(instanceArn, resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string instanceArn, string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(instanceArn, resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static List<SsoTagResult> ListTagsForResource(string instanceArn, string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(instanceArn, resourceArn, region).GetAwaiter().GetResult();
+
 }

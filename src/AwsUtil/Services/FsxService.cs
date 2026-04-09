@@ -1203,4 +1203,158 @@ public static class FsxService
                 $"Failed to release NFS V3 locks for file system '{fileSystemId}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFileSystemAsync"/>.</summary>
+    public static FsxFileSystemInfo CreateFileSystem(CreateFileSystemRequest request, RegionEndpoint? region = null)
+        => CreateFileSystemAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFileSystemAsync"/>.</summary>
+    public static FsxDeleteResult DeleteFileSystem(DeleteFileSystemRequest request, RegionEndpoint? region = null)
+        => DeleteFileSystemAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeFileSystemsAsync"/>.</summary>
+    public static List<FsxFileSystemInfo> DescribeFileSystems(List<string>? fileSystemIds = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeFileSystemsAsync(fileSystemIds, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateFileSystemAsync"/>.</summary>
+    public static FsxFileSystemInfo UpdateFileSystem(UpdateFileSystemRequest request, RegionEndpoint? region = null)
+        => UpdateFileSystemAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDataRepositoryTaskAsync"/>.</summary>
+    public static FsxDataRepositoryTaskInfo CreateDataRepositoryTask(CreateDataRepositoryTaskRequest request, RegionEndpoint? region = null)
+        => CreateDataRepositoryTaskAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDataRepositoryTasksAsync"/>.</summary>
+    public static List<FsxDataRepositoryTaskInfo> DescribeDataRepositoryTasks(List<string>? taskIds = null, List<DataRepositoryTaskFilter>? filters = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeDataRepositoryTasksAsync(taskIds, filters, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelDataRepositoryTaskAsync"/>.</summary>
+    public static FsxDataRepositoryTaskInfo CancelDataRepositoryTask(string taskId, RegionEndpoint? region = null)
+        => CancelDataRepositoryTaskAsync(taskId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDataRepositoryAssociationAsync"/>.</summary>
+    public static FsxDataRepositoryAssociationInfo CreateDataRepositoryAssociation(CreateDataRepositoryAssociationRequest request, RegionEndpoint? region = null)
+        => CreateDataRepositoryAssociationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDataRepositoryAssociationAsync"/>.</summary>
+    public static FsxDataRepositoryAssociationInfo DeleteDataRepositoryAssociation(DeleteDataRepositoryAssociationRequest request, RegionEndpoint? region = null)
+        => DeleteDataRepositoryAssociationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDataRepositoryAssociationsAsync"/>.</summary>
+    public static List<FsxDataRepositoryAssociationInfo> DescribeDataRepositoryAssociations(List<string>? associationIds = null, List<Filter>? filters = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeDataRepositoryAssociationsAsync(associationIds, filters, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDataRepositoryAssociationAsync"/>.</summary>
+    public static FsxDataRepositoryAssociationInfo UpdateDataRepositoryAssociation(UpdateDataRepositoryAssociationRequest request, RegionEndpoint? region = null)
+        => UpdateDataRepositoryAssociationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateBackupAsync"/>.</summary>
+    public static FsxBackupInfo CreateBackup(CreateBackupRequest request, RegionEndpoint? region = null)
+        => CreateBackupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteBackupAsync"/>.</summary>
+    public static FsxBackupInfo DeleteBackup(string backupId, RegionEndpoint? region = null)
+        => DeleteBackupAsync(backupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeBackupsAsync"/>.</summary>
+    public static List<FsxBackupInfo> DescribeBackups(List<string>? backupIds = null, List<Filter>? filters = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeBackupsAsync(backupIds, filters, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CopyBackupAsync"/>.</summary>
+    public static FsxBackupInfo CopyBackup(CopyBackupRequest request, RegionEndpoint? region = null)
+        => CopyBackupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSnapshotAsync"/>.</summary>
+    public static FsxSnapshotInfo CreateSnapshot(CreateSnapshotRequest request, RegionEndpoint? region = null)
+        => CreateSnapshotAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSnapshotAsync"/>.</summary>
+    public static FsxSnapshotInfo DeleteSnapshot(string snapshotId, RegionEndpoint? region = null)
+        => DeleteSnapshotAsync(snapshotId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSnapshotsAsync"/>.</summary>
+    public static List<FsxSnapshotInfo> DescribeSnapshots(List<string>? snapshotIds = null, List<SnapshotFilter>? filters = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeSnapshotsAsync(snapshotIds, filters, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateSnapshotAsync"/>.</summary>
+    public static FsxSnapshotInfo UpdateSnapshot(UpdateSnapshotRequest request, RegionEndpoint? region = null)
+        => UpdateSnapshotAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateStorageVirtualMachineAsync"/>.</summary>
+    public static FsxStorageVirtualMachineInfo CreateStorageVirtualMachine(CreateStorageVirtualMachineRequest request, RegionEndpoint? region = null)
+        => CreateStorageVirtualMachineAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteStorageVirtualMachineAsync"/>.</summary>
+    public static FsxStorageVirtualMachineInfo DeleteStorageVirtualMachine(string storageVirtualMachineId, RegionEndpoint? region = null)
+        => DeleteStorageVirtualMachineAsync(storageVirtualMachineId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStorageVirtualMachinesAsync"/>.</summary>
+    public static List<FsxStorageVirtualMachineInfo> DescribeStorageVirtualMachines(List<string>? storageVirtualMachineIds = null, List<StorageVirtualMachineFilter>? filters = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeStorageVirtualMachinesAsync(storageVirtualMachineIds, filters, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateStorageVirtualMachineAsync"/>.</summary>
+    public static FsxStorageVirtualMachineInfo UpdateStorageVirtualMachine(UpdateStorageVirtualMachineRequest request, RegionEndpoint? region = null)
+        => UpdateStorageVirtualMachineAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateVolumeAsync"/>.</summary>
+    public static FsxVolumeInfo CreateVolume(CreateVolumeRequest request, RegionEndpoint? region = null)
+        => CreateVolumeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteVolumeAsync"/>.</summary>
+    public static FsxVolumeInfo DeleteVolume(DeleteVolumeRequest request, RegionEndpoint? region = null)
+        => DeleteVolumeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeVolumesAsync"/>.</summary>
+    public static List<FsxVolumeInfo> DescribeVolumes(List<string>? volumeIds = null, List<VolumeFilter>? filters = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeVolumesAsync(volumeIds, filters, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateVolumeAsync"/>.</summary>
+    public static FsxVolumeInfo UpdateVolume(UpdateVolumeRequest request, RegionEndpoint? region = null)
+        => UpdateVolumeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateVolumeFromBackupAsync"/>.</summary>
+    public static FsxVolumeInfo CreateVolumeFromBackup(CreateVolumeFromBackupRequest request, RegionEndpoint? region = null)
+        => CreateVolumeFromBackupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFileCacheAsync"/>.</summary>
+    public static FsxFileCacheInfo CreateFileCache(CreateFileCacheRequest request, RegionEndpoint? region = null)
+        => CreateFileCacheAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFileCacheAsync"/>.</summary>
+    public static FsxFileCacheInfo DeleteFileCache(string fileCacheId, RegionEndpoint? region = null)
+        => DeleteFileCacheAsync(fileCacheId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeFileCachesAsync"/>.</summary>
+    public static List<FsxFileCacheInfo> DescribeFileCaches(List<string>? fileCacheIds = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeFileCachesAsync(fileCacheIds, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateFileCacheAsync"/>.</summary>
+    public static FsxFileCacheInfo UpdateFileCache(UpdateFileCacheRequest request, RegionEndpoint? region = null)
+        => UpdateFileCacheAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static FsxTagResult TagResource(string resourceARN, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceARN, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static FsxTagResult UntagResource(string resourceARN, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceARN, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static FsxListTagsResult ListTagsForResource(string resourceARN, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceARN, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RestoreVolumeFromSnapshotAsync"/>.</summary>
+    public static FsxVolumeInfo RestoreVolumeFromSnapshot(RestoreVolumeFromSnapshotRequest request, RegionEndpoint? region = null)
+        => RestoreVolumeFromSnapshotAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ReleaseFileSystemNfsV3LocksAsync"/>.</summary>
+    public static FsxFileSystemInfo ReleaseFileSystemNfsV3Locks(string fileSystemId, RegionEndpoint? region = null)
+        => ReleaseFileSystemNfsV3LocksAsync(fileSystemId, region).GetAwaiter().GetResult();
+
 }

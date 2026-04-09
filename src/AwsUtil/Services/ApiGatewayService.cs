@@ -511,4 +511,26 @@ public static class ApiGatewayService
         var bytes = Convert.FromBase64String(padded);
         return Encoding.UTF8.GetString(bytes);
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="ApiKeyAuthorizerAsync"/>.</summary>
+    public static AuthorizerResult ApiKeyAuthorizer(string apiKey, string tableName, RegionEndpoint? region = null)
+        => ApiKeyAuthorizerAsync(apiKey, tableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ThrottleGuardAsync"/>.</summary>
+    public static ThrottleResult ThrottleGuard(string tableName, string key, int limit, int windowSeconds = 60, RegionEndpoint? region = null)
+        => ThrottleGuardAsync(tableName, key, limit, windowSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="WebSocketConnectAsync"/>.</summary>
+    public static WebSocketConnectResult WebSocketConnect(string tableName, string connectionId, Dictionary<string, string>? metadata = null, int ttlSeconds = 86400, RegionEndpoint? region = null)
+        => WebSocketConnectAsync(tableName, connectionId, metadata, ttlSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="WebSocketBroadcastAsync"/>.</summary>
+    public static WebSocketBroadcastResult WebSocketBroadcast(string tableName, object message, string callbackUrl, RegionEndpoint? region = null)
+        => WebSocketBroadcastAsync(tableName, message, callbackUrl, region).GetAwaiter().GetResult();
+
 }

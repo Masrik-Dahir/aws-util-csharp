@@ -886,4 +886,130 @@ public static class EcrService
                 "Failed to describe pull-through cache rules");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRepositoryAsync"/>.</summary>
+    public static CreateRepositoryResult CreateRepository(CreateRepositoryRequest request, RegionEndpoint? region = null)
+        => CreateRepositoryAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRepositoryAsync"/>.</summary>
+    public static DeleteRepositoryResult DeleteRepository(string repositoryName, string? registryId = null, bool force = false, RegionEndpoint? region = null)
+        => DeleteRepositoryAsync(repositoryName, registryId, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeRepositoriesAsync"/>.</summary>
+    public static DescribeRepositoriesResult DescribeRepositories(DescribeRepositoriesRequest request, RegionEndpoint? region = null)
+        => DescribeRepositoriesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListImagesAsync"/>.</summary>
+    public static EcrListImagesResult ListImages(ListImagesRequest request, RegionEndpoint? region = null)
+        => ListImagesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeImagesAsync"/>.</summary>
+    public static EcrDescribeImagesResult DescribeImages(DescribeImagesRequest request, RegionEndpoint? region = null)
+        => DescribeImagesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchDeleteImageAsync"/>.</summary>
+    public static EcrBatchDeleteImageResult BatchDeleteImage(BatchDeleteImageRequest request, RegionEndpoint? region = null)
+        => BatchDeleteImageAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetImageAsync"/>.</summary>
+    public static EcrBatchGetImageResult BatchGetImage(BatchGetImageRequest request, RegionEndpoint? region = null)
+        => BatchGetImageAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAuthorizationTokenAsync"/>.</summary>
+    public static EcrGetAuthorizationTokenResult GetAuthorizationToken(RegionEndpoint? region = null)
+        => GetAuthorizationTokenAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutImageAsync"/>.</summary>
+    public static EcrPutImageResult PutImage(PutImageRequest request, RegionEndpoint? region = null)
+        => PutImageAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutImageTagMutabilityAsync"/>.</summary>
+    public static EcrPutImageTagMutabilityResult PutImageTagMutability(string repositoryName, string imageTagMutability, string? registryId = null, RegionEndpoint? region = null)
+        => PutImageTagMutabilityAsync(repositoryName, imageTagMutability, registryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutImageScanningConfigurationAsync"/>.</summary>
+    public static EcrPutImageScanningConfigurationResult PutImageScanningConfiguration(string repositoryName, ImageScanningConfiguration imageScanningConfiguration, string? registryId = null, RegionEndpoint? region = null)
+        => PutImageScanningConfigurationAsync(repositoryName, imageScanningConfiguration, registryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetRepositoryPolicyAsync"/>.</summary>
+    public static EcrSetRepositoryPolicyResult SetRepositoryPolicy(string repositoryName, string policyText, bool? force = null, string? registryId = null, RegionEndpoint? region = null)
+        => SetRepositoryPolicyAsync(repositoryName, policyText, force, registryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRepositoryPolicyAsync"/>.</summary>
+    public static EcrGetRepositoryPolicyResult GetRepositoryPolicy(string repositoryName, string? registryId = null, RegionEndpoint? region = null)
+        => GetRepositoryPolicyAsync(repositoryName, registryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRepositoryPolicyAsync"/>.</summary>
+    public static EcrDeleteRepositoryPolicyResult DeleteRepositoryPolicy(string repositoryName, string? registryId = null, RegionEndpoint? region = null)
+        => DeleteRepositoryPolicyAsync(repositoryName, registryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartImageScanAsync"/>.</summary>
+    public static EcrStartImageScanResult StartImageScan(string repositoryName, ImageIdentifier imageId, string? registryId = null, RegionEndpoint? region = null)
+        => StartImageScanAsync(repositoryName, imageId, registryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeImageScanFindingsAsync"/>.</summary>
+    public static EcrDescribeImageScanFindingsResult DescribeImageScanFindings(DescribeImageScanFindingsRequest request, RegionEndpoint? region = null)
+        => DescribeImageScanFindingsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetLifecyclePolicyAsync"/>.</summary>
+    public static EcrGetLifecyclePolicyResult GetLifecyclePolicy(string repositoryName, string? registryId = null, RegionEndpoint? region = null)
+        => GetLifecyclePolicyAsync(repositoryName, registryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutLifecyclePolicyAsync"/>.</summary>
+    public static EcrPutLifecyclePolicyResult PutLifecyclePolicy(string repositoryName, string lifecyclePolicyText, string? registryId = null, RegionEndpoint? region = null)
+        => PutLifecyclePolicyAsync(repositoryName, lifecyclePolicyText, registryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteLifecyclePolicyAsync"/>.</summary>
+    public static EcrDeleteLifecyclePolicyResult DeleteLifecyclePolicy(string repositoryName, string? registryId = null, RegionEndpoint? region = null)
+        => DeleteLifecyclePolicyAsync(repositoryName, registryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetLifecyclePolicyPreviewAsync"/>.</summary>
+    public static EcrGetLifecyclePolicyPreviewResult GetLifecyclePolicyPreview(GetLifecyclePolicyPreviewRequest request, RegionEndpoint? region = null)
+        => GetLifecyclePolicyPreviewAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartLifecyclePolicyPreviewAsync"/>.</summary>
+    public static EcrStartLifecyclePolicyPreviewResult StartLifecyclePolicyPreview(StartLifecyclePolicyPreviewRequest request, RegionEndpoint? region = null)
+        => StartLifecyclePolicyPreviewAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static EcrTagResourceResult TagResource(string resourceArn, List<Amazon.ECR.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static EcrUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static EcrListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutRegistryScanningConfigurationAsync"/>.</summary>
+    public static EcrPutRegistryScanningConfigurationResult PutRegistryScanningConfiguration(PutRegistryScanningConfigurationRequest request, RegionEndpoint? region = null)
+        => PutRegistryScanningConfigurationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRegistryScanningConfigurationAsync"/>.</summary>
+    public static EcrGetRegistryScanningConfigurationResult GetRegistryScanningConfiguration(RegionEndpoint? region = null)
+        => GetRegistryScanningConfigurationAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetRepositoryScanningConfigurationAsync"/>.</summary>
+    public static EcrBatchGetRepositoryScanningConfigurationResult BatchGetRepositoryScanningConfiguration(List<string> repositoryNames, RegionEndpoint? region = null)
+        => BatchGetRepositoryScanningConfigurationAsync(repositoryNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePullThroughCacheRuleAsync"/>.</summary>
+    public static EcrCreatePullThroughCacheRuleResult CreatePullThroughCacheRule(CreatePullThroughCacheRuleRequest request, RegionEndpoint? region = null)
+        => CreatePullThroughCacheRuleAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePullThroughCacheRuleAsync"/>.</summary>
+    public static EcrDeletePullThroughCacheRuleResult DeletePullThroughCacheRule(string ecrRepositoryPrefix, string? registryId = null, RegionEndpoint? region = null)
+        => DeletePullThroughCacheRuleAsync(ecrRepositoryPrefix, registryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribePullThroughCacheRulesAsync"/>.</summary>
+    public static EcrDescribePullThroughCacheRulesResult DescribePullThroughCacheRules(DescribePullThroughCacheRulesRequest request, RegionEndpoint? region = null)
+        => DescribePullThroughCacheRulesAsync(request, region).GetAwaiter().GetResult();
+
 }

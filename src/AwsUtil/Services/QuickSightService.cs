@@ -1700,4 +1700,202 @@ public static class QuickSightService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDashboardAsync"/>.</summary>
+    public static QsDashboardResult CreateDashboard(string awsAccountId, string dashboardId, string name, DashboardSourceEntity sourceEntity, DashboardPublishOptions? publishOptions = null, List<ResourcePermission>? permissions = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDashboardAsync(awsAccountId, dashboardId, name, sourceEntity, publishOptions, permissions, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDashboardAsync"/>.</summary>
+    public static QsDeleteResult DeleteDashboard(string awsAccountId, string dashboardId, RegionEndpoint? region = null)
+        => DeleteDashboardAsync(awsAccountId, dashboardId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDashboardAsync"/>.</summary>
+    public static QsDescribeDashboardResult DescribeDashboard(string awsAccountId, string dashboardId, RegionEndpoint? region = null)
+        => DescribeDashboardAsync(awsAccountId, dashboardId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDashboardsAsync"/>.</summary>
+    public static QsListDashboardsResult ListDashboards(string awsAccountId, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListDashboardsAsync(awsAccountId, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDashboardAsync"/>.</summary>
+    public static QsDashboardResult UpdateDashboard(string awsAccountId, string dashboardId, string name, DashboardSourceEntity sourceEntity, DashboardPublishOptions? publishOptions = null, RegionEndpoint? region = null)
+        => UpdateDashboardAsync(awsAccountId, dashboardId, name, sourceEntity, publishOptions, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDataSetAsync"/>.</summary>
+    public static QsDataSetResult CreateDataSet(string awsAccountId, string dataSetId, string name, Dictionary<string, PhysicalTable> physicalTableMap, DataSetImportMode importMode, Dictionary<string, LogicalTable>? logicalTableMap = null, List<ResourcePermission>? permissions = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDataSetAsync(awsAccountId, dataSetId, name, physicalTableMap, importMode, logicalTableMap, permissions, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDataSetAsync"/>.</summary>
+    public static QsDeleteResult DeleteDataSet(string awsAccountId, string dataSetId, RegionEndpoint? region = null)
+        => DeleteDataSetAsync(awsAccountId, dataSetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDataSetAsync"/>.</summary>
+    public static QsDescribeDataSetResult DescribeDataSet(string awsAccountId, string dataSetId, RegionEndpoint? region = null)
+        => DescribeDataSetAsync(awsAccountId, dataSetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDataSetsAsync"/>.</summary>
+    public static QsListDataSetsResult ListDataSets(string awsAccountId, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListDataSetsAsync(awsAccountId, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDataSetAsync"/>.</summary>
+    public static QsDataSetResult UpdateDataSet(string awsAccountId, string dataSetId, string name, Dictionary<string, PhysicalTable> physicalTableMap, DataSetImportMode importMode, Dictionary<string, LogicalTable>? logicalTableMap = null, RegionEndpoint? region = null)
+        => UpdateDataSetAsync(awsAccountId, dataSetId, name, physicalTableMap, importMode, logicalTableMap, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDataSourceAsync"/>.</summary>
+    public static QsDataSourceResult CreateDataSource(string awsAccountId, string dataSourceId, string name, DataSourceType type, DataSourceParameters? dataSourceParameters = null, DataSourceCredentials? credentials = null, List<ResourcePermission>? permissions = null, SslProperties? sslProperties = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDataSourceAsync(awsAccountId, dataSourceId, name, type, dataSourceParameters, credentials, permissions, sslProperties, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDataSourceAsync"/>.</summary>
+    public static QsDeleteResult DeleteDataSource(string awsAccountId, string dataSourceId, RegionEndpoint? region = null)
+        => DeleteDataSourceAsync(awsAccountId, dataSourceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDataSourceAsync"/>.</summary>
+    public static QsDescribeDataSourceResult DescribeDataSource(string awsAccountId, string dataSourceId, RegionEndpoint? region = null)
+        => DescribeDataSourceAsync(awsAccountId, dataSourceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDataSourcesAsync"/>.</summary>
+    public static QsListDataSourcesResult ListDataSources(string awsAccountId, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListDataSourcesAsync(awsAccountId, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDataSourceAsync"/>.</summary>
+    public static QsDataSourceResult UpdateDataSource(string awsAccountId, string dataSourceId, string name, DataSourceParameters? dataSourceParameters = null, DataSourceCredentials? credentials = null, SslProperties? sslProperties = null, RegionEndpoint? region = null)
+        => UpdateDataSourceAsync(awsAccountId, dataSourceId, name, dataSourceParameters, credentials, sslProperties, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAnalysisAsync"/>.</summary>
+    public static QsAnalysisResult CreateAnalysis(string awsAccountId, string analysisId, string name, AnalysisSourceEntity sourceEntity, List<ResourcePermission>? permissions = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateAnalysisAsync(awsAccountId, analysisId, name, sourceEntity, permissions, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAnalysisAsync"/>.</summary>
+    public static QsDeleteResult DeleteAnalysis(string awsAccountId, string analysisId, RegionEndpoint? region = null)
+        => DeleteAnalysisAsync(awsAccountId, analysisId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAnalysisAsync"/>.</summary>
+    public static QsDescribeAnalysisResult DescribeAnalysis(string awsAccountId, string analysisId, RegionEndpoint? region = null)
+        => DescribeAnalysisAsync(awsAccountId, analysisId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAnalysesAsync"/>.</summary>
+    public static QsListAnalysesResult ListAnalyses(string awsAccountId, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListAnalysesAsync(awsAccountId, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAnalysisAsync"/>.</summary>
+    public static QsAnalysisResult UpdateAnalysis(string awsAccountId, string analysisId, string name, AnalysisSourceEntity sourceEntity, RegionEndpoint? region = null)
+        => UpdateAnalysisAsync(awsAccountId, analysisId, name, sourceEntity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTemplateAsync"/>.</summary>
+    public static QsTemplateResult CreateTemplate(string awsAccountId, string templateId, string name, TemplateSourceEntity sourceEntity, List<ResourcePermission>? permissions = null, List<Tag>? tags = null, string? versionDescription = null, RegionEndpoint? region = null)
+        => CreateTemplateAsync(awsAccountId, templateId, name, sourceEntity, permissions, tags, versionDescription, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTemplateAsync"/>.</summary>
+    public static QsDeleteResult DeleteTemplate(string awsAccountId, string templateId, RegionEndpoint? region = null)
+        => DeleteTemplateAsync(awsAccountId, templateId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTemplateAsync"/>.</summary>
+    public static QsDescribeTemplateResult DescribeTemplate(string awsAccountId, string templateId, RegionEndpoint? region = null)
+        => DescribeTemplateAsync(awsAccountId, templateId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTemplatesAsync"/>.</summary>
+    public static QsListTemplatesResult ListTemplates(string awsAccountId, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListTemplatesAsync(awsAccountId, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateTemplateAsync"/>.</summary>
+    public static QsTemplateResult UpdateTemplate(string awsAccountId, string templateId, TemplateSourceEntity sourceEntity, string? versionDescription = null, string? name = null, RegionEndpoint? region = null)
+        => UpdateTemplateAsync(awsAccountId, templateId, sourceEntity, versionDescription, name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateThemeAsync"/>.</summary>
+    public static QsThemeResult CreateTheme(string awsAccountId, string themeId, string name, string baseThemeId, ThemeConfiguration configuration, List<ResourcePermission>? permissions = null, List<Tag>? tags = null, string? versionDescription = null, RegionEndpoint? region = null)
+        => CreateThemeAsync(awsAccountId, themeId, name, baseThemeId, configuration, permissions, tags, versionDescription, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteThemeAsync"/>.</summary>
+    public static QsDeleteResult DeleteTheme(string awsAccountId, string themeId, RegionEndpoint? region = null)
+        => DeleteThemeAsync(awsAccountId, themeId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeThemeAsync"/>.</summary>
+    public static QsDescribeThemeResult DescribeTheme(string awsAccountId, string themeId, RegionEndpoint? region = null)
+        => DescribeThemeAsync(awsAccountId, themeId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListThemesAsync"/>.</summary>
+    public static QsListThemesResult ListThemes(string awsAccountId, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListThemesAsync(awsAccountId, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateThemeAsync"/>.</summary>
+    public static QsThemeResult UpdateTheme(string awsAccountId, string themeId, string baseThemeId, ThemeConfiguration? configuration = null, string? name = null, string? versionDescription = null, RegionEndpoint? region = null)
+        => UpdateThemeAsync(awsAccountId, themeId, baseThemeId, configuration, name, versionDescription, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGroupAsync"/>.</summary>
+    public static QsGroupResult CreateGroup(string awsAccountId, string @namespace, string groupName, string? description = null, RegionEndpoint? region = null)
+        => CreateGroupAsync(awsAccountId, @namespace, groupName, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGroupAsync"/>.</summary>
+    public static QsDeleteResult DeleteGroup(string awsAccountId, string @namespace, string groupName, RegionEndpoint? region = null)
+        => DeleteGroupAsync(awsAccountId, @namespace, groupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeGroupAsync"/>.</summary>
+    public static QsDescribeGroupResult DescribeGroup(string awsAccountId, string @namespace, string groupName, RegionEndpoint? region = null)
+        => DescribeGroupAsync(awsAccountId, @namespace, groupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGroupsAsync"/>.</summary>
+    public static QsListGroupsResult ListGroups(string awsAccountId, string @namespace, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListGroupsAsync(awsAccountId, @namespace, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGroupMembershipAsync"/>.</summary>
+    public static QsGroupMembershipResult CreateGroupMembership(string awsAccountId, string @namespace, string groupName, string memberName, RegionEndpoint? region = null)
+        => CreateGroupMembershipAsync(awsAccountId, @namespace, groupName, memberName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGroupMembershipAsync"/>.</summary>
+    public static QsDeleteResult DeleteGroupMembership(string awsAccountId, string @namespace, string groupName, string memberName, RegionEndpoint? region = null)
+        => DeleteGroupMembershipAsync(awsAccountId, @namespace, groupName, memberName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGroupMembershipsAsync"/>.</summary>
+    public static QsListGroupMembershipsResult ListGroupMemberships(string awsAccountId, string @namespace, string groupName, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListGroupMembershipsAsync(awsAccountId, @namespace, groupName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RegisterUserAsync"/>.</summary>
+    public static QsUserResult RegisterUser(string awsAccountId, string @namespace, string email, UserRole userRole, IdentityType identityType, string? iamArn = null, string? sessionName = null, string? userName = null, RegionEndpoint? region = null)
+        => RegisterUserAsync(awsAccountId, @namespace, email, userRole, identityType, iamArn, sessionName, userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUserAsync"/>.</summary>
+    public static QsDeleteResult DeleteUser(string awsAccountId, string @namespace, string userName, RegionEndpoint? region = null)
+        => DeleteUserAsync(awsAccountId, @namespace, userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeUserAsync"/>.</summary>
+    public static QsDescribeUserResult DescribeUser(string awsAccountId, string @namespace, string userName, RegionEndpoint? region = null)
+        => DescribeUserAsync(awsAccountId, @namespace, userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListUsersAsync"/>.</summary>
+    public static QsListUsersResult ListUsers(string awsAccountId, string @namespace, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListUsersAsync(awsAccountId, @namespace, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SearchDashboardsAsync"/>.</summary>
+    public static QsSearchResult SearchDashboards(string awsAccountId, List<DashboardSearchFilter> filters, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => SearchDashboardsAsync(awsAccountId, filters, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SearchAnalysesAsync"/>.</summary>
+    public static QsSearchResult SearchAnalyses(string awsAccountId, List<AnalysisSearchFilter> filters, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => SearchAnalysesAsync(awsAccountId, filters, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SearchDataSetsAsync"/>.</summary>
+    public static QsSearchResult SearchDataSets(string awsAccountId, List<DataSetSearchFilter> filters, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => SearchDataSetsAsync(awsAccountId, filters, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SearchDataSourcesAsync"/>.</summary>
+    public static QsSearchResult SearchDataSources(string awsAccountId, List<DataSourceSearchFilter> filters, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => SearchDataSourcesAsync(awsAccountId, filters, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static QsTagResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static QsTagResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static QsListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

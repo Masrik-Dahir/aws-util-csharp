@@ -1577,4 +1577,222 @@ public static class IamService
                 $"Failed to list tags for role '{roleName}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateUserAsync"/>.</summary>
+    public static IamUserResult CreateUser(string userName, string? path = null, List<Amazon.IdentityManagement.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateUserAsync(userName, path, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUserAsync"/>.</summary>
+    public static void DeleteUser(string userName, RegionEndpoint? region = null)
+        => DeleteUserAsync(userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListUsersAsync"/>.</summary>
+    public static List<IamUserResult> ListUsers(string? pathPrefix = null, RegionEndpoint? region = null)
+        => ListUsersAsync(pathPrefix, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetUserAsync"/>.</summary>
+    public static IamUserResult GetUser(string? userName = null, RegionEndpoint? region = null)
+        => GetUserAsync(userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRoleAsync"/>.</summary>
+    public static IamRoleResult CreateRole(string roleName, string assumeRolePolicyDocument, string? description = null, string? path = null, int? maxSessionDuration = null, List<Amazon.IdentityManagement.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateRoleAsync(roleName, assumeRolePolicyDocument, description, path, maxSessionDuration, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRoleAsync"/>.</summary>
+    public static void DeleteRole(string roleName, RegionEndpoint? region = null)
+        => DeleteRoleAsync(roleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRolesAsync"/>.</summary>
+    public static List<IamRoleResult> ListRoles(string? pathPrefix = null, RegionEndpoint? region = null)
+        => ListRolesAsync(pathPrefix, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRoleAsync"/>.</summary>
+    public static IamRoleResult GetRole(string roleName, RegionEndpoint? region = null)
+        => GetRoleAsync(roleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AttachRolePolicyAsync"/>.</summary>
+    public static void AttachRolePolicy(string roleName, string policyArn, RegionEndpoint? region = null)
+        => AttachRolePolicyAsync(roleName, policyArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetachRolePolicyAsync"/>.</summary>
+    public static void DetachRolePolicy(string roleName, string policyArn, RegionEndpoint? region = null)
+        => DetachRolePolicyAsync(roleName, policyArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAttachedRolePoliciesAsync"/>.</summary>
+    public static List<IamAttachedPolicyResult> ListAttachedRolePolicies(string roleName, string? pathPrefix = null, RegionEndpoint? region = null)
+        => ListAttachedRolePoliciesAsync(roleName, pathPrefix, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePolicyAsync"/>.</summary>
+    public static IamPolicyResult CreatePolicy(string policyName, string policyDocument, string? description = null, string? path = null, RegionEndpoint? region = null)
+        => CreatePolicyAsync(policyName, policyDocument, description, path, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePolicyAsync"/>.</summary>
+    public static void DeletePolicy(string policyArn, RegionEndpoint? region = null)
+        => DeletePolicyAsync(policyArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPolicyAsync"/>.</summary>
+    public static IamPolicyResult GetPolicy(string policyArn, RegionEndpoint? region = null)
+        => GetPolicyAsync(policyArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPoliciesAsync"/>.</summary>
+    public static List<IamPolicyResult> ListPolicies(string? scope = null, string? pathPrefix = null, bool? onlyAttached = null, RegionEndpoint? region = null)
+        => ListPoliciesAsync(scope, pathPrefix, onlyAttached, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGroupAsync"/>.</summary>
+    public static IamGroupResult CreateGroup(string groupName, string? path = null, RegionEndpoint? region = null)
+        => CreateGroupAsync(groupName, path, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGroupAsync"/>.</summary>
+    public static void DeleteGroup(string groupName, RegionEndpoint? region = null)
+        => DeleteGroupAsync(groupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGroupsAsync"/>.</summary>
+    public static List<IamGroupResult> ListGroups(string? pathPrefix = null, RegionEndpoint? region = null)
+        => ListGroupsAsync(pathPrefix, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddUserToGroupAsync"/>.</summary>
+    public static void AddUserToGroup(string groupName, string userName, RegionEndpoint? region = null)
+        => AddUserToGroupAsync(groupName, userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveUserFromGroupAsync"/>.</summary>
+    public static void RemoveUserFromGroup(string groupName, string userName, RegionEndpoint? region = null)
+        => RemoveUserFromGroupAsync(groupName, userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAccessKeyAsync"/>.</summary>
+    public static IamAccessKeyResult CreateAccessKey(string? userName = null, RegionEndpoint? region = null)
+        => CreateAccessKeyAsync(userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAccessKeyAsync"/>.</summary>
+    public static void DeleteAccessKey(string accessKeyId, string? userName = null, RegionEndpoint? region = null)
+        => DeleteAccessKeyAsync(accessKeyId, userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccessKeysAsync"/>.</summary>
+    public static List<IamAccessKeyResult> ListAccessKeys(string? userName = null, RegionEndpoint? region = null)
+        => ListAccessKeysAsync(userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAccessKeyAsync"/>.</summary>
+    public static void UpdateAccessKey(string accessKeyId, string status, string? userName = null, RegionEndpoint? region = null)
+        => UpdateAccessKeyAsync(accessKeyId, status, userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateInstanceProfileAsync"/>.</summary>
+    public static IamInstanceProfileResult CreateInstanceProfile(string instanceProfileName, string? path = null, RegionEndpoint? region = null)
+        => CreateInstanceProfileAsync(instanceProfileName, path, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteInstanceProfileAsync"/>.</summary>
+    public static void DeleteInstanceProfile(string instanceProfileName, RegionEndpoint? region = null)
+        => DeleteInstanceProfileAsync(instanceProfileName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddRoleToInstanceProfileAsync"/>.</summary>
+    public static void AddRoleToInstanceProfile(string instanceProfileName, string roleName, RegionEndpoint? region = null)
+        => AddRoleToInstanceProfileAsync(instanceProfileName, roleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveRoleFromInstanceProfileAsync"/>.</summary>
+    public static void RemoveRoleFromInstanceProfile(string instanceProfileName, string roleName, RegionEndpoint? region = null)
+        => RemoveRoleFromInstanceProfileAsync(instanceProfileName, roleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListInstanceProfilesAsync"/>.</summary>
+    public static List<IamInstanceProfileResult> ListInstanceProfiles(string? pathPrefix = null, RegionEndpoint? region = null)
+        => ListInstanceProfilesAsync(pathPrefix, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutRolePolicyAsync"/>.</summary>
+    public static void PutRolePolicy(string roleName, string policyName, string policyDocument, RegionEndpoint? region = null)
+        => PutRolePolicyAsync(roleName, policyName, policyDocument, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRolePolicyAsync"/>.</summary>
+    public static void DeleteRolePolicy(string roleName, string policyName, RegionEndpoint? region = null)
+        => DeleteRolePolicyAsync(roleName, policyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRolePolicyAsync"/>.</summary>
+    public static IamRolePolicyResult GetRolePolicy(string roleName, string policyName, RegionEndpoint? region = null)
+        => GetRolePolicyAsync(roleName, policyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRolePoliciesAsync"/>.</summary>
+    public static List<string> ListRolePolicies(string roleName, RegionEndpoint? region = null)
+        => ListRolePoliciesAsync(roleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutUserPolicyAsync"/>.</summary>
+    public static void PutUserPolicy(string userName, string policyName, string policyDocument, RegionEndpoint? region = null)
+        => PutUserPolicyAsync(userName, policyName, policyDocument, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUserPolicyAsync"/>.</summary>
+    public static void DeleteUserPolicy(string userName, string policyName, RegionEndpoint? region = null)
+        => DeleteUserPolicyAsync(userName, policyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateServiceLinkedRoleAsync"/>.</summary>
+    public static IamRoleResult CreateServiceLinkedRole(string awsServiceName, string? description = null, string? customSuffix = null, RegionEndpoint? region = null)
+        => CreateServiceLinkedRoleAsync(awsServiceName, description, customSuffix, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAssumeRolePolicyAsync"/>.</summary>
+    public static void UpdateAssumeRolePolicy(string roleName, string policyDocument, RegionEndpoint? region = null)
+        => UpdateAssumeRolePolicyAsync(roleName, policyDocument, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagRoleAsync"/>.</summary>
+    public static void TagRole(string roleName, List<Amazon.IdentityManagement.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagRoleAsync(roleName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagRoleAsync"/>.</summary>
+    public static void UntagRole(string roleName, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagRoleAsync(roleName, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagUserAsync"/>.</summary>
+    public static void TagUser(string userName, List<Amazon.IdentityManagement.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagUserAsync(userName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagUserAsync"/>.</summary>
+    public static void UntagUser(string userName, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagUserAsync(userName, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAccountSummaryAsync"/>.</summary>
+    public static IamAccountSummaryResult GetAccountSummary(RegionEndpoint? region = null)
+        => GetAccountSummaryAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GenerateCredentialReportAsync"/>.</summary>
+    public static string GenerateCredentialReport(RegionEndpoint? region = null)
+        => GenerateCredentialReportAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCredentialReportAsync"/>.</summary>
+    public static IamCredentialReportResult GetCredentialReport(RegionEndpoint? region = null)
+        => GetCredentialReportAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SimulatePrincipalPolicyAsync"/>.</summary>
+    public static IamSimulatePolicyResult SimulatePrincipalPolicy(string policySourceArn, List<string> actionNames, List<string>? resourceArns = null, RegionEndpoint? region = null)
+        => SimulatePrincipalPolicyAsync(policySourceArn, actionNames, resourceArns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateLoginProfileAsync"/>.</summary>
+    public static IamLoginProfileResult CreateLoginProfile(string userName, string password, bool passwordResetRequired = false, RegionEndpoint? region = null)
+        => CreateLoginProfileAsync(userName, password, passwordResetRequired, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteLoginProfileAsync"/>.</summary>
+    public static void DeleteLoginProfile(string userName, RegionEndpoint? region = null)
+        => DeleteLoginProfileAsync(userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateLoginProfileAsync"/>.</summary>
+    public static void UpdateLoginProfile(string userName, string? password = null, bool? passwordResetRequired = null, RegionEndpoint? region = null)
+        => UpdateLoginProfileAsync(userName, password, passwordResetRequired, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListMFADevicesAsync"/>.</summary>
+    public static List<IamMfaDeviceResult> ListMFADevices(string? userName = null, RegionEndpoint? region = null)
+        => ListMFADevicesAsync(userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableMFADeviceAsync"/>.</summary>
+    public static void EnableMFADevice(string userName, string serialNumber, string authenticationCode1, string authenticationCode2, RegionEndpoint? region = null)
+        => EnableMFADeviceAsync(userName, serialNumber, authenticationCode1, authenticationCode2, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeactivateMFADeviceAsync"/>.</summary>
+    public static void DeactivateMFADevice(string userName, string serialNumber, RegionEndpoint? region = null)
+        => DeactivateMFADeviceAsync(userName, serialNumber, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListUserTagsAsync"/>.</summary>
+    public static List<IamTagResult> ListUserTags(string userName, RegionEndpoint? region = null)
+        => ListUserTagsAsync(userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRoleTagsAsync"/>.</summary>
+    public static List<IamTagResult> ListRoleTags(string roleName, RegionEndpoint? region = null)
+        => ListRoleTagsAsync(roleName, region).GetAwaiter().GetResult();
+
 }

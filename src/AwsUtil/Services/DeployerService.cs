@@ -228,4 +228,22 @@ public static class DeployerService
                 $"Failed to deploy Lambda '{functionName}' from s3://{s3Bucket}/{s3Key}");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="DeployLambdaWithConfigAsync"/>.</summary>
+    public static DeployLambdaWithConfigResult DeployLambdaWithConfig(string functionName, string zipFilePath, Dictionary<string, string> parameters, bool publish = true, RegionEndpoint? region = null)
+        => DeployLambdaWithConfigAsync(functionName, zipFilePath, parameters, publish, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeployEcsFromEcrAsync"/>.</summary>
+    public static DeployEcsFromEcrResult DeployEcsFromEcr(string cluster, string serviceName, string taskFamily, string containerName, string imageUri, string cpu = "256", string memory = "512", string? executionRoleArn = null, bool forceNewDeployment = true, RegionEndpoint? region = null)
+        => DeployEcsFromEcrAsync(cluster, serviceName, taskFamily, containerName, imageUri, cpu, memory, executionRoleArn, forceNewDeployment, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeployLambdaFromS3Async"/>.</summary>
+    public static DeployLambdaFromS3Result DeployLambdaFromS3(string functionName, string s3Bucket, string s3Key, string? s3ObjectVersion = null, bool publish = true, RegionEndpoint? region = null)
+        => DeployLambdaFromS3Async(functionName, s3Bucket, s3Key, s3ObjectVersion, publish, region).GetAwaiter().GetResult();
+
 }

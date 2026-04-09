@@ -264,4 +264,22 @@ public static class DatabaseMigrationService
             throw ErrorClassifier.WrapAwsError(exc, "Cross-region database replication failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="DynamoDbTableMigratorAsync"/>.</summary>
+    public static DynamoDbTableMigratorResult DynamoDbTableMigrator(string sourceTableName, string destinationTableName, Func<Dictionary<string, Amazon.DynamoDBv2.Model.AttributeValue>, Dictionary<string, Amazon.DynamoDBv2.Model.AttributeValue>>? transformer = null, int batchSize = 25, RegionEndpoint? sourceRegion = null, RegionEndpoint? destinationRegion = null)
+        => DynamoDbTableMigratorAsync(sourceTableName, destinationTableName, transformer, batchSize, sourceRegion, destinationRegion).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RdsSnapshotPromotorAsync"/>.</summary>
+    public static RdsSnapshotPromotorResult RdsSnapshotPromotor(string snapshotIdentifier, string newInstanceIdentifier, string? dbInstanceClass = null, bool publiclyAccessible = false, string? alertTopicArn = null, RegionEndpoint? region = null)
+        => RdsSnapshotPromotorAsync(snapshotIdentifier, newInstanceIdentifier, dbInstanceClass, publiclyAccessible, alertTopicArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CrossRegionDatabaseReplicatorAsync"/>.</summary>
+    public static CrossRegionDatabaseReplicatorResult CrossRegionDatabaseReplicator(string sourceIdentifier, string replicationType, string targetRegion, string? replicaIdentifier = null, string? alertTopicArn = null, RegionEndpoint? region = null)
+        => CrossRegionDatabaseReplicatorAsync(sourceIdentifier, replicationType, targetRegion, replicaIdentifier, alertTopicArn, region).GetAwaiter().GetResult();
+
 }

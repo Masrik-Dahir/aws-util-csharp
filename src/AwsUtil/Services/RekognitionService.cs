@@ -1161,4 +1161,166 @@ public static class RekognitionService
                 $"Failed to stop Rekognition project version '{projectVersionArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="DetectLabelsAsync"/>.</summary>
+    public static DetectLabelsResult DetectLabels(Image image, int? maxLabels = null, float? minConfidence = null, RegionEndpoint? region = null)
+        => DetectLabelsAsync(image, maxLabels, minConfidence, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectFacesAsync"/>.</summary>
+    public static DetectFacesResult DetectFaces(Image image, List<string>? attributes = null, RegionEndpoint? region = null)
+        => DetectFacesAsync(image, attributes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectTextAsync"/>.</summary>
+    public static DetectTextResult DetectText(Image image, RegionEndpoint? region = null)
+        => DetectTextAsync(image, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectModerationLabelsAsync"/>.</summary>
+    public static DetectModerationLabelsResult DetectModerationLabels(Image image, float? minConfidence = null, RegionEndpoint? region = null)
+        => DetectModerationLabelsAsync(image, minConfidence, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RecognizeCelebritiesAsync"/>.</summary>
+    public static RecognizeCelebritiesResult RecognizeCelebrities(Image image, RegionEndpoint? region = null)
+        => RecognizeCelebritiesAsync(image, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CompareFacesAsync"/>.</summary>
+    public static CompareFacesResult CompareFaces(Image sourceImage, Image targetImage, float? similarityThreshold = null, RegionEndpoint? region = null)
+        => CompareFacesAsync(sourceImage, targetImage, similarityThreshold, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SearchFacesByImageAsync"/>.</summary>
+    public static SearchFacesByImageResult SearchFacesByImage(string collectionId, Image image, int? maxFaces = null, float? faceMatchThreshold = null, RegionEndpoint? region = null)
+        => SearchFacesByImageAsync(collectionId, image, maxFaces, faceMatchThreshold, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="IndexFacesAsync"/>.</summary>
+    public static IndexFacesResult IndexFaces(string collectionId, Image image, string? externalImageId = null, int? maxFaces = null, QualityFilter? qualityFilter = null, RegionEndpoint? region = null)
+        => IndexFacesAsync(collectionId, image, externalImageId, maxFaces, qualityFilter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFacesAsync"/>.</summary>
+    public static DeleteFacesResult DeleteFaces(string collectionId, List<string> faceIds, RegionEndpoint? region = null)
+        => DeleteFacesAsync(collectionId, faceIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SearchFacesAsync"/>.</summary>
+    public static SearchFacesResult SearchFaces(string collectionId, string faceId, int? maxFaces = null, float? faceMatchThreshold = null, RegionEndpoint? region = null)
+        => SearchFacesAsync(collectionId, faceId, maxFaces, faceMatchThreshold, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCollectionAsync"/>.</summary>
+    public static CreateCollectionResult CreateCollection(string collectionId, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateCollectionAsync(collectionId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCollectionAsync"/>.</summary>
+    public static void DeleteCollection(string collectionId, RegionEndpoint? region = null)
+        => DeleteCollectionAsync(collectionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeCollectionAsync"/>.</summary>
+    public static DescribeCollectionResult DescribeCollection(string collectionId, RegionEndpoint? region = null)
+        => DescribeCollectionAsync(collectionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCollectionsAsync"/>.</summary>
+    public static ListCollectionsResult ListCollections(RegionEndpoint? region = null)
+        => ListCollectionsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFacesAsync"/>.</summary>
+    public static ListFacesResult ListFaces(string collectionId, RegionEndpoint? region = null)
+        => ListFacesAsync(collectionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectProtectiveEquipmentAsync"/>.</summary>
+    public static DetectProtectiveEquipmentResult DetectProtectiveEquipment(Image image, ProtectiveEquipmentSummarizationAttributes? summarizationAttributes = null, RegionEndpoint? region = null)
+        => DetectProtectiveEquipmentAsync(image, summarizationAttributes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartLabelDetectionAsync"/>.</summary>
+    public static StartLabelDetectionResult StartLabelDetection(Video video, float? minConfidence = null, NotificationChannel? notificationChannel = null, string? jobTag = null, RegionEndpoint? region = null)
+        => StartLabelDetectionAsync(video, minConfidence, notificationChannel, jobTag, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetLabelDetectionAsync"/>.</summary>
+    public static GetLabelDetectionResult GetLabelDetection(string jobId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetLabelDetectionAsync(jobId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartFaceDetectionAsync"/>.</summary>
+    public static StartFaceDetectionResult StartFaceDetection(Video video, string? faceAttributes = null, NotificationChannel? notificationChannel = null, string? jobTag = null, RegionEndpoint? region = null)
+        => StartFaceDetectionAsync(video, faceAttributes, notificationChannel, jobTag, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFaceDetectionAsync"/>.</summary>
+    public static GetFaceDetectionResult GetFaceDetection(string jobId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetFaceDetectionAsync(jobId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartTextDetectionAsync"/>.</summary>
+    public static StartTextDetectionResult StartTextDetection(Video video, NotificationChannel? notificationChannel = null, string? jobTag = null, RegionEndpoint? region = null)
+        => StartTextDetectionAsync(video, notificationChannel, jobTag, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTextDetectionAsync"/>.</summary>
+    public static GetTextDetectionResult GetTextDetection(string jobId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetTextDetectionAsync(jobId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartCelebrityRecognitionAsync"/>.</summary>
+    public static StartCelebrityRecognitionResult StartCelebrityRecognition(Video video, NotificationChannel? notificationChannel = null, string? jobTag = null, RegionEndpoint? region = null)
+        => StartCelebrityRecognitionAsync(video, notificationChannel, jobTag, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCelebrityRecognitionAsync"/>.</summary>
+    public static GetCelebrityRecognitionResult GetCelebrityRecognition(string jobId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetCelebrityRecognitionAsync(jobId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartContentModerationAsync"/>.</summary>
+    public static StartContentModerationResult StartContentModeration(Video video, float? minConfidence = null, NotificationChannel? notificationChannel = null, string? jobTag = null, RegionEndpoint? region = null)
+        => StartContentModerationAsync(video, minConfidence, notificationChannel, jobTag, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetContentModerationAsync"/>.</summary>
+    public static GetContentModerationResult GetContentModeration(string jobId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetContentModerationAsync(jobId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartPersonTrackingAsync"/>.</summary>
+    public static StartPersonTrackingResult StartPersonTracking(Video video, NotificationChannel? notificationChannel = null, string? jobTag = null, RegionEndpoint? region = null)
+        => StartPersonTrackingAsync(video, notificationChannel, jobTag, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPersonTrackingAsync"/>.</summary>
+    public static GetPersonTrackingResult GetPersonTracking(string jobId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetPersonTrackingAsync(jobId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ListRekognitionTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateProjectAsync"/>.</summary>
+    public static CreateRekognitionProjectResult CreateProject(string projectName, RegionEndpoint? region = null)
+        => CreateProjectAsync(projectName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteProjectAsync"/>.</summary>
+    public static void DeleteProject(string projectArn, RegionEndpoint? region = null)
+        => DeleteProjectAsync(projectArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeProjectsAsync"/>.</summary>
+    public static DescribeProjectsResult DescribeProjects(List<string>? projectNames = null, RegionEndpoint? region = null)
+        => DescribeProjectsAsync(projectNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateProjectVersionAsync"/>.</summary>
+    public static CreateProjectVersionResult CreateProjectVersion(CreateProjectVersionRequest request, RegionEndpoint? region = null)
+        => CreateProjectVersionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteProjectVersionAsync"/>.</summary>
+    public static void DeleteProjectVersion(string projectVersionArn, RegionEndpoint? region = null)
+        => DeleteProjectVersionAsync(projectVersionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeProjectVersionsAsync"/>.</summary>
+    public static DescribeProjectVersionsResult DescribeProjectVersions(string projectArn, List<string>? versionNames = null, RegionEndpoint? region = null)
+        => DescribeProjectVersionsAsync(projectArn, versionNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartProjectVersionAsync"/>.</summary>
+    public static StartProjectVersionResult StartProjectVersion(string projectVersionArn, int minInferenceUnits, int? maxInferenceUnits = null, RegionEndpoint? region = null)
+        => StartProjectVersionAsync(projectVersionArn, minInferenceUnits, maxInferenceUnits, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopProjectVersionAsync"/>.</summary>
+    public static StopProjectVersionResult StopProjectVersion(string projectVersionArn, RegionEndpoint? region = null)
+        => StopProjectVersionAsync(projectVersionArn, region).GetAwaiter().GetResult();
+
 }

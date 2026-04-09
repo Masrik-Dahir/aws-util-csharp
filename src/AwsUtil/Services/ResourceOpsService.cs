@@ -286,4 +286,22 @@ public static class ResourceOpsService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to tag resources");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="ReprocessSqsDlqAsync"/>.</summary>
+    public static ReprocessSqsDlqResult ReprocessSqsDlq(string dlqUrl, string sourceQueueUrl, int maxMessages = 0, int batchSize = 10, RegionEndpoint? region = null)
+        => ReprocessSqsDlqAsync(dlqUrl, sourceQueueUrl, maxMessages, batchSize, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CrossAccountS3CopyAsync"/>.</summary>
+    public static CrossAccountS3CopyResult CrossAccountS3Copy(string srcBucket, string srcPrefix, string dstBucket, string dstPrefix, string roleArn, string roleSessionName = "cross-account-copy", int maxConcurrency = 20, RegionEndpoint? region = null)
+        => CrossAccountS3CopyAsync(srcBucket, srcPrefix, dstBucket, dstPrefix, roleArn, roleSessionName, maxConcurrency, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourcesAsync"/>.</summary>
+    public static TagResourcesResult TagResources(List<TagTarget> targets, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourcesAsync(targets, tags, region).GetAwaiter().GetResult();
+
 }

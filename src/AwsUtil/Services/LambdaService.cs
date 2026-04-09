@@ -2502,4 +2502,274 @@ public static class LambdaService
             FunctionArn: resp.FunctionArn,
             MaximumRetryAttempts: resp.MaximumRetryAttempts,
             MaximumEventAgeInSeconds: resp.MaximumEventAgeInSeconds);
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="InvokeAsync"/>.</summary>
+    public static InvokeResult Invoke(string functionName, object? payload = null, string invocationType = "RequestResponse", string logType = "None", string? qualifier = null, RegionEndpoint? region = null)
+        => InvokeAsync(functionName, payload, invocationType, logType, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="InvokeEventAsync"/>.</summary>
+    public static void InvokeEvent(string functionName, object? payload = null, string? qualifier = null, RegionEndpoint? region = null)
+        => InvokeEventAsync(functionName, payload, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="InvokeWithResponseStreamAsync"/>.</summary>
+    public static InvokeWithResponseStreamResult InvokeWithResponseStream(string functionName, string? invocationType = null, string? logType = null, string? clientContext = null, string? qualifier = null, byte[]? payload = null, RegionEndpoint? region = null)
+        => InvokeWithResponseStreamAsync(functionName, invocationType, logType, clientContext, qualifier, payload, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFunctionAsync"/>.</summary>
+    public static FunctionConfigurationResult CreateFunction(string functionName, string role, FunctionCode code, string? runtime = null, string? handler = null, string? description = null, int? timeout = null, int? memorySize = null, bool? publish = null, VpcConfig? vpcConfig = null, string? packageType = null, DeadLetterConfig? deadLetterConfig = null, Amazon.Lambda.Model.Environment? environment = null, string? kmsKeyArn = null, TracingConfig? tracingConfig = null, Dictionary<string, string>? tags = null, List<string>? layers = null, List<FileSystemConfig>? fileSystemConfigs = null, ImageConfig? imageConfig = null, string? codeSigningConfigArn = null, List<string>? architectures = null, EphemeralStorage? ephemeralStorage = null, SnapStart? snapStart = null, LoggingConfig? loggingConfig = null, RegionEndpoint? region = null)
+        => CreateFunctionAsync(functionName, role, code, runtime, handler, description, timeout, memorySize, publish, vpcConfig, packageType, deadLetterConfig, environment, kmsKeyArn, tracingConfig, tags, layers, fileSystemConfigs, imageConfig, codeSigningConfigArn, architectures, ephemeralStorage, snapStart, loggingConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFunctionAsync"/>.</summary>
+    public static void DeleteFunction(string functionName, string? qualifier = null, RegionEndpoint? region = null)
+        => DeleteFunctionAsync(functionName, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFunctionAsync"/>.</summary>
+    public static GetFunctionResult GetFunction(string functionName, string? qualifier = null, RegionEndpoint? region = null)
+        => GetFunctionAsync(functionName, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFunctionConfigurationAsync"/>.</summary>
+    public static FunctionConfigurationResult GetFunctionConfiguration(string functionName, string? qualifier = null, RegionEndpoint? region = null)
+        => GetFunctionConfigurationAsync(functionName, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateFunctionCodeAsync"/>.</summary>
+    public static FunctionConfigurationResult UpdateFunctionCode(string functionName, MemoryStream? zipFile = null, string? s3Bucket = null, string? s3Key = null, string? s3ObjectVersion = null, string? imageUri = null, bool? publish = null, string? revisionId = null, List<string>? architectures = null, string? sourceKmsKeyArn = null, RegionEndpoint? region = null)
+        => UpdateFunctionCodeAsync(functionName, zipFile, s3Bucket, s3Key, s3ObjectVersion, imageUri, publish, revisionId, architectures, sourceKmsKeyArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateFunctionConfigurationAsync"/>.</summary>
+    public static FunctionConfigurationResult UpdateFunctionConfiguration(string functionName, string? role = null, string? handler = null, string? description = null, int? timeout = null, int? memorySize = null, VpcConfig? vpcConfig = null, Amazon.Lambda.Model.Environment? environment = null, string? runtime = null, DeadLetterConfig? deadLetterConfig = null, string? kmsKeyArn = null, TracingConfig? tracingConfig = null, string? revisionId = null, List<string>? layers = null, List<FileSystemConfig>? fileSystemConfigs = null, ImageConfig? imageConfig = null, EphemeralStorage? ephemeralStorage = null, SnapStart? snapStart = null, LoggingConfig? loggingConfig = null, RegionEndpoint? region = null)
+        => UpdateFunctionConfigurationAsync(functionName, role, handler, description, timeout, memorySize, vpcConfig, environment, runtime, deadLetterConfig, kmsKeyArn, tracingConfig, revisionId, layers, fileSystemConfigs, imageConfig, ephemeralStorage, snapStart, loggingConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFunctionsAsync"/>.</summary>
+    public static ListFunctionsResult ListFunctions(string? masterRegion = null, string? functionVersion = null, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListFunctionsAsync(masterRegion, functionVersion, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PublishVersionAsync"/>.</summary>
+    public static FunctionConfigurationResult PublishVersion(string functionName, string? codeSha256 = null, string? description = null, string? revisionId = null, RegionEndpoint? region = null)
+        => PublishVersionAsync(functionName, codeSha256, description, revisionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListVersionsByFunctionAsync"/>.</summary>
+    public static ListVersionsByFunctionResult ListVersionsByFunction(string functionName, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListVersionsByFunctionAsync(functionName, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAliasAsync"/>.</summary>
+    public static AliasResult CreateAlias(string functionName, string name, string functionVersion, string? description = null, AliasRoutingConfiguration? routingConfig = null, RegionEndpoint? region = null)
+        => CreateAliasAsync(functionName, name, functionVersion, description, routingConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAliasAsync"/>.</summary>
+    public static AliasResult UpdateAlias(string functionName, string name, string? functionVersion = null, string? description = null, AliasRoutingConfiguration? routingConfig = null, string? revisionId = null, RegionEndpoint? region = null)
+        => UpdateAliasAsync(functionName, name, functionVersion, description, routingConfig, revisionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAliasAsync"/>.</summary>
+    public static void DeleteAlias(string functionName, string name, RegionEndpoint? region = null)
+        => DeleteAliasAsync(functionName, name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAliasAsync"/>.</summary>
+    public static AliasResult GetAlias(string functionName, string name, RegionEndpoint? region = null)
+        => GetAliasAsync(functionName, name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAliasesAsync"/>.</summary>
+    public static ListAliasesResult ListAliases(string functionName, string? functionVersion = null, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListAliasesAsync(functionName, functionVersion, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddPermissionAsync"/>.</summary>
+    public static AddPermissionResult AddPermission(string functionName, string statementId, string action, string principal, string? sourceArn = null, string? sourceAccount = null, string? eventSourceToken = null, string? qualifier = null, string? revisionId = null, string? principalOrgId = null, string? functionUrlAuthType = null, RegionEndpoint? region = null)
+        => AddPermissionAsync(functionName, statementId, action, principal, sourceArn, sourceAccount, eventSourceToken, qualifier, revisionId, principalOrgId, functionUrlAuthType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemovePermissionAsync"/>.</summary>
+    public static void RemovePermission(string functionName, string statementId, string? qualifier = null, string? revisionId = null, RegionEndpoint? region = null)
+        => RemovePermissionAsync(functionName, statementId, qualifier, revisionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPolicyAsync"/>.</summary>
+    public static GetPolicyResult GetPolicy(string functionName, string? qualifier = null, RegionEndpoint? region = null)
+        => GetPolicyAsync(functionName, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEventSourceMappingAsync"/>.</summary>
+    public static EventSourceMappingResult CreateEventSourceMapping(string functionName, string? eventSourceArn = null, bool? enabled = null, int? batchSize = null, FilterCriteria? filterCriteria = null, int? maximumBatchingWindowInSeconds = null, int? parallelizationFactor = null, string? startingPosition = null, DateTime? startingPositionTimestamp = null, DestinationConfig? destinationConfig = null, int? maximumRecordAgeInSeconds = null, bool? bisectBatchOnFunctionError = null, int? maximumRetryAttempts = null, Dictionary<string, string>? tags = null, int? tumblingWindowInSeconds = null, List<string>? topics = null, List<string>? queues = null, List<SourceAccessConfiguration>? sourceAccessConfigurations = null, SelfManagedEventSource? selfManagedEventSource = null, List<string>? functionResponseTypes = null, AmazonManagedKafkaEventSourceConfig? amazonManagedKafkaEventSourceConfig = null, SelfManagedKafkaEventSourceConfig? selfManagedKafkaEventSourceConfig = null, ScalingConfig? scalingConfig = null, DocumentDBEventSourceConfig? documentDbEventSourceConfig = null, string? kmsKeyArn = null, RegionEndpoint? region = null)
+        => CreateEventSourceMappingAsync(functionName, eventSourceArn, enabled, batchSize, filterCriteria, maximumBatchingWindowInSeconds, parallelizationFactor, startingPosition, startingPositionTimestamp, destinationConfig, maximumRecordAgeInSeconds, bisectBatchOnFunctionError, maximumRetryAttempts, tags, tumblingWindowInSeconds, topics, queues, sourceAccessConfigurations, selfManagedEventSource, functionResponseTypes, amazonManagedKafkaEventSourceConfig, selfManagedKafkaEventSourceConfig, scalingConfig, documentDbEventSourceConfig, kmsKeyArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEventSourceMappingAsync"/>.</summary>
+    public static EventSourceMappingResult DeleteEventSourceMapping(string uuid, RegionEndpoint? region = null)
+        => DeleteEventSourceMappingAsync(uuid, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetEventSourceMappingAsync"/>.</summary>
+    public static EventSourceMappingResult GetEventSourceMapping(string uuid, RegionEndpoint? region = null)
+        => GetEventSourceMappingAsync(uuid, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListEventSourceMappingsAsync"/>.</summary>
+    public static ListEventSourceMappingsResult ListEventSourceMappings(string? eventSourceArn = null, string? functionName = null, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListEventSourceMappingsAsync(eventSourceArn, functionName, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateEventSourceMappingAsync"/>.</summary>
+    public static EventSourceMappingResult UpdateEventSourceMapping(string uuid, string? functionName = null, bool? enabled = null, int? batchSize = null, FilterCriteria? filterCriteria = null, int? maximumBatchingWindowInSeconds = null, DestinationConfig? destinationConfig = null, int? maximumRecordAgeInSeconds = null, bool? bisectBatchOnFunctionError = null, int? maximumRetryAttempts = null, int? parallelizationFactor = null, List<SourceAccessConfiguration>? sourceAccessConfigurations = null, int? tumblingWindowInSeconds = null, List<string>? functionResponseTypes = null, ScalingConfig? scalingConfig = null, DocumentDBEventSourceConfig? documentDbEventSourceConfig = null, string? kmsKeyArn = null, RegionEndpoint? region = null)
+        => UpdateEventSourceMappingAsync(uuid, functionName, enabled, batchSize, filterCriteria, maximumBatchingWindowInSeconds, destinationConfig, maximumRecordAgeInSeconds, bisectBatchOnFunctionError, maximumRetryAttempts, parallelizationFactor, sourceAccessConfigurations, tumblingWindowInSeconds, functionResponseTypes, scalingConfig, documentDbEventSourceConfig, kmsKeyArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFunctionUrlConfigAsync"/>.</summary>
+    public static FunctionUrlConfigResult CreateFunctionUrlConfig(string functionName, string authType, string? qualifier = null, Cors? cors = null, string? invokeMode = null, RegionEndpoint? region = null)
+        => CreateFunctionUrlConfigAsync(functionName, authType, qualifier, cors, invokeMode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFunctionUrlConfigAsync"/>.</summary>
+    public static FunctionUrlConfigResult GetFunctionUrlConfig(string functionName, string? qualifier = null, RegionEndpoint? region = null)
+        => GetFunctionUrlConfigAsync(functionName, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateFunctionUrlConfigAsync"/>.</summary>
+    public static FunctionUrlConfigResult UpdateFunctionUrlConfig(string functionName, string? qualifier = null, string? authType = null, Cors? cors = null, string? invokeMode = null, RegionEndpoint? region = null)
+        => UpdateFunctionUrlConfigAsync(functionName, qualifier, authType, cors, invokeMode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFunctionUrlConfigAsync"/>.</summary>
+    public static void DeleteFunctionUrlConfig(string functionName, string? qualifier = null, RegionEndpoint? region = null)
+        => DeleteFunctionUrlConfigAsync(functionName, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFunctionUrlConfigsAsync"/>.</summary>
+    public static ListFunctionUrlConfigsResult ListFunctionUrlConfigs(string functionName, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListFunctionUrlConfigsAsync(functionName, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutFunctionConcurrencyAsync"/>.</summary>
+    public static FunctionConcurrencyResult PutFunctionConcurrency(string functionName, int reservedConcurrentExecutions, RegionEndpoint? region = null)
+        => PutFunctionConcurrencyAsync(functionName, reservedConcurrentExecutions, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFunctionConcurrencyAsync"/>.</summary>
+    public static FunctionConcurrencyResult GetFunctionConcurrency(string functionName, RegionEndpoint? region = null)
+        => GetFunctionConcurrencyAsync(functionName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFunctionConcurrencyAsync"/>.</summary>
+    public static void DeleteFunctionConcurrency(string functionName, RegionEndpoint? region = null)
+        => DeleteFunctionConcurrencyAsync(functionName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resource, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resource, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resource, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resource, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsAsync"/>.</summary>
+    public static ListTagsResult ListTags(string resource, RegionEndpoint? region = null)
+        => ListTagsAsync(resource, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PublishLayerVersionAsync"/>.</summary>
+    public static LayerVersionResult PublishLayerVersion(string layerName, LayerVersionContentInput content, string? description = null, List<string>? compatibleRuntimes = null, string? licenseInfo = null, List<string>? compatibleArchitectures = null, RegionEndpoint? region = null)
+        => PublishLayerVersionAsync(layerName, content, description, compatibleRuntimes, licenseInfo, compatibleArchitectures, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetLayerVersionAsync"/>.</summary>
+    public static LayerVersionResult GetLayerVersion(string layerName, long versionNumber, RegionEndpoint? region = null)
+        => GetLayerVersionAsync(layerName, versionNumber, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteLayerVersionAsync"/>.</summary>
+    public static void DeleteLayerVersion(string layerName, long versionNumber, RegionEndpoint? region = null)
+        => DeleteLayerVersionAsync(layerName, versionNumber, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListLayerVersionsAsync"/>.</summary>
+    public static ListLayerVersionsResult ListLayerVersions(string layerName, string? compatibleRuntime = null, string? marker = null, int? maxItems = null, string? compatibleArchitecture = null, RegionEndpoint? region = null)
+        => ListLayerVersionsAsync(layerName, compatibleRuntime, marker, maxItems, compatibleArchitecture, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListLayersAsync"/>.</summary>
+    public static ListLayersResult ListLayers(string? compatibleRuntime = null, string? marker = null, int? maxItems = null, string? compatibleArchitecture = null, RegionEndpoint? region = null)
+        => ListLayersAsync(compatibleRuntime, marker, maxItems, compatibleArchitecture, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddLayerVersionPermissionAsync"/>.</summary>
+    public static AddLayerVersionPermissionResult AddLayerVersionPermission(string layerName, long versionNumber, string statementId, string action, string principal, string? organizationId = null, string? revisionId = null, RegionEndpoint? region = null)
+        => AddLayerVersionPermissionAsync(layerName, versionNumber, statementId, action, principal, organizationId, revisionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveLayerVersionPermissionAsync"/>.</summary>
+    public static void RemoveLayerVersionPermission(string layerName, long versionNumber, string statementId, string? revisionId = null, RegionEndpoint? region = null)
+        => RemoveLayerVersionPermissionAsync(layerName, versionNumber, statementId, revisionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetLayerVersionPolicyAsync"/>.</summary>
+    public static GetLayerVersionPolicyResult GetLayerVersionPolicy(string layerName, long versionNumber, RegionEndpoint? region = null)
+        => GetLayerVersionPolicyAsync(layerName, versionNumber, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCodeSigningConfigAsync"/>.</summary>
+    public static CodeSigningConfigResult CreateCodeSigningConfig(AllowedPublishers allowedPublishers, string? description = null, CodeSigningPolicies? codeSigningPolicies = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateCodeSigningConfigAsync(allowedPublishers, description, codeSigningPolicies, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCodeSigningConfigAsync"/>.</summary>
+    public static CodeSigningConfigResult GetCodeSigningConfig(string codeSigningConfigArn, RegionEndpoint? region = null)
+        => GetCodeSigningConfigAsync(codeSigningConfigArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateCodeSigningConfigAsync"/>.</summary>
+    public static CodeSigningConfigResult UpdateCodeSigningConfig(string codeSigningConfigArn, string? description = null, AllowedPublishers? allowedPublishers = null, CodeSigningPolicies? codeSigningPolicies = null, RegionEndpoint? region = null)
+        => UpdateCodeSigningConfigAsync(codeSigningConfigArn, description, allowedPublishers, codeSigningPolicies, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCodeSigningConfigAsync"/>.</summary>
+    public static void DeleteCodeSigningConfig(string codeSigningConfigArn, RegionEndpoint? region = null)
+        => DeleteCodeSigningConfigAsync(codeSigningConfigArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCodeSigningConfigsAsync"/>.</summary>
+    public static ListCodeSigningConfigsResult ListCodeSigningConfigs(string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListCodeSigningConfigsAsync(marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutFunctionCodeSigningConfigAsync"/>.</summary>
+    public static FunctionCodeSigningConfigResult PutFunctionCodeSigningConfig(string codeSigningConfigArn, string functionName, RegionEndpoint? region = null)
+        => PutFunctionCodeSigningConfigAsync(codeSigningConfigArn, functionName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFunctionCodeSigningConfigAsync"/>.</summary>
+    public static FunctionCodeSigningConfigResult GetFunctionCodeSigningConfig(string functionName, RegionEndpoint? region = null)
+        => GetFunctionCodeSigningConfigAsync(functionName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFunctionCodeSigningConfigAsync"/>.</summary>
+    public static void DeleteFunctionCodeSigningConfig(string functionName, RegionEndpoint? region = null)
+        => DeleteFunctionCodeSigningConfigAsync(functionName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutFunctionEventInvokeConfigAsync"/>.</summary>
+    public static FunctionEventInvokeConfigResult PutFunctionEventInvokeConfig(string functionName, string? qualifier = null, int? maximumRetryAttempts = null, int? maximumEventAgeInSeconds = null, DestinationConfig? destinationConfig = null, RegionEndpoint? region = null)
+        => PutFunctionEventInvokeConfigAsync(functionName, qualifier, maximumRetryAttempts, maximumEventAgeInSeconds, destinationConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFunctionEventInvokeConfigAsync"/>.</summary>
+    public static FunctionEventInvokeConfigResult GetFunctionEventInvokeConfig(string functionName, string? qualifier = null, RegionEndpoint? region = null)
+        => GetFunctionEventInvokeConfigAsync(functionName, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFunctionEventInvokeConfigsAsync"/>.</summary>
+    public static ListFunctionEventInvokeConfigsResult ListFunctionEventInvokeConfigs(string functionName, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListFunctionEventInvokeConfigsAsync(functionName, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateFunctionEventInvokeConfigAsync"/>.</summary>
+    public static FunctionEventInvokeConfigResult UpdateFunctionEventInvokeConfig(string functionName, string? qualifier = null, int? maximumRetryAttempts = null, int? maximumEventAgeInSeconds = null, DestinationConfig? destinationConfig = null, RegionEndpoint? region = null)
+        => UpdateFunctionEventInvokeConfigAsync(functionName, qualifier, maximumRetryAttempts, maximumEventAgeInSeconds, destinationConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFunctionEventInvokeConfigAsync"/>.</summary>
+    public static void DeleteFunctionEventInvokeConfig(string functionName, string? qualifier = null, RegionEndpoint? region = null)
+        => DeleteFunctionEventInvokeConfigAsync(functionName, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAccountSettingsAsync"/>.</summary>
+    public static GetAccountSettingsResult GetAccountSettings(RegionEndpoint? region = null)
+        => GetAccountSettingsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetProvisionedConcurrencyConfigAsync"/>.</summary>
+    public static ProvisionedConcurrencyConfigResult GetProvisionedConcurrencyConfig(string functionName, string qualifier, RegionEndpoint? region = null)
+        => GetProvisionedConcurrencyConfigAsync(functionName, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutProvisionedConcurrencyConfigAsync"/>.</summary>
+    public static ProvisionedConcurrencyConfigResult PutProvisionedConcurrencyConfig(string functionName, string qualifier, int provisionedConcurrentExecutions, RegionEndpoint? region = null)
+        => PutProvisionedConcurrencyConfigAsync(functionName, qualifier, provisionedConcurrentExecutions, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteProvisionedConcurrencyConfigAsync"/>.</summary>
+    public static void DeleteProvisionedConcurrencyConfig(string functionName, string qualifier, RegionEndpoint? region = null)
+        => DeleteProvisionedConcurrencyConfigAsync(functionName, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListProvisionedConcurrencyConfigsAsync"/>.</summary>
+    public static ListProvisionedConcurrencyConfigsResult ListProvisionedConcurrencyConfigs(string functionName, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => ListProvisionedConcurrencyConfigsAsync(functionName, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRuntimeManagementConfigAsync"/>.</summary>
+    public static RuntimeManagementConfigResult GetRuntimeManagementConfig(string functionName, string? qualifier = null, RegionEndpoint? region = null)
+        => GetRuntimeManagementConfigAsync(functionName, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutRuntimeManagementConfigAsync"/>.</summary>
+    public static RuntimeManagementConfigResult PutRuntimeManagementConfig(string functionName, string updateRuntimeOn, string? qualifier = null, string? runtimeVersionArn = null, RegionEndpoint? region = null)
+        => PutRuntimeManagementConfigAsync(functionName, updateRuntimeOn, qualifier, runtimeVersionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFunctionRecursionConfigAsync"/>.</summary>
+    public static FunctionRecursionConfigResult GetFunctionRecursionConfig(string functionName, RegionEndpoint? region = null)
+        => GetFunctionRecursionConfigAsync(functionName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutFunctionRecursionConfigAsync"/>.</summary>
+    public static FunctionRecursionConfigResult PutFunctionRecursionConfig(string functionName, string recursiveLoop, RegionEndpoint? region = null)
+        => PutFunctionRecursionConfigAsync(functionName, recursiveLoop, region).GetAwaiter().GetResult();
+
 }

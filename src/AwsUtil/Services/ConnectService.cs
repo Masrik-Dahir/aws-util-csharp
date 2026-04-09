@@ -970,4 +970,166 @@ public static class ConnectService
                 $"Failed to list tags for Connect resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateInstanceAsync"/>.</summary>
+    public static CreateConnectInstanceResult CreateInstance(CreateInstanceRequest request, RegionEndpoint? region = null)
+        => CreateInstanceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteInstanceAsync"/>.</summary>
+    public static void DeleteInstance(string instanceId, RegionEndpoint? region = null)
+        => DeleteInstanceAsync(instanceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeInstanceAsync"/>.</summary>
+    public static DescribeConnectInstanceResult DescribeInstance(string instanceId, RegionEndpoint? region = null)
+        => DescribeInstanceAsync(instanceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListInstancesAsync"/>.</summary>
+    public static ListConnectInstancesResult ListInstances(RegionEndpoint? region = null)
+        => ListInstancesAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateInstanceAttributeAsync"/>.</summary>
+    public static void UpdateInstanceAttribute(UpdateInstanceAttributeRequest request, RegionEndpoint? region = null)
+        => UpdateInstanceAttributeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeInstanceAttributeAsync"/>.</summary>
+    public static DescribeInstanceAttributeResult DescribeInstanceAttribute(string instanceId, string attributeType, RegionEndpoint? region = null)
+        => DescribeInstanceAttributeAsync(instanceId, attributeType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListInstanceAttributesAsync"/>.</summary>
+    public static ListInstanceAttributesResult ListInstanceAttributes(string instanceId, RegionEndpoint? region = null)
+        => ListInstanceAttributesAsync(instanceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateUserAsync"/>.</summary>
+    public static CreateConnectUserResult CreateUser(CreateUserRequest request, RegionEndpoint? region = null)
+        => CreateUserAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUserAsync"/>.</summary>
+    public static void DeleteUser(string instanceId, string userId, RegionEndpoint? region = null)
+        => DeleteUserAsync(instanceId, userId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeUserAsync"/>.</summary>
+    public static DescribeConnectUserResult DescribeUser(string instanceId, string userId, RegionEndpoint? region = null)
+        => DescribeUserAsync(instanceId, userId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListUsersAsync"/>.</summary>
+    public static ListConnectUsersResult ListUsers(string instanceId, RegionEndpoint? region = null)
+        => ListUsersAsync(instanceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateUserIdentityInfoAsync"/>.</summary>
+    public static void UpdateUserIdentityInfo(UpdateUserIdentityInfoRequest request, RegionEndpoint? region = null)
+        => UpdateUserIdentityInfoAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateUserPhoneConfigAsync"/>.</summary>
+    public static void UpdateUserPhoneConfig(UpdateUserPhoneConfigRequest request, RegionEndpoint? region = null)
+        => UpdateUserPhoneConfigAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateUserRoutingProfileAsync"/>.</summary>
+    public static void UpdateUserRoutingProfile(UpdateUserRoutingProfileRequest request, RegionEndpoint? region = null)
+        => UpdateUserRoutingProfileAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateContactFlowAsync"/>.</summary>
+    public static CreateContactFlowResult CreateContactFlow(CreateContactFlowRequest request, RegionEndpoint? region = null)
+        => CreateContactFlowAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteContactFlowAsync"/>.</summary>
+    public static void DeleteContactFlow(string instanceId, string contactFlowId, RegionEndpoint? region = null)
+        => DeleteContactFlowAsync(instanceId, contactFlowId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeContactFlowAsync"/>.</summary>
+    public static DescribeContactFlowResult DescribeContactFlow(string instanceId, string contactFlowId, RegionEndpoint? region = null)
+        => DescribeContactFlowAsync(instanceId, contactFlowId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListContactFlowsAsync"/>.</summary>
+    public static ListContactFlowsResult ListContactFlows(string instanceId, RegionEndpoint? region = null)
+        => ListContactFlowsAsync(instanceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateContactFlowContentAsync"/>.</summary>
+    public static void UpdateContactFlowContent(UpdateContactFlowContentRequest request, RegionEndpoint? region = null)
+        => UpdateContactFlowContentAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateContactFlowNameAsync"/>.</summary>
+    public static void UpdateContactFlowName(UpdateContactFlowNameRequest request, RegionEndpoint? region = null)
+        => UpdateContactFlowNameAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateQueueAsync"/>.</summary>
+    public static CreateConnectQueueResult CreateQueue(CreateQueueRequest request, RegionEndpoint? region = null)
+        => CreateQueueAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteQueueAsync"/>.</summary>
+    public static void DeleteQueue(string instanceId, string queueId, RegionEndpoint? region = null)
+        => DeleteQueueAsync(instanceId, queueId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeQueueAsync"/>.</summary>
+    public static DescribeConnectQueueResult DescribeQueue(string instanceId, string queueId, RegionEndpoint? region = null)
+        => DescribeQueueAsync(instanceId, queueId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListQueuesAsync"/>.</summary>
+    public static ListConnectQueuesResult ListQueues(string instanceId, RegionEndpoint? region = null)
+        => ListQueuesAsync(instanceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateQueueNameAsync"/>.</summary>
+    public static void UpdateQueueName(UpdateQueueNameRequest request, RegionEndpoint? region = null)
+        => UpdateQueueNameAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRoutingProfileAsync"/>.</summary>
+    public static CreateRoutingProfileResult CreateRoutingProfile(CreateRoutingProfileRequest request, RegionEndpoint? region = null)
+        => CreateRoutingProfileAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRoutingProfileAsync"/>.</summary>
+    public static void DeleteRoutingProfile(string instanceId, string routingProfileId, RegionEndpoint? region = null)
+        => DeleteRoutingProfileAsync(instanceId, routingProfileId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeRoutingProfileAsync"/>.</summary>
+    public static DescribeRoutingProfileResult DescribeRoutingProfile(string instanceId, string routingProfileId, RegionEndpoint? region = null)
+        => DescribeRoutingProfileAsync(instanceId, routingProfileId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRoutingProfilesAsync"/>.</summary>
+    public static ListRoutingProfilesResult ListRoutingProfiles(string instanceId, RegionEndpoint? region = null)
+        => ListRoutingProfilesAsync(instanceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateRoutingProfileNameAsync"/>.</summary>
+    public static void UpdateRoutingProfileName(UpdateRoutingProfileNameRequest request, RegionEndpoint? region = null)
+        => UpdateRoutingProfileNameAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartOutboundVoiceContactAsync"/>.</summary>
+    public static StartOutboundVoiceContactResult StartOutboundVoiceContact(StartOutboundVoiceContactRequest request, RegionEndpoint? region = null)
+        => StartOutboundVoiceContactAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopContactAsync"/>.</summary>
+    public static void StopContact(string instanceId, string contactId, RegionEndpoint? region = null)
+        => StopContactAsync(instanceId, contactId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCurrentMetricDataAsync"/>.</summary>
+    public static GetCurrentMetricDataResult GetCurrentMetricData(GetCurrentMetricDataRequest request, RegionEndpoint? region = null)
+        => GetCurrentMetricDataAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetMetricDataAsync"/>.</summary>
+    public static GetMetricDataResult GetMetricData(GetMetricDataRequest request, RegionEndpoint? region = null)
+        => GetMetricDataAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeContactAsync"/>.</summary>
+    public static DescribeContactResult DescribeContact(string instanceId, string contactId, RegionEndpoint? region = null)
+        => DescribeContactAsync(instanceId, contactId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SearchContactsAsync"/>.</summary>
+    public static SearchContactsResult SearchContacts(SearchContactsRequest request, RegionEndpoint? region = null)
+        => SearchContactsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static ConnectTagResourceResult TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static ConnectUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ListConnectTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

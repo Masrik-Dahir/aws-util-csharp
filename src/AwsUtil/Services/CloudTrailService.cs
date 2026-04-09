@@ -1167,4 +1167,154 @@ public static class CloudTrailService
                 $"Failed to deregister delegated admin '{delegatedAdminAccountId}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTrailAsync"/>.</summary>
+    public static CreateTrailResult CreateTrail(CreateTrailRequest request, RegionEndpoint? region = null)
+        => CreateTrailAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTrailAsync"/>.</summary>
+    public static DeleteTrailResult DeleteTrail(string name, RegionEndpoint? region = null)
+        => DeleteTrailAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTrailsAsync"/>.</summary>
+    public static DescribeTrailsResult DescribeTrails(List<string>? trailNameList = null, bool? includeShadowTrails = null, RegionEndpoint? region = null)
+        => DescribeTrailsAsync(trailNameList, includeShadowTrails, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTrailAsync"/>.</summary>
+    public static GetTrailResult GetTrail(string name, RegionEndpoint? region = null)
+        => GetTrailAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTrailStatusAsync"/>.</summary>
+    public static GetTrailStatusResult GetTrailStatus(string name, RegionEndpoint? region = null)
+        => GetTrailStatusAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateTrailAsync"/>.</summary>
+    public static UpdateTrailResult UpdateTrail(UpdateTrailRequest request, RegionEndpoint? region = null)
+        => UpdateTrailAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartLoggingAsync"/>.</summary>
+    public static StartLoggingResult StartLogging(string name, RegionEndpoint? region = null)
+        => StartLoggingAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopLoggingAsync"/>.</summary>
+    public static StopLoggingResult StopLogging(string name, RegionEndpoint? region = null)
+        => StopLoggingAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LookupEventsAsync"/>.</summary>
+    public static LookupEventsResult LookupEvents(LookupEventsRequest request, RegionEndpoint? region = null)
+        => LookupEventsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutEventSelectorsAsync"/>.</summary>
+    public static PutEventSelectorsResult PutEventSelectors(PutEventSelectorsRequest request, RegionEndpoint? region = null)
+        => PutEventSelectorsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetEventSelectorsAsync"/>.</summary>
+    public static GetEventSelectorsResult GetEventSelectors(string trailName, RegionEndpoint? region = null)
+        => GetEventSelectorsAsync(trailName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutInsightSelectorsAsync"/>.</summary>
+    public static PutInsightSelectorsResult PutInsightSelectors(PutInsightSelectorsRequest request, RegionEndpoint? region = null)
+        => PutInsightSelectorsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetInsightSelectorsAsync"/>.</summary>
+    public static GetInsightSelectorsResult GetInsightSelectors(string trailName, RegionEndpoint? region = null)
+        => GetInsightSelectorsAsync(trailName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsAsync"/>.</summary>
+    public static CloudTrailAddTagsResult AddTags(AddTagsRequest request, RegionEndpoint? region = null)
+        => AddTagsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsAsync"/>.</summary>
+    public static CloudTrailRemoveTagsResult RemoveTags(RemoveTagsRequest request, RegionEndpoint? region = null)
+        => RemoveTagsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsAsync"/>.</summary>
+    public static CloudTrailListTagsResult ListTags(ListTagsRequest request, RegionEndpoint? region = null)
+        => ListTagsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetQueryResultsAsync"/>.</summary>
+    public static GetQueryResultsResult GetQueryResults(string queryId, string? nextToken = null, int? maxQueryResults = null, RegionEndpoint? region = null)
+        => GetQueryResultsAsync(queryId, nextToken, maxQueryResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartQueryAsync"/>.</summary>
+    public static StartQueryResult StartQuery(StartQueryRequest request, RegionEndpoint? region = null)
+        => StartQueryAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelQueryAsync"/>.</summary>
+    public static CancelQueryResult CancelQuery(string queryId, RegionEndpoint? region = null)
+        => CancelQueryAsync(queryId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListQueriesAsync"/>.</summary>
+    public static ListQueriesResult ListQueries(ListQueriesRequest request, RegionEndpoint? region = null)
+        => ListQueriesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEventDataStoreAsync"/>.</summary>
+    public static CreateEventDataStoreResult CreateEventDataStore(CreateEventDataStoreRequest request, RegionEndpoint? region = null)
+        => CreateEventDataStoreAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEventDataStoreAsync"/>.</summary>
+    public static DeleteEventDataStoreResult DeleteEventDataStore(string eventDataStore, RegionEndpoint? region = null)
+        => DeleteEventDataStoreAsync(eventDataStore, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetEventDataStoreAsync"/>.</summary>
+    public static GetEventDataStoreResult GetEventDataStore(string eventDataStore, RegionEndpoint? region = null)
+        => GetEventDataStoreAsync(eventDataStore, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListEventDataStoresAsync"/>.</summary>
+    public static ListEventDataStoresResult ListEventDataStores(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListEventDataStoresAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateEventDataStoreAsync"/>.</summary>
+    public static UpdateEventDataStoreResult UpdateEventDataStore(UpdateEventDataStoreRequest request, RegionEndpoint? region = null)
+        => UpdateEventDataStoreAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartImportAsync"/>.</summary>
+    public static StartImportResult StartImport(StartImportRequest request, RegionEndpoint? region = null)
+        => StartImportAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopImportAsync"/>.</summary>
+    public static StopImportResult StopImport(string importId, RegionEndpoint? region = null)
+        => StopImportAsync(importId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetImportAsync"/>.</summary>
+    public static GetImportResult GetImport(string importId, RegionEndpoint? region = null)
+        => GetImportAsync(importId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListImportsAsync"/>.</summary>
+    public static CloudTrailListImportsResult ListImports(ListImportsRequest request, RegionEndpoint? region = null)
+        => ListImportsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateChannelAsync"/>.</summary>
+    public static CreateChannelResult CreateChannel(CreateChannelRequest request, RegionEndpoint? region = null)
+        => CreateChannelAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteChannelAsync"/>.</summary>
+    public static DeleteChannelResult DeleteChannel(string channel, RegionEndpoint? region = null)
+        => DeleteChannelAsync(channel, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetChannelAsync"/>.</summary>
+    public static GetChannelResult GetChannel(string channel, RegionEndpoint? region = null)
+        => GetChannelAsync(channel, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListChannelsAsync"/>.</summary>
+    public static ListChannelsResult ListChannels(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListChannelsAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateChannelAsync"/>.</summary>
+    public static UpdateChannelResult UpdateChannel(UpdateChannelRequest request, RegionEndpoint? region = null)
+        => UpdateChannelAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RegisterOrganizationDelegatedAdminAsync"/>.</summary>
+    public static RegisterOrganizationDelegatedAdminResult RegisterOrganizationDelegatedAdmin(string memberAccountId, RegionEndpoint? region = null)
+        => RegisterOrganizationDelegatedAdminAsync(memberAccountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeregisterOrganizationDelegatedAdminAsync"/>.</summary>
+    public static DeregisterOrganizationDelegatedAdminResult DeregisterOrganizationDelegatedAdmin(string delegatedAdminAccountId, RegionEndpoint? region = null)
+        => DeregisterOrganizationDelegatedAdminAsync(delegatedAdminAccountId, region).GetAwaiter().GetResult();
+
 }

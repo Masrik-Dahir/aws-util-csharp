@@ -721,4 +721,102 @@ public static class CognitoIdentityService
                 $"Failed to list tags for Cognito Identity resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateIdentityPoolAsync"/>.</summary>
+    public static CiCreateIdentityPoolResult CreateIdentityPool(CreateIdentityPoolRequest request, RegionEndpoint? region = null)
+        => CreateIdentityPoolAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteIdentityPoolAsync"/>.</summary>
+    public static CiDeleteIdentityPoolResult DeleteIdentityPool(string identityPoolId, RegionEndpoint? region = null)
+        => DeleteIdentityPoolAsync(identityPoolId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeIdentityPoolAsync"/>.</summary>
+    public static CiDescribeIdentityPoolResult DescribeIdentityPool(string identityPoolId, RegionEndpoint? region = null)
+        => DescribeIdentityPoolAsync(identityPoolId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListIdentityPoolsAsync"/>.</summary>
+    public static CiListIdentityPoolsResult ListIdentityPools(int maxResults, string? nextToken = null, RegionEndpoint? region = null)
+        => ListIdentityPoolsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateIdentityPoolAsync"/>.</summary>
+    public static CiUpdateIdentityPoolResult UpdateIdentityPool(UpdateIdentityPoolRequest request, RegionEndpoint? region = null)
+        => UpdateIdentityPoolAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetIdAsync"/>.</summary>
+    public static CiGetIdResult GetId(string identityPoolId, string? accountId = null, Dictionary<string, string>? logins = null, RegionEndpoint? region = null)
+        => GetIdAsync(identityPoolId, accountId, logins, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCredentialsForIdentityAsync"/>.</summary>
+    public static CiGetCredentialsForIdentityResult GetCredentialsForIdentity(string identityId, Dictionary<string, string>? logins = null, string? customRoleArn = null, RegionEndpoint? region = null)
+        => GetCredentialsForIdentityAsync(identityId, logins, customRoleArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetOpenIdTokenAsync"/>.</summary>
+    public static CiGetOpenIdTokenResult GetOpenIdToken(string identityId, Dictionary<string, string>? logins = null, RegionEndpoint? region = null)
+        => GetOpenIdTokenAsync(identityId, logins, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetOpenIdTokenForDeveloperIdentityAsync"/>.</summary>
+    public static CiGetOpenIdTokenForDeveloperIdentityResult GetOpenIdTokenForDeveloperIdentity(string identityPoolId, Dictionary<string, string> logins, string? identityId = null, string? principalTags = null, long? tokenDuration = null, RegionEndpoint? region = null)
+        => GetOpenIdTokenForDeveloperIdentityAsync(identityPoolId, logins, identityId, principalTags, tokenDuration, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LookupDeveloperIdentityAsync"/>.</summary>
+    public static CiLookupDeveloperIdentityResult LookupDeveloperIdentity(string identityPoolId, string? identityId = null, string? developerUserIdentifier = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => LookupDeveloperIdentityAsync(identityPoolId, identityId, developerUserIdentifier, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MergeDeveloperIdentitiesAsync"/>.</summary>
+    public static CiMergeDeveloperIdentitiesResult MergeDeveloperIdentities(string sourceUserIdentifier, string destinationUserIdentifier, string developerProviderName, string identityPoolId, RegionEndpoint? region = null)
+        => MergeDeveloperIdentitiesAsync(sourceUserIdentifier, destinationUserIdentifier, developerProviderName, identityPoolId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UnlinkDeveloperIdentityAsync"/>.</summary>
+    public static CiUnlinkDeveloperIdentityResult UnlinkDeveloperIdentity(string identityId, string identityPoolId, string developerProviderName, string developerUserIdentifier, RegionEndpoint? region = null)
+        => UnlinkDeveloperIdentityAsync(identityId, identityPoolId, developerProviderName, developerUserIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UnlinkIdentityAsync"/>.</summary>
+    public static CiUnlinkIdentityResult UnlinkIdentity(string identityId, Dictionary<string, string> logins, List<string> loginsToRemove, RegionEndpoint? region = null)
+        => UnlinkIdentityAsync(identityId, logins, loginsToRemove, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeIdentityAsync"/>.</summary>
+    public static CiDescribeIdentityResult DescribeIdentity(string identityId, RegionEndpoint? region = null)
+        => DescribeIdentityAsync(identityId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListIdentitiesAsync"/>.</summary>
+    public static CiListIdentitiesResult ListIdentities(string identityPoolId, int maxResults, string? nextToken = null, bool? hideDisabled = null, RegionEndpoint? region = null)
+        => ListIdentitiesAsync(identityPoolId, maxResults, nextToken, hideDisabled, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteIdentitiesAsync"/>.</summary>
+    public static CiDeleteIdentitiesResult DeleteIdentities(List<string> identityIdsToDelete, RegionEndpoint? region = null)
+        => DeleteIdentitiesAsync(identityIdsToDelete, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetIdentityPoolRolesAsync"/>.</summary>
+    public static CiSetIdentityPoolRolesResult SetIdentityPoolRoles(string identityPoolId, Dictionary<string, string> roles, Dictionary<string, RoleMapping>? roleMappings = null, RegionEndpoint? region = null)
+        => SetIdentityPoolRolesAsync(identityPoolId, roles, roleMappings, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetIdentityPoolRolesAsync"/>.</summary>
+    public static CiGetIdentityPoolRolesResult GetIdentityPoolRoles(string identityPoolId, RegionEndpoint? region = null)
+        => GetIdentityPoolRolesAsync(identityPoolId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetPrincipalTagAttributeMapAsync"/>.</summary>
+    public static CiSetPrincipalTagAttributeMapResult SetPrincipalTagAttributeMap(string identityPoolId, string identityProviderName, bool? useDefaults = null, Dictionary<string, string>? principalTags = null, RegionEndpoint? region = null)
+        => SetPrincipalTagAttributeMapAsync(identityPoolId, identityProviderName, useDefaults, principalTags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPrincipalTagAttributeMapAsync"/>.</summary>
+    public static CiGetPrincipalTagAttributeMapResult GetPrincipalTagAttributeMap(string identityPoolId, string identityProviderName, RegionEndpoint? region = null)
+        => GetPrincipalTagAttributeMapAsync(identityPoolId, identityProviderName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static CiTagResourceResult TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static CiUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static CiListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

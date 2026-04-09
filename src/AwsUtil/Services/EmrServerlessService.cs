@@ -395,4 +395,70 @@ public static class EmrServerlessService
                 $"Failed to list tags for EMR Serverless resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateApplicationAsync"/>.</summary>
+    public static EmrsCreateApplicationResult CreateApplication(CreateApplicationRequest request, RegionEndpoint? region = null)
+        => CreateApplicationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApplicationAsync"/>.</summary>
+    public static EmrsDeleteApplicationResult DeleteApplication(string applicationId, RegionEndpoint? region = null)
+        => DeleteApplicationAsync(applicationId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetApplicationAsync"/>.</summary>
+    public static EmrsGetApplicationResult GetApplication(string applicationId, RegionEndpoint? region = null)
+        => GetApplicationAsync(applicationId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListApplicationsAsync"/>.</summary>
+    public static EmrsListApplicationsResult ListApplications(List<string>? states = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListApplicationsAsync(states, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateApplicationAsync"/>.</summary>
+    public static EmrsUpdateApplicationResult UpdateApplication(UpdateApplicationRequest request, RegionEndpoint? region = null)
+        => UpdateApplicationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartApplicationAsync"/>.</summary>
+    public static EmrsStartApplicationResult StartApplication(string applicationId, RegionEndpoint? region = null)
+        => StartApplicationAsync(applicationId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopApplicationAsync"/>.</summary>
+    public static EmrsStopApplicationResult StopApplication(string applicationId, RegionEndpoint? region = null)
+        => StopApplicationAsync(applicationId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartJobRunAsync"/>.</summary>
+    public static EmrsStartJobRunResult StartJobRun(StartJobRunRequest request, RegionEndpoint? region = null)
+        => StartJobRunAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelJobRunAsync"/>.</summary>
+    public static EmrsCancelJobRunResult CancelJobRun(string applicationId, string jobRunId, RegionEndpoint? region = null)
+        => CancelJobRunAsync(applicationId, jobRunId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetJobRunAsync"/>.</summary>
+    public static EmrsGetJobRunResult GetJobRun(string applicationId, string jobRunId, RegionEndpoint? region = null)
+        => GetJobRunAsync(applicationId, jobRunId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListJobRunsAsync"/>.</summary>
+    public static EmrsListJobRunsResult ListJobRuns(string applicationId, List<string>? states = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListJobRunsAsync(applicationId, states, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDashboardForJobRunAsync"/>.</summary>
+    public static EmrsGetDashboardForJobRunResult GetDashboardForJobRun(string applicationId, string jobRunId, RegionEndpoint? region = null)
+        => GetDashboardForJobRunAsync(applicationId, jobRunId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static EmrsTagResourceResult TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static EmrsUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static EmrsListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

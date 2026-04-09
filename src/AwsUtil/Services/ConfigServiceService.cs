@@ -1209,4 +1209,178 @@ public static class ConfigServiceService
                 $"Failed to list tags for Config resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="PutConfigRuleAsync"/>.</summary>
+    public static CfgPutConfigRuleResult PutConfigRule(ConfigRule configRule, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => PutConfigRuleAsync(configRule, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConfigRuleAsync"/>.</summary>
+    public static CfgDeleteConfigRuleResult DeleteConfigRule(string configRuleName, RegionEndpoint? region = null)
+        => DeleteConfigRuleAsync(configRuleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeConfigRulesAsync"/>.</summary>
+    public static CfgDescribeConfigRulesResult DescribeConfigRules(List<string>? configRuleNames = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeConfigRulesAsync(configRuleNames, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutConfigurationRecorderAsync"/>.</summary>
+    public static CfgPutConfigurationRecorderResult PutConfigurationRecorder(ConfigurationRecorder configurationRecorder, RegionEndpoint? region = null)
+        => PutConfigurationRecorderAsync(configurationRecorder, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConfigurationRecorderAsync"/>.</summary>
+    public static CfgDeleteConfigurationRecorderResult DeleteConfigurationRecorder(string configurationRecorderName, RegionEndpoint? region = null)
+        => DeleteConfigurationRecorderAsync(configurationRecorderName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeConfigurationRecordersAsync"/>.</summary>
+    public static CfgDescribeConfigurationRecordersResult DescribeConfigurationRecorders(List<string>? configurationRecorderNames = null, RegionEndpoint? region = null)
+        => DescribeConfigurationRecordersAsync(configurationRecorderNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartConfigurationRecorderAsync"/>.</summary>
+    public static CfgStartConfigurationRecorderResult StartConfigurationRecorder(string configurationRecorderName, RegionEndpoint? region = null)
+        => StartConfigurationRecorderAsync(configurationRecorderName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopConfigurationRecorderAsync"/>.</summary>
+    public static CfgStopConfigurationRecorderResult StopConfigurationRecorder(string configurationRecorderName, RegionEndpoint? region = null)
+        => StopConfigurationRecorderAsync(configurationRecorderName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutDeliveryChannelAsync"/>.</summary>
+    public static CfgPutDeliveryChannelResult PutDeliveryChannel(DeliveryChannel deliveryChannel, RegionEndpoint? region = null)
+        => PutDeliveryChannelAsync(deliveryChannel, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDeliveryChannelAsync"/>.</summary>
+    public static CfgDeleteDeliveryChannelResult DeleteDeliveryChannel(string deliveryChannelName, RegionEndpoint? region = null)
+        => DeleteDeliveryChannelAsync(deliveryChannelName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDeliveryChannelsAsync"/>.</summary>
+    public static CfgDescribeDeliveryChannelsResult DescribeDeliveryChannels(List<string>? deliveryChannelNames = null, RegionEndpoint? region = null)
+        => DescribeDeliveryChannelsAsync(deliveryChannelNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetComplianceDetailsByConfigRuleAsync"/>.</summary>
+    public static CfgGetComplianceDetailsByConfigRuleResult GetComplianceDetailsByConfigRule(string configRuleName, List<string>? complianceTypes = null, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetComplianceDetailsByConfigRuleAsync(configRuleName, complianceTypes, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetComplianceDetailsByResourceAsync"/>.</summary>
+    public static CfgGetComplianceDetailsByResourceResult GetComplianceDetailsByResource(string resourceType, string resourceId, List<string>? complianceTypes = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetComplianceDetailsByResourceAsync(resourceType, resourceId, complianceTypes, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetComplianceSummaryByConfigRuleAsync"/>.</summary>
+    public static CfgGetComplianceSummaryByConfigRuleResult GetComplianceSummaryByConfigRule(RegionEndpoint? region = null)
+        => GetComplianceSummaryByConfigRuleAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetComplianceSummaryByResourceTypeAsync"/>.</summary>
+    public static CfgGetComplianceSummaryByResourceTypeResult GetComplianceSummaryByResourceType(List<string>? resourceTypes = null, RegionEndpoint? region = null)
+        => GetComplianceSummaryByResourceTypeAsync(resourceTypes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeComplianceByConfigRuleAsync"/>.</summary>
+    public static CfgDescribeComplianceByConfigRuleResult DescribeComplianceByConfigRule(List<string>? configRuleNames = null, List<string>? complianceTypes = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeComplianceByConfigRuleAsync(configRuleNames, complianceTypes, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeComplianceByResourceAsync"/>.</summary>
+    public static CfgDescribeComplianceByResourceResult DescribeComplianceByResource(string? resourceType = null, string? resourceId = null, List<string>? complianceTypes = null, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeComplianceByResourceAsync(resourceType, resourceId, complianceTypes, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutRemediationConfigurationsAsync"/>.</summary>
+    public static CfgPutRemediationConfigurationsResult PutRemediationConfigurations(List<RemediationConfiguration> remediationConfigurations, RegionEndpoint? region = null)
+        => PutRemediationConfigurationsAsync(remediationConfigurations, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRemediationConfigurationAsync"/>.</summary>
+    public static CfgDeleteRemediationConfigurationResult DeleteRemediationConfiguration(string configRuleName, string? resourceType = null, RegionEndpoint? region = null)
+        => DeleteRemediationConfigurationAsync(configRuleName, resourceType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeRemediationConfigurationsAsync"/>.</summary>
+    public static CfgDescribeRemediationConfigurationsResult DescribeRemediationConfigurations(List<string> configRuleNames, RegionEndpoint? region = null)
+        => DescribeRemediationConfigurationsAsync(configRuleNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartRemediationExecutionAsync"/>.</summary>
+    public static CfgStartRemediationExecutionResult StartRemediationExecution(string configRuleName, List<ResourceKey> resourceKeys, RegionEndpoint? region = null)
+        => StartRemediationExecutionAsync(configRuleName, resourceKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutConformancePackAsync"/>.</summary>
+    public static CfgPutConformancePackResult PutConformancePack(PutConformancePackRequest request, RegionEndpoint? region = null)
+        => PutConformancePackAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConformancePackAsync"/>.</summary>
+    public static CfgDeleteConformancePackResult DeleteConformancePack(string conformancePackName, RegionEndpoint? region = null)
+        => DeleteConformancePackAsync(conformancePackName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeConformancePacksAsync"/>.</summary>
+    public static CfgDescribeConformancePacksResult DescribeConformancePacks(List<string>? conformancePackNames = null, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeConformancePacksAsync(conformancePackNames, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetConformancePackComplianceSummaryAsync"/>.</summary>
+    public static CfgGetConformancePackComplianceSummaryResult GetConformancePackComplianceSummary(List<string> conformancePackNames, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetConformancePackComplianceSummaryAsync(conformancePackNames, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutOrganizationConfigRuleAsync"/>.</summary>
+    public static CfgPutOrganizationConfigRuleResult PutOrganizationConfigRule(PutOrganizationConfigRuleRequest request, RegionEndpoint? region = null)
+        => PutOrganizationConfigRuleAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteOrganizationConfigRuleAsync"/>.</summary>
+    public static CfgDeleteOrganizationConfigRuleResult DeleteOrganizationConfigRule(string organizationConfigRuleName, RegionEndpoint? region = null)
+        => DeleteOrganizationConfigRuleAsync(organizationConfigRuleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeOrganizationConfigRulesAsync"/>.</summary>
+    public static CfgDescribeOrganizationConfigRulesResult DescribeOrganizationConfigRules(List<string>? organizationConfigRuleNames = null, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeOrganizationConfigRulesAsync(organizationConfigRuleNames, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutOrganizationConformancePackAsync"/>.</summary>
+    public static CfgPutOrganizationConformancePackResult PutOrganizationConformancePack(PutOrganizationConformancePackRequest request, RegionEndpoint? region = null)
+        => PutOrganizationConformancePackAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteOrganizationConformancePackAsync"/>.</summary>
+    public static CfgDeleteOrganizationConformancePackResult DeleteOrganizationConformancePack(string organizationConformancePackName, RegionEndpoint? region = null)
+        => DeleteOrganizationConformancePackAsync(organizationConformancePackName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeOrganizationConformancePacksAsync"/>.</summary>
+    public static CfgDescribeOrganizationConformancePacksResult DescribeOrganizationConformancePacks(List<string>? organizationConformancePackNames = null, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeOrganizationConformancePacksAsync(organizationConformancePackNames, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutAggregationAuthorizationAsync"/>.</summary>
+    public static CfgPutAggregationAuthorizationResult PutAggregationAuthorization(string authorizedAccountId, string authorizedAwsRegion, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => PutAggregationAuthorizationAsync(authorizedAccountId, authorizedAwsRegion, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAggregationAuthorizationAsync"/>.</summary>
+    public static CfgDeleteAggregationAuthorizationResult DeleteAggregationAuthorization(string authorizedAccountId, string authorizedAwsRegion, RegionEndpoint? region = null)
+        => DeleteAggregationAuthorizationAsync(authorizedAccountId, authorizedAwsRegion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAggregationAuthorizationsAsync"/>.</summary>
+    public static CfgDescribeAggregationAuthorizationsResult DescribeAggregationAuthorizations(int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeAggregationAuthorizationsAsync(limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutConfigurationAggregatorAsync"/>.</summary>
+    public static CfgPutConfigurationAggregatorResult PutConfigurationAggregator(PutConfigurationAggregatorRequest request, RegionEndpoint? region = null)
+        => PutConfigurationAggregatorAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConfigurationAggregatorAsync"/>.</summary>
+    public static CfgDeleteConfigurationAggregatorResult DeleteConfigurationAggregator(string configurationAggregatorName, RegionEndpoint? region = null)
+        => DeleteConfigurationAggregatorAsync(configurationAggregatorName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeConfigurationAggregatorsAsync"/>.</summary>
+    public static CfgDescribeConfigurationAggregatorsResult DescribeConfigurationAggregators(List<string>? configurationAggregatorNames = null, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeConfigurationAggregatorsAsync(configurationAggregatorNames, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetResourceConfigHistoryAsync"/>.</summary>
+    public static CfgGetResourceConfigHistoryResult GetResourceConfigHistory(string resourceType, string resourceId, DateTime? laterTime = null, DateTime? earlierTime = null, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetResourceConfigHistoryAsync(resourceType, resourceId, laterTime, earlierTime, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SelectResourceConfigAsync"/>.</summary>
+    public static CfgSelectResourceConfigResult SelectResourceConfig(string expression, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => SelectResourceConfigAsync(expression, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static CfgTagResourceResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static CfgUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static CfgListTagsForResourceResult ListTagsForResource(string resourceArn, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, limit, nextToken, region).GetAwaiter().GetResult();
+
 }

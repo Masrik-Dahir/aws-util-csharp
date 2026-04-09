@@ -1197,4 +1197,182 @@ public static class TransferService
                 $"Failed to list tags for resource '{arn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateServerAsync"/>.</summary>
+    public static string? CreateServer(CreateServerRequest request, RegionEndpoint? region = null)
+        => CreateServerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteServerAsync"/>.</summary>
+    public static void DeleteServer(string serverId, RegionEndpoint? region = null)
+        => DeleteServerAsync(serverId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeServerAsync"/>.</summary>
+    public static TransferServerInfo DescribeServer(string serverId, RegionEndpoint? region = null)
+        => DescribeServerAsync(serverId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListServersAsync"/>.</summary>
+    public static List<TransferServerInfo> ListServers(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListServersAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateServerAsync"/>.</summary>
+    public static string? UpdateServer(UpdateServerRequest request, RegionEndpoint? region = null)
+        => UpdateServerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartServerAsync"/>.</summary>
+    public static void StartServer(string serverId, RegionEndpoint? region = null)
+        => StartServerAsync(serverId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopServerAsync"/>.</summary>
+    public static void StopServer(string serverId, RegionEndpoint? region = null)
+        => StopServerAsync(serverId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateUserAsync"/>.</summary>
+    public static TransferUserInfo CreateUser(CreateUserRequest request, RegionEndpoint? region = null)
+        => CreateUserAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUserAsync"/>.</summary>
+    public static void DeleteUser(string serverId, string userName, RegionEndpoint? region = null)
+        => DeleteUserAsync(serverId, userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeUserAsync"/>.</summary>
+    public static TransferUserInfo DescribeUser(string serverId, string userName, RegionEndpoint? region = null)
+        => DescribeUserAsync(serverId, userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListUsersAsync"/>.</summary>
+    public static List<TransferUserInfo> ListUsers(string serverId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListUsersAsync(serverId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateUserAsync"/>.</summary>
+    public static TransferUserInfo UpdateUser(UpdateUserRequest request, RegionEndpoint? region = null)
+        => UpdateUserAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ImportSshPublicKeyAsync"/>.</summary>
+    public static TransferSshPublicKeyInfo ImportSshPublicKey(string serverId, string userName, string sshPublicKeyBody, RegionEndpoint? region = null)
+        => ImportSshPublicKeyAsync(serverId, userName, sshPublicKeyBody, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSshPublicKeyAsync"/>.</summary>
+    public static void DeleteSshPublicKey(string serverId, string userName, string sshPublicKeyId, RegionEndpoint? region = null)
+        => DeleteSshPublicKeyAsync(serverId, userName, sshPublicKeyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateWorkflowAsync"/>.</summary>
+    public static string? CreateWorkflow(CreateWorkflowRequest request, RegionEndpoint? region = null)
+        => CreateWorkflowAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteWorkflowAsync"/>.</summary>
+    public static void DeleteWorkflow(string workflowId, RegionEndpoint? region = null)
+        => DeleteWorkflowAsync(workflowId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeWorkflowAsync"/>.</summary>
+    public static TransferWorkflowInfo DescribeWorkflow(string workflowId, RegionEndpoint? region = null)
+        => DescribeWorkflowAsync(workflowId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListWorkflowsAsync"/>.</summary>
+    public static List<TransferWorkflowInfo> ListWorkflows(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListWorkflowsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAgreementAsync"/>.</summary>
+    public static string? CreateAgreement(CreateAgreementRequest request, RegionEndpoint? region = null)
+        => CreateAgreementAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAgreementAsync"/>.</summary>
+    public static void DeleteAgreement(string agreementId, string serverId, RegionEndpoint? region = null)
+        => DeleteAgreementAsync(agreementId, serverId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAgreementAsync"/>.</summary>
+    public static TransferAgreementInfo DescribeAgreement(string agreementId, string serverId, RegionEndpoint? region = null)
+        => DescribeAgreementAsync(agreementId, serverId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAgreementsAsync"/>.</summary>
+    public static List<TransferAgreementInfo> ListAgreements(string serverId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListAgreementsAsync(serverId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAgreementAsync"/>.</summary>
+    public static string? UpdateAgreement(UpdateAgreementRequest request, RegionEndpoint? region = null)
+        => UpdateAgreementAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateConnectorAsync"/>.</summary>
+    public static string? CreateConnector(CreateConnectorRequest request, RegionEndpoint? region = null)
+        => CreateConnectorAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConnectorAsync"/>.</summary>
+    public static void DeleteConnector(string connectorId, RegionEndpoint? region = null)
+        => DeleteConnectorAsync(connectorId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeConnectorAsync"/>.</summary>
+    public static TransferConnectorInfo DescribeConnector(string connectorId, RegionEndpoint? region = null)
+        => DescribeConnectorAsync(connectorId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListConnectorsAsync"/>.</summary>
+    public static List<TransferConnectorInfo> ListConnectors(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListConnectorsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateConnectorAsync"/>.</summary>
+    public static string? UpdateConnector(UpdateConnectorRequest request, RegionEndpoint? region = null)
+        => UpdateConnectorAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateProfileAsync"/>.</summary>
+    public static string? CreateProfile(CreateProfileRequest request, RegionEndpoint? region = null)
+        => CreateProfileAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteProfileAsync"/>.</summary>
+    public static void DeleteProfile(string profileId, RegionEndpoint? region = null)
+        => DeleteProfileAsync(profileId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeProfileAsync"/>.</summary>
+    public static TransferProfileInfo DescribeProfile(string profileId, RegionEndpoint? region = null)
+        => DescribeProfileAsync(profileId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListProfilesAsync"/>.</summary>
+    public static List<TransferProfileInfo> ListProfiles(string? profileType = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListProfilesAsync(profileType, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateProfileAsync"/>.</summary>
+    public static string? UpdateProfile(UpdateProfileRequest request, RegionEndpoint? region = null)
+        => UpdateProfileAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAccessAsync"/>.</summary>
+    public static TransferAccessInfo CreateAccess(CreateAccessRequest request, RegionEndpoint? region = null)
+        => CreateAccessAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAccessAsync"/>.</summary>
+    public static void DeleteAccess(string serverId, string externalId, RegionEndpoint? region = null)
+        => DeleteAccessAsync(serverId, externalId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAccessAsync"/>.</summary>
+    public static TransferAccessInfo DescribeAccess(string serverId, string externalId, RegionEndpoint? region = null)
+        => DescribeAccessAsync(serverId, externalId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccessesAsync"/>.</summary>
+    public static List<TransferAccessInfo> ListAccesses(string serverId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListAccessesAsync(serverId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAccessAsync"/>.</summary>
+    public static TransferAccessInfo UpdateAccess(UpdateAccessRequest request, RegionEndpoint? region = null)
+        => UpdateAccessAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SendWorkflowStepStateAsync"/>.</summary>
+    public static TransferWorkflowStepResult SendWorkflowStepState(SendWorkflowStepStateRequest request, RegionEndpoint? region = null)
+        => SendWorkflowStepStateAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TestIdentityProviderAsync"/>.</summary>
+    public static TransferTestIdentityProviderResult TestIdentityProvider(string serverId, string userName, string? userPassword = null, string? serverProtocol = null, string? sourceIp = null, RegionEndpoint? region = null)
+        => TestIdentityProviderAsync(serverId, userName, userPassword, serverProtocol, sourceIp, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static TransferTagResult TagResource(string arn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(arn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static TransferTagResult UntagResource(string arn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(arn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static TransferListTagsResult ListTagsForResource(string arn, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(arn, maxResults, nextToken, region).GetAwaiter().GetResult();
+
 }

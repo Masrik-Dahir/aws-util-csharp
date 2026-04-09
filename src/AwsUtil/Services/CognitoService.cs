@@ -1255,4 +1255,214 @@ public static class CognitoService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to update identity provider");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateUserPoolAsync"/>.</summary>
+    public static CreateUserPoolResult CreateUserPool(CreateUserPoolRequest request, RegionEndpoint? region = null)
+        => CreateUserPoolAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUserPoolAsync"/>.</summary>
+    public static void DeleteUserPool(string userPoolId, RegionEndpoint? region = null)
+        => DeleteUserPoolAsync(userPoolId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeUserPoolAsync"/>.</summary>
+    public static DescribeUserPoolResult DescribeUserPool(string userPoolId, RegionEndpoint? region = null)
+        => DescribeUserPoolAsync(userPoolId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListUserPoolsAsync"/>.</summary>
+    public static ListUserPoolsResult ListUserPools(int maxResults = 60, string? nextToken = null, RegionEndpoint? region = null)
+        => ListUserPoolsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateUserPoolAsync"/>.</summary>
+    public static void UpdateUserPool(UpdateUserPoolRequest request, RegionEndpoint? region = null)
+        => UpdateUserPoolAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateUserPoolClientAsync"/>.</summary>
+    public static CreateUserPoolClientResult CreateUserPoolClient(CreateUserPoolClientRequest request, RegionEndpoint? region = null)
+        => CreateUserPoolClientAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUserPoolClientAsync"/>.</summary>
+    public static void DeleteUserPoolClient(string userPoolId, string clientId, RegionEndpoint? region = null)
+        => DeleteUserPoolClientAsync(userPoolId, clientId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeUserPoolClientAsync"/>.</summary>
+    public static DescribeUserPoolClientResult DescribeUserPoolClient(string userPoolId, string clientId, RegionEndpoint? region = null)
+        => DescribeUserPoolClientAsync(userPoolId, clientId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListUserPoolClientsAsync"/>.</summary>
+    public static ListUserPoolClientsResult ListUserPoolClients(string userPoolId, int maxResults = 60, string? nextToken = null, RegionEndpoint? region = null)
+        => ListUserPoolClientsAsync(userPoolId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateUserPoolClientAsync"/>.</summary>
+    public static DescribeUserPoolClientResult UpdateUserPoolClient(UpdateUserPoolClientRequest request, RegionEndpoint? region = null)
+        => UpdateUserPoolClientAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminCreateUserAsync"/>.</summary>
+    public static AdminCreateUserResult AdminCreateUser(AdminCreateUserRequest request, RegionEndpoint? region = null)
+        => AdminCreateUserAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminDeleteUserAsync"/>.</summary>
+    public static void AdminDeleteUser(string userPoolId, string username, RegionEndpoint? region = null)
+        => AdminDeleteUserAsync(userPoolId, username, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminGetUserAsync"/>.</summary>
+    public static AdminGetUserResult AdminGetUser(string userPoolId, string username, RegionEndpoint? region = null)
+        => AdminGetUserAsync(userPoolId, username, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminSetUserPasswordAsync"/>.</summary>
+    public static void AdminSetUserPassword(string userPoolId, string username, string password, bool permanent = true, RegionEndpoint? region = null)
+        => AdminSetUserPasswordAsync(userPoolId, username, password, permanent, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminConfirmSignUpAsync"/>.</summary>
+    public static void AdminConfirmSignUp(string userPoolId, string username, RegionEndpoint? region = null)
+        => AdminConfirmSignUpAsync(userPoolId, username, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminDisableUserAsync"/>.</summary>
+    public static void AdminDisableUser(string userPoolId, string username, RegionEndpoint? region = null)
+        => AdminDisableUserAsync(userPoolId, username, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminEnableUserAsync"/>.</summary>
+    public static void AdminEnableUser(string userPoolId, string username, RegionEndpoint? region = null)
+        => AdminEnableUserAsync(userPoolId, username, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminInitiateAuthAsync"/>.</summary>
+    public static AdminInitiateAuthResult AdminInitiateAuth(AdminInitiateAuthRequest request, RegionEndpoint? region = null)
+        => AdminInitiateAuthAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminRespondToAuthChallengeAsync"/>.</summary>
+    public static AdminRespondToAuthChallengeResult AdminRespondToAuthChallenge(AdminRespondToAuthChallengeRequest request, RegionEndpoint? region = null)
+        => AdminRespondToAuthChallengeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminUserGlobalSignOutAsync"/>.</summary>
+    public static void AdminUserGlobalSignOut(string userPoolId, string username, RegionEndpoint? region = null)
+        => AdminUserGlobalSignOutAsync(userPoolId, username, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminListGroupsForUserAsync"/>.</summary>
+    public static AdminListGroupsForUserResult AdminListGroupsForUser(string userPoolId, string username, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => AdminListGroupsForUserAsync(userPoolId, username, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminAddUserToGroupAsync"/>.</summary>
+    public static void AdminAddUserToGroup(string userPoolId, string username, string groupName, RegionEndpoint? region = null)
+        => AdminAddUserToGroupAsync(userPoolId, username, groupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminRemoveUserFromGroupAsync"/>.</summary>
+    public static void AdminRemoveUserFromGroup(string userPoolId, string username, string groupName, RegionEndpoint? region = null)
+        => AdminRemoveUserFromGroupAsync(userPoolId, username, groupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminResetUserPasswordAsync"/>.</summary>
+    public static void AdminResetUserPassword(string userPoolId, string username, RegionEndpoint? region = null)
+        => AdminResetUserPasswordAsync(userPoolId, username, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminSetUserMFAPreferenceAsync"/>.</summary>
+    public static void AdminSetUserMFAPreference(AdminSetUserMFAPreferenceRequest request, RegionEndpoint? region = null)
+        => AdminSetUserMFAPreferenceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminUpdateUserAttributesAsync"/>.</summary>
+    public static void AdminUpdateUserAttributes(string userPoolId, string username, List<AttributeType> userAttributes, RegionEndpoint? region = null)
+        => AdminUpdateUserAttributesAsync(userPoolId, username, userAttributes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AdminListDevicesAsync"/>.</summary>
+    public static AdminListDevicesResult AdminListDevices(string userPoolId, string username, int? limit = null, string? paginationToken = null, RegionEndpoint? region = null)
+        => AdminListDevicesAsync(userPoolId, username, limit, paginationToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGroupAsync"/>.</summary>
+    public static CreateGroupResult CreateGroup(CreateGroupRequest request, RegionEndpoint? region = null)
+        => CreateGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGroupAsync"/>.</summary>
+    public static void DeleteGroup(string userPoolId, string groupName, RegionEndpoint? region = null)
+        => DeleteGroupAsync(userPoolId, groupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetGroupAsync"/>.</summary>
+    public static GetGroupResult GetGroup(string userPoolId, string groupName, RegionEndpoint? region = null)
+        => GetGroupAsync(userPoolId, groupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGroupsAsync"/>.</summary>
+    public static ListGroupsResult ListGroups(string userPoolId, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListGroupsAsync(userPoolId, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateGroupAsync"/>.</summary>
+    public static UpdateGroupResult UpdateGroup(UpdateGroupRequest request, RegionEndpoint? region = null)
+        => UpdateGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListUsersAsync"/>.</summary>
+    public static ListUsersResult ListUsers(string userPoolId, string? filter = null, int? limit = null, string? paginationToken = null, RegionEndpoint? region = null)
+        => ListUsersAsync(userPoolId, filter, limit, paginationToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListUsersInGroupAsync"/>.</summary>
+    public static ListUsersInGroupResult ListUsersInGroup(string userPoolId, string groupName, int? limit = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListUsersInGroupAsync(userPoolId, groupName, limit, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SignUpAsync"/>.</summary>
+    public static SignUpResult SignUp(SignUpRequest request, RegionEndpoint? region = null)
+        => SignUpAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="InitiateAuthAsync"/>.</summary>
+    public static InitiateAuthResult InitiateAuth(InitiateAuthRequest request, RegionEndpoint? region = null)
+        => InitiateAuthAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RespondToAuthChallengeAsync"/>.</summary>
+    public static RespondToAuthChallengeResult RespondToAuthChallenge(RespondToAuthChallengeRequest request, RegionEndpoint? region = null)
+        => RespondToAuthChallengeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ConfirmSignUpAsync"/>.</summary>
+    public static void ConfirmSignUp(ConfirmSignUpRequest request, RegionEndpoint? region = null)
+        => ConfirmSignUpAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ForgotPasswordAsync"/>.</summary>
+    public static void ForgotPassword(ForgotPasswordRequest request, RegionEndpoint? region = null)
+        => ForgotPasswordAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ConfirmForgotPasswordAsync"/>.</summary>
+    public static void ConfirmForgotPassword(ConfirmForgotPasswordRequest request, RegionEndpoint? region = null)
+        => ConfirmForgotPasswordAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ChangePasswordAsync"/>.</summary>
+    public static void ChangePassword(ChangePasswordRequest request, RegionEndpoint? region = null)
+        => ChangePasswordAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GlobalSignOutAsync"/>.</summary>
+    public static void GlobalSignOut(GlobalSignOutRequest request, RegionEndpoint? region = null)
+        => GlobalSignOutAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetUserAsync"/>.</summary>
+    public static GetUserResult GetUser(GetUserRequest request, RegionEndpoint? region = null)
+        => GetUserAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetUserMFAPreferenceAsync"/>.</summary>
+    public static void SetUserMFAPreference(SetUserMFAPreferenceRequest request, RegionEndpoint? region = null)
+        => SetUserMFAPreferenceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssociateSoftwareTokenAsync"/>.</summary>
+    public static AssociateSoftwareTokenResult AssociateSoftwareToken(AssociateSoftwareTokenRequest request, RegionEndpoint? region = null)
+        => AssociateSoftwareTokenAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="VerifySoftwareTokenAsync"/>.</summary>
+    public static VerifySoftwareTokenResult VerifySoftwareToken(VerifySoftwareTokenRequest request, RegionEndpoint? region = null)
+        => VerifySoftwareTokenAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateIdentityProviderAsync"/>.</summary>
+    public static CreateIdentityProviderResult CreateIdentityProvider(CreateIdentityProviderRequest request, RegionEndpoint? region = null)
+        => CreateIdentityProviderAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteIdentityProviderAsync"/>.</summary>
+    public static void DeleteIdentityProvider(string userPoolId, string providerName, RegionEndpoint? region = null)
+        => DeleteIdentityProviderAsync(userPoolId, providerName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeIdentityProviderAsync"/>.</summary>
+    public static DescribeIdentityProviderResult DescribeIdentityProvider(string userPoolId, string providerName, RegionEndpoint? region = null)
+        => DescribeIdentityProviderAsync(userPoolId, providerName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListIdentityProvidersAsync"/>.</summary>
+    public static ListIdentityProvidersResult ListIdentityProviders(string userPoolId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListIdentityProvidersAsync(userPoolId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateIdentityProviderAsync"/>.</summary>
+    public static UpdateIdentityProviderResult UpdateIdentityProvider(UpdateIdentityProviderRequest request, RegionEndpoint? region = null)
+        => UpdateIdentityProviderAsync(request, region).GetAwaiter().GetResult();
+
 }

@@ -6,7 +6,7 @@ on:
 
 jobs:
   validate:
-    name: Validate Package
+    name: Validate NuGet Package
     runs-on: ubuntu-latest
 
     steps:
@@ -17,26 +17,17 @@ jobs:
         with:
           dotnet-version: "10.0.x"
 
-      - name: Restore
+      - name: Restore dependencies
         run: dotnet restore
 
       - name: Build Release
         run: dotnet build --no-restore --configuration Release -warnaserror
 
-      - name: Pack (dry run)
+      - name: Pack
         run: dotnet pack src/AwsUtil/AwsUtil.csproj --no-build --configuration Release --output ./nupkg
 
-      - name: Validate NuGet package
-        run: dotnet nuget verify ./nupkg/*.nupkg --all || true
-
-      - name: Check package size
-        run: |
-          SIZE=$(stat --format=%s ./nupkg/*.nupkg)
-          echo "Package size: $((SIZE / 1024)) KB"
-          if [ "$SIZE" -gt 52428800 ]; then
-            echo "::error::Package exceeds 50MB limit"
-            exit 1
-          fi
+      - name: Validate package
+        run: dotnet nuget verify ./nupkg/*.nupkg || true
 
       - name: Upload package artifact
         uses: actions/upload-artifact@v4

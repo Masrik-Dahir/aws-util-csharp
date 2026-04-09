@@ -1446,4 +1446,174 @@ public static class ComprehendService
                 $"Failed to list tags for Comprehend resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="DetectSentimentAsync"/>.</summary>
+    public static DetectSentimentResult DetectSentiment(string text, string languageCode, RegionEndpoint? region = null)
+        => DetectSentimentAsync(text, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectEntitiesAsync"/>.</summary>
+    public static DetectEntitiesResult DetectEntities(string text, string? languageCode = null, string? endpointArn = null, byte[]? bytes = null, string? documentReaderConfig = null, RegionEndpoint? region = null)
+        => DetectEntitiesAsync(text, languageCode, endpointArn, bytes, documentReaderConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectKeyPhrasesAsync"/>.</summary>
+    public static DetectKeyPhrasesResult DetectKeyPhrases(string text, string languageCode, RegionEndpoint? region = null)
+        => DetectKeyPhrasesAsync(text, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectDominantLanguageAsync"/>.</summary>
+    public static DetectDominantLanguageResult DetectDominantLanguage(string text, RegionEndpoint? region = null)
+        => DetectDominantLanguageAsync(text, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectPiiEntitiesAsync"/>.</summary>
+    public static DetectPiiEntitiesResult DetectPiiEntities(string text, string languageCode, RegionEndpoint? region = null)
+        => DetectPiiEntitiesAsync(text, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectSyntaxAsync"/>.</summary>
+    public static DetectSyntaxResult DetectSyntax(string text, string languageCode, RegionEndpoint? region = null)
+        => DetectSyntaxAsync(text, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectTargetedSentimentAsync"/>.</summary>
+    public static DetectTargetedSentimentResult DetectTargetedSentiment(string text, string languageCode, RegionEndpoint? region = null)
+        => DetectTargetedSentimentAsync(text, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectToxicContentAsync"/>.</summary>
+    public static DetectToxicContentResult DetectToxicContent(List<TextSegment> textSegments, string languageCode, RegionEndpoint? region = null)
+        => DetectToxicContentAsync(textSegments, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchDetectSentimentAsync"/>.</summary>
+    public static BatchDetectSentimentResult BatchDetectSentiment(List<string> textList, string languageCode, RegionEndpoint? region = null)
+        => BatchDetectSentimentAsync(textList, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchDetectEntitiesAsync"/>.</summary>
+    public static BatchDetectEntitiesResult BatchDetectEntities(List<string> textList, string languageCode, RegionEndpoint? region = null)
+        => BatchDetectEntitiesAsync(textList, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchDetectKeyPhrasesAsync"/>.</summary>
+    public static BatchDetectKeyPhrasesResult BatchDetectKeyPhrases(List<string> textList, string languageCode, RegionEndpoint? region = null)
+        => BatchDetectKeyPhrasesAsync(textList, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchDetectDominantLanguageAsync"/>.</summary>
+    public static BatchDetectDominantLanguageResult BatchDetectDominantLanguage(List<string> textList, RegionEndpoint? region = null)
+        => BatchDetectDominantLanguageAsync(textList, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchDetectSyntaxAsync"/>.</summary>
+    public static BatchDetectSyntaxResult BatchDetectSyntax(List<string> textList, string languageCode, RegionEndpoint? region = null)
+        => BatchDetectSyntaxAsync(textList, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchDetectTargetedSentimentAsync"/>.</summary>
+    public static BatchDetectTargetedSentimentResult BatchDetectTargetedSentiment(List<string> textList, string languageCode, RegionEndpoint? region = null)
+        => BatchDetectTargetedSentimentAsync(textList, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ClassifyDocumentAsync"/>.</summary>
+    public static ClassifyDocumentResult ClassifyDocument(string endpointArn, string? text = null, byte[]? bytes = null, RegionEndpoint? region = null)
+        => ClassifyDocumentAsync(endpointArn, text, bytes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ContainsPiiEntitiesAsync"/>.</summary>
+    public static ContainsPiiEntitiesResult ContainsPiiEntities(string text, string languageCode, RegionEndpoint? region = null)
+        => ContainsPiiEntitiesAsync(text, languageCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartSentimentDetectionJobAsync"/>.</summary>
+    public static StartComprehendJobResult StartSentimentDetectionJob(InputDataConfig inputDataConfig, OutputDataConfig outputDataConfig, string dataAccessRoleArn, string languageCode, string? jobName = null, string? clientRequestToken = null, VpcConfig? vpcConfig = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => StartSentimentDetectionJobAsync(inputDataConfig, outputDataConfig, dataAccessRoleArn, languageCode, jobName, clientRequestToken, vpcConfig, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopSentimentDetectionJobAsync"/>.</summary>
+    public static StopComprehendJobResult StopSentimentDetectionJob(string jobId, RegionEndpoint? region = null)
+        => StopSentimentDetectionJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSentimentDetectionJobAsync"/>.</summary>
+    public static DescribeSentimentDetectionJobResult DescribeSentimentDetectionJob(string jobId, RegionEndpoint? region = null)
+        => DescribeSentimentDetectionJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSentimentDetectionJobsAsync"/>.</summary>
+    public static ListSentimentDetectionJobsResult ListSentimentDetectionJobs(SentimentDetectionJobFilter? filter = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListSentimentDetectionJobsAsync(filter, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartEntitiesDetectionJobAsync"/>.</summary>
+    public static StartComprehendJobResult StartEntitiesDetectionJob(InputDataConfig inputDataConfig, OutputDataConfig outputDataConfig, string dataAccessRoleArn, string languageCode, string? jobName = null, string? entityRecognizerArn = null, string? clientRequestToken = null, VpcConfig? vpcConfig = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => StartEntitiesDetectionJobAsync(inputDataConfig, outputDataConfig, dataAccessRoleArn, languageCode, jobName, entityRecognizerArn, clientRequestToken, vpcConfig, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopEntitiesDetectionJobAsync"/>.</summary>
+    public static StopComprehendJobResult StopEntitiesDetectionJob(string jobId, RegionEndpoint? region = null)
+        => StopEntitiesDetectionJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEntitiesDetectionJobAsync"/>.</summary>
+    public static DescribeEntitiesDetectionJobResult DescribeEntitiesDetectionJob(string jobId, RegionEndpoint? region = null)
+        => DescribeEntitiesDetectionJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListEntitiesDetectionJobsAsync"/>.</summary>
+    public static ListEntitiesDetectionJobsResult ListEntitiesDetectionJobs(EntitiesDetectionJobFilter? filter = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListEntitiesDetectionJobsAsync(filter, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartKeyPhrasesDetectionJobAsync"/>.</summary>
+    public static StartComprehendJobResult StartKeyPhrasesDetectionJob(InputDataConfig inputDataConfig, OutputDataConfig outputDataConfig, string dataAccessRoleArn, string languageCode, string? jobName = null, string? clientRequestToken = null, VpcConfig? vpcConfig = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => StartKeyPhrasesDetectionJobAsync(inputDataConfig, outputDataConfig, dataAccessRoleArn, languageCode, jobName, clientRequestToken, vpcConfig, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopKeyPhrasesDetectionJobAsync"/>.</summary>
+    public static StopComprehendJobResult StopKeyPhrasesDetectionJob(string jobId, RegionEndpoint? region = null)
+        => StopKeyPhrasesDetectionJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartDominantLanguageDetectionJobAsync"/>.</summary>
+    public static StartComprehendJobResult StartDominantLanguageDetectionJob(InputDataConfig inputDataConfig, OutputDataConfig outputDataConfig, string dataAccessRoleArn, string? jobName = null, string? clientRequestToken = null, VpcConfig? vpcConfig = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => StartDominantLanguageDetectionJobAsync(inputDataConfig, outputDataConfig, dataAccessRoleArn, jobName, clientRequestToken, vpcConfig, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopDominantLanguageDetectionJobAsync"/>.</summary>
+    public static StopComprehendJobResult StopDominantLanguageDetectionJob(string jobId, RegionEndpoint? region = null)
+        => StopDominantLanguageDetectionJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartPiiEntitiesDetectionJobAsync"/>.</summary>
+    public static StartComprehendJobResult StartPiiEntitiesDetectionJob(InputDataConfig inputDataConfig, OutputDataConfig outputDataConfig, string dataAccessRoleArn, string languageCode, string mode, string? jobName = null, string? clientRequestToken = null, RedactionConfig? redactionConfig = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => StartPiiEntitiesDetectionJobAsync(inputDataConfig, outputDataConfig, dataAccessRoleArn, languageCode, mode, jobName, clientRequestToken, redactionConfig, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopPiiEntitiesDetectionJobAsync"/>.</summary>
+    public static StopComprehendJobResult StopPiiEntitiesDetectionJob(string jobId, RegionEndpoint? region = null)
+        => StopPiiEntitiesDetectionJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDocumentClassifierAsync"/>.</summary>
+    public static CreateDocumentClassifierResult CreateDocumentClassifier(string documentClassifierName, string dataAccessRoleArn, DocumentClassifierInputDataConfig inputDataConfig, string languageCode, DocumentClassifierOutputDataConfig? outputDataConfig = null, string? mode = null, string? modelKmsKeyId = null, string? modelPolicy = null, string? versionName = null, string? volumeKmsKeyId = null, VpcConfig? vpcConfig = null, List<Tag>? tags = null, string? clientRequestToken = null, RegionEndpoint? region = null)
+        => CreateDocumentClassifierAsync(documentClassifierName, dataAccessRoleArn, inputDataConfig, languageCode, outputDataConfig, mode, modelKmsKeyId, modelPolicy, versionName, volumeKmsKeyId, vpcConfig, tags, clientRequestToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDocumentClassifierAsync"/>.</summary>
+    public static void DeleteDocumentClassifier(string documentClassifierArn, RegionEndpoint? region = null)
+        => DeleteDocumentClassifierAsync(documentClassifierArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDocumentClassifierAsync"/>.</summary>
+    public static DescribeDocumentClassifierResult DescribeDocumentClassifier(string documentClassifierArn, RegionEndpoint? region = null)
+        => DescribeDocumentClassifierAsync(documentClassifierArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDocumentClassifiersAsync"/>.</summary>
+    public static ListDocumentClassifiersResult ListDocumentClassifiers(DocumentClassifierFilter? filter = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListDocumentClassifiersAsync(filter, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEntityRecognizerAsync"/>.</summary>
+    public static CreateEntityRecognizerResult CreateEntityRecognizer(string recognizerName, string dataAccessRoleArn, EntityRecognizerInputDataConfig inputDataConfig, string languageCode, string? modelKmsKeyId = null, string? modelPolicy = null, string? versionName = null, string? volumeKmsKeyId = null, VpcConfig? vpcConfig = null, List<Tag>? tags = null, string? clientRequestToken = null, RegionEndpoint? region = null)
+        => CreateEntityRecognizerAsync(recognizerName, dataAccessRoleArn, inputDataConfig, languageCode, modelKmsKeyId, modelPolicy, versionName, volumeKmsKeyId, vpcConfig, tags, clientRequestToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEntityRecognizerAsync"/>.</summary>
+    public static void DeleteEntityRecognizer(string entityRecognizerArn, RegionEndpoint? region = null)
+        => DeleteEntityRecognizerAsync(entityRecognizerArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEntityRecognizerAsync"/>.</summary>
+    public static DescribeEntityRecognizerResult DescribeEntityRecognizer(string entityRecognizerArn, RegionEndpoint? region = null)
+        => DescribeEntityRecognizerAsync(entityRecognizerArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListEntityRecognizersAsync"/>.</summary>
+    public static ListEntityRecognizersResult ListEntityRecognizers(EntityRecognizerFilter? filter = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListEntityRecognizersAsync(filter, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ComprehendListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

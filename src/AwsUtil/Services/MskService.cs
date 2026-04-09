@@ -959,4 +959,138 @@ public static class MskService
                 $"Failed to list tags for MSK resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClusterAsync"/>.</summary>
+    public static MskCreateClusterResult CreateCluster(CreateClusterRequest request, RegionEndpoint? region = null)
+        => CreateClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteClusterAsync"/>.</summary>
+    public static MskDeleteClusterResult DeleteCluster(string clusterArn, string? currentVersion = null, RegionEndpoint? region = null)
+        => DeleteClusterAsync(clusterArn, currentVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClusterAsync"/>.</summary>
+    public static MskDescribeClusterResult DescribeCluster(string clusterArn, RegionEndpoint? region = null)
+        => DescribeClusterAsync(clusterArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListClustersAsync"/>.</summary>
+    public static MskListClustersResult ListClusters(string? clusterNameFilter = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListClustersAsync(clusterNameFilter, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateBrokerCountAsync"/>.</summary>
+    public static MskUpdateBrokerCountResult UpdateBrokerCount(string clusterArn, string currentVersion, int targetNumberOfBrokerNodes, RegionEndpoint? region = null)
+        => UpdateBrokerCountAsync(clusterArn, currentVersion, targetNumberOfBrokerNodes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateBrokerStorageAsync"/>.</summary>
+    public static MskUpdateBrokerStorageResult UpdateBrokerStorage(string clusterArn, string currentVersion, List<BrokerEBSVolumeInfo> targetBrokerEBSVolumeInfo, RegionEndpoint? region = null)
+        => UpdateBrokerStorageAsync(clusterArn, currentVersion, targetBrokerEBSVolumeInfo, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateBrokerTypeAsync"/>.</summary>
+    public static MskUpdateBrokerTypeResult UpdateBrokerType(string clusterArn, string currentVersion, string targetInstanceType, RegionEndpoint? region = null)
+        => UpdateBrokerTypeAsync(clusterArn, currentVersion, targetInstanceType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateClusterConfigurationAsync"/>.</summary>
+    public static MskUpdateClusterConfigurationResult UpdateClusterConfiguration(string clusterArn, string currentVersion, ConfigurationInfo configurationInfo, RegionEndpoint? region = null)
+        => UpdateClusterConfigurationAsync(clusterArn, currentVersion, configurationInfo, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateClusterKafkaVersionAsync"/>.</summary>
+    public static MskUpdateClusterKafkaVersionResult UpdateClusterKafkaVersion(string clusterArn, string currentVersion, string targetKafkaVersion, ConfigurationInfo? configurationInfo = null, RegionEndpoint? region = null)
+        => UpdateClusterKafkaVersionAsync(clusterArn, currentVersion, targetKafkaVersion, configurationInfo, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateConnectivityAsync"/>.</summary>
+    public static MskUpdateConnectivityResult UpdateConnectivity(string clusterArn, string currentVersion, ConnectivityInfo connectivityInfo, RegionEndpoint? region = null)
+        => UpdateConnectivityAsync(clusterArn, currentVersion, connectivityInfo, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateMonitoringAsync"/>.</summary>
+    public static MskUpdateMonitoringResult UpdateMonitoring(UpdateMonitoringRequest request, RegionEndpoint? region = null)
+        => UpdateMonitoringAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateSecurityAsync"/>.</summary>
+    public static MskUpdateSecurityResult UpdateSecurity(UpdateSecurityRequest request, RegionEndpoint? region = null)
+        => UpdateSecurityAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RebootBrokerAsync"/>.</summary>
+    public static MskRebootBrokerResult RebootBroker(string clusterArn, List<string> brokerIds, RegionEndpoint? region = null)
+        => RebootBrokerAsync(clusterArn, brokerIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBootstrapBrokersAsync"/>.</summary>
+    public static MskGetBootstrapBrokersResult GetBootstrapBrokers(string clusterArn, RegionEndpoint? region = null)
+        => GetBootstrapBrokersAsync(clusterArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListNodesAsync"/>.</summary>
+    public static MskListNodesResult ListNodes(string clusterArn, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListNodesAsync(clusterArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateConfigurationAsync"/>.</summary>
+    public static MskCreateConfigurationResult CreateConfiguration(string name, MemoryStream serverProperties, string? description = null, List<string>? kafkaVersions = null, RegionEndpoint? region = null)
+        => CreateConfigurationAsync(name, serverProperties, description, kafkaVersions, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConfigurationAsync"/>.</summary>
+    public static MskDeleteConfigurationResult DeleteConfiguration(string arn, RegionEndpoint? region = null)
+        => DeleteConfigurationAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeConfigurationAsync"/>.</summary>
+    public static MskDescribeConfigurationResult DescribeConfiguration(string arn, RegionEndpoint? region = null)
+        => DescribeConfigurationAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListConfigurationsAsync"/>.</summary>
+    public static MskListConfigurationsResult ListConfigurations(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListConfigurationsAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeConfigurationRevisionAsync"/>.</summary>
+    public static MskDescribeConfigurationRevisionResult DescribeConfigurationRevision(string arn, long revision, RegionEndpoint? region = null)
+        => DescribeConfigurationRevisionAsync(arn, revision, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListConfigurationRevisionsAsync"/>.</summary>
+    public static MskListConfigurationRevisionsResult ListConfigurationRevisions(string arn, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListConfigurationRevisionsAsync(arn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateConfigurationAsync"/>.</summary>
+    public static MskUpdateConfigurationResult UpdateConfiguration(string arn, MemoryStream serverProperties, string? description = null, RegionEndpoint? region = null)
+        => UpdateConfigurationAsync(arn, serverProperties, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClusterV2Async"/>.</summary>
+    public static MskCreateClusterV2Result CreateClusterV2(CreateClusterV2Request request, RegionEndpoint? region = null)
+        => CreateClusterV2Async(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClusterV2Async"/>.</summary>
+    public static MskDescribeClusterV2Result DescribeClusterV2(string clusterArn, RegionEndpoint? region = null)
+        => DescribeClusterV2Async(clusterArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListClustersV2Async"/>.</summary>
+    public static MskListClustersV2Result ListClustersV2(string? clusterNameFilter = null, string? clusterTypeFilter = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListClustersV2Async(clusterNameFilter, clusterTypeFilter, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchAssociateScramSecretAsync"/>.</summary>
+    public static MskBatchAssociateScramSecretResult BatchAssociateScramSecret(string clusterArn, List<string> secretArnList, RegionEndpoint? region = null)
+        => BatchAssociateScramSecretAsync(clusterArn, secretArnList, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchDisassociateScramSecretAsync"/>.</summary>
+    public static MskBatchDisassociateScramSecretResult BatchDisassociateScramSecret(string clusterArn, List<string> secretArnList, RegionEndpoint? region = null)
+        => BatchDisassociateScramSecretAsync(clusterArn, secretArnList, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListScramSecretsAsync"/>.</summary>
+    public static MskListScramSecretsResult ListScramSecrets(string clusterArn, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListScramSecretsAsync(clusterArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCompatibleKafkaVersionsAsync"/>.</summary>
+    public static MskGetCompatibleKafkaVersionsResult GetCompatibleKafkaVersions(string? clusterArn = null, RegionEndpoint? region = null)
+        => GetCompatibleKafkaVersionsAsync(clusterArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static MskTagResourceResult TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static MskUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static MskListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

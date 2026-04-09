@@ -942,4 +942,118 @@ public static class KinesisService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to update stream mode");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateStreamAsync"/>.</summary>
+    public static CreateStreamResult CreateStream(string streamName, int? shardCount = null, StreamModeDetails? streamModeDetails = null, RegionEndpoint? region = null)
+        => CreateStreamAsync(streamName, shardCount, streamModeDetails, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteStreamAsync"/>.</summary>
+    public static DeleteStreamResult DeleteStream(string streamName, string? streamARN = null, bool? enforceConsumerDeletion = null, RegionEndpoint? region = null)
+        => DeleteStreamAsync(streamName, streamARN, enforceConsumerDeletion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStreamAsync"/>.</summary>
+    public static DescribeStreamResult DescribeStream(string streamName, string? streamARN = null, int? limit = null, string? exclusiveStartShardId = null, RegionEndpoint? region = null)
+        => DescribeStreamAsync(streamName, streamARN, limit, exclusiveStartShardId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStreamSummaryAsync"/>.</summary>
+    public static DescribeStreamSummaryResult DescribeStreamSummary(string streamName, string? streamARN = null, RegionEndpoint? region = null)
+        => DescribeStreamSummaryAsync(streamName, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStreamsAsync"/>.</summary>
+    public static ListStreamsResult ListStreams(int? limit = null, string? exclusiveStartStreamName = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListStreamsAsync(limit, exclusiveStartStreamName, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutRecordAsync"/>.</summary>
+    public static PutRecordResult PutRecord(string streamName, MemoryStream data, string partitionKey, string? streamARN = null, string? explicitHashKey = null, string? sequenceNumberForOrdering = null, RegionEndpoint? region = null)
+        => PutRecordAsync(streamName, data, partitionKey, streamARN, explicitHashKey, sequenceNumberForOrdering, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutRecordsAsync"/>.</summary>
+    public static PutRecordsResult PutRecords(string streamName, List<PutRecordsRequestEntry> records, string? streamARN = null, RegionEndpoint? region = null)
+        => PutRecordsAsync(streamName, records, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRecordsAsync"/>.</summary>
+    public static GetRecordsResult GetRecords(string shardIterator, int? limit = null, string? streamARN = null, RegionEndpoint? region = null)
+        => GetRecordsAsync(shardIterator, limit, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetShardIteratorAsync"/>.</summary>
+    public static GetShardIteratorResult GetShardIterator(string streamName, string shardId, string shardIteratorType, string? streamARN = null, string? startingSequenceNumber = null, DateTime? timestamp = null, RegionEndpoint? region = null)
+        => GetShardIteratorAsync(streamName, shardId, shardIteratorType, streamARN, startingSequenceNumber, timestamp, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListShardsAsync"/>.</summary>
+    public static ListShardsResult ListShards(string? streamName = null, string? streamARN = null, string? nextToken = null, string? exclusiveStartShardId = null, int? maxResults = null, DateTime? streamCreationTimestamp = null, ShardFilter? shardFilter = null, RegionEndpoint? region = null)
+        => ListShardsAsync(streamName, streamARN, nextToken, exclusiveStartShardId, maxResults, streamCreationTimestamp, shardFilter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MergeShardsAsync"/>.</summary>
+    public static MergeShardsResult MergeShards(string streamName, string shardToMerge, string adjacentShardToMerge, string? streamARN = null, RegionEndpoint? region = null)
+        => MergeShardsAsync(streamName, shardToMerge, adjacentShardToMerge, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SplitShardAsync"/>.</summary>
+    public static SplitShardResult SplitShard(string streamName, string shardToSplit, string newStartingHashKey, string? streamARN = null, RegionEndpoint? region = null)
+        => SplitShardAsync(streamName, shardToSplit, newStartingHashKey, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateShardCountAsync"/>.</summary>
+    public static UpdateShardCountResult UpdateShardCount(string streamName, int targetShardCount, string scalingType = "UNIFORM_SCALING", string? streamARN = null, RegionEndpoint? region = null)
+        => UpdateShardCountAsync(streamName, targetShardCount, scalingType, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="IncreaseStreamRetentionPeriodAsync"/>.</summary>
+    public static IncreaseStreamRetentionPeriodResult IncreaseStreamRetentionPeriod(string streamName, int retentionPeriodHours, string? streamARN = null, RegionEndpoint? region = null)
+        => IncreaseStreamRetentionPeriodAsync(streamName, retentionPeriodHours, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DecreaseStreamRetentionPeriodAsync"/>.</summary>
+    public static DecreaseStreamRetentionPeriodResult DecreaseStreamRetentionPeriod(string streamName, int retentionPeriodHours, string? streamARN = null, RegionEndpoint? region = null)
+        => DecreaseStreamRetentionPeriodAsync(streamName, retentionPeriodHours, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableEnhancedMonitoringAsync"/>.</summary>
+    public static EnableEnhancedMonitoringResult EnableEnhancedMonitoring(string streamName, List<string> shardLevelMetrics, string? streamARN = null, RegionEndpoint? region = null)
+        => EnableEnhancedMonitoringAsync(streamName, shardLevelMetrics, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableEnhancedMonitoringAsync"/>.</summary>
+    public static DisableEnhancedMonitoringResult DisableEnhancedMonitoring(string streamName, List<string> shardLevelMetrics, string? streamARN = null, RegionEndpoint? region = null)
+        => DisableEnhancedMonitoringAsync(streamName, shardLevelMetrics, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsToStreamAsync"/>.</summary>
+    public static void AddTagsToStream(string streamName, Dictionary<string, string> tags, string? streamARN = null, RegionEndpoint? region = null)
+        => AddTagsToStreamAsync(streamName, tags, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsFromStreamAsync"/>.</summary>
+    public static void RemoveTagsFromStream(string streamName, List<string> tagKeys, string? streamARN = null, RegionEndpoint? region = null)
+        => RemoveTagsFromStreamAsync(streamName, tagKeys, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForStreamAsync"/>.</summary>
+    public static ListTagsForStreamResult ListTagsForStream(string streamName, string? streamARN = null, string? exclusiveStartTagKey = null, int? limit = null, RegionEndpoint? region = null)
+        => ListTagsForStreamAsync(streamName, streamARN, exclusiveStartTagKey, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RegisterStreamConsumerAsync"/>.</summary>
+    public static RegisterStreamConsumerResult RegisterStreamConsumer(string streamARN, string consumerName, RegionEndpoint? region = null)
+        => RegisterStreamConsumerAsync(streamARN, consumerName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeregisterStreamConsumerAsync"/>.</summary>
+    public static void DeregisterStreamConsumer(string? streamARN = null, string? consumerName = null, string? consumerARN = null, RegionEndpoint? region = null)
+        => DeregisterStreamConsumerAsync(streamARN, consumerName, consumerARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStreamConsumerAsync"/>.</summary>
+    public static DescribeStreamConsumerResult DescribeStreamConsumer(string? streamARN = null, string? consumerName = null, string? consumerARN = null, RegionEndpoint? region = null)
+        => DescribeStreamConsumerAsync(streamARN, consumerName, consumerARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStreamConsumersAsync"/>.</summary>
+    public static ListStreamConsumersResult ListStreamConsumers(string streamARN, string? nextToken = null, int? maxResults = null, DateTime? streamCreationTimestamp = null, RegionEndpoint? region = null)
+        => ListStreamConsumersAsync(streamARN, nextToken, maxResults, streamCreationTimestamp, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartStreamEncryptionAsync"/>.</summary>
+    public static void StartStreamEncryption(string streamName, string encryptionType, string keyId, string? streamARN = null, RegionEndpoint? region = null)
+        => StartStreamEncryptionAsync(streamName, encryptionType, keyId, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopStreamEncryptionAsync"/>.</summary>
+    public static void StopStreamEncryption(string streamName, string encryptionType, string keyId, string? streamARN = null, RegionEndpoint? region = null)
+        => StopStreamEncryptionAsync(streamName, encryptionType, keyId, streamARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateStreamModeAsync"/>.</summary>
+    public static UpdateStreamModeResult UpdateStreamMode(string streamARN, StreamModeDetails streamModeDetails, RegionEndpoint? region = null)
+        => UpdateStreamModeAsync(streamARN, streamModeDetails, region).GetAwaiter().GetResult();
+
 }

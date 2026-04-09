@@ -1072,4 +1072,142 @@ public static class StepFunctionsService
                 "Failed to list state machine aliases");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateStateMachineAsync"/>.</summary>
+    public static CreateStateMachineResult CreateStateMachine(CreateStateMachineRequest request, RegionEndpoint? region = null)
+        => CreateStateMachineAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteStateMachineAsync"/>.</summary>
+    public static DeleteStateMachineResult DeleteStateMachine(string stateMachineArn, RegionEndpoint? region = null)
+        => DeleteStateMachineAsync(stateMachineArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStateMachineAsync"/>.</summary>
+    public static DescribeStateMachineResult DescribeStateMachine(string stateMachineArn, RegionEndpoint? region = null)
+        => DescribeStateMachineAsync(stateMachineArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStateMachinesAsync"/>.</summary>
+    public static ListStateMachinesResult ListStateMachines(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListStateMachinesAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateStateMachineAsync"/>.</summary>
+    public static UpdateStateMachineResult UpdateStateMachine(UpdateStateMachineRequest request, RegionEndpoint? region = null)
+        => UpdateStateMachineAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartExecutionAsync"/>.</summary>
+    public static StartExecutionResult StartExecution(string stateMachineArn, string? name = null, string? input = null, string? traceHeader = null, RegionEndpoint? region = null)
+        => StartExecutionAsync(stateMachineArn, name, input, traceHeader, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopExecutionAsync"/>.</summary>
+    public static StopExecutionResult StopExecution(string executionArn, string? error = null, string? cause = null, RegionEndpoint? region = null)
+        => StopExecutionAsync(executionArn, error, cause, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeExecutionAsync"/>.</summary>
+    public static DescribeExecutionResult DescribeExecution(string executionArn, RegionEndpoint? region = null)
+        => DescribeExecutionAsync(executionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListExecutionsAsync"/>.</summary>
+    public static ListExecutionsResult ListExecutions(string? stateMachineArn = null, string? statusFilter = null, string? mapRunArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListExecutionsAsync(stateMachineArn, statusFilter, mapRunArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetExecutionHistoryAsync"/>.</summary>
+    public static GetExecutionHistoryResult GetExecutionHistory(string executionArn, bool? reverseOrder = null, bool? includeExecutionData = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => GetExecutionHistoryAsync(executionArn, reverseOrder, includeExecutionData, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartSyncExecutionAsync"/>.</summary>
+    public static StartSyncExecutionResult StartSyncExecution(string stateMachineArn, string? name = null, string? input = null, string? traceHeader = null, RegionEndpoint? region = null)
+        => StartSyncExecutionAsync(stateMachineArn, name, input, traceHeader, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SendTaskSuccessAsync"/>.</summary>
+    public static SendTaskSuccessResult SendTaskSuccess(string taskToken, string output, RegionEndpoint? region = null)
+        => SendTaskSuccessAsync(taskToken, output, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SendTaskFailureAsync"/>.</summary>
+    public static SendTaskFailureResult SendTaskFailure(string taskToken, string? error = null, string? cause = null, RegionEndpoint? region = null)
+        => SendTaskFailureAsync(taskToken, error, cause, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SendTaskHeartbeatAsync"/>.</summary>
+    public static SendTaskHeartbeatResult SendTaskHeartbeat(string taskToken, RegionEndpoint? region = null)
+        => SendTaskHeartbeatAsync(taskToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeActivityAsync"/>.</summary>
+    public static DescribeActivityResult DescribeActivity(string activityArn, RegionEndpoint? region = null)
+        => DescribeActivityAsync(activityArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateActivityAsync"/>.</summary>
+    public static CreateActivityResult CreateActivity(string name, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateActivityAsync(name, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteActivityAsync"/>.</summary>
+    public static DeleteActivityResult DeleteActivity(string activityArn, RegionEndpoint? region = null)
+        => DeleteActivityAsync(activityArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListActivitiesAsync"/>.</summary>
+    public static ListActivitiesResult ListActivities(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListActivitiesAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetActivityTaskAsync"/>.</summary>
+    public static GetActivityTaskResult GetActivityTask(string activityArn, string? workerName = null, RegionEndpoint? region = null)
+        => GetActivityTaskAsync(activityArn, workerName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static SfnTagResourceResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static SfnUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static SfnListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStateMachineForExecutionAsync"/>.</summary>
+    public static DescribeStateMachineForExecutionResult DescribeStateMachineForExecution(string executionArn, RegionEndpoint? region = null)
+        => DescribeStateMachineForExecutionAsync(executionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeMapRunAsync"/>.</summary>
+    public static DescribeMapRunResult DescribeMapRun(string mapRunArn, RegionEndpoint? region = null)
+        => DescribeMapRunAsync(mapRunArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListMapRunsAsync"/>.</summary>
+    public static ListMapRunsResult ListMapRuns(string executionArn, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListMapRunsAsync(executionArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateMapRunAsync"/>.</summary>
+    public static UpdateMapRunResult UpdateMapRun(string mapRunArn, long? maxConcurrency = null, float? toleratedFailurePercentage = null, long? toleratedFailureCount = null, RegionEndpoint? region = null)
+        => UpdateMapRunAsync(mapRunArn, maxConcurrency, toleratedFailurePercentage, toleratedFailureCount, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PublishStateMachineVersionAsync"/>.</summary>
+    public static PublishStateMachineVersionResult PublishStateMachineVersion(string stateMachineArn, string? revisionId = null, string? description = null, RegionEndpoint? region = null)
+        => PublishStateMachineVersionAsync(stateMachineArn, revisionId, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStateMachineVersionsAsync"/>.</summary>
+    public static ListStateMachineVersionsResult ListStateMachineVersions(string stateMachineArn, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListStateMachineVersionsAsync(stateMachineArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateStateMachineAliasAsync"/>.</summary>
+    public static CreateStateMachineAliasResult CreateStateMachineAlias(CreateStateMachineAliasRequest request, RegionEndpoint? region = null)
+        => CreateStateMachineAliasAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStateMachineAliasAsync"/>.</summary>
+    public static DescribeStateMachineAliasResult DescribeStateMachineAlias(string stateMachineAliasArn, RegionEndpoint? region = null)
+        => DescribeStateMachineAliasAsync(stateMachineAliasArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateStateMachineAliasAsync"/>.</summary>
+    public static UpdateStateMachineAliasResult UpdateStateMachineAlias(UpdateStateMachineAliasRequest request, RegionEndpoint? region = null)
+        => UpdateStateMachineAliasAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteStateMachineAliasAsync"/>.</summary>
+    public static DeleteStateMachineAliasResult DeleteStateMachineAlias(string stateMachineAliasArn, RegionEndpoint? region = null)
+        => DeleteStateMachineAliasAsync(stateMachineAliasArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStateMachineAliasesAsync"/>.</summary>
+    public static ListStateMachineAliasesResult ListStateMachineAliases(string stateMachineArn, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListStateMachineAliasesAsync(stateMachineArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
 }

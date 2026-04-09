@@ -772,4 +772,114 @@ public static class CodeStarConnectionsService
                 "Failed to get resource sync status");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateConnectionAsync"/>.</summary>
+    public static CscCreateConnectionResult CreateConnection(CreateConnectionRequest request, RegionEndpoint? region = null)
+        => CreateConnectionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConnectionAsync"/>.</summary>
+    public static CscDeleteConnectionResult DeleteConnection(string connectionArn, RegionEndpoint? region = null)
+        => DeleteConnectionAsync(connectionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetConnectionAsync"/>.</summary>
+    public static CscGetConnectionResult GetConnection(string connectionArn, RegionEndpoint? region = null)
+        => GetConnectionAsync(connectionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListConnectionsAsync"/>.</summary>
+    public static CscListConnectionsResult ListConnections(string? providerTypeFilter = null, string? hostArnFilter = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListConnectionsAsync(providerTypeFilter, hostArnFilter, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateHostAsync"/>.</summary>
+    public static CscCreateHostResult CreateHost(CreateHostRequest request, RegionEndpoint? region = null)
+        => CreateHostAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteHostAsync"/>.</summary>
+    public static CscDeleteHostResult DeleteHost(string hostArn, RegionEndpoint? region = null)
+        => DeleteHostAsync(hostArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetHostAsync"/>.</summary>
+    public static CscGetHostResult GetHost(string hostArn, RegionEndpoint? region = null)
+        => GetHostAsync(hostArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListHostsAsync"/>.</summary>
+    public static CscListHostsResult ListHosts(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListHostsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateHostAsync"/>.</summary>
+    public static CscUpdateHostResult UpdateHost(UpdateHostRequest request, RegionEndpoint? region = null)
+        => UpdateHostAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static CscTagResourceResult TagResource(string resourceArn, List<Amazon.CodeStarconnections.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static CscUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static CscListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRepositoryLinkAsync"/>.</summary>
+    public static CscCreateRepositoryLinkResult CreateRepositoryLink(CreateRepositoryLinkRequest request, RegionEndpoint? region = null)
+        => CreateRepositoryLinkAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRepositoryLinkAsync"/>.</summary>
+    public static CscDeleteRepositoryLinkResult DeleteRepositoryLink(string repositoryLinkId, RegionEndpoint? region = null)
+        => DeleteRepositoryLinkAsync(repositoryLinkId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRepositoryLinkAsync"/>.</summary>
+    public static CscGetRepositoryLinkResult GetRepositoryLink(string repositoryLinkId, RegionEndpoint? region = null)
+        => GetRepositoryLinkAsync(repositoryLinkId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRepositoryLinksAsync"/>.</summary>
+    public static CscListRepositoryLinksResult ListRepositoryLinks(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListRepositoryLinksAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateRepositoryLinkAsync"/>.</summary>
+    public static CscUpdateRepositoryLinkResult UpdateRepositoryLink(UpdateRepositoryLinkRequest request, RegionEndpoint? region = null)
+        => UpdateRepositoryLinkAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSyncConfigurationAsync"/>.</summary>
+    public static CscCreateSyncConfigurationResult CreateSyncConfiguration(CreateSyncConfigurationRequest request, RegionEndpoint? region = null)
+        => CreateSyncConfigurationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSyncConfigurationAsync"/>.</summary>
+    public static CscDeleteSyncConfigurationResult DeleteSyncConfiguration(string syncType, string resourceName, RegionEndpoint? region = null)
+        => DeleteSyncConfigurationAsync(syncType, resourceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSyncConfigurationAsync"/>.</summary>
+    public static CscGetSyncConfigurationResult GetSyncConfiguration(string syncType, string resourceName, RegionEndpoint? region = null)
+        => GetSyncConfigurationAsync(syncType, resourceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSyncConfigurationsAsync"/>.</summary>
+    public static CscListSyncConfigurationsResult ListSyncConfigurations(string repositoryLinkId, string syncType, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListSyncConfigurationsAsync(repositoryLinkId, syncType, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateSyncConfigurationAsync"/>.</summary>
+    public static CscUpdateSyncConfigurationResult UpdateSyncConfiguration(UpdateSyncConfigurationRequest request, RegionEndpoint? region = null)
+        => UpdateSyncConfigurationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSyncBlockerSummaryAsync"/>.</summary>
+    public static CscGetSyncBlockerSummaryResult GetSyncBlockerSummary(string syncType, string resourceName, RegionEndpoint? region = null)
+        => GetSyncBlockerSummaryAsync(syncType, resourceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateSyncBlockerAsync"/>.</summary>
+    public static CscUpdateSyncBlockerResult UpdateSyncBlocker(UpdateSyncBlockerRequest request, RegionEndpoint? region = null)
+        => UpdateSyncBlockerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRepositorySyncStatusAsync"/>.</summary>
+    public static CscGetRepositorySyncStatusResult GetRepositorySyncStatus(string branch, string repositoryLinkId, string syncType, RegionEndpoint? region = null)
+        => GetRepositorySyncStatusAsync(branch, repositoryLinkId, syncType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetResourceSyncStatusAsync"/>.</summary>
+    public static CscGetResourceSyncStatusResult GetResourceSyncStatus(string resourceName, string syncType, RegionEndpoint? region = null)
+        => GetResourceSyncStatusAsync(resourceName, syncType, region).GetAwaiter().GetResult();
+
 }

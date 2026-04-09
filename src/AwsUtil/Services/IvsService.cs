@@ -840,4 +840,126 @@ public static class IvsService
                 $"Failed to update playback restriction policy '{arn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateChannelAsync"/>.</summary>
+    public static CreateIvsChannelResult CreateChannel(string? name = null, ChannelLatencyMode? latencyMode = null, ChannelType? type = null, bool? authorized = null, string? recordingConfigurationArn = null, bool? insecureIngest = null, string? playbackRestrictionPolicyArn = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateChannelAsync(name, latencyMode, type, authorized, recordingConfigurationArn, insecureIngest, playbackRestrictionPolicyArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteChannelAsync"/>.</summary>
+    public static void DeleteChannel(string arn, RegionEndpoint? region = null)
+        => DeleteChannelAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetChannelAsync"/>.</summary>
+    public static GetIvsChannelResult GetChannel(string arn, RegionEndpoint? region = null)
+        => GetChannelAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListChannelsAsync"/>.</summary>
+    public static ListIvsChannelsResult ListChannels(string? filterByName = null, string? filterByPlaybackRestrictionPolicyArn = null, string? filterByRecordingConfigurationArn = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListChannelsAsync(filterByName, filterByPlaybackRestrictionPolicyArn, filterByRecordingConfigurationArn, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateChannelAsync"/>.</summary>
+    public static UpdateIvsChannelResult UpdateChannel(string arn, string? name = null, ChannelLatencyMode? latencyMode = null, ChannelType? type = null, bool? authorized = null, string? recordingConfigurationArn = null, bool? insecureIngest = null, string? playbackRestrictionPolicyArn = null, RegionEndpoint? region = null)
+        => UpdateChannelAsync(arn, name, latencyMode, type, authorized, recordingConfigurationArn, insecureIngest, playbackRestrictionPolicyArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateStreamKeyAsync"/>.</summary>
+    public static CreateIvsStreamKeyResult CreateStreamKey(string channelArn, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateStreamKeyAsync(channelArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteStreamKeyAsync"/>.</summary>
+    public static void DeleteStreamKey(string arn, RegionEndpoint? region = null)
+        => DeleteStreamKeyAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetStreamKeyAsync"/>.</summary>
+    public static GetIvsStreamKeyResult GetStreamKey(string arn, RegionEndpoint? region = null)
+        => GetStreamKeyAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStreamKeysAsync"/>.</summary>
+    public static ListIvsStreamKeysResult ListStreamKeys(string channelArn, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListStreamKeysAsync(channelArn, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetStreamAsync"/>.</summary>
+    public static GetIvsStreamResult GetStream(string channelArn, RegionEndpoint? region = null)
+        => GetStreamAsync(channelArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStreamsAsync"/>.</summary>
+    public static ListIvsStreamsResult ListStreams(StreamFilters? filterBy = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListStreamsAsync(filterBy, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopStreamAsync"/>.</summary>
+    public static void StopStream(string channelArn, RegionEndpoint? region = null)
+        => StopStreamAsync(channelArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetStreamSessionAsync"/>.</summary>
+    public static GetStreamSessionResult GetStreamSession(string channelArn, string? streamId = null, RegionEndpoint? region = null)
+        => GetStreamSessionAsync(channelArn, streamId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStreamSessionsAsync"/>.</summary>
+    public static ListStreamSessionsResult ListStreamSessions(string channelArn, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListStreamSessionsAsync(channelArn, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRecordingConfigurationAsync"/>.</summary>
+    public static CreateIvsRecordingConfigurationResult CreateRecordingConfiguration(DestinationConfiguration destinationConfiguration, string? name = null, int? recordingReconnectWindowSeconds = null, ThumbnailConfiguration? thumbnailConfiguration = null, RenditionConfiguration? renditionConfiguration = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateRecordingConfigurationAsync(destinationConfiguration, name, recordingReconnectWindowSeconds, thumbnailConfiguration, renditionConfiguration, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRecordingConfigurationAsync"/>.</summary>
+    public static void DeleteRecordingConfiguration(string arn, RegionEndpoint? region = null)
+        => DeleteRecordingConfigurationAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRecordingConfigurationAsync"/>.</summary>
+    public static GetIvsRecordingConfigurationResult GetRecordingConfiguration(string arn, RegionEndpoint? region = null)
+        => GetRecordingConfigurationAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRecordingConfigurationsAsync"/>.</summary>
+    public static ListIvsRecordingConfigurationsResult ListRecordingConfigurations(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListRecordingConfigurationsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetChannelAsync"/>.</summary>
+    public static BatchGetChannelResult BatchGetChannel(List<string> arns, RegionEndpoint? region = null)
+        => BatchGetChannelAsync(arns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetStreamKeyAsync"/>.</summary>
+    public static BatchGetStreamKeyResult BatchGetStreamKey(List<string> arns, RegionEndpoint? region = null)
+        => BatchGetStreamKeyAsync(arns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutMetadataAsync"/>.</summary>
+    public static void PutMetadata(string channelArn, string metadata, RegionEndpoint? region = null)
+        => PutMetadataAsync(channelArn, metadata, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static IvsListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePlaybackRestrictionPolicyAsync"/>.</summary>
+    public static CreatePlaybackRestrictionPolicyResult CreatePlaybackRestrictionPolicy(List<string>? allowedCountries = null, List<string>? allowedOrigins = null, bool? enableStrictOriginEnforcement = null, string? name = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreatePlaybackRestrictionPolicyAsync(allowedCountries, allowedOrigins, enableStrictOriginEnforcement, name, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePlaybackRestrictionPolicyAsync"/>.</summary>
+    public static void DeletePlaybackRestrictionPolicy(string arn, RegionEndpoint? region = null)
+        => DeletePlaybackRestrictionPolicyAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPlaybackRestrictionPolicyAsync"/>.</summary>
+    public static GetPlaybackRestrictionPolicyResult GetPlaybackRestrictionPolicy(string arn, RegionEndpoint? region = null)
+        => GetPlaybackRestrictionPolicyAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPlaybackRestrictionPoliciesAsync"/>.</summary>
+    public static ListPlaybackRestrictionPoliciesResult ListPlaybackRestrictionPolicies(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListPlaybackRestrictionPoliciesAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdatePlaybackRestrictionPolicyAsync"/>.</summary>
+    public static UpdatePlaybackRestrictionPolicyResult UpdatePlaybackRestrictionPolicy(string arn, List<string>? allowedCountries = null, List<string>? allowedOrigins = null, bool? enableStrictOriginEnforcement = null, string? name = null, RegionEndpoint? region = null)
+        => UpdatePlaybackRestrictionPolicyAsync(arn, allowedCountries, allowedOrigins, enableStrictOriginEnforcement, name, region).GetAwaiter().GetResult();
+
 }

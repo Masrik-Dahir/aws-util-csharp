@@ -220,4 +220,29 @@ public static class RdsDataService
                 $"Failed to rollback RDS Data transaction '{transactionId}'");
         }
     }
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="ExecuteStatementAsync"/>.</summary>
+    public static RdsDataExecuteStatementResult ExecuteStatement(string resourceArn, string secretArn, string sql, string? database = null, string? schema = null, List<SqlParameter>? parameters = null, string? transactionId = null, bool? includeResultMetadata = null, bool? continueAfterTimeout = null, ResultSetOptions? resultSetOptions = null, string? formatRecordsAs = null, RegionEndpoint? region = null)
+        => ExecuteStatementAsync(resourceArn, secretArn, sql, database, schema, parameters, transactionId, includeResultMetadata, continueAfterTimeout, resultSetOptions, formatRecordsAs, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchExecuteStatementAsync"/>.</summary>
+    public static RdsDataBatchExecuteStatementResult BatchExecuteStatement(string resourceArn, string secretArn, string sql, string? database = null, string? schema = null, List<List<SqlParameter>>? parameterSets = null, string? transactionId = null, RegionEndpoint? region = null)
+        => BatchExecuteStatementAsync(resourceArn, secretArn, sql, database, schema, parameterSets, transactionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BeginTransactionAsync"/>.</summary>
+    public static RdsDataBeginTransactionResult BeginTransaction(string resourceArn, string secretArn, string? database = null, string? schema = null, RegionEndpoint? region = null)
+        => BeginTransactionAsync(resourceArn, secretArn, database, schema, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CommitTransactionAsync"/>.</summary>
+    public static RdsDataCommitTransactionResult CommitTransaction(string resourceArn, string secretArn, string transactionId, RegionEndpoint? region = null)
+        => CommitTransactionAsync(resourceArn, secretArn, transactionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RollbackTransactionAsync"/>.</summary>
+    public static RdsDataRollbackTransactionResult RollbackTransaction(string resourceArn, string secretArn, string transactionId, RegionEndpoint? region = null)
+        => RollbackTransactionAsync(resourceArn, secretArn, transactionId, region).GetAwaiter().GetResult();
+
 }

@@ -697,4 +697,46 @@ public static class SecurityComplianceService
                 $"Failed to manage Cognito auth flow for user '{username}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="LeastPrivilegeAnalyzerAsync"/>.</summary>
+    public static LeastPrivilegeAnalyzerResult LeastPrivilegeAnalyzer(string analyzerArn, string? resourceType = null, int maxFindings = 100, RegionEndpoint? region = null)
+        => LeastPrivilegeAnalyzerAsync(analyzerArn, resourceType, maxFindings, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SecretRotationOrchestratorAsync"/>.</summary>
+    public static SecretRotationOrchestratorResult SecretRotationOrchestrator(string secretId, string? rotationLambdaArn = null, int? automaticallyAfterDays = null, bool rotateImmediately = true, RegionEndpoint? region = null)
+        => SecretRotationOrchestratorAsync(secretId, rotationLambdaArn, automaticallyAfterDays, rotateImmediately, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DataMaskingProcessorAsync"/>.</summary>
+    public static DataMaskingProcessorResult DataMaskingProcessor(string jsonData, List<string>? sensitiveFieldPatterns = null, string maskValue = "***MASKED***")
+        => DataMaskingProcessorAsync(jsonData, sensitiveFieldPatterns, maskValue).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="VpcSecurityGroupAuditorAsync"/>.</summary>
+    public static VpcSecurityGroupAuditorResult VpcSecurityGroupAuditor(string? vpcId = null, List<string>? groupIds = null, RegionEndpoint? region = null)
+        => VpcSecurityGroupAuditorAsync(vpcId, groupIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EncryptionEnforcerAsync"/>.</summary>
+    public static EncryptionEnforcerResult EncryptionEnforcer(string keyId, bool enableRotation = false, RegionEndpoint? region = null)
+        => EncryptionEnforcerAsync(keyId, enableRotation, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ApiGatewayWafManagerAsync"/>.</summary>
+    public static ApiGatewayWafManagerResult ApiGatewayWafManager(string resourceArn, string? webAclArn = null, string? webAclName = null, string scope = "REGIONAL", RegionEndpoint? region = null)
+        => ApiGatewayWafManagerAsync(resourceArn, webAclArn, webAclName, scope, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ComplianceSnapshotAsync"/>.</summary>
+    public static ComplianceSnapshotResult ComplianceSnapshot(List<string>? securityGroupIds = null, List<string>? kmsKeyIds = null, string? vpcId = null, RegionEndpoint? region = null)
+        => ComplianceSnapshotAsync(securityGroupIds, kmsKeyIds, vpcId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResourcePolicyValidatorAsync"/>.</summary>
+    public static ResourcePolicyValidatorResult ResourcePolicyValidator(string policyDocument, string policyType = "RESOURCE_POLICY", RegionEndpoint? region = null)
+        => ResourcePolicyValidatorAsync(policyDocument, policyType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CognitoAuthFlowManagerAsync"/>.</summary>
+    public static CognitoAuthFlowManagerResult CognitoAuthFlowManager(string userPoolId, string clientId, string username, string password, string authFlow = "USER_PASSWORD_AUTH", string? clientSecret = null, RegionEndpoint? region = null)
+        => CognitoAuthFlowManagerAsync(userPoolId, clientId, username, password, authFlow, clientSecret, region).GetAwaiter().GetResult();
+
 }

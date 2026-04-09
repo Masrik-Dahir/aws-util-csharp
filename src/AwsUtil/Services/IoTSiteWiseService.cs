@@ -1423,4 +1423,190 @@ public static class IoTSiteWiseService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAssetAsync"/>.</summary>
+    public static CreateSiteWiseAssetResult CreateAsset(string assetName, string assetModelId, string? assetDescription = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateAssetAsync(assetName, assetModelId, assetDescription, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAssetAsync"/>.</summary>
+    public static void DeleteAsset(string assetId, RegionEndpoint? region = null)
+        => DeleteAssetAsync(assetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAssetAsync"/>.</summary>
+    public static DescribeSiteWiseAssetResult DescribeAsset(string assetId, RegionEndpoint? region = null)
+        => DescribeAssetAsync(assetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAssetsAsync"/>.</summary>
+    public static ListSiteWiseAssetsResult ListAssets(string? assetModelId = null, ListAssetsFilter? filter = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListAssetsAsync(assetModelId, filter, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAssetAsync"/>.</summary>
+    public static UpdateSiteWiseAssetResult UpdateAsset(string assetId, string assetName, string? assetDescription = null, RegionEndpoint? region = null)
+        => UpdateAssetAsync(assetId, assetName, assetDescription, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAssetModelAsync"/>.</summary>
+    public static CreateAssetModelResult CreateAssetModel(string assetModelName, string? assetModelDescription = null, List<AssetModelPropertyDefinition>? assetModelProperties = null, List<AssetModelHierarchyDefinition>? assetModelHierarchies = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateAssetModelAsync(assetModelName, assetModelDescription, assetModelProperties, assetModelHierarchies, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAssetModelAsync"/>.</summary>
+    public static void DeleteAssetModel(string assetModelId, RegionEndpoint? region = null)
+        => DeleteAssetModelAsync(assetModelId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAssetModelAsync"/>.</summary>
+    public static DescribeAssetModelResult DescribeAssetModel(string assetModelId, RegionEndpoint? region = null)
+        => DescribeAssetModelAsync(assetModelId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAssetModelsAsync"/>.</summary>
+    public static ListAssetModelsResult ListAssetModels(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListAssetModelsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAssetModelAsync"/>.</summary>
+    public static UpdateAssetModelResult UpdateAssetModel(string assetModelId, string assetModelName, string? assetModelDescription = null, List<AssetModelProperty>? assetModelProperties = null, List<AssetModelHierarchy>? assetModelHierarchies = null, RegionEndpoint? region = null)
+        => UpdateAssetModelAsync(assetModelId, assetModelName, assetModelDescription, assetModelProperties, assetModelHierarchies, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssociateAssetsAsync"/>.</summary>
+    public static void AssociateAssets(string assetId, string hierarchyId, string childAssetId, RegionEndpoint? region = null)
+        => AssociateAssetsAsync(assetId, hierarchyId, childAssetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisassociateAssetsAsync"/>.</summary>
+    public static void DisassociateAssets(string assetId, string hierarchyId, string childAssetId, RegionEndpoint? region = null)
+        => DisassociateAssetsAsync(assetId, hierarchyId, childAssetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAssociatedAssetsAsync"/>.</summary>
+    public static ListAssociatedAssetsResult ListAssociatedAssets(string assetId, string? hierarchyId = null, TraversalDirection? traversalDirection = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListAssociatedAssetsAsync(assetId, hierarchyId, traversalDirection, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePortalAsync"/>.</summary>
+    public static CreateSiteWisePortalResult CreatePortal(string portalName, string portalContactEmail, string roleArn, string? portalDescription = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreatePortalAsync(portalName, portalContactEmail, roleArn, portalDescription, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePortalAsync"/>.</summary>
+    public static void DeletePortal(string portalId, RegionEndpoint? region = null)
+        => DeletePortalAsync(portalId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribePortalAsync"/>.</summary>
+    public static DescribeSiteWisePortalResult DescribePortal(string portalId, RegionEndpoint? region = null)
+        => DescribePortalAsync(portalId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPortalsAsync"/>.</summary>
+    public static ListSiteWisePortalsResult ListPortals(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListPortalsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdatePortalAsync"/>.</summary>
+    public static UpdateSiteWisePortalResult UpdatePortal(string portalId, string portalName, string portalContactEmail, string roleArn, string? portalDescription = null, RegionEndpoint? region = null)
+        => UpdatePortalAsync(portalId, portalName, portalContactEmail, roleArn, portalDescription, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateProjectAsync"/>.</summary>
+    public static CreateSiteWiseProjectResult CreateProject(string projectName, string portalId, string? projectDescription = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateProjectAsync(projectName, portalId, projectDescription, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteProjectAsync"/>.</summary>
+    public static void DeleteProject(string projectId, RegionEndpoint? region = null)
+        => DeleteProjectAsync(projectId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeProjectAsync"/>.</summary>
+    public static DescribeSiteWiseProjectResult DescribeProject(string projectId, RegionEndpoint? region = null)
+        => DescribeProjectAsync(projectId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListProjectsAsync"/>.</summary>
+    public static ListSiteWiseProjectsResult ListProjects(string portalId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListProjectsAsync(portalId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateProjectAsync"/>.</summary>
+    public static void UpdateProject(string projectId, string projectName, string? projectDescription = null, RegionEndpoint? region = null)
+        => UpdateProjectAsync(projectId, projectName, projectDescription, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDashboardAsync"/>.</summary>
+    public static CreateSiteWiseDashboardResult CreateDashboard(string dashboardName, string projectId, string dashboardDefinition, string? dashboardDescription = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateDashboardAsync(dashboardName, projectId, dashboardDefinition, dashboardDescription, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDashboardAsync"/>.</summary>
+    public static void DeleteDashboard(string dashboardId, RegionEndpoint? region = null)
+        => DeleteDashboardAsync(dashboardId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDashboardAsync"/>.</summary>
+    public static DescribeSiteWiseDashboardResult DescribeDashboard(string dashboardId, RegionEndpoint? region = null)
+        => DescribeDashboardAsync(dashboardId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDashboardsAsync"/>.</summary>
+    public static ListSiteWiseDashboardsResult ListDashboards(string projectId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListDashboardsAsync(projectId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDashboardAsync"/>.</summary>
+    public static void UpdateDashboard(string dashboardId, string dashboardName, string dashboardDefinition, string? dashboardDescription = null, RegionEndpoint? region = null)
+        => UpdateDashboardAsync(dashboardId, dashboardName, dashboardDefinition, dashboardDescription, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAccessPolicyAsync"/>.</summary>
+    public static CreateSiteWiseAccessPolicyResult CreateAccessPolicy(Identity accessPolicyIdentity, Resource accessPolicyResource, Permission accessPolicyPermission, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateAccessPolicyAsync(accessPolicyIdentity, accessPolicyResource, accessPolicyPermission, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAccessPolicyAsync"/>.</summary>
+    public static void DeleteAccessPolicy(string accessPolicyId, RegionEndpoint? region = null)
+        => DeleteAccessPolicyAsync(accessPolicyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAccessPolicyAsync"/>.</summary>
+    public static DescribeSiteWiseAccessPolicyResult DescribeAccessPolicy(string accessPolicyId, RegionEndpoint? region = null)
+        => DescribeAccessPolicyAsync(accessPolicyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccessPoliciesAsync"/>.</summary>
+    public static ListSiteWiseAccessPoliciesResult ListAccessPolicies(IdentityType? identityType = null, string? identityId = null, ResourceType? resourceType = null, string? resourceId = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListAccessPoliciesAsync(identityType, identityId, resourceType, resourceId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAccessPolicyAsync"/>.</summary>
+    public static void UpdateAccessPolicy(string accessPolicyId, Identity accessPolicyIdentity, Resource accessPolicyResource, Permission accessPolicyPermission, RegionEndpoint? region = null)
+        => UpdateAccessPolicyAsync(accessPolicyId, accessPolicyIdentity, accessPolicyResource, accessPolicyPermission, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAssetPropertyValueAsync"/>.</summary>
+    public static GetAssetPropertyValueResult GetAssetPropertyValue(string? assetId = null, string? propertyId = null, string? propertyAlias = null, RegionEndpoint? region = null)
+        => GetAssetPropertyValueAsync(assetId, propertyId, propertyAlias, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAssetPropertyValueHistoryAsync"/>.</summary>
+    public static GetAssetPropertyValueHistoryResult GetAssetPropertyValueHistory(string? assetId = null, string? propertyId = null, string? propertyAlias = null, DateTime? startDate = null, DateTime? endDate = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetAssetPropertyValueHistoryAsync(assetId, propertyId, propertyAlias, startDate, endDate, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAssetPropertyAggregatesAsync"/>.</summary>
+    public static GetAssetPropertyAggregatesResult GetAssetPropertyAggregates(List<string> aggregateTypes, string resolution, DateTime startDate, DateTime endDate, string? assetId = null, string? propertyId = null, string? propertyAlias = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetAssetPropertyAggregatesAsync(aggregateTypes, resolution, startDate, endDate, assetId, propertyId, propertyAlias, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchPutAssetPropertyValueAsync"/>.</summary>
+    public static BatchPutAssetPropertyValueResult BatchPutAssetPropertyValue(List<PutAssetPropertyValueEntry> entries, RegionEndpoint? region = null)
+        => BatchPutAssetPropertyValueAsync(entries, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGatewayAsync"/>.</summary>
+    public static CreateSiteWiseGatewayResult CreateGateway(string gatewayName, GatewayPlatform gatewayPlatform, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateGatewayAsync(gatewayName, gatewayPlatform, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGatewayAsync"/>.</summary>
+    public static void DeleteGateway(string gatewayId, RegionEndpoint? region = null)
+        => DeleteGatewayAsync(gatewayId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeGatewayAsync"/>.</summary>
+    public static DescribeSiteWiseGatewayResult DescribeGateway(string gatewayId, RegionEndpoint? region = null)
+        => DescribeGatewayAsync(gatewayId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGatewaysAsync"/>.</summary>
+    public static ListSiteWiseGatewaysResult ListGateways(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListGatewaysAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateGatewayAsync"/>.</summary>
+    public static void UpdateGateway(string gatewayId, string gatewayName, RegionEndpoint? region = null)
+        => UpdateGatewayAsync(gatewayId, gatewayName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static SiteWiseListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

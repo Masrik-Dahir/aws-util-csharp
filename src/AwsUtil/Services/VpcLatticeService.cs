@@ -1462,4 +1462,214 @@ public static class VpcLatticeService
                 $"Failed to list tags for VPC Lattice resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateServiceAsync"/>.</summary>
+    public static VlCreateServiceResult CreateService(CreateServiceRequest request, RegionEndpoint? region = null)
+        => CreateServiceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteServiceAsync"/>.</summary>
+    public static VlDeleteServiceResult DeleteService(string serviceIdentifier, RegionEndpoint? region = null)
+        => DeleteServiceAsync(serviceIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetServiceAsync"/>.</summary>
+    public static VlGetServiceResult GetService(string serviceIdentifier, RegionEndpoint? region = null)
+        => GetServiceAsync(serviceIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListServicesAsync"/>.</summary>
+    public static VlListServicesResult ListServices(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListServicesAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateServiceAsync"/>.</summary>
+    public static VlUpdateServiceResult UpdateService(UpdateServiceRequest request, RegionEndpoint? region = null)
+        => UpdateServiceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateServiceNetworkAsync"/>.</summary>
+    public static VlCreateServiceNetworkResult CreateServiceNetwork(CreateServiceNetworkRequest request, RegionEndpoint? region = null)
+        => CreateServiceNetworkAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteServiceNetworkAsync"/>.</summary>
+    public static VlDeleteServiceNetworkResult DeleteServiceNetwork(string serviceNetworkIdentifier, RegionEndpoint? region = null)
+        => DeleteServiceNetworkAsync(serviceNetworkIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetServiceNetworkAsync"/>.</summary>
+    public static VlGetServiceNetworkResult GetServiceNetwork(string serviceNetworkIdentifier, RegionEndpoint? region = null)
+        => GetServiceNetworkAsync(serviceNetworkIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListServiceNetworksAsync"/>.</summary>
+    public static VlListServiceNetworksResult ListServiceNetworks(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListServiceNetworksAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateServiceNetworkAsync"/>.</summary>
+    public static VlUpdateServiceNetworkResult UpdateServiceNetwork(UpdateServiceNetworkRequest request, RegionEndpoint? region = null)
+        => UpdateServiceNetworkAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateServiceNetworkServiceAssociationAsync"/>.</summary>
+    public static VlCreateServiceNetworkServiceAssociationResult CreateServiceNetworkServiceAssociation(CreateServiceNetworkServiceAssociationRequest request, RegionEndpoint? region = null)
+        => CreateServiceNetworkServiceAssociationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteServiceNetworkServiceAssociationAsync"/>.</summary>
+    public static VlDeleteServiceNetworkServiceAssociationResult DeleteServiceNetworkServiceAssociation(string serviceNetworkServiceAssociationIdentifier, RegionEndpoint? region = null)
+        => DeleteServiceNetworkServiceAssociationAsync(serviceNetworkServiceAssociationIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetServiceNetworkServiceAssociationAsync"/>.</summary>
+    public static VlGetServiceNetworkServiceAssociationResult GetServiceNetworkServiceAssociation(string serviceNetworkServiceAssociationIdentifier, RegionEndpoint? region = null)
+        => GetServiceNetworkServiceAssociationAsync(serviceNetworkServiceAssociationIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListServiceNetworkServiceAssociationsAsync"/>.</summary>
+    public static VlListServiceNetworkServiceAssociationsResult ListServiceNetworkServiceAssociations(string? serviceNetworkIdentifier = null, string? serviceIdentifier = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListServiceNetworkServiceAssociationsAsync(serviceNetworkIdentifier, serviceIdentifier, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateServiceNetworkVpcAssociationAsync"/>.</summary>
+    public static VlCreateServiceNetworkVpcAssociationResult CreateServiceNetworkVpcAssociation(CreateServiceNetworkVpcAssociationRequest request, RegionEndpoint? region = null)
+        => CreateServiceNetworkVpcAssociationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteServiceNetworkVpcAssociationAsync"/>.</summary>
+    public static VlDeleteServiceNetworkVpcAssociationResult DeleteServiceNetworkVpcAssociation(string serviceNetworkVpcAssociationIdentifier, RegionEndpoint? region = null)
+        => DeleteServiceNetworkVpcAssociationAsync(serviceNetworkVpcAssociationIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetServiceNetworkVpcAssociationAsync"/>.</summary>
+    public static VlGetServiceNetworkVpcAssociationResult GetServiceNetworkVpcAssociation(string serviceNetworkVpcAssociationIdentifier, RegionEndpoint? region = null)
+        => GetServiceNetworkVpcAssociationAsync(serviceNetworkVpcAssociationIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListServiceNetworkVpcAssociationsAsync"/>.</summary>
+    public static VlListServiceNetworkVpcAssociationsResult ListServiceNetworkVpcAssociations(string? serviceNetworkIdentifier = null, string? vpcIdentifier = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListServiceNetworkVpcAssociationsAsync(serviceNetworkIdentifier, vpcIdentifier, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateServiceNetworkVpcAssociationAsync"/>.</summary>
+    public static VlUpdateServiceNetworkVpcAssociationResult UpdateServiceNetworkVpcAssociation(string serviceNetworkVpcAssociationIdentifier, List<string> securityGroupIds, RegionEndpoint? region = null)
+        => UpdateServiceNetworkVpcAssociationAsync(serviceNetworkVpcAssociationIdentifier, securityGroupIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTargetGroupAsync"/>.</summary>
+    public static VlCreateTargetGroupResult CreateTargetGroup(CreateTargetGroupRequest request, RegionEndpoint? region = null)
+        => CreateTargetGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTargetGroupAsync"/>.</summary>
+    public static VlDeleteTargetGroupResult DeleteTargetGroup(string targetGroupIdentifier, RegionEndpoint? region = null)
+        => DeleteTargetGroupAsync(targetGroupIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTargetGroupAsync"/>.</summary>
+    public static VlGetTargetGroupResult GetTargetGroup(string targetGroupIdentifier, RegionEndpoint? region = null)
+        => GetTargetGroupAsync(targetGroupIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTargetGroupsAsync"/>.</summary>
+    public static VlListTargetGroupsResult ListTargetGroups(string? targetGroupType = null, string? vpcIdentifier = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListTargetGroupsAsync(targetGroupType, vpcIdentifier, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateTargetGroupAsync"/>.</summary>
+    public static VlUpdateTargetGroupResult UpdateTargetGroup(UpdateTargetGroupRequest request, RegionEndpoint? region = null)
+        => UpdateTargetGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RegisterTargetsAsync"/>.</summary>
+    public static VlRegisterTargetsResult RegisterTargets(string targetGroupIdentifier, List<Target> targets, RegionEndpoint? region = null)
+        => RegisterTargetsAsync(targetGroupIdentifier, targets, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeregisterTargetsAsync"/>.</summary>
+    public static VlDeregisterTargetsResult DeregisterTargets(string targetGroupIdentifier, List<Target> targets, RegionEndpoint? region = null)
+        => DeregisterTargetsAsync(targetGroupIdentifier, targets, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTargetsAsync"/>.</summary>
+    public static VlListTargetsResult ListTargets(string targetGroupIdentifier, List<Target>? targets = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListTargetsAsync(targetGroupIdentifier, targets, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateListenerAsync"/>.</summary>
+    public static VlCreateListenerResult CreateListener(CreateListenerRequest request, RegionEndpoint? region = null)
+        => CreateListenerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteListenerAsync"/>.</summary>
+    public static VlDeleteListenerResult DeleteListener(string serviceIdentifier, string listenerIdentifier, RegionEndpoint? region = null)
+        => DeleteListenerAsync(serviceIdentifier, listenerIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetListenerAsync"/>.</summary>
+    public static VlGetListenerResult GetListener(string serviceIdentifier, string listenerIdentifier, RegionEndpoint? region = null)
+        => GetListenerAsync(serviceIdentifier, listenerIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListListenersAsync"/>.</summary>
+    public static VlListListenersResult ListListeners(string serviceIdentifier, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListListenersAsync(serviceIdentifier, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateListenerAsync"/>.</summary>
+    public static VlUpdateListenerResult UpdateListener(UpdateListenerRequest request, RegionEndpoint? region = null)
+        => UpdateListenerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRuleAsync"/>.</summary>
+    public static VlCreateRuleResult CreateRule(CreateRuleRequest request, RegionEndpoint? region = null)
+        => CreateRuleAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRuleAsync"/>.</summary>
+    public static VlDeleteRuleResult DeleteRule(string serviceIdentifier, string listenerIdentifier, string ruleIdentifier, RegionEndpoint? region = null)
+        => DeleteRuleAsync(serviceIdentifier, listenerIdentifier, ruleIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRuleAsync"/>.</summary>
+    public static VlGetRuleResult GetRule(string serviceIdentifier, string listenerIdentifier, string ruleIdentifier, RegionEndpoint? region = null)
+        => GetRuleAsync(serviceIdentifier, listenerIdentifier, ruleIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRulesAsync"/>.</summary>
+    public static VlListRulesResult ListRules(string serviceIdentifier, string listenerIdentifier, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListRulesAsync(serviceIdentifier, listenerIdentifier, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateRuleAsync"/>.</summary>
+    public static VlUpdateRuleResult UpdateRule(UpdateRuleRequest request, RegionEndpoint? region = null)
+        => UpdateRuleAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAccessLogSubscriptionAsync"/>.</summary>
+    public static VlCreateAccessLogSubscriptionResult CreateAccessLogSubscription(CreateAccessLogSubscriptionRequest request, RegionEndpoint? region = null)
+        => CreateAccessLogSubscriptionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAccessLogSubscriptionAsync"/>.</summary>
+    public static VlDeleteAccessLogSubscriptionResult DeleteAccessLogSubscription(string accessLogSubscriptionIdentifier, RegionEndpoint? region = null)
+        => DeleteAccessLogSubscriptionAsync(accessLogSubscriptionIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAccessLogSubscriptionAsync"/>.</summary>
+    public static VlGetAccessLogSubscriptionResult GetAccessLogSubscription(string accessLogSubscriptionIdentifier, RegionEndpoint? region = null)
+        => GetAccessLogSubscriptionAsync(accessLogSubscriptionIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccessLogSubscriptionsAsync"/>.</summary>
+    public static VlListAccessLogSubscriptionsResult ListAccessLogSubscriptions(string resourceIdentifier, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListAccessLogSubscriptionsAsync(resourceIdentifier, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAccessLogSubscriptionAsync"/>.</summary>
+    public static VlUpdateAccessLogSubscriptionResult UpdateAccessLogSubscription(string accessLogSubscriptionIdentifier, string destinationArn, RegionEndpoint? region = null)
+        => UpdateAccessLogSubscriptionAsync(accessLogSubscriptionIdentifier, destinationArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAuthPolicyAsync"/>.</summary>
+    public static VlGetAuthPolicyResult GetAuthPolicy(string resourceIdentifier, RegionEndpoint? region = null)
+        => GetAuthPolicyAsync(resourceIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutAuthPolicyAsync"/>.</summary>
+    public static VlPutAuthPolicyResult PutAuthPolicy(string resourceIdentifier, string policy, RegionEndpoint? region = null)
+        => PutAuthPolicyAsync(resourceIdentifier, policy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAuthPolicyAsync"/>.</summary>
+    public static VlDeleteAuthPolicyResult DeleteAuthPolicy(string resourceIdentifier, RegionEndpoint? region = null)
+        => DeleteAuthPolicyAsync(resourceIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetResourcePolicyAsync"/>.</summary>
+    public static VlGetResourcePolicyResult GetResourcePolicy(string resourceArn, RegionEndpoint? region = null)
+        => GetResourcePolicyAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutResourcePolicyAsync"/>.</summary>
+    public static VlPutResourcePolicyResult PutResourcePolicy(string resourceArn, string policy, RegionEndpoint? region = null)
+        => PutResourcePolicyAsync(resourceArn, policy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteResourcePolicyAsync"/>.</summary>
+    public static VlDeleteResourcePolicyResult DeleteResourcePolicy(string resourceArn, RegionEndpoint? region = null)
+        => DeleteResourcePolicyAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static VlTagResourceResult TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static VlUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static VlListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

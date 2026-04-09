@@ -314,4 +314,54 @@ public static class ParameterStoreService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to delete parameters");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="GetParameterAsync"/>.</summary>
+    public static string GetParameter(string name, bool withDecryption = false, RegionEndpoint? region = null)
+        => GetParameterAsync(name, withDecryption, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutParameterAsync"/>.</summary>
+    public static long PutParameter(string name, string value, string type = "String", string? description = null, bool overwrite = false, string? keyId = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => PutParameterAsync(name, value, type, description, overwrite, keyId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteParameterAsync"/>.</summary>
+    public static void DeleteParameter(string name, RegionEndpoint? region = null)
+        => DeleteParameterAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetParametersByPathAsync"/>.</summary>
+    public static Dictionary<string, string> GetParametersByPath(string path, bool recursive = true, bool withDecryption = true, RegionEndpoint? region = null)
+        => GetParametersByPathAsync(path, recursive, withDecryption, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetParametersAsync"/>.</summary>
+    public static Dictionary<string, string> GetParameters(List<string> names, bool withDecryption = false, RegionEndpoint? region = null)
+        => GetParametersAsync(names, withDecryption, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeParametersAsync"/>.</summary>
+    public static List<ParameterMetadata> DescribeParameters(List<ParameterStringFilter>? filters = null, RegionEndpoint? region = null)
+        => DescribeParametersAsync(filters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetParameterHistoryAsync"/>.</summary>
+    public static List<ParameterHistory> GetParameterHistory(string name, bool withDecryption = false, RegionEndpoint? region = null)
+        => GetParameterHistoryAsync(name, withDecryption, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsToResourceAsync"/>.</summary>
+    public static void AddTagsToResource(string resourceId, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => AddTagsToResourceAsync(resourceId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsFromResourceAsync"/>.</summary>
+    public static void RemoveTagsFromResource(string resourceId, List<string> tagKeys, RegionEndpoint? region = null)
+        => RemoveTagsFromResourceAsync(resourceId, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LabelParameterVersionAsync"/>.</summary>
+    public static List<string> LabelParameterVersion(string name, List<string> labels, long? parameterVersion = null, RegionEndpoint? region = null)
+        => LabelParameterVersionAsync(name, labels, parameterVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteParametersAsync"/>.</summary>
+    public static List<string> DeleteParameters(List<string> names, RegionEndpoint? region = null)
+        => DeleteParametersAsync(names, region).GetAwaiter().GetResult();
+
 }

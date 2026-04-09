@@ -631,4 +631,102 @@ public static class CodeBuildService
                 "Failed to delete source credentials");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateProjectAsync"/>.</summary>
+    public static CbCreateProjectResult CreateProject(CreateProjectRequest request, RegionEndpoint? region = null)
+        => CreateProjectAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteProjectAsync"/>.</summary>
+    public static CbDeleteProjectResult DeleteProject(string name, RegionEndpoint? region = null)
+        => DeleteProjectAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetProjectsAsync"/>.</summary>
+    public static CbBatchGetProjectsResult BatchGetProjects(List<string> names, RegionEndpoint? region = null)
+        => BatchGetProjectsAsync(names, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListProjectsAsync"/>.</summary>
+    public static CbListProjectsResult ListProjects(string? sortBy = null, string? sortOrder = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListProjectsAsync(sortBy, sortOrder, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateProjectAsync"/>.</summary>
+    public static CbUpdateProjectResult UpdateProject(UpdateProjectRequest request, RegionEndpoint? region = null)
+        => UpdateProjectAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartBuildAsync"/>.</summary>
+    public static CbStartBuildResult StartBuild(StartBuildRequest request, RegionEndpoint? region = null)
+        => StartBuildAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopBuildAsync"/>.</summary>
+    public static CbStopBuildResult StopBuild(string id, RegionEndpoint? region = null)
+        => StopBuildAsync(id, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetBuildsAsync"/>.</summary>
+    public static CbBatchGetBuildsResult BatchGetBuilds(List<string> ids, RegionEndpoint? region = null)
+        => BatchGetBuildsAsync(ids, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListBuildsForProjectAsync"/>.</summary>
+    public static CbListBuildsForProjectResult ListBuildsForProject(string projectName, string? sortOrder = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListBuildsForProjectAsync(projectName, sortOrder, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListBuildsAsync"/>.</summary>
+    public static CbListBuildsResult ListBuilds(string? sortOrder = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListBuildsAsync(sortOrder, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RetryBuildAsync"/>.</summary>
+    public static CbRetryBuildResult RetryBuild(string id, string? idempotencyToken = null, RegionEndpoint? region = null)
+        => RetryBuildAsync(id, idempotencyToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateReportGroupAsync"/>.</summary>
+    public static CbCreateReportGroupResult CreateReportGroup(CreateReportGroupRequest request, RegionEndpoint? region = null)
+        => CreateReportGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteReportGroupAsync"/>.</summary>
+    public static CbDeleteReportGroupResult DeleteReportGroup(string arn, bool deleteReports = false, RegionEndpoint? region = null)
+        => DeleteReportGroupAsync(arn, deleteReports, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetReportGroupsAsync"/>.</summary>
+    public static CbBatchGetReportGroupsResult BatchGetReportGroups(List<string> reportGroupArns, RegionEndpoint? region = null)
+        => BatchGetReportGroupsAsync(reportGroupArns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListReportGroupsAsync"/>.</summary>
+    public static CbListReportGroupsResult ListReportGroups(string? sortBy = null, string? sortOrder = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListReportGroupsAsync(sortBy, sortOrder, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetReportsAsync"/>.</summary>
+    public static CbBatchGetReportsResult BatchGetReports(List<string> reportArns, RegionEndpoint? region = null)
+        => BatchGetReportsAsync(reportArns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListReportsForReportGroupAsync"/>.</summary>
+    public static CbListReportsForReportGroupResult ListReportsForReportGroup(string reportGroupArn, string? sortOrder = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListReportsForReportGroupAsync(reportGroupArn, sortOrder, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateWebhookAsync"/>.</summary>
+    public static CbCreateWebhookResult CreateWebhook(CreateWebhookRequest request, RegionEndpoint? region = null)
+        => CreateWebhookAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteWebhookAsync"/>.</summary>
+    public static CbDeleteWebhookResult DeleteWebhook(string projectName, RegionEndpoint? region = null)
+        => DeleteWebhookAsync(projectName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateWebhookAsync"/>.</summary>
+    public static CbUpdateWebhookResult UpdateWebhook(UpdateWebhookRequest request, RegionEndpoint? region = null)
+        => UpdateWebhookAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ImportSourceCredentialsAsync"/>.</summary>
+    public static CbImportSourceCredentialsResult ImportSourceCredentials(ImportSourceCredentialsRequest request, RegionEndpoint? region = null)
+        => ImportSourceCredentialsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSourceCredentialsAsync"/>.</summary>
+    public static CbListSourceCredentialsResult ListSourceCredentials(RegionEndpoint? region = null)
+        => ListSourceCredentialsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSourceCredentialsAsync"/>.</summary>
+    public static CbDeleteSourceCredentialsResult DeleteSourceCredentials(string arn, RegionEndpoint? region = null)
+        => DeleteSourceCredentialsAsync(arn, region).GetAwaiter().GetResult();
+
 }

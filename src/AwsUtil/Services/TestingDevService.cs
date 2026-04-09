@@ -489,4 +489,34 @@ public static class TestingDevService
             throw ErrorClassifier.WrapAwsError(exc, "Snapshot test failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="LambdaEventGeneratorAsync"/>.</summary>
+    public static LambdaTestEvent LambdaEventGenerator(string eventType, Dictionary<string, object?>? overrides = null, RegionEndpoint? region = null)
+        => LambdaEventGeneratorAsync(eventType, overrides, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LocalDynamoDbSeederAsync"/>.</summary>
+    public static LocalDynamoDbSeederResult LocalDynamoDbSeeder(string tableName, List<Dictionary<string, Amazon.DynamoDBv2.Model.AttributeValue>> items, RegionEndpoint? region = null)
+        => LocalDynamoDbSeederAsync(tableName, items, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="IntegrationTestHarnessAsync"/>.</summary>
+    public static IntegrationTestHarnessResult IntegrationTestHarness(List<(string TestName, string FunctionName, string Payload)> tests, RegionEndpoint? region = null)
+        => IntegrationTestHarnessAsync(tests, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MockEventSourceAsync"/>.</summary>
+    public static List<MockEventSourceResult> MockEventSource(string source, string detailType, List<Dictionary<string, object?>> details, string? eventBusName = null, RegionEndpoint? region = null)
+        => MockEventSourceAsync(source, detailType, details, eventBusName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LambdaInvokeRecorderAsync"/>.</summary>
+    public static LambdaInvokeRecorderResult LambdaInvokeRecorder(string functionName, List<string> payloads, RegionEndpoint? region = null)
+        => LambdaInvokeRecorderAsync(functionName, payloads, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SnapshotTesterAsync"/>.</summary>
+    public static SnapshotTesterResult SnapshotTester(string functionName, string payload, string snapshotBucket, string snapshotKey, RegionEndpoint? region = null)
+        => SnapshotTesterAsync(functionName, payload, snapshotBucket, snapshotKey, region).GetAwaiter().GetResult();
+
 }

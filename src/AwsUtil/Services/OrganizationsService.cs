@@ -1323,4 +1323,170 @@ public static class OrganizationsService
                 "Failed to list delegated administrators");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateOrganizationAsync"/>.</summary>
+    public static OrganizationResult CreateOrganization(string? featureSet = null, RegionEndpoint? region = null)
+        => CreateOrganizationAsync(featureSet, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteOrganizationAsync"/>.</summary>
+    public static void DeleteOrganization(RegionEndpoint? region = null)
+        => DeleteOrganizationAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeOrganizationAsync"/>.</summary>
+    public static OrganizationResult DescribeOrganization(RegionEndpoint? region = null)
+        => DescribeOrganizationAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccountsAsync"/>.</summary>
+    public static List<OrgAccountResult> ListAccounts(RegionEndpoint? region = null)
+        => ListAccountsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAccountAsync"/>.</summary>
+    public static OrgAccountResult DescribeAccount(string accountId, RegionEndpoint? region = null)
+        => DescribeAccountAsync(accountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAccountAsync"/>.</summary>
+    public static CreateAccountStatusResult CreateAccount(string email, string accountName, string? iamUserAccessToBilling = null, string? roleName = null, List<Amazon.Organizations.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateAccountAsync(email, accountName, iamUserAccessToBilling, roleName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CloseAccountAsync"/>.</summary>
+    public static void CloseAccount(string accountId, RegionEndpoint? region = null)
+        => CloseAccountAsync(accountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MoveAccountAsync"/>.</summary>
+    public static void MoveAccount(string accountId, string sourceParentId, string destinationParentId, RegionEndpoint? region = null)
+        => MoveAccountAsync(accountId, sourceParentId, destinationParentId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateOrganizationalUnitAsync"/>.</summary>
+    public static OrgUnitResult CreateOrganizationalUnit(string parentId, string name, List<Amazon.Organizations.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateOrganizationalUnitAsync(parentId, name, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteOrganizationalUnitAsync"/>.</summary>
+    public static void DeleteOrganizationalUnit(string organizationalUnitId, RegionEndpoint? region = null)
+        => DeleteOrganizationalUnitAsync(organizationalUnitId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeOrganizationalUnitAsync"/>.</summary>
+    public static OrgUnitResult DescribeOrganizationalUnit(string organizationalUnitId, RegionEndpoint? region = null)
+        => DescribeOrganizationalUnitAsync(organizationalUnitId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListOrganizationalUnitsForParentAsync"/>.</summary>
+    public static List<OrgUnitResult> ListOrganizationalUnitsForParent(string parentId, RegionEndpoint? region = null)
+        => ListOrganizationalUnitsForParentAsync(parentId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListChildrenAsync"/>.</summary>
+    public static List<OrgChildResult> ListChildren(string parentId, string childType, RegionEndpoint? region = null)
+        => ListChildrenAsync(parentId, childType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListParentsAsync"/>.</summary>
+    public static List<OrgParentResult> ListParents(string childId, RegionEndpoint? region = null)
+        => ListParentsAsync(childId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRootsAsync"/>.</summary>
+    public static List<OrgRootResult> ListRoots(RegionEndpoint? region = null)
+        => ListRootsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePolicyAsync"/>.</summary>
+    public static OrgPolicyResult CreatePolicy(string content, string description, string name, string type, List<Amazon.Organizations.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreatePolicyAsync(content, description, name, type, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePolicyAsync"/>.</summary>
+    public static void DeletePolicy(string policyId, RegionEndpoint? region = null)
+        => DeletePolicyAsync(policyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribePolicyAsync"/>.</summary>
+    public static OrgPolicyResult DescribePolicy(string policyId, RegionEndpoint? region = null)
+        => DescribePolicyAsync(policyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPoliciesAsync"/>.</summary>
+    public static List<OrgPolicySummaryResult> ListPolicies(string filter, RegionEndpoint? region = null)
+        => ListPoliciesAsync(filter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AttachPolicyAsync"/>.</summary>
+    public static void AttachPolicy(string policyId, string targetId, RegionEndpoint? region = null)
+        => AttachPolicyAsync(policyId, targetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetachPolicyAsync"/>.</summary>
+    public static void DetachPolicy(string policyId, string targetId, RegionEndpoint? region = null)
+        => DetachPolicyAsync(policyId, targetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTargetsForPolicyAsync"/>.</summary>
+    public static List<PolicyTargetResult> ListTargetsForPolicy(string policyId, RegionEndpoint? region = null)
+        => ListTargetsForPolicyAsync(policyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPoliciesForTargetAsync"/>.</summary>
+    public static List<OrgPolicySummaryResult> ListPoliciesForTarget(string targetId, string filter, RegionEndpoint? region = null)
+        => ListPoliciesForTargetAsync(targetId, filter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnablePolicyTypeAsync"/>.</summary>
+    public static OrgRootResult EnablePolicyType(string rootId, string policyType, RegionEndpoint? region = null)
+        => EnablePolicyTypeAsync(rootId, policyType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisablePolicyTypeAsync"/>.</summary>
+    public static OrgRootResult DisablePolicyType(string rootId, string policyType, RegionEndpoint? region = null)
+        => DisablePolicyTypeAsync(rootId, policyType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableAWSServiceAccessAsync"/>.</summary>
+    public static void EnableAWSServiceAccess(string servicePrincipal, RegionEndpoint? region = null)
+        => EnableAWSServiceAccessAsync(servicePrincipal, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableAWSServiceAccessAsync"/>.</summary>
+    public static void DisableAWSServiceAccess(string servicePrincipal, RegionEndpoint? region = null)
+        => DisableAWSServiceAccessAsync(servicePrincipal, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAWSServiceAccessForOrganizationAsync"/>.</summary>
+    public static List<EnabledServiceResult> ListAWSServiceAccessForOrganization(RegionEndpoint? region = null)
+        => ListAWSServiceAccessForOrganizationAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="InviteAccountToOrganizationAsync"/>.</summary>
+    public static OrgHandshakeResult InviteAccountToOrganization(string targetId, string targetType, string? notes = null, List<Amazon.Organizations.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => InviteAccountToOrganizationAsync(targetId, targetType, notes, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AcceptHandshakeAsync"/>.</summary>
+    public static OrgHandshakeResult AcceptHandshake(string handshakeId, RegionEndpoint? region = null)
+        => AcceptHandshakeAsync(handshakeId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeclineHandshakeAsync"/>.</summary>
+    public static OrgHandshakeResult DeclineHandshake(string handshakeId, RegionEndpoint? region = null)
+        => DeclineHandshakeAsync(handshakeId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelHandshakeAsync"/>.</summary>
+    public static OrgHandshakeResult CancelHandshake(string handshakeId, RegionEndpoint? region = null)
+        => CancelHandshakeAsync(handshakeId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListHandshakesForAccountAsync"/>.</summary>
+    public static List<OrgHandshakeResult> ListHandshakesForAccount(RegionEndpoint? region = null)
+        => ListHandshakesForAccountAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListHandshakesForOrganizationAsync"/>.</summary>
+    public static List<OrgHandshakeResult> ListHandshakesForOrganization(RegionEndpoint? region = null)
+        => ListHandshakesForOrganizationAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceId, List<Amazon.Organizations.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceId, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceId, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static List<OrgTagResult> ListTagsForResource(string resourceId, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RegisterDelegatedAdministratorAsync"/>.</summary>
+    public static void RegisterDelegatedAdministrator(string accountId, string servicePrincipal, RegionEndpoint? region = null)
+        => RegisterDelegatedAdministratorAsync(accountId, servicePrincipal, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeregisterDelegatedAdministratorAsync"/>.</summary>
+    public static void DeregisterDelegatedAdministrator(string accountId, string servicePrincipal, RegionEndpoint? region = null)
+        => DeregisterDelegatedAdministratorAsync(accountId, servicePrincipal, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDelegatedAdministratorsAsync"/>.</summary>
+    public static List<DelegatedAdminResult> ListDelegatedAdministrators(string? servicePrincipal = null, RegionEndpoint? region = null)
+        => ListDelegatedAdministratorsAsync(servicePrincipal, region).GetAwaiter().GetResult();
+
 }

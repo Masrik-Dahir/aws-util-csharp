@@ -1046,4 +1046,146 @@ public static class CodeArtifactService
                 "Failed to list tags for CodeArtifact resource");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDomainAsync"/>.</summary>
+    public static CaCreateDomainResult CreateDomain(CreateDomainRequest request, RegionEndpoint? region = null)
+        => CreateDomainAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDomainAsync"/>.</summary>
+    public static CaDeleteDomainResult DeleteDomain(string domain, string? domainOwner = null, RegionEndpoint? region = null)
+        => DeleteDomainAsync(domain, domainOwner, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDomainAsync"/>.</summary>
+    public static CaDescribeDomainResult DescribeDomain(string domain, string? domainOwner = null, RegionEndpoint? region = null)
+        => DescribeDomainAsync(domain, domainOwner, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDomainsAsync"/>.</summary>
+    public static CaListDomainsResult ListDomains(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListDomainsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRepositoryAsync"/>.</summary>
+    public static CaCreateRepositoryResult CreateRepository(CreateRepositoryRequest request, RegionEndpoint? region = null)
+        => CreateRepositoryAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRepositoryAsync"/>.</summary>
+    public static CaDeleteRepositoryResult DeleteRepository(string domain, string repository, string? domainOwner = null, RegionEndpoint? region = null)
+        => DeleteRepositoryAsync(domain, repository, domainOwner, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeRepositoryAsync"/>.</summary>
+    public static CaDescribeRepositoryResult DescribeRepository(string domain, string repository, string? domainOwner = null, RegionEndpoint? region = null)
+        => DescribeRepositoryAsync(domain, repository, domainOwner, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRepositoriesAsync"/>.</summary>
+    public static CaListRepositoriesResult ListRepositories(string? repositoryPrefix = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListRepositoriesAsync(repositoryPrefix, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateRepositoryAsync"/>.</summary>
+    public static CaUpdateRepositoryResult UpdateRepository(UpdateRepositoryRequest request, RegionEndpoint? region = null)
+        => UpdateRepositoryAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRepositoriesInDomainAsync"/>.</summary>
+    public static CaListRepositoriesInDomainResult ListRepositoriesInDomain(string domain, string? domainOwner = null, string? administratorAccount = null, string? repositoryPrefix = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListRepositoriesInDomainAsync(domain, domainOwner, administratorAccount, repositoryPrefix, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssociateExternalConnectionAsync"/>.</summary>
+    public static CaAssociateExternalConnectionResult AssociateExternalConnection(AssociateExternalConnectionRequest request, RegionEndpoint? region = null)
+        => AssociateExternalConnectionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisassociateExternalConnectionAsync"/>.</summary>
+    public static CaDisassociateExternalConnectionResult DisassociateExternalConnection(DisassociateExternalConnectionRequest request, RegionEndpoint? region = null)
+        => DisassociateExternalConnectionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAuthorizationTokenAsync"/>.</summary>
+    public static CaGetAuthorizationTokenResult GetAuthorizationToken(string domain, string? domainOwner = null, long? durationSeconds = null, RegionEndpoint? region = null)
+        => GetAuthorizationTokenAsync(domain, domainOwner, durationSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDomainPermissionsPolicyAsync"/>.</summary>
+    public static CaGetDomainPermissionsPolicyResult GetDomainPermissionsPolicy(string domain, string? domainOwner = null, RegionEndpoint? region = null)
+        => GetDomainPermissionsPolicyAsync(domain, domainOwner, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutDomainPermissionsPolicyAsync"/>.</summary>
+    public static CaPutDomainPermissionsPolicyResult PutDomainPermissionsPolicy(PutDomainPermissionsPolicyRequest request, RegionEndpoint? region = null)
+        => PutDomainPermissionsPolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDomainPermissionsPolicyAsync"/>.</summary>
+    public static CaDeleteDomainPermissionsPolicyResult DeleteDomainPermissionsPolicy(string domain, string? domainOwner = null, string? policyRevision = null, RegionEndpoint? region = null)
+        => DeleteDomainPermissionsPolicyAsync(domain, domainOwner, policyRevision, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRepositoryEndpointAsync"/>.</summary>
+    public static CaGetRepositoryEndpointResult GetRepositoryEndpoint(string domain, string repository, string format, string? domainOwner = null, RegionEndpoint? region = null)
+        => GetRepositoryEndpointAsync(domain, repository, format, domainOwner, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRepositoryPermissionsPolicyAsync"/>.</summary>
+    public static CaGetRepositoryPermissionsPolicyResult GetRepositoryPermissionsPolicy(string domain, string repository, string? domainOwner = null, RegionEndpoint? region = null)
+        => GetRepositoryPermissionsPolicyAsync(domain, repository, domainOwner, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutRepositoryPermissionsPolicyAsync"/>.</summary>
+    public static CaPutRepositoryPermissionsPolicyResult PutRepositoryPermissionsPolicy(PutRepositoryPermissionsPolicyRequest request, RegionEndpoint? region = null)
+        => PutRepositoryPermissionsPolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRepositoryPermissionsPolicyAsync"/>.</summary>
+    public static CaDeleteRepositoryPermissionsPolicyResult DeleteRepositoryPermissionsPolicy(string domain, string repository, string? domainOwner = null, string? policyRevision = null, RegionEndpoint? region = null)
+        => DeleteRepositoryPermissionsPolicyAsync(domain, repository, domainOwner, policyRevision, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPackagesAsync"/>.</summary>
+    public static CaListPackagesResult ListPackages(ListPackagesRequest request, RegionEndpoint? region = null)
+        => ListPackagesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPackageVersionsAsync"/>.</summary>
+    public static CaListPackageVersionsResult ListPackageVersions(ListPackageVersionsRequest request, RegionEndpoint? region = null)
+        => ListPackageVersionsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribePackageVersionAsync"/>.</summary>
+    public static CaDescribePackageVersionResult DescribePackageVersion(DescribePackageVersionRequest request, RegionEndpoint? region = null)
+        => DescribePackageVersionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPackageVersionReadmeAsync"/>.</summary>
+    public static CaGetPackageVersionReadmeResult GetPackageVersionReadme(GetPackageVersionReadmeRequest request, RegionEndpoint? region = null)
+        => GetPackageVersionReadmeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPackageVersionAssetsAsync"/>.</summary>
+    public static CaListPackageVersionAssetsResult ListPackageVersionAssets(ListPackageVersionAssetsRequest request, RegionEndpoint? region = null)
+        => ListPackageVersionAssetsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPackageVersionAssetAsync"/>.</summary>
+    public static CaGetPackageVersionAssetResult GetPackageVersionAsset(GetPackageVersionAssetRequest request, RegionEndpoint? region = null)
+        => GetPackageVersionAssetAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisposePackageVersionsAsync"/>.</summary>
+    public static CaDisposePackageVersionsResult DisposePackageVersions(DisposePackageVersionsRequest request, RegionEndpoint? region = null)
+        => DisposePackageVersionsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePackageVersionsAsync"/>.</summary>
+    public static CaDeletePackageVersionsResult DeletePackageVersions(DeletePackageVersionsRequest request, RegionEndpoint? region = null)
+        => DeletePackageVersionsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CopyPackageVersionsAsync"/>.</summary>
+    public static CaCopyPackageVersionsResult CopyPackageVersions(CopyPackageVersionsRequest request, RegionEndpoint? region = null)
+        => CopyPackageVersionsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdatePackageVersionsStatusAsync"/>.</summary>
+    public static CaUpdatePackageVersionsStatusResult UpdatePackageVersionsStatus(UpdatePackageVersionsStatusRequest request, RegionEndpoint? region = null)
+        => UpdatePackageVersionsStatusAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PublishPackageVersionAsync"/>.</summary>
+    public static CaPublishPackageVersionResult PublishPackageVersion(PublishPackageVersionRequest request, RegionEndpoint? region = null)
+        => PublishPackageVersionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static CaTagResourceResult TagResource(string resourceArn, List<Amazon.CodeArtifact.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static CaUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static CaListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

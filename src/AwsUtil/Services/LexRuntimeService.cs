@@ -288,4 +288,30 @@ public static class LexRuntimeService
                 $"Failed to delete session for bot '{botName}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="PostTextAsync"/>.</summary>
+    public static LexPostTextResult PostText(string botName, string botAlias, string userId, string inputText, Dictionary<string, string>? sessionAttributes = null, Dictionary<string, string>? requestAttributes = null, List<ActiveContext>? activeContexts = null, RegionEndpoint? region = null)
+        => PostTextAsync(botName, botAlias, userId, inputText, sessionAttributes, requestAttributes, activeContexts, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PostContentAsync"/>.</summary>
+    public static LexPostContentResult PostContent(string botName, string botAlias, string userId, string contentType, Stream inputStream, string? accept = null, string? sessionAttributes = null, string? requestAttributes = null, string? activeContexts = null, RegionEndpoint? region = null)
+        => PostContentAsync(botName, botAlias, userId, contentType, inputStream, accept, sessionAttributes, requestAttributes, activeContexts, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutSessionAsync"/>.</summary>
+    public static LexPutSessionResult PutSession(string botName, string botAlias, string userId, DialogAction? dialogAction = null, List<IntentSummary>? recentIntentSummaryView = null, Dictionary<string, string>? sessionAttributes = null, string? accept = null, List<ActiveContext>? activeContexts = null, RegionEndpoint? region = null)
+        => PutSessionAsync(botName, botAlias, userId, dialogAction, recentIntentSummaryView, sessionAttributes, accept, activeContexts, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSessionAsync"/>.</summary>
+    public static LexGetSessionResult GetSession(string botName, string botAlias, string userId, string? checkpointLabelFilter = null, RegionEndpoint? region = null)
+        => GetSessionAsync(botName, botAlias, userId, checkpointLabelFilter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSessionAsync"/>.</summary>
+    public static LexDeleteSessionResult DeleteSession(string botName, string botAlias, string userId, RegionEndpoint? region = null)
+        => DeleteSessionAsync(botName, botAlias, userId, region).GetAwaiter().GetResult();
+
 }

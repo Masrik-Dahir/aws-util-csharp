@@ -386,4 +386,26 @@ public static class CostGovernanceService
             throw ErrorClassifier.WrapAwsError(exc, "Savings Plans recommendation failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="BudgetAlertManagerAsync"/>.</summary>
+    public static BudgetAlertManagerResult BudgetAlertManager(string budgetName, double budgetLimit, string timeUnit, List<(double Percentage, string TopicArn)> thresholds, string? trackingTableName = null, RegionEndpoint? region = null)
+        => BudgetAlertManagerAsync(budgetName, budgetLimit, timeUnit, thresholds, trackingTableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CostAnomalyDetectorAsync"/>.</summary>
+    public static CostAnomalyDetectorResult CostAnomalyDetector(string trackingTableName, double anomalyThresholdPercent = 25.0, int baselineDays = 30, string? alertTopicArn = null, RegionEndpoint? region = null)
+        => CostAnomalyDetectorAsync(trackingTableName, anomalyThresholdPercent, baselineDays, alertTopicArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ReservedInstanceAdvisorAsync"/>.</summary>
+    public static ReservedInstanceAdvisorResult ReservedInstanceAdvisor(int lookbackDays = 30, string? trackingTableName = null, RegionEndpoint? region = null)
+        => ReservedInstanceAdvisorAsync(lookbackDays, trackingTableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SavingsPlansRecommenderAsync"/>.</summary>
+    public static SavingsPlansRecommenderResult SavingsPlansRecommender(int lookbackDays = 30, string? trackingTableName = null, RegionEndpoint? region = null)
+        => SavingsPlansRecommenderAsync(lookbackDays, trackingTableName, region).GetAwaiter().GetResult();
+
 }

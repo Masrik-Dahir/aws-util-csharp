@@ -360,4 +360,30 @@ public static class MessagingService
         var bytes = SHA256.HashData(Encoding.UTF8.GetBytes(input));
         return Convert.ToHexStringLower(bytes);
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="MultiChannelNotifierAsync"/>.</summary>
+    public static MultiChannelNotifierResult MultiChannelNotifier(string subject, string message, List<string>? snsTopicArns = null, List<string>? sqsQueueUrls = null, List<(string From, string To)>? emailTargets = null, RegionEndpoint? region = null)
+        => MultiChannelNotifierAsync(subject, message, snsTopicArns, sqsQueueUrls, emailTargets, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EventDeduplicatorAsync"/>.</summary>
+    public static EventDeduplicatorResult EventDeduplicator(string tableName, string eventId, string? deduplicationKey = null, int ttlSeconds = 86400, RegionEndpoint? region = null)
+        => EventDeduplicatorAsync(tableName, eventId, deduplicationKey, ttlSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SnsFilterPolicyManagerAsync"/>.</summary>
+    public static SnsFilterPolicyManagerResult SnsFilterPolicyManager(string subscriptionArn, Dictionary<string, List<string>> filterPolicy, RegionEndpoint? region = null)
+        => SnsFilterPolicyManagerAsync(subscriptionArn, filterPolicy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SqsFifoSequencerAsync"/>.</summary>
+    public static SqsFifoSequencerResult SqsFifoSequencer(string queueUrl, string messageGroupId, List<string> messages, RegionEndpoint? region = null)
+        => SqsFifoSequencerAsync(queueUrl, messageGroupId, messages, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchNotificationDigesterAsync"/>.</summary>
+    public static BatchNotificationDigesterResult BatchNotificationDigester(string topicArn, List<string> messages, int batchSize = 10, string digestSubject = "Notification Digest", RegionEndpoint? region = null)
+        => BatchNotificationDigesterAsync(topicArn, messages, batchSize, digestSubject, region).GetAwaiter().GetResult();
+
 }

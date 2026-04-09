@@ -343,4 +343,46 @@ public static class PollyService
                 "Failed to list speech synthesis tasks");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="SynthesizeSpeechAsync"/>.</summary>
+    public static SynthesizeSpeechResult SynthesizeSpeech(string text, string outputFormat, string voiceId, string? engine = null, string? languageCode = null, List<string>? lexiconNames = null, string? sampleRate = null, string? speechMarkTypes = null, string? textType = null, RegionEndpoint? region = null)
+        => SynthesizeSpeechAsync(text, outputFormat, voiceId, engine, languageCode, lexiconNames, sampleRate, speechMarkTypes, textType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeVoicesAsync"/>.</summary>
+    public static DescribeVoicesResult DescribeVoices(string? engine = null, bool? includeAdditionalLanguageCodes = null, string? languageCode = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeVoicesAsync(engine, includeAdditionalLanguageCodes, languageCode, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetLexiconAsync"/>.</summary>
+    public static GetLexiconResult GetLexicon(string name, RegionEndpoint? region = null)
+        => GetLexiconAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutLexiconAsync"/>.</summary>
+    public static void PutLexicon(string name, string content, RegionEndpoint? region = null)
+        => PutLexiconAsync(name, content, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteLexiconAsync"/>.</summary>
+    public static void DeleteLexicon(string name, RegionEndpoint? region = null)
+        => DeleteLexiconAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListLexiconsAsync"/>.</summary>
+    public static ListLexiconsResult ListLexicons(string? nextToken = null, RegionEndpoint? region = null)
+        => ListLexiconsAsync(nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartSpeechSynthesisTaskAsync"/>.</summary>
+    public static StartSpeechSynthesisTaskResult StartSpeechSynthesisTask(string text, string outputFormat, string outputS3BucketName, string voiceId, string? engine = null, string? languageCode = null, List<string>? lexiconNames = null, string? outputS3KeyPrefix = null, string? sampleRate = null, string? snsTopicArn = null, string? textType = null, RegionEndpoint? region = null)
+        => StartSpeechSynthesisTaskAsync(text, outputFormat, outputS3BucketName, voiceId, engine, languageCode, lexiconNames, outputS3KeyPrefix, sampleRate, snsTopicArn, textType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSpeechSynthesisTaskAsync"/>.</summary>
+    public static GetSpeechSynthesisTaskResult GetSpeechSynthesisTask(string taskId, RegionEndpoint? region = null)
+        => GetSpeechSynthesisTaskAsync(taskId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSpeechSynthesisTasksAsync"/>.</summary>
+    public static ListSpeechSynthesisTasksResult ListSpeechSynthesisTasks(string? status = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListSpeechSynthesisTasksAsync(status, nextToken, maxResults, region).GetAwaiter().GetResult();
+
 }

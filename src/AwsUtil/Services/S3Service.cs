@@ -1549,4 +1549,166 @@ public static class S3Service
 
         return tags;
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="UploadFileAsync"/>.</summary>
+    public static void UploadFile(string bucket, string key, string filePath, string? contentType = null, RegionEndpoint? region = null)
+        => UploadFileAsync(bucket, key, filePath, contentType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DownloadBytesAsync"/>.</summary>
+    public static byte[] DownloadBytes(string bucket, string key, string? versionId = null, RegionEndpoint? region = null)
+        => DownloadBytesAsync(bucket, key, versionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DownloadFileAsync"/>.</summary>
+    public static void DownloadFile(string bucket, string key, string destPath, string? versionId = null, RegionEndpoint? region = null)
+        => DownloadFileAsync(bucket, key, destPath, versionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetObjectAsync"/>.</summary>
+    public static GetObjectResult GetObject(string bucket, string key, string? versionId = null, RegionEndpoint? region = null)
+        => GetObjectAsync(bucket, key, versionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutObjectAsync"/>.</summary>
+    public static PutObjectResult PutObject(string bucket, string key, byte[]? body = null, Stream? inputStream = null, string? contentType = null, Dictionary<string, string>? metadata = null, string? storageClass = null, string? serverSideEncryption = null, string? tagging = null, RegionEndpoint? region = null)
+        => PutObjectAsync(bucket, key, body, inputStream, contentType, metadata, storageClass, serverSideEncryption, tagging, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListObjectsAsync"/>.</summary>
+    public static List<S3Object> ListObjects(string bucket, string prefix = "", int? maxKeys = null, RegionEndpoint? region = null)
+        => ListObjectsAsync(bucket, prefix, maxKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListObjectsV2Async"/>.</summary>
+    public static ListObjectsResult ListObjectsV2(string bucket, string? prefix = null, string? delimiter = null, int? maxKeys = null, string? continuationToken = null, string? startAfter = null, RegionEndpoint? region = null)
+        => ListObjectsV2Async(bucket, prefix, delimiter, maxKeys, continuationToken, startAfter, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="HeadObjectAsync"/>.</summary>
+    public static HeadObjectResult HeadObject(string bucket, string key, string? versionId = null, RegionEndpoint? region = null)
+        => HeadObjectAsync(bucket, key, versionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ObjectExistsAsync"/>.</summary>
+    public static bool ObjectExists(string bucket, string key, RegionEndpoint? region = null)
+        => ObjectExistsAsync(bucket, key, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteObjectAsync"/>.</summary>
+    public static void DeleteObject(string bucket, string key, string? versionId = null, RegionEndpoint? region = null)
+        => DeleteObjectAsync(bucket, key, versionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteObjectsAsync"/>.</summary>
+    public static DeleteObjectsResult DeleteObjects(string bucket, List<KeyVersion> keys, bool quiet = true, RegionEndpoint? region = null)
+        => DeleteObjectsAsync(bucket, keys, quiet, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePrefixAsync"/>.</summary>
+    public static int DeletePrefix(string bucket, string prefix, RegionEndpoint? region = null)
+        => DeletePrefixAsync(bucket, prefix, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CopyObjectAsync"/>.</summary>
+    public static CopyObjectResult CopyObject(string srcBucket, string srcKey, string dstBucket, string dstKey, string? storageClass = null, string? serverSideEncryption = null, RegionEndpoint? region = null)
+        => CopyObjectAsync(srcBucket, srcKey, dstBucket, dstKey, storageClass, serverSideEncryption, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MoveObjectAsync"/>.</summary>
+    public static void MoveObject(string srcBucket, string srcKey, string dstBucket, string dstKey, RegionEndpoint? region = null)
+        => MoveObjectAsync(srcBucket, srcKey, dstBucket, dstKey, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchCopyAsync"/>.</summary>
+    public static BatchCopyResult BatchCopy(List<CopySpec> copies, int maxConcurrency = 20, RegionEndpoint? region = null)
+        => BatchCopyAsync(copies, maxConcurrency, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateBucketAsync"/>.</summary>
+    public static CreateBucketResult CreateBucket(string bucket, string? locationConstraint = null, bool? objectLockEnabled = null, RegionEndpoint? region = null)
+        => CreateBucketAsync(bucket, locationConstraint, objectLockEnabled, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteBucketAsync"/>.</summary>
+    public static void DeleteBucket(string bucket, RegionEndpoint? region = null)
+        => DeleteBucketAsync(bucket, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListBucketsAsync"/>.</summary>
+    public static ListBucketsResult ListBuckets(RegionEndpoint? region = null)
+        => ListBucketsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBucketLocationAsync"/>.</summary>
+    public static GetBucketLocationResult GetBucketLocation(string bucket, RegionEndpoint? region = null)
+        => GetBucketLocationAsync(bucket, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBucketVersioningAsync"/>.</summary>
+    public static GetBucketVersioningResult GetBucketVersioning(string bucket, RegionEndpoint? region = null)
+        => GetBucketVersioningAsync(bucket, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutBucketVersioningAsync"/>.</summary>
+    public static void PutBucketVersioning(string bucket, string status, RegionEndpoint? region = null)
+        => PutBucketVersioningAsync(bucket, status, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBucketPolicyAsync"/>.</summary>
+    public static GetBucketPolicyResult GetBucketPolicy(string bucket, RegionEndpoint? region = null)
+        => GetBucketPolicyAsync(bucket, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutBucketPolicyAsync"/>.</summary>
+    public static void PutBucketPolicy(string bucket, string policy, RegionEndpoint? region = null)
+        => PutBucketPolicyAsync(bucket, policy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteBucketPolicyAsync"/>.</summary>
+    public static void DeleteBucketPolicy(string bucket, RegionEndpoint? region = null)
+        => DeleteBucketPolicyAsync(bucket, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBucketEncryptionAsync"/>.</summary>
+    public static GetBucketEncryptionResult GetBucketEncryption(string bucket, RegionEndpoint? region = null)
+        => GetBucketEncryptionAsync(bucket, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutBucketEncryptionAsync"/>.</summary>
+    public static void PutBucketEncryption(string bucket, ServerSideEncryptionConfiguration configuration, RegionEndpoint? region = null)
+        => PutBucketEncryptionAsync(bucket, configuration, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteBucketEncryptionAsync"/>.</summary>
+    public static void DeleteBucketEncryption(string bucket, RegionEndpoint? region = null)
+        => DeleteBucketEncryptionAsync(bucket, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBucketTaggingAsync"/>.</summary>
+    public static GetBucketTaggingResult GetBucketTagging(string bucket, RegionEndpoint? region = null)
+        => GetBucketTaggingAsync(bucket, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutBucketTaggingAsync"/>.</summary>
+    public static void PutBucketTagging(string bucket, List<Tag> tags, RegionEndpoint? region = null)
+        => PutBucketTaggingAsync(bucket, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteBucketTaggingAsync"/>.</summary>
+    public static void DeleteBucketTagging(string bucket, RegionEndpoint? region = null)
+        => DeleteBucketTaggingAsync(bucket, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateMultipartUploadAsync"/>.</summary>
+    public static CreateMultipartUploadResult CreateMultipartUpload(string bucket, string key, string? contentType = null, string? storageClass = null, string? serverSideEncryption = null, Dictionary<string, string>? metadata = null, RegionEndpoint? region = null)
+        => CreateMultipartUploadAsync(bucket, key, contentType, storageClass, serverSideEncryption, metadata, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UploadPartAsync"/>.</summary>
+    public static UploadPartResult UploadPart(string bucket, string key, string uploadId, int partNumber, byte[]? body = null, Stream? inputStream = null, RegionEndpoint? region = null)
+        => UploadPartAsync(bucket, key, uploadId, partNumber, body, inputStream, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CompleteMultipartUploadAsync"/>.</summary>
+    public static CompleteMultipartUploadResult CompleteMultipartUpload(string bucket, string key, string uploadId, List<PartETag> parts, RegionEndpoint? region = null)
+        => CompleteMultipartUploadAsync(bucket, key, uploadId, parts, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AbortMultipartUploadAsync"/>.</summary>
+    public static void AbortMultipartUpload(string bucket, string key, string uploadId, RegionEndpoint? region = null)
+        => AbortMultipartUploadAsync(bucket, key, uploadId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MultipartUploadFileAsync"/>.</summary>
+    public static void MultipartUploadFile(string bucket, string key, string filePath, int partSizeMb = 50, int maxConcurrency = 10, string? contentType = null, RegionEndpoint? region = null)
+        => MultipartUploadFileAsync(bucket, key, filePath, partSizeMb, maxConcurrency, contentType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListObjectVersionsAsync"/>.</summary>
+    public static List<S3ObjectVersion> ListObjectVersions(string bucket, string prefix = "", RegionEndpoint? region = null)
+        => ListObjectVersionsAsync(bucket, prefix, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DownloadAsTextAsync"/>.</summary>
+    public static string DownloadAsText(string bucket, string key, RegionEndpoint? region = null)
+        => DownloadAsTextAsync(bucket, key, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UploadBytesAsync"/>.</summary>
+    public static void UploadBytes(string bucket, string key, byte[] data, string? contentType = null, RegionEndpoint? region = null)
+        => UploadBytesAsync(bucket, key, data, contentType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RenameObjectAsync"/>.</summary>
+    public static void RenameObject(string bucket, string oldKey, string newKey, RegionEndpoint? region = null)
+        => RenameObjectAsync(bucket, oldKey, newKey, region).GetAwaiter().GetResult();
+
 }

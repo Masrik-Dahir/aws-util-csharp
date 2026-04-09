@@ -714,4 +714,102 @@ public static class CloudWatchService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to describe alarms for metric");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="PutMetricDataAsync"/>.</summary>
+    public static PutMetricDataResult PutMetricData(string metricNamespace, List<MetricDatum> metricData, RegionEndpoint? region = null)
+        => PutMetricDataAsync(metricNamespace, metricData, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetMetricDataAsync"/>.</summary>
+    public static GetMetricDataResultRecord GetMetricData(List<MetricDataQuery> metricDataQueries, DateTime startTimeUtc, DateTime endTimeUtc, string? nextToken = null, ScanBy? scanOrder = null, int? maxDatapoints = null, RegionEndpoint? region = null)
+        => GetMetricDataAsync(metricDataQueries, startTimeUtc, endTimeUtc, nextToken, scanOrder, maxDatapoints, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetMetricStatisticsAsync"/>.</summary>
+    public static GetMetricStatisticsResult GetMetricStatistics(string metricNamespace, string metricName, DateTime startTimeUtc, DateTime endTimeUtc, int period, List<string>? statistics = null, List<string>? extendedStatistics = null, List<Dimension>? dimensions = null, string? unit = null, RegionEndpoint? region = null)
+        => GetMetricStatisticsAsync(metricNamespace, metricName, startTimeUtc, endTimeUtc, period, statistics, extendedStatistics, dimensions, unit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListMetricsAsync"/>.</summary>
+    public static ListMetricsResult ListMetrics(string? metricNamespace = null, string? metricName = null, List<DimensionFilter>? dimensions = null, string? nextToken = null, string? recentlyActive = null, RegionEndpoint? region = null)
+        => ListMetricsAsync(metricNamespace, metricName, dimensions, nextToken, recentlyActive, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutMetricAlarmAsync"/>.</summary>
+    public static PutMetricAlarmResult PutMetricAlarm(PutMetricAlarmRequest request, RegionEndpoint? region = null)
+        => PutMetricAlarmAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAlarmsAsync"/>.</summary>
+    public static DeleteAlarmsResult DeleteAlarms(List<string> alarmNames, RegionEndpoint? region = null)
+        => DeleteAlarmsAsync(alarmNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAlarmsAsync"/>.</summary>
+    public static DescribeAlarmsResult DescribeAlarms(List<string>? alarmNames = null, string? alarmNamePrefix = null, List<string>? alarmTypes = null, string? stateValue = null, string? actionPrefix = null, string? nextToken = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeAlarmsAsync(alarmNames, alarmNamePrefix, alarmTypes, stateValue, actionPrefix, nextToken, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAlarmHistoryAsync"/>.</summary>
+    public static DescribeAlarmHistoryResult DescribeAlarmHistory(string? alarmName = null, List<string>? alarmTypes = null, string? historyItemType = null, DateTime? startDateUtc = null, DateTime? endDateUtc = null, string? nextToken = null, int? maxRecords = null, ScanBy? scanBy = null, RegionEndpoint? region = null)
+        => DescribeAlarmHistoryAsync(alarmName, alarmTypes, historyItemType, startDateUtc, endDateUtc, nextToken, maxRecords, scanBy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableAlarmActionsAsync"/>.</summary>
+    public static EnableAlarmActionsResult EnableAlarmActions(List<string> alarmNames, RegionEndpoint? region = null)
+        => EnableAlarmActionsAsync(alarmNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableAlarmActionsAsync"/>.</summary>
+    public static DisableAlarmActionsResult DisableAlarmActions(List<string> alarmNames, RegionEndpoint? region = null)
+        => DisableAlarmActionsAsync(alarmNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetAlarmStateAsync"/>.</summary>
+    public static SetAlarmStateResult SetAlarmState(string alarmName, string stateValue, string stateReason, string? stateReasonData = null, RegionEndpoint? region = null)
+        => SetAlarmStateAsync(alarmName, stateValue, stateReason, stateReasonData, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutDashboardAsync"/>.</summary>
+    public static PutDashboardResult PutDashboard(string dashboardName, string dashboardBody, RegionEndpoint? region = null)
+        => PutDashboardAsync(dashboardName, dashboardBody, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDashboardAsync"/>.</summary>
+    public static GetDashboardResult GetDashboard(string dashboardName, RegionEndpoint? region = null)
+        => GetDashboardAsync(dashboardName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDashboardsAsync"/>.</summary>
+    public static DeleteDashboardsResult DeleteDashboards(List<string> dashboardNames, RegionEndpoint? region = null)
+        => DeleteDashboardsAsync(dashboardNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDashboardsAsync"/>.</summary>
+    public static ListDashboardsResult ListDashboards(string? dashboardNamePrefix = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListDashboardsAsync(dashboardNamePrefix, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutAnomalyDetectorAsync"/>.</summary>
+    public static PutAnomalyDetectorResult PutAnomalyDetector(SingleMetricAnomalyDetector? singleMetricAnomalyDetector = null, MetricMathAnomalyDetector? metricMathAnomalyDetector = null, RegionEndpoint? region = null)
+        => PutAnomalyDetectorAsync(singleMetricAnomalyDetector, metricMathAnomalyDetector, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAnomalyDetectorAsync"/>.</summary>
+    public static DeleteAnomalyDetectorResult DeleteAnomalyDetector(SingleMetricAnomalyDetector? singleMetricAnomalyDetector = null, MetricMathAnomalyDetector? metricMathAnomalyDetector = null, RegionEndpoint? region = null)
+        => DeleteAnomalyDetectorAsync(singleMetricAnomalyDetector, metricMathAnomalyDetector, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAnomalyDetectorsAsync"/>.</summary>
+    public static DescribeAnomalyDetectorsResult DescribeAnomalyDetectors(string? metricNamespace = null, string? metricName = null, List<Dimension>? dimensions = null, List<string>? anomalyDetectorTypes = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeAnomalyDetectorsAsync(metricNamespace, metricName, dimensions, anomalyDetectorTypes, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static CwTagResourceResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static CwUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static CwListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutCompositeAlarmAsync"/>.</summary>
+    public static PutCompositeAlarmResult PutCompositeAlarm(PutCompositeAlarmRequest request, RegionEndpoint? region = null)
+        => PutCompositeAlarmAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAlarmsForMetricAsync"/>.</summary>
+    public static DescribeAlarmsForMetricResult DescribeAlarmsForMetric(string metricNamespace, string metricName, List<Dimension>? dimensions = null, string? statistic = null, string? extendedStatistic = null, int? period = null, string? unit = null, RegionEndpoint? region = null)
+        => DescribeAlarmsForMetricAsync(metricNamespace, metricName, dimensions, statistic, extendedStatistic, period, unit, region).GetAwaiter().GetResult();
+
 }

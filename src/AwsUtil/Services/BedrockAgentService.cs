@@ -1005,4 +1005,158 @@ public static class BedrockAgentService
                 $"Failed to list tags for Bedrock Agent resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAgentAsync"/>.</summary>
+    public static CreateBedrockAgentResult CreateAgent(CreateAgentRequest request, RegionEndpoint? region = null)
+        => CreateAgentAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAgentAsync"/>.</summary>
+    public static void DeleteAgent(string agentId, bool? skipResourceInUseCheck = null, RegionEndpoint? region = null)
+        => DeleteAgentAsync(agentId, skipResourceInUseCheck, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAgentAsync"/>.</summary>
+    public static GetBedrockAgentResult GetAgent(string agentId, RegionEndpoint? region = null)
+        => GetAgentAsync(agentId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAgentsAsync"/>.</summary>
+    public static ListBedrockAgentsResult ListAgents(RegionEndpoint? region = null)
+        => ListAgentsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAgentAsync"/>.</summary>
+    public static UpdateBedrockAgentResult UpdateAgent(UpdateAgentRequest request, RegionEndpoint? region = null)
+        => UpdateAgentAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PrepareAgentAsync"/>.</summary>
+    public static PrepareAgentResult PrepareAgent(string agentId, RegionEndpoint? region = null)
+        => PrepareAgentAsync(agentId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAgentAliasAsync"/>.</summary>
+    public static CreateAgentAliasResult CreateAgentAlias(CreateAgentAliasRequest request, RegionEndpoint? region = null)
+        => CreateAgentAliasAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAgentAliasAsync"/>.</summary>
+    public static void DeleteAgentAlias(string agentId, string agentAliasId, RegionEndpoint? region = null)
+        => DeleteAgentAliasAsync(agentId, agentAliasId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAgentAliasAsync"/>.</summary>
+    public static GetAgentAliasResult GetAgentAlias(string agentId, string agentAliasId, RegionEndpoint? region = null)
+        => GetAgentAliasAsync(agentId, agentAliasId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAgentAliasesAsync"/>.</summary>
+    public static ListAgentAliasesResult ListAgentAliases(string agentId, RegionEndpoint? region = null)
+        => ListAgentAliasesAsync(agentId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAgentAliasAsync"/>.</summary>
+    public static UpdateAgentAliasResult UpdateAgentAlias(UpdateAgentAliasRequest request, RegionEndpoint? region = null)
+        => UpdateAgentAliasAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAgentActionGroupAsync"/>.</summary>
+    public static CreateAgentActionGroupResult CreateAgentActionGroup(CreateAgentActionGroupRequest request, RegionEndpoint? region = null)
+        => CreateAgentActionGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAgentActionGroupAsync"/>.</summary>
+    public static void DeleteAgentActionGroup(string agentId, string agentVersion, string actionGroupId, bool? skipResourceInUseCheck = null, RegionEndpoint? region = null)
+        => DeleteAgentActionGroupAsync(agentId, agentVersion, actionGroupId, skipResourceInUseCheck, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAgentActionGroupAsync"/>.</summary>
+    public static GetAgentActionGroupResult GetAgentActionGroup(string agentId, string agentVersion, string actionGroupId, RegionEndpoint? region = null)
+        => GetAgentActionGroupAsync(agentId, agentVersion, actionGroupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAgentActionGroupsAsync"/>.</summary>
+    public static ListAgentActionGroupsResult ListAgentActionGroups(string agentId, string agentVersion, RegionEndpoint? region = null)
+        => ListAgentActionGroupsAsync(agentId, agentVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAgentActionGroupAsync"/>.</summary>
+    public static UpdateAgentActionGroupResult UpdateAgentActionGroup(UpdateAgentActionGroupRequest request, RegionEndpoint? region = null)
+        => UpdateAgentActionGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateKnowledgeBaseAsync"/>.</summary>
+    public static CreateBedrockKnowledgeBaseResult CreateKnowledgeBase(CreateKnowledgeBaseRequest request, RegionEndpoint? region = null)
+        => CreateKnowledgeBaseAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteKnowledgeBaseAsync"/>.</summary>
+    public static void DeleteKnowledgeBase(string knowledgeBaseId, RegionEndpoint? region = null)
+        => DeleteKnowledgeBaseAsync(knowledgeBaseId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetKnowledgeBaseAsync"/>.</summary>
+    public static GetBedrockKnowledgeBaseResult GetKnowledgeBase(string knowledgeBaseId, RegionEndpoint? region = null)
+        => GetKnowledgeBaseAsync(knowledgeBaseId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListKnowledgeBasesAsync"/>.</summary>
+    public static ListBedrockKnowledgeBasesResult ListKnowledgeBases(RegionEndpoint? region = null)
+        => ListKnowledgeBasesAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateKnowledgeBaseAsync"/>.</summary>
+    public static UpdateBedrockKnowledgeBaseResult UpdateKnowledgeBase(UpdateKnowledgeBaseRequest request, RegionEndpoint? region = null)
+        => UpdateKnowledgeBaseAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssociateAgentKnowledgeBaseAsync"/>.</summary>
+    public static AssociateAgentKnowledgeBaseResult AssociateAgentKnowledgeBase(AssociateAgentKnowledgeBaseRequest request, RegionEndpoint? region = null)
+        => AssociateAgentKnowledgeBaseAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisassociateAgentKnowledgeBaseAsync"/>.</summary>
+    public static DisassociateAgentKnowledgeBaseResult DisassociateAgentKnowledgeBase(string agentId, string agentVersion, string knowledgeBaseId, RegionEndpoint? region = null)
+        => DisassociateAgentKnowledgeBaseAsync(agentId, agentVersion, knowledgeBaseId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAgentKnowledgeBaseAsync"/>.</summary>
+    public static GetAgentKnowledgeBaseResult GetAgentKnowledgeBase(string agentId, string agentVersion, string knowledgeBaseId, RegionEndpoint? region = null)
+        => GetAgentKnowledgeBaseAsync(agentId, agentVersion, knowledgeBaseId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAgentKnowledgeBasesAsync"/>.</summary>
+    public static ListAgentKnowledgeBasesResult ListAgentKnowledgeBases(string agentId, string agentVersion, RegionEndpoint? region = null)
+        => ListAgentKnowledgeBasesAsync(agentId, agentVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAgentKnowledgeBaseAsync"/>.</summary>
+    public static UpdateAgentKnowledgeBaseResult UpdateAgentKnowledgeBase(UpdateAgentKnowledgeBaseRequest request, RegionEndpoint? region = null)
+        => UpdateAgentKnowledgeBaseAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDataSourceAsync"/>.</summary>
+    public static CreateBedrockDataSourceResult CreateDataSource(CreateDataSourceRequest request, RegionEndpoint? region = null)
+        => CreateDataSourceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDataSourceAsync"/>.</summary>
+    public static void DeleteDataSource(string knowledgeBaseId, string dataSourceId, RegionEndpoint? region = null)
+        => DeleteDataSourceAsync(knowledgeBaseId, dataSourceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDataSourceAsync"/>.</summary>
+    public static GetBedrockDataSourceResult GetDataSource(string knowledgeBaseId, string dataSourceId, RegionEndpoint? region = null)
+        => GetDataSourceAsync(knowledgeBaseId, dataSourceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDataSourcesAsync"/>.</summary>
+    public static ListBedrockDataSourcesResult ListDataSources(string knowledgeBaseId, RegionEndpoint? region = null)
+        => ListDataSourcesAsync(knowledgeBaseId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDataSourceAsync"/>.</summary>
+    public static UpdateBedrockDataSourceResult UpdateDataSource(UpdateDataSourceRequest request, RegionEndpoint? region = null)
+        => UpdateDataSourceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartIngestionJobAsync"/>.</summary>
+    public static StartIngestionJobResult StartIngestionJob(StartIngestionJobRequest request, RegionEndpoint? region = null)
+        => StartIngestionJobAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetIngestionJobAsync"/>.</summary>
+    public static GetIngestionJobResult GetIngestionJob(string knowledgeBaseId, string dataSourceId, string ingestionJobId, RegionEndpoint? region = null)
+        => GetIngestionJobAsync(knowledgeBaseId, dataSourceId, ingestionJobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListIngestionJobsAsync"/>.</summary>
+    public static ListIngestionJobsResult ListIngestionJobs(string knowledgeBaseId, string dataSourceId, RegionEndpoint? region = null)
+        => ListIngestionJobsAsync(knowledgeBaseId, dataSourceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static BedrockAgentTagResourceResult TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static BedrockAgentUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ListBedrockAgentTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

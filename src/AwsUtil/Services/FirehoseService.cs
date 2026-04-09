@@ -377,4 +377,58 @@ public static class FirehoseService
             throw ErrorClassifier.WrapAwsError(exc, $"Failed to list tags for delivery stream '{deliveryStreamName}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDeliveryStreamAsync"/>.</summary>
+    public static CreateDeliveryStreamResult CreateDeliveryStream(CreateDeliveryStreamRequest request, RegionEndpoint? region = null)
+        => CreateDeliveryStreamAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDeliveryStreamAsync"/>.</summary>
+    public static DeleteDeliveryStreamResult DeleteDeliveryStream(string deliveryStreamName, bool? allowForceDelete = null, RegionEndpoint? region = null)
+        => DeleteDeliveryStreamAsync(deliveryStreamName, allowForceDelete, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDeliveryStreamAsync"/>.</summary>
+    public static DescribeDeliveryStreamResult DescribeDeliveryStream(string deliveryStreamName, string? exclusiveStartDestinationId = null, int? limit = null, RegionEndpoint? region = null)
+        => DescribeDeliveryStreamAsync(deliveryStreamName, exclusiveStartDestinationId, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDeliveryStreamsAsync"/>.</summary>
+    public static ListDeliveryStreamsResult ListDeliveryStreams(string? deliveryStreamType = null, string? exclusiveStartDeliveryStreamName = null, int? limit = null, RegionEndpoint? region = null)
+        => ListDeliveryStreamsAsync(deliveryStreamType, exclusiveStartDeliveryStreamName, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutRecordAsync"/>.</summary>
+    public static FirehosePutRecordResult PutRecord(string deliveryStreamName, Amazon.KinesisFirehose.Model.Record record, RegionEndpoint? region = null)
+        => PutRecordAsync(deliveryStreamName, record, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutRecordBatchAsync"/>.</summary>
+    public static PutRecordBatchResult PutRecordBatch(string deliveryStreamName, List<Amazon.KinesisFirehose.Model.Record> records, RegionEndpoint? region = null)
+        => PutRecordBatchAsync(deliveryStreamName, records, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDestinationAsync"/>.</summary>
+    public static UpdateDestinationResult UpdateDestination(UpdateDestinationRequest request, RegionEndpoint? region = null)
+        => UpdateDestinationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartDeliveryStreamEncryptionAsync"/>.</summary>
+    public static StartDeliveryStreamEncryptionResult StartDeliveryStreamEncryption(string deliveryStreamName, DeliveryStreamEncryptionConfigurationInput? encryptionConfig = null, RegionEndpoint? region = null)
+        => StartDeliveryStreamEncryptionAsync(deliveryStreamName, encryptionConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopDeliveryStreamEncryptionAsync"/>.</summary>
+    public static StopDeliveryStreamEncryptionResult StopDeliveryStreamEncryption(string deliveryStreamName, RegionEndpoint? region = null)
+        => StopDeliveryStreamEncryptionAsync(deliveryStreamName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagDeliveryStreamAsync"/>.</summary>
+    public static void TagDeliveryStream(string deliveryStreamName, List<Amazon.KinesisFirehose.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagDeliveryStreamAsync(deliveryStreamName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagDeliveryStreamAsync"/>.</summary>
+    public static void UntagDeliveryStream(string deliveryStreamName, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagDeliveryStreamAsync(deliveryStreamName, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForDeliveryStreamAsync"/>.</summary>
+    public static ListTagsForDeliveryStreamResult ListTagsForDeliveryStream(string deliveryStreamName, string? exclusiveStartTagKey = null, int? limit = null, RegionEndpoint? region = null)
+        => ListTagsForDeliveryStreamAsync(deliveryStreamName, exclusiveStartTagKey, limit, region).GetAwaiter().GetResult();
+
 }

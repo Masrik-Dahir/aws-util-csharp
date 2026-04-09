@@ -890,4 +890,118 @@ public static class EfsService
                 "Failed to put account preferences");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFileSystemAsync"/>.</summary>
+    public static CreateFileSystemResult CreateFileSystem(CreateFileSystemRequest request, RegionEndpoint? region = null)
+        => CreateFileSystemAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFileSystemAsync"/>.</summary>
+    public static DeleteFileSystemResult DeleteFileSystem(string fileSystemId, RegionEndpoint? region = null)
+        => DeleteFileSystemAsync(fileSystemId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeFileSystemsAsync"/>.</summary>
+    public static DescribeFileSystemsResult DescribeFileSystems(string? fileSystemId = null, string? creationToken = null, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => DescribeFileSystemsAsync(fileSystemId, creationToken, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateFileSystemAsync"/>.</summary>
+    public static UpdateFileSystemResult UpdateFileSystem(UpdateFileSystemRequest request, RegionEndpoint? region = null)
+        => UpdateFileSystemAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateMountTargetAsync"/>.</summary>
+    public static CreateMountTargetResult CreateMountTarget(CreateMountTargetRequest request, RegionEndpoint? region = null)
+        => CreateMountTargetAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteMountTargetAsync"/>.</summary>
+    public static DeleteMountTargetResult DeleteMountTarget(string mountTargetId, RegionEndpoint? region = null)
+        => DeleteMountTargetAsync(mountTargetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeMountTargetsAsync"/>.</summary>
+    public static DescribeMountTargetsResult DescribeMountTargets(string? fileSystemId = null, string? mountTargetId = null, string? accessPointId = null, string? marker = null, int? maxItems = null, RegionEndpoint? region = null)
+        => DescribeMountTargetsAsync(fileSystemId, mountTargetId, accessPointId, marker, maxItems, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeMountTargetSecurityGroupsAsync"/>.</summary>
+    public static DescribeMountTargetSecurityGroupsResult DescribeMountTargetSecurityGroups(string mountTargetId, RegionEndpoint? region = null)
+        => DescribeMountTargetSecurityGroupsAsync(mountTargetId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyMountTargetSecurityGroupsAsync"/>.</summary>
+    public static ModifyMountTargetSecurityGroupsResult ModifyMountTargetSecurityGroups(string mountTargetId, List<string> securityGroups, RegionEndpoint? region = null)
+        => ModifyMountTargetSecurityGroupsAsync(mountTargetId, securityGroups, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAccessPointAsync"/>.</summary>
+    public static CreateAccessPointResult CreateAccessPoint(CreateAccessPointRequest request, RegionEndpoint? region = null)
+        => CreateAccessPointAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAccessPointAsync"/>.</summary>
+    public static DeleteAccessPointResult DeleteAccessPoint(string accessPointId, RegionEndpoint? region = null)
+        => DeleteAccessPointAsync(accessPointId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAccessPointsAsync"/>.</summary>
+    public static DescribeAccessPointsResult DescribeAccessPoints(string? fileSystemId = null, string? accessPointId = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeAccessPointsAsync(fileSystemId, accessPointId, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutFileSystemPolicyAsync"/>.</summary>
+    public static PutFileSystemPolicyResult PutFileSystemPolicy(PutFileSystemPolicyRequest request, RegionEndpoint? region = null)
+        => PutFileSystemPolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeFileSystemPolicyAsync"/>.</summary>
+    public static DescribeFileSystemPolicyResult DescribeFileSystemPolicy(string fileSystemId, RegionEndpoint? region = null)
+        => DescribeFileSystemPolicyAsync(fileSystemId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFileSystemPolicyAsync"/>.</summary>
+    public static DeleteFileSystemPolicyResult DeleteFileSystemPolicy(string fileSystemId, RegionEndpoint? region = null)
+        => DeleteFileSystemPolicyAsync(fileSystemId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutLifecycleConfigurationAsync"/>.</summary>
+    public static PutLifecycleConfigurationResult PutLifecycleConfiguration(PutLifecycleConfigurationRequest request, RegionEndpoint? region = null)
+        => PutLifecycleConfigurationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeLifecycleConfigurationAsync"/>.</summary>
+    public static DescribeLifecycleConfigurationResult DescribeLifecycleConfiguration(string fileSystemId, RegionEndpoint? region = null)
+        => DescribeLifecycleConfigurationAsync(fileSystemId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutBackupPolicyAsync"/>.</summary>
+    public static PutBackupPolicyResult PutBackupPolicy(string fileSystemId, BackupPolicy backupPolicy, RegionEndpoint? region = null)
+        => PutBackupPolicyAsync(fileSystemId, backupPolicy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeBackupPolicyAsync"/>.</summary>
+    public static DescribeBackupPolicyResult DescribeBackupPolicy(string fileSystemId, RegionEndpoint? region = null)
+        => DescribeBackupPolicyAsync(fileSystemId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateReplicationConfigurationAsync"/>.</summary>
+    public static CreateReplicationConfigurationResult CreateReplicationConfiguration(CreateReplicationConfigurationRequest request, RegionEndpoint? region = null)
+        => CreateReplicationConfigurationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteReplicationConfigurationAsync"/>.</summary>
+    public static DeleteReplicationConfigurationResult DeleteReplicationConfiguration(string sourceFileSystemId, RegionEndpoint? region = null)
+        => DeleteReplicationConfigurationAsync(sourceFileSystemId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeReplicationConfigurationsAsync"/>.</summary>
+    public static DescribeReplicationConfigurationsResult DescribeReplicationConfigurations(string? fileSystemId = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeReplicationConfigurationsAsync(fileSystemId, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static EfsTagResourceResult TagResource(string resourceId, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static EfsUntagResourceResult UntagResource(string resourceId, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceId, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static EfsListTagsForResourceResult ListTagsForResource(string resourceId, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceId, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAccountPreferencesAsync"/>.</summary>
+    public static DescribeAccountPreferencesResult DescribeAccountPreferences(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeAccountPreferencesAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutAccountPreferencesAsync"/>.</summary>
+    public static PutAccountPreferencesResult PutAccountPreferences(PutAccountPreferencesRequest request, RegionEndpoint? region = null)
+        => PutAccountPreferencesAsync(request, region).GetAwaiter().GetResult();
+
 }

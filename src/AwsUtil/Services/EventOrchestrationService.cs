@@ -665,4 +665,66 @@ public static class EventOrchestrationService
                 $"Failed to delete event source mapping '{uuid}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEventBridgeRuleAsync"/>.</summary>
+    public static CreateEventBridgeRuleResult CreateEventBridgeRule(string ruleName, string? eventPattern = null, string? scheduleExpression = null, string? description = null, string? eventBusName = null, string? roleArn = null, string? state = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateEventBridgeRuleAsync(ruleName, eventPattern, scheduleExpression, description, eventBusName, roleArn, state, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutEventBridgeTargetsAsync"/>.</summary>
+    public static PutEventBridgeTargetsResult PutEventBridgeTargets(string ruleName, List<Amazon.EventBridge.Model.Target> targets, string? eventBusName = null, RegionEndpoint? region = null)
+        => PutEventBridgeTargetsAsync(ruleName, targets, eventBusName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEventBridgeRuleAsync"/>.</summary>
+    public static DeleteEventBridgeRuleResult DeleteEventBridgeRule(string ruleName, string? eventBusName = null, bool removeTargetsFirst = true, RegionEndpoint? region = null)
+        => DeleteEventBridgeRuleAsync(ruleName, eventBusName, removeTargetsFirst, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateScheduleAsync"/>.</summary>
+    public static CreateScheduleResult CreateSchedule(string scheduleName, string scheduleExpression, string targetArn, string roleArn, string? input = null, string? groupName = null, string? description = null, string? timezone = null, DateTime? startDate = null, DateTime? endDate = null, string? state = null, RegionEndpoint? region = null)
+        => CreateScheduleAsync(scheduleName, scheduleExpression, targetArn, roleArn, input, groupName, description, timezone, startDate, endDate, state, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteScheduleAsync"/>.</summary>
+    public static DeleteScheduleResult DeleteSchedule(string scheduleName, string? groupName = null, RegionEndpoint? region = null)
+        => DeleteScheduleAsync(scheduleName, groupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RunWorkflowAsync"/>.</summary>
+    public static RunWorkflowResult RunWorkflow(string stateMachineArn, string? input = null, string? name = null, int pollIntervalSeconds = 5, int timeoutSeconds = 300, RegionEndpoint? region = null)
+        => RunWorkflowAsync(stateMachineArn, input, name, pollIntervalSeconds, timeoutSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SagaOrchestratorAsync"/>.</summary>
+    public static SagaOrchestratorResult SagaOrchestrator(List<SagaStep> steps)
+        => SagaOrchestratorAsync(steps).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="FanOutFanInAsync"/>.</summary>
+    public static FanOutFanInResult FanOutFanIn(List<FanOutTarget> targets)
+        => FanOutFanInAsync(targets).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartEventReplayAsync"/>.</summary>
+    public static StartEventReplayResult StartEventReplay(string replayName, string eventSourceArn, string destination, DateTime eventStartTime, DateTime eventEndTime, string? description = null, RegionEndpoint? region = null)
+        => StartEventReplayAsync(replayName, eventSourceArn, destination, eventStartTime, eventEndTime, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventReplayAsync"/>.</summary>
+    public static DescribeEventReplayResult DescribeEventReplay(string replayName, RegionEndpoint? region = null)
+        => DescribeEventReplayAsync(replayName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePipeAsync"/>.</summary>
+    public static CreatePipeResult CreatePipe(string pipeName, string source, string target, string roleArn, string? description = null, string? desiredState = null, string? enrichment = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreatePipeAsync(pipeName, source, target, roleArn, description, desiredState, enrichment, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePipeAsync"/>.</summary>
+    public static DeletePipeResult DeletePipe(string pipeName, RegionEndpoint? region = null)
+        => DeletePipeAsync(pipeName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSqsEventSourceMappingAsync"/>.</summary>
+    public static CreateSqsEventSourceMappingResult CreateSqsEventSourceMapping(string functionName, string queueArn, int? batchSize = null, int? maximumBatchingWindowInSeconds = null, bool? enabled = null, RegionEndpoint? region = null)
+        => CreateSqsEventSourceMappingAsync(functionName, queueArn, batchSize, maximumBatchingWindowInSeconds, enabled, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEventSourceMappingAsync"/>.</summary>
+    public static DeleteEventSourceMappingResult DeleteEventSourceMapping(string uuid, RegionEndpoint? region = null)
+        => DeleteEventSourceMappingAsync(uuid, region).GetAwaiter().GetResult();
+
 }

@@ -1,0 +1,81 @@
+name: Repo Stats
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # Daily at 6 AM UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  traffic:
+    name: Collect GitHub Traffic Stats
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fetch traffic data
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          mkdir -p stats
+
+          # Views (unique + total)
+          gh api "repos/${REPO}/traffic/views" > stats/views.json
+          # Clones (unique + total)
+          gh api "repos/${REPO}/traffic/clones" > stats/clones.json
+          # Top referrers
+          gh api "repos/${REPO}/traffic/popular/referrers" > stats/referrers.json
+          # Popular content
+          gh api "repos/${REPO}/traffic/popular/paths" > stats/popular-paths.json
+
+          # Build summary
+          VIEWS_TOTAL=$(jq '.count' stats/views.json)
+          VIEWS_UNIQUE=$(jq '.uniques' stats/views.json)
+          CLONES_TOTAL=$(jq '.count' stats/clones.json)
+          CLONES_UNIQUE=$(jq '.uniques' stats/clones.json)
+
+          {
+            echo "## GitHub Traffic Stats"
+            echo ""
+            echo "**Collected:** $(date -u '+%Y-%m-%d %H:%M UTC') | **Period:** Last 14 days"
+            echo ""
+            echo "### Views & Clones"
+            echo ""
+            echo "| Metric | Total | Unique |"
+            echo "|--------|-------|--------|"
+            echo "| **Views** | ${VIEWS_TOTAL} | ${VIEWS_UNIQUE} |"
+            echo "| **Clones** | ${CLONES_TOTAL} | ${CLONES_UNIQUE} |"
+            echo ""
+            echo "### Daily Views"
+            echo ""
+            echo "| Date | Total | Unique |"
+            echo "|------|-------|--------|"
+            jq -r '.views[] | "| \(.timestamp[:10]) | \(.count) | \(.uniques) |"' stats/views.json
+            echo ""
+            echo "### Daily Clones"
+            echo ""
+            echo "| Date | Total | Unique |"
+            echo "|------|-------|--------|"
+            jq -r '.clones[] | "| \(.timestamp[:10]) | \(.count) | \(.uniques) |"' stats/clones.json
+            echo ""
+            echo "### Top Referrers"
+            echo ""
+            echo "| Referrer | Total | Unique |"
+            echo "|----------|-------|--------|"
+            jq -r '.[] | "| \(.referrer) | \(.count) | \(.uniques) |"' stats/referrers.json
+            echo ""
+            echo "### Popular Content"
+            echo ""
+            echo "| Path | Total | Unique |"
+            echo "|------|-------|--------|"
+            jq -r '.[] | "| \(.path) | \(.count) | \(.uniques) |"' stats/popular-paths.json
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload traffic snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo-stats-${{ github.run_number }}
+          path: stats/
+          retention-days: 90

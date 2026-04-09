@@ -291,6 +291,16 @@ public static class LambdaMiddlewareService
             return LambdaResponse.Error(500, $"Internal error: {exc.Message}");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="IdempotentHandlerAsync"/>.</summary>
+    public static LambdaResponse IdempotentHandler(string tableName, string idempotencyKey, Func<Task<LambdaResponse>> handler, int ttlSeconds = 3600, RegionEndpoint? region = null)
+        => IdempotentHandlerAsync(tableName, idempotencyKey, handler, ttlSeconds, region).GetAwaiter().GetResult();
+
 }
 
 /// <summary>

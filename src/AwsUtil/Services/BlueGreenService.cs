@@ -270,4 +270,22 @@ public static class BlueGreenService
             throw ErrorClassifier.WrapAwsError(exc, "Lambda provisioned concurrency scaling failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="EcsBlueGreenDeployerAsync"/>.</summary>
+    public static EcsBlueGreenDeployerResult EcsBlueGreenDeployer(string clusterName, string serviceName, string newImageUri, string? containerName = null, int stabilizationTimeoutSeconds = 300, RegionEndpoint? region = null)
+        => EcsBlueGreenDeployerAsync(clusterName, serviceName, newImageUri, containerName, stabilizationTimeoutSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="WeightedRoutingManagerAsync"/>.</summary>
+    public static WeightedRoutingManagerResult WeightedRoutingManager(string listenerArn, string targetGroupArnBlue, string targetGroupArnGreen, int blueWeight, int greenWeight, RegionEndpoint? region = null)
+        => WeightedRoutingManagerAsync(listenerArn, targetGroupArnBlue, targetGroupArnGreen, blueWeight, greenWeight, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LambdaProvisionedConcurrencyScalerAsync"/>.</summary>
+    public static LambdaProvisionedConcurrencyScalerResult LambdaProvisionedConcurrencyScaler(string functionName, string qualifier, int desiredConcurrency, RegionEndpoint? region = null)
+        => LambdaProvisionedConcurrencyScalerAsync(functionName, qualifier, desiredConcurrency, region).GetAwaiter().GetResult();
+
 }

@@ -1197,4 +1197,142 @@ public static class ElasticBeanstalkService
                 $"Failed to update tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateApplicationAsync"/>.</summary>
+    public static BeanstalkApplicationInfo CreateApplication(string applicationName, string? description = null, List<Amazon.ElasticBeanstalk.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateApplicationAsync(applicationName, description, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApplicationAsync"/>.</summary>
+    public static void DeleteApplication(string applicationName, bool? terminateEnvByForce = null, RegionEndpoint? region = null)
+        => DeleteApplicationAsync(applicationName, terminateEnvByForce, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeApplicationsAsync"/>.</summary>
+    public static List<BeanstalkApplicationInfo> DescribeApplications(List<string>? applicationNames = null, RegionEndpoint? region = null)
+        => DescribeApplicationsAsync(applicationNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateApplicationAsync"/>.</summary>
+    public static BeanstalkApplicationInfo UpdateApplication(string applicationName, string? description = null, RegionEndpoint? region = null)
+        => UpdateApplicationAsync(applicationName, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateApplicationVersionAsync"/>.</summary>
+    public static BeanstalkApplicationVersionInfo CreateApplicationVersion(CreateApplicationVersionRequest request, RegionEndpoint? region = null)
+        => CreateApplicationVersionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApplicationVersionAsync"/>.</summary>
+    public static void DeleteApplicationVersion(string applicationName, string versionLabel, bool? deleteSourceBundle = null, RegionEndpoint? region = null)
+        => DeleteApplicationVersionAsync(applicationName, versionLabel, deleteSourceBundle, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeApplicationVersionsAsync"/>.</summary>
+    public static List<BeanstalkApplicationVersionInfo> DescribeApplicationVersions(string? applicationName = null, List<string>? versionLabels = null, int? maxRecords = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeApplicationVersionsAsync(applicationName, versionLabels, maxRecords, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateApplicationVersionAsync"/>.</summary>
+    public static BeanstalkApplicationVersionInfo UpdateApplicationVersion(string applicationName, string versionLabel, string? description = null, RegionEndpoint? region = null)
+        => UpdateApplicationVersionAsync(applicationName, versionLabel, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEnvironmentAsync"/>.</summary>
+    public static BeanstalkEnvironmentInfo CreateEnvironment(CreateEnvironmentRequest request, RegionEndpoint? region = null)
+        => CreateEnvironmentAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TerminateEnvironmentAsync"/>.</summary>
+    public static BeanstalkEnvironmentInfo TerminateEnvironment(string? environmentId = null, string? environmentName = null, bool? terminateResources = null, bool? forceTerminate = null, RegionEndpoint? region = null)
+        => TerminateEnvironmentAsync(environmentId, environmentName, terminateResources, forceTerminate, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEnvironmentsAsync"/>.</summary>
+    public static List<BeanstalkEnvironmentInfo> DescribeEnvironments(DescribeEnvironmentsRequest? request = null, RegionEndpoint? region = null)
+        => DescribeEnvironmentsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateEnvironmentAsync"/>.</summary>
+    public static BeanstalkEnvironmentInfo UpdateEnvironment(UpdateEnvironmentRequest request, RegionEndpoint? region = null)
+        => UpdateEnvironmentAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RestartAppServerAsync"/>.</summary>
+    public static void RestartAppServer(string? environmentId = null, string? environmentName = null, RegionEndpoint? region = null)
+        => RestartAppServerAsync(environmentId, environmentName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RebuildEnvironmentAsync"/>.</summary>
+    public static void RebuildEnvironment(string? environmentId = null, string? environmentName = null, RegionEndpoint? region = null)
+        => RebuildEnvironmentAsync(environmentId, environmentName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SwapEnvironmentCNAMEsAsync"/>.</summary>
+    public static void SwapEnvironmentCNAMEs(string? sourceEnvironmentId = null, string? sourceEnvironmentName = null, string? destinationEnvironmentId = null, string? destinationEnvironmentName = null, RegionEndpoint? region = null)
+        => SwapEnvironmentCNAMEsAsync(sourceEnvironmentId, sourceEnvironmentName, destinationEnvironmentId, destinationEnvironmentName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEnvironmentResourcesAsync"/>.</summary>
+    public static BeanstalkEnvironmentResourceInfo DescribeEnvironmentResources(string? environmentId = null, string? environmentName = null, RegionEndpoint? region = null)
+        => DescribeEnvironmentResourcesAsync(environmentId, environmentName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEnvironmentHealthAsync"/>.</summary>
+    public static BeanstalkEnvironmentHealthInfo DescribeEnvironmentHealth(string? environmentId = null, string? environmentName = null, List<string>? attributeNames = null, RegionEndpoint? region = null)
+        => DescribeEnvironmentHealthAsync(environmentId, environmentName, attributeNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeInstancesHealthAsync"/>.</summary>
+    public static List<BeanstalkInstanceHealthInfo> DescribeInstancesHealth(string? environmentId = null, string? environmentName = null, List<string>? attributeNames = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeInstancesHealthAsync(environmentId, environmentName, attributeNames, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeConfigurationSettingsAsync"/>.</summary>
+    public static List<BeanstalkConfigSettingsInfo> DescribeConfigurationSettings(string applicationName, string? environmentName = null, string? templateName = null, RegionEndpoint? region = null)
+        => DescribeConfigurationSettingsAsync(applicationName, environmentName, templateName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeConfigurationOptionsAsync"/>.</summary>
+    public static List<BeanstalkConfigOptionInfo> DescribeConfigurationOptions(DescribeConfigurationOptionsRequest request, RegionEndpoint? region = null)
+        => DescribeConfigurationOptionsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ValidateConfigurationSettingsAsync"/>.</summary>
+    public static List<BeanstalkValidationMessage> ValidateConfigurationSettings(string applicationName, List<ConfigurationOptionSetting> optionSettings, string? environmentName = null, string? templateName = null, RegionEndpoint? region = null)
+        => ValidateConfigurationSettingsAsync(applicationName, optionSettings, environmentName, templateName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateConfigurationTemplateAsync"/>.</summary>
+    public static BeanstalkConfigSettingsInfo UpdateConfigurationTemplate(UpdateConfigurationTemplateRequest request, RegionEndpoint? region = null)
+        => UpdateConfigurationTemplateAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateConfigurationTemplateAsync"/>.</summary>
+    public static BeanstalkConfigSettingsInfo CreateConfigurationTemplate(CreateConfigurationTemplateRequest request, RegionEndpoint? region = null)
+        => CreateConfigurationTemplateAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConfigurationTemplateAsync"/>.</summary>
+    public static void DeleteConfigurationTemplate(string applicationName, string templateName, RegionEndpoint? region = null)
+        => DeleteConfigurationTemplateAsync(applicationName, templateName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAvailableSolutionStacksAsync"/>.</summary>
+    public static List<BeanstalkSolutionStackInfo> ListAvailableSolutionStacks(RegionEndpoint? region = null)
+        => ListAvailableSolutionStacksAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPlatformVersionsAsync"/>.</summary>
+    public static List<BeanstalkPlatformSummary> ListPlatformVersions(List<PlatformFilter>? filters = null, int? maxRecords = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListPlatformVersionsAsync(filters, maxRecords, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribePlatformVersionAsync"/>.</summary>
+    public static BeanstalkPlatformDescription DescribePlatformVersion(string platformArn, RegionEndpoint? region = null)
+        => DescribePlatformVersionAsync(platformArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateStorageLocationAsync"/>.</summary>
+    public static BeanstalkStorageLocationResult CreateStorageLocation(RegionEndpoint? region = null)
+        => CreateStorageLocationAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AbortEnvironmentUpdateAsync"/>.</summary>
+    public static void AbortEnvironmentUpdate(string? environmentId = null, string? environmentName = null, RegionEndpoint? region = null)
+        => AbortEnvironmentUpdateAsync(environmentId, environmentName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ComposeEnvironmentsAsync"/>.</summary>
+    public static List<BeanstalkEnvironmentInfo> ComposeEnvironments(string? applicationName = null, string? groupName = null, List<string>? versionLabels = null, RegionEndpoint? region = null)
+        => ComposeEnvironmentsAsync(applicationName, groupName, versionLabels, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventsAsync"/>.</summary>
+    public static List<BeanstalkEventInfo> DescribeEvents(DescribeEventsRequest? request = null, RegionEndpoint? region = null)
+        => DescribeEventsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static List<Amazon.ElasticBeanstalk.Model.Tag> ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateTagsForResourceAsync"/>.</summary>
+    public static BeanstalkTagResult UpdateTagsForResource(string resourceArn, List<Amazon.ElasticBeanstalk.Model.Tag>? tagsToAdd = null, List<string>? tagsToRemove = null, RegionEndpoint? region = null)
+        => UpdateTagsForResourceAsync(resourceArn, tagsToAdd, tagsToRemove, region).GetAwaiter().GetResult();
+
 }

@@ -1470,4 +1470,194 @@ public static class LightsailService
                 $"Failed to untag resource '{resourceName}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateInstancesAsync"/>.</summary>
+    public static List<LightsailOperationResult> CreateInstances(CreateInstancesRequest request, RegionEndpoint? region = null)
+        => CreateInstancesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteInstanceAsync"/>.</summary>
+    public static List<LightsailOperationResult> DeleteInstance(string instanceName, bool? forceDeleteAddOns = null, RegionEndpoint? region = null)
+        => DeleteInstanceAsync(instanceName, forceDeleteAddOns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetInstanceAsync"/>.</summary>
+    public static LightsailInstanceInfo GetInstance(string instanceName, RegionEndpoint? region = null)
+        => GetInstanceAsync(instanceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetInstancesAsync"/>.</summary>
+    public static List<LightsailInstanceInfo> GetInstances(string? pageToken = null, RegionEndpoint? region = null)
+        => GetInstancesAsync(pageToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RebootInstanceAsync"/>.</summary>
+    public static List<LightsailOperationResult> RebootInstance(string instanceName, RegionEndpoint? region = null)
+        => RebootInstanceAsync(instanceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartInstanceAsync"/>.</summary>
+    public static List<LightsailOperationResult> StartInstance(string instanceName, RegionEndpoint? region = null)
+        => StartInstanceAsync(instanceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopInstanceAsync"/>.</summary>
+    public static List<LightsailOperationResult> StopInstance(string instanceName, bool? force = null, RegionEndpoint? region = null)
+        => StopInstanceAsync(instanceName, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateInstanceSnapshotAsync"/>.</summary>
+    public static List<LightsailOperationResult> CreateInstanceSnapshot(string instanceName, string instanceSnapshotName, List<Amazon.Lightsail.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateInstanceSnapshotAsync(instanceName, instanceSnapshotName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteInstanceSnapshotAsync"/>.</summary>
+    public static List<LightsailOperationResult> DeleteInstanceSnapshot(string instanceSnapshotName, RegionEndpoint? region = null)
+        => DeleteInstanceSnapshotAsync(instanceSnapshotName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetInstanceSnapshotAsync"/>.</summary>
+    public static LightsailSnapshotInfo GetInstanceSnapshot(string instanceSnapshotName, RegionEndpoint? region = null)
+        => GetInstanceSnapshotAsync(instanceSnapshotName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetInstanceSnapshotsAsync"/>.</summary>
+    public static List<LightsailSnapshotInfo> GetInstanceSnapshots(string? pageToken = null, RegionEndpoint? region = null)
+        => GetInstanceSnapshotsAsync(pageToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateKeyPairAsync"/>.</summary>
+    public static LightsailKeyPairCreateResult CreateKeyPair(string keyPairName, List<Amazon.Lightsail.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateKeyPairAsync(keyPairName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteKeyPairAsync"/>.</summary>
+    public static LightsailOperationResult DeleteKeyPair(string keyPairName, RegionEndpoint? region = null)
+        => DeleteKeyPairAsync(keyPairName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetKeyPairAsync"/>.</summary>
+    public static LightsailKeyPairInfo GetKeyPair(string keyPairName, RegionEndpoint? region = null)
+        => GetKeyPairAsync(keyPairName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetKeyPairsAsync"/>.</summary>
+    public static List<LightsailKeyPairInfo> GetKeyPairs(string? pageToken = null, RegionEndpoint? region = null)
+        => GetKeyPairsAsync(pageToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AllocateStaticIpAsync"/>.</summary>
+    public static List<LightsailOperationResult> AllocateStaticIp(string staticIpName, RegionEndpoint? region = null)
+        => AllocateStaticIpAsync(staticIpName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ReleaseStaticIpAsync"/>.</summary>
+    public static List<LightsailOperationResult> ReleaseStaticIp(string staticIpName, RegionEndpoint? region = null)
+        => ReleaseStaticIpAsync(staticIpName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AttachStaticIpAsync"/>.</summary>
+    public static List<LightsailOperationResult> AttachStaticIp(string staticIpName, string instanceName, RegionEndpoint? region = null)
+        => AttachStaticIpAsync(staticIpName, instanceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetachStaticIpAsync"/>.</summary>
+    public static List<LightsailOperationResult> DetachStaticIp(string staticIpName, RegionEndpoint? region = null)
+        => DetachStaticIpAsync(staticIpName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetStaticIpAsync"/>.</summary>
+    public static LightsailStaticIpInfo GetStaticIp(string staticIpName, RegionEndpoint? region = null)
+        => GetStaticIpAsync(staticIpName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetStaticIpsAsync"/>.</summary>
+    public static List<LightsailStaticIpInfo> GetStaticIps(string? pageToken = null, RegionEndpoint? region = null)
+        => GetStaticIpsAsync(pageToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDiskAsync"/>.</summary>
+    public static List<LightsailOperationResult> CreateDisk(CreateDiskRequest request, RegionEndpoint? region = null)
+        => CreateDiskAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDiskAsync"/>.</summary>
+    public static List<LightsailOperationResult> DeleteDisk(string diskName, bool? forceDeleteAddOns = null, RegionEndpoint? region = null)
+        => DeleteDiskAsync(diskName, forceDeleteAddOns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDiskAsync"/>.</summary>
+    public static LightsailDiskInfo GetDisk(string diskName, RegionEndpoint? region = null)
+        => GetDiskAsync(diskName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDisksAsync"/>.</summary>
+    public static List<LightsailDiskInfo> GetDisks(string? pageToken = null, RegionEndpoint? region = null)
+        => GetDisksAsync(pageToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AttachDiskAsync"/>.</summary>
+    public static List<LightsailOperationResult> AttachDisk(string diskName, string instanceName, string diskPath, RegionEndpoint? region = null)
+        => AttachDiskAsync(diskName, instanceName, diskPath, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetachDiskAsync"/>.</summary>
+    public static List<LightsailOperationResult> DetachDisk(string diskName, RegionEndpoint? region = null)
+        => DetachDiskAsync(diskName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDiskSnapshotAsync"/>.</summary>
+    public static List<LightsailOperationResult> CreateDiskSnapshot(string diskSnapshotName, string? diskName = null, string? instanceName = null, List<Amazon.Lightsail.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDiskSnapshotAsync(diskSnapshotName, diskName, instanceName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDiskSnapshotAsync"/>.</summary>
+    public static List<LightsailOperationResult> DeleteDiskSnapshot(string diskSnapshotName, RegionEndpoint? region = null)
+        => DeleteDiskSnapshotAsync(diskSnapshotName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateLoadBalancerAsync"/>.</summary>
+    public static List<LightsailOperationResult> CreateLoadBalancer(CreateLoadBalancerRequest request, RegionEndpoint? region = null)
+        => CreateLoadBalancerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteLoadBalancerAsync"/>.</summary>
+    public static List<LightsailOperationResult> DeleteLoadBalancer(string loadBalancerName, RegionEndpoint? region = null)
+        => DeleteLoadBalancerAsync(loadBalancerName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetLoadBalancerAsync"/>.</summary>
+    public static LightsailLoadBalancerInfo GetLoadBalancer(string loadBalancerName, RegionEndpoint? region = null)
+        => GetLoadBalancerAsync(loadBalancerName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetLoadBalancersAsync"/>.</summary>
+    public static List<LightsailLoadBalancerInfo> GetLoadBalancers(string? pageToken = null, RegionEndpoint? region = null)
+        => GetLoadBalancersAsync(pageToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDomainAsync"/>.</summary>
+    public static LightsailOperationResult CreateDomain(string domainName, List<Amazon.Lightsail.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDomainAsync(domainName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDomainAsync"/>.</summary>
+    public static LightsailOperationResult DeleteDomain(string domainName, RegionEndpoint? region = null)
+        => DeleteDomainAsync(domainName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDomainAsync"/>.</summary>
+    public static LightsailDomainInfo GetDomain(string domainName, RegionEndpoint? region = null)
+        => GetDomainAsync(domainName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDomainsAsync"/>.</summary>
+    public static List<LightsailDomainInfo> GetDomains(string? pageToken = null, RegionEndpoint? region = null)
+        => GetDomainsAsync(pageToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDomainEntryAsync"/>.</summary>
+    public static LightsailOperationResult CreateDomainEntry(string domainName, DomainEntry domainEntry, RegionEndpoint? region = null)
+        => CreateDomainEntryAsync(domainName, domainEntry, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDomainEntryAsync"/>.</summary>
+    public static LightsailOperationResult DeleteDomainEntry(string domainName, DomainEntry domainEntry, RegionEndpoint? region = null)
+        => DeleteDomainEntryAsync(domainName, domainEntry, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="OpenInstancePublicPortsAsync"/>.</summary>
+    public static LightsailOperationResult OpenInstancePublicPorts(string instanceName, PortInfo portInfo, RegionEndpoint? region = null)
+        => OpenInstancePublicPortsAsync(instanceName, portInfo, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CloseInstancePublicPortsAsync"/>.</summary>
+    public static LightsailOperationResult CloseInstancePublicPorts(string instanceName, PortInfo portInfo, RegionEndpoint? region = null)
+        => CloseInstancePublicPortsAsync(instanceName, portInfo, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBundlesAsync"/>.</summary>
+    public static List<LightsailBundleInfo> GetBundles(bool? includeInactive = null, string? pageToken = null, RegionEndpoint? region = null)
+        => GetBundlesAsync(includeInactive, pageToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBlueprintsAsync"/>.</summary>
+    public static List<LightsailBlueprintInfo> GetBlueprints(bool? includeInactive = null, string? pageToken = null, RegionEndpoint? region = null)
+        => GetBlueprintsAsync(includeInactive, pageToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRegionsAsync"/>.</summary>
+    public static List<LightsailRegionInfo> GetRegions(bool? includeAvailabilityZones = null, bool? includeRelationalDatabaseAvailabilityZones = null, RegionEndpoint? region = null)
+        => GetRegionsAsync(includeAvailabilityZones, includeRelationalDatabaseAvailabilityZones, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static List<LightsailOperationResult> TagResource(string resourceName, List<Amazon.Lightsail.Model.Tag> tags, string? resourceArn = null, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceName, tags, resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static List<LightsailOperationResult> UntagResource(string resourceName, List<string> tagKeys, string? resourceArn = null, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceName, tagKeys, resourceArn, region).GetAwaiter().GetResult();
+
 }

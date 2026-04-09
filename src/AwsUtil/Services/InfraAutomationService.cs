@@ -628,4 +628,42 @@ public static class InfraAutomationService
             throw ErrorClassifier.WrapAwsError(exc, "Custom resource handler failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="ScheduledScalingManagerAsync"/>.</summary>
+    public static ScheduledScalingManagerResult ScheduledScalingManager(string resourceId, string scalableDimension, string scheduleExpression, int minCapacity, int maxCapacity, RegionEndpoint? region = null)
+        => ScheduledScalingManagerAsync(resourceId, scalableDimension, scheduleExpression, minCapacity, maxCapacity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StackOutputResolverAsync"/>.</summary>
+    public static StackOutputResolverResult StackOutputResolver(string stackName, RegionEndpoint? region = null)
+        => StackOutputResolverAsync(stackName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResourceCleanupSchedulerAsync"/>.</summary>
+    public static ResourceCleanupSchedulerResult ResourceCleanupScheduler(List<string> resourceArns, string cleanupLambdaArn, DateTime cleanupTime, RegionEndpoint? region = null)
+        => ResourceCleanupSchedulerAsync(resourceArns, cleanupLambdaArn, cleanupTime, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MultiRegionFailoverAsync"/>.</summary>
+    public static MultiRegionFailoverResult MultiRegionFailover(string hostedZoneId, string recordName, string primaryRegion, string failoverRegion, string targetResourceId, RegionEndpoint? region = null)
+        => MultiRegionFailoverAsync(hostedZoneId, recordName, primaryRegion, failoverRegion, targetResourceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="InfrastructureDiffReporterAsync"/>.</summary>
+    public static InfrastructureDiffReporterResult InfrastructureDiffReporter(string sourceStackName, string targetStackName, RegionEndpoint? region = null)
+        => InfrastructureDiffReporterAsync(sourceStackName, targetStackName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LambdaVpcConnectorAsync"/>.</summary>
+    public static LambdaVpcConnectorResult LambdaVpcConnector(string functionName, List<string> subnetIds, List<string> securityGroupIds, RegionEndpoint? region = null)
+        => LambdaVpcConnectorAsync(functionName, subnetIds, securityGroupIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ApiGatewayStageManagerAsync"/>.</summary>
+    public static ApiGatewayStageManagerResult ApiGatewayStageManager(string apiId, string stageName, Dictionary<string, string>? stageVariables = null, string operation = "update", RegionEndpoint? region = null)
+        => ApiGatewayStageManagerAsync(apiId, stageName, stageVariables, operation, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CustomResourceHandlerAsync"/>.</summary>
+    public static CustomResourceHandlerResult CustomResourceHandler(string requestType, string logicalResourceId, Dictionary<string, string>? resourceProperties = null, string? physicalResourceId = null, RegionEndpoint? region = null)
+        => CustomResourceHandlerAsync(requestType, logicalResourceId, resourceProperties, physicalResourceId, region).GetAwaiter().GetResult();
+
 }

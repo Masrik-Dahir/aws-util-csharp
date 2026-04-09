@@ -1116,4 +1116,138 @@ public static class LexModelsService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="PutBotAsync"/>.</summary>
+    public static LexBotResult PutBot(string name, Locale locale, bool childDirected, List<Intent>? intents = null, string? description = null, Prompt? clarificationPrompt = null, Statement? abortStatement = null, int? idleSessionTTLInSeconds = null, string? voiceId = null, string? checksum = null, bool? createVersion = null, ProcessBehavior? processBehavior = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => PutBotAsync(name, locale, childDirected, intents, description, clarificationPrompt, abortStatement, idleSessionTTLInSeconds, voiceId, checksum, createVersion, processBehavior, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBotAsync"/>.</summary>
+    public static LexBotResult GetBot(string name, string versionOrAlias, RegionEndpoint? region = null)
+        => GetBotAsync(name, versionOrAlias, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBotsAsync"/>.</summary>
+    public static LexListBotsResult GetBots(string? nameContains = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => GetBotsAsync(nameContains, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteBotAsync"/>.</summary>
+    public static LexDeleteBotResult DeleteBot(string name, RegionEndpoint? region = null)
+        => DeleteBotAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutIntentAsync"/>.</summary>
+    public static LexIntentResult PutIntent(string name, FulfillmentActivity? fulfillmentActivity = null, string? description = null, List<Slot>? slots = null, List<string>? sampleUtterances = null, Prompt? confirmationPrompt = null, Statement? rejectionStatement = null, FollowUpPrompt? followUpPrompt = null, Statement? conclusionStatement = null, CodeHook? dialogCodeHook = null, string? parentIntentSignature = null, string? checksum = null, bool? createVersion = null, RegionEndpoint? region = null)
+        => PutIntentAsync(name, fulfillmentActivity, description, slots, sampleUtterances, confirmationPrompt, rejectionStatement, followUpPrompt, conclusionStatement, dialogCodeHook, parentIntentSignature, checksum, createVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetIntentAsync"/>.</summary>
+    public static LexIntentResult GetIntent(string name, string version, RegionEndpoint? region = null)
+        => GetIntentAsync(name, version, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetIntentsAsync"/>.</summary>
+    public static LexListIntentsResult GetIntents(string? nameContains = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => GetIntentsAsync(nameContains, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteIntentAsync"/>.</summary>
+    public static LexDeleteBotResult DeleteIntent(string name, RegionEndpoint? region = null)
+        => DeleteIntentAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutSlotTypeAsync"/>.</summary>
+    public static LexSlotTypeResult PutSlotType(string name, List<EnumerationValue>? enumerationValues = null, string? description = null, SlotValueSelectionStrategy? valueSelectionStrategy = null, string? checksum = null, bool? createVersion = null, string? parentSlotTypeSignature = null, RegionEndpoint? region = null)
+        => PutSlotTypeAsync(name, enumerationValues, description, valueSelectionStrategy, checksum, createVersion, parentSlotTypeSignature, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSlotTypeAsync"/>.</summary>
+    public static LexSlotTypeResult GetSlotType(string name, string version, RegionEndpoint? region = null)
+        => GetSlotTypeAsync(name, version, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSlotTypesAsync"/>.</summary>
+    public static LexListSlotTypesResult GetSlotTypes(string? nameContains = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => GetSlotTypesAsync(nameContains, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSlotTypeAsync"/>.</summary>
+    public static LexDeleteBotResult DeleteSlotType(string name, RegionEndpoint? region = null)
+        => DeleteSlotTypeAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateBotVersionAsync"/>.</summary>
+    public static LexBotVersionResult CreateBotVersion(string name, string? checksum = null, RegionEndpoint? region = null)
+        => CreateBotVersionAsync(name, checksum, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBotVersionsAsync"/>.</summary>
+    public static LexListBotVersionsResult GetBotVersions(string name, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => GetBotVersionsAsync(name, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutBotAliasAsync"/>.</summary>
+    public static LexBotAliasResult PutBotAlias(string name, string botName, string botVersion, string? description = null, string? checksum = null, List<Tag>? tags = null, ConversationLogsRequest? conversationLogs = null, RegionEndpoint? region = null)
+        => PutBotAliasAsync(name, botName, botVersion, description, checksum, tags, conversationLogs, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBotAliasAsync"/>.</summary>
+    public static LexBotAliasResult GetBotAlias(string name, string botName, RegionEndpoint? region = null)
+        => GetBotAliasAsync(name, botName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBotAliasesAsync"/>.</summary>
+    public static LexListBotAliasesResult GetBotAliases(string botName, string? nameContains = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => GetBotAliasesAsync(botName, nameContains, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteBotAliasAsync"/>.</summary>
+    public static LexDeleteBotResult DeleteBotAlias(string name, string botName, RegionEndpoint? region = null)
+        => DeleteBotAliasAsync(name, botName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBotChannelAssociationsAsync"/>.</summary>
+    public static LexListBotChannelAssociationsResult GetBotChannelAssociations(string botName, string botAlias, string? nameContains = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => GetBotChannelAssociationsAsync(botName, botAlias, nameContains, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBotChannelAssociationAsync"/>.</summary>
+    public static LexBotChannelAssociationResult GetBotChannelAssociation(string name, string botName, string botAlias, RegionEndpoint? region = null)
+        => GetBotChannelAssociationAsync(name, botName, botAlias, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBuiltinIntentsAsync"/>.</summary>
+    public static LexListBuiltinIntentsResult GetBuiltinIntents(Locale? locale = null, string? signatureContains = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => GetBuiltinIntentsAsync(locale, signatureContains, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetBuiltinSlotTypesAsync"/>.</summary>
+    public static LexListBuiltinSlotTypesResult GetBuiltinSlotTypes(Locale? locale = null, string? signatureContains = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => GetBuiltinSlotTypesAsync(locale, signatureContains, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateIntentVersionAsync"/>.</summary>
+    public static LexIntentVersionResult CreateIntentVersion(string name, string? checksum = null, RegionEndpoint? region = null)
+        => CreateIntentVersionAsync(name, checksum, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSlotTypeVersionAsync"/>.</summary>
+    public static LexSlotTypeVersionResult CreateSlotTypeVersion(string name, string? checksum = null, RegionEndpoint? region = null)
+        => CreateSlotTypeVersionAsync(name, checksum, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetExportAsync"/>.</summary>
+    public static LexExportResult GetExport(string name, string version, ResourceType resourceType, ExportType exportType, RegionEndpoint? region = null)
+        => GetExportAsync(name, version, resourceType, exportType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartImportAsync"/>.</summary>
+    public static LexImportResult StartImport(MemoryStream payload, ResourceType resourceType, MergeStrategy mergeStrategy, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => StartImportAsync(payload, resourceType, mergeStrategy, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetImportAsync"/>.</summary>
+    public static LexGetImportResult GetImport(string importId, RegionEndpoint? region = null)
+        => GetImportAsync(importId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetUtterancesViewAsync"/>.</summary>
+    public static LexUtterancesViewResult GetUtterancesView(string botName, List<string> botVersions, StatusType statusType, RegionEndpoint? region = null)
+        => GetUtterancesViewAsync(botName, botVersions, statusType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUtterancesAsync"/>.</summary>
+    public static LexDeleteUtterancesResult DeleteUtterances(string botName, string userId, RegionEndpoint? region = null)
+        => DeleteUtterancesAsync(botName, userId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static LexTagResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static LexTagResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static LexListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

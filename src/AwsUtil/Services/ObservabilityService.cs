@@ -822,4 +822,46 @@ public static class ObservabilityService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to build service map");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateXrayTraceAsync"/>.</summary>
+    public static CreateXrayTraceResult CreateXrayTrace(string serviceName, string operationName, DateTime startTime, DateTime endTime, bool fault = false, bool error = false, Dictionary<string, object?>? annotations = null, Dictionary<string, object?>? metadata = null, RegionEndpoint? region = null)
+        => CreateXrayTraceAsync(serviceName, operationName, startTime, endTime, fault, error, annotations, metadata, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EmitEmfMetricAsync"/>.</summary>
+    public static EmitEmfMetricResult EmitEmfMetric(string logGroupName, string logStreamName, string metricNamespace, string metricName, double metricValue, string unit = "None", Dictionary<string, string>? dimensions = null, RegionEndpoint? region = null)
+        => EmitEmfMetricAsync(logGroupName, logStreamName, metricNamespace, metricName, metricValue, unit, dimensions, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateLambdaAlarmsAsync"/>.</summary>
+    public static CreateLambdaAlarmsResult CreateLambdaAlarms(string functionName, string snsTopicArn, int errorThreshold = 1, int durationThresholdMs = 30000, int throttleThreshold = 1, int evaluationPeriods = 1, int periodSeconds = 300, RegionEndpoint? region = null)
+        => CreateLambdaAlarmsAsync(functionName, snsTopicArn, errorThreshold, durationThresholdMs, throttleThreshold, evaluationPeriods, periodSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDlqDepthAlarmAsync"/>.</summary>
+    public static CreateDlqDepthAlarmResult CreateDlqDepthAlarm(string queueName, string snsTopicArn, int threshold = 10, int evaluationPeriods = 1, int periodSeconds = 300, string? alarmName = null, RegionEndpoint? region = null)
+        => CreateDlqDepthAlarmAsync(queueName, snsTopicArn, threshold, evaluationPeriods, periodSeconds, alarmName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RunLogInsightsQueryAsync"/>.</summary>
+    public static RunLogInsightsQueryResult RunLogInsightsQuery(string logGroupName, string queryString, DateTime startTime, DateTime endTime, int? limit = null, int pollIntervalSeconds = 2, int timeoutSeconds = 120, RegionEndpoint? region = null)
+        => RunLogInsightsQueryAsync(logGroupName, queryString, startTime, endTime, limit, pollIntervalSeconds, timeoutSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GenerateLambdaDashboardAsync"/>.</summary>
+    public static GenerateLambdaDashboardResult GenerateLambdaDashboard(string dashboardName, List<string> functionNames, int periodSeconds = 300, RegionEndpoint? region = null)
+        => GenerateLambdaDashboardAsync(dashboardName, functionNames, periodSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AggregateErrorsAsync"/>.</summary>
+    public static AggregateErrorsResult AggregateErrors(string logGroupName, DateTime startTime, DateTime endTime, string? filterPattern = null, int? limit = null, RegionEndpoint? region = null)
+        => AggregateErrorsAsync(logGroupName, startTime, endTime, filterPattern, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCanaryAsync"/>.</summary>
+    public static CreateCanaryResult CreateCanary(string canaryName, string s3BucketName, string runtimeVersion, string handlerEntryPoint, string script, string executionRoleArn, int frequencyInMinutes = 5, RegionEndpoint? region = null)
+        => CreateCanaryAsync(canaryName, s3BucketName, runtimeVersion, handlerEntryPoint, script, executionRoleArn, frequencyInMinutes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BuildServiceMapAsync"/>.</summary>
+    public static BuildServiceMapResult BuildServiceMap(DateTime startTime, DateTime endTime, string? filterExpression = null, RegionEndpoint? region = null)
+        => BuildServiceMapAsync(startTime, endTime, filterExpression, region).GetAwaiter().GetResult();
+
 }

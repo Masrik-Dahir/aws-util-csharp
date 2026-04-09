@@ -295,4 +295,22 @@ public static class DataPipelineService
                 $"Failed to run Glue job '{jobName}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="RunGlueThenQueryAsync"/>.</summary>
+    public static GlueThenQueryResult RunGlueThenQuery(string jobName, string queryString, string database, string outputLocation, Dictionary<string, string>? jobArguments = null, int pollIntervalSeconds = 15, string? workGroup = null, RegionEndpoint? region = null)
+        => RunGlueThenQueryAsync(jobName, queryString, database, outputLocation, jobArguments, pollIntervalSeconds, workGroup, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ExportQueryToS3JsonAsync"/>.</summary>
+    public static ExportQueryToS3JsonResult ExportQueryToS3Json(string queryString, string database, string outputLocation, string destBucket, string destKey, string? workGroup = null, int pollIntervalSeconds = 5, RegionEndpoint? region = null)
+        => ExportQueryToS3JsonAsync(queryString, database, outputLocation, destBucket, destKey, workGroup, pollIntervalSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RunGlueJobAsync"/>.</summary>
+    public static RunGlueJobResult RunGlueJob(string jobName, Dictionary<string, string>? arguments = null, int pollIntervalSeconds = 15, RegionEndpoint? region = null)
+        => RunGlueJobAsync(jobName, arguments, pollIntervalSeconds, region).GetAwaiter().GetResult();
+
 }

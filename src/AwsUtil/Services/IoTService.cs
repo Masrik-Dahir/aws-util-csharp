@@ -1655,4 +1655,234 @@ public static class IoTService
                 "Failed to get indexing configuration");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateThingAsync"/>.</summary>
+    public static CreateThingResult CreateThing(string thingName, string? thingTypeName = null, Dictionary<string, string>? attributes = null, RegionEndpoint? region = null)
+        => CreateThingAsync(thingName, thingTypeName, attributes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteThingAsync"/>.</summary>
+    public static void DeleteThing(string thingName, long? expectedVersion = null, RegionEndpoint? region = null)
+        => DeleteThingAsync(thingName, expectedVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeThingAsync"/>.</summary>
+    public static DescribeThingResult DescribeThing(string thingName, RegionEndpoint? region = null)
+        => DescribeThingAsync(thingName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListThingsAsync"/>.</summary>
+    public static ListThingsResult ListThings(string? thingTypeName = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListThingsAsync(thingTypeName, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateThingAsync"/>.</summary>
+    public static void UpdateThing(string thingName, string? thingTypeName = null, Dictionary<string, string>? attributes = null, bool? removeThingType = null, long? expectedVersion = null, RegionEndpoint? region = null)
+        => UpdateThingAsync(thingName, thingTypeName, attributes, removeThingType, expectedVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateThingGroupAsync"/>.</summary>
+    public static CreateThingGroupResult CreateThingGroup(string thingGroupName, string? parentGroupName = null, ThingGroupProperties? thingGroupProperties = null, List<Amazon.IoT.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateThingGroupAsync(thingGroupName, parentGroupName, thingGroupProperties, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteThingGroupAsync"/>.</summary>
+    public static void DeleteThingGroup(string thingGroupName, long? expectedVersion = null, RegionEndpoint? region = null)
+        => DeleteThingGroupAsync(thingGroupName, expectedVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeThingGroupAsync"/>.</summary>
+    public static DescribeThingGroupResult DescribeThingGroup(string thingGroupName, RegionEndpoint? region = null)
+        => DescribeThingGroupAsync(thingGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListThingGroupsAsync"/>.</summary>
+    public static ListThingGroupsResult ListThingGroups(string? parentGroup = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListThingGroupsAsync(parentGroup, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddThingToThingGroupAsync"/>.</summary>
+    public static void AddThingToThingGroup(string? thingGroupName = null, string? thingGroupArn = null, string? thingName = null, string? thingArn = null, bool? overrideDynamicGroups = null, RegionEndpoint? region = null)
+        => AddThingToThingGroupAsync(thingGroupName, thingGroupArn, thingName, thingArn, overrideDynamicGroups, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveThingFromThingGroupAsync"/>.</summary>
+    public static void RemoveThingFromThingGroup(string? thingGroupName = null, string? thingGroupArn = null, string? thingName = null, string? thingArn = null, RegionEndpoint? region = null)
+        => RemoveThingFromThingGroupAsync(thingGroupName, thingGroupArn, thingName, thingArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListThingsInThingGroupAsync"/>.</summary>
+    public static ListThingsInThingGroupResult ListThingsInThingGroup(string thingGroupName, bool? recursive = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListThingsInThingGroupAsync(thingGroupName, recursive, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateThingTypeAsync"/>.</summary>
+    public static CreateThingTypeResult CreateThingType(string thingTypeName, ThingTypeProperties? thingTypeProperties = null, List<Amazon.IoT.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateThingTypeAsync(thingTypeName, thingTypeProperties, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteThingTypeAsync"/>.</summary>
+    public static void DeleteThingType(string thingTypeName, RegionEndpoint? region = null)
+        => DeleteThingTypeAsync(thingTypeName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeThingTypeAsync"/>.</summary>
+    public static DescribeThingTypeResult DescribeThingType(string thingTypeName, RegionEndpoint? region = null)
+        => DescribeThingTypeAsync(thingTypeName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListThingTypesAsync"/>.</summary>
+    public static ListThingTypesResult ListThingTypes(string? thingTypeName = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListThingTypesAsync(thingTypeName, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePolicyAsync"/>.</summary>
+    public static CreateIoTPolicyResult CreatePolicy(string policyName, string policyDocument, List<Amazon.IoT.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreatePolicyAsync(policyName, policyDocument, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePolicyAsync"/>.</summary>
+    public static void DeletePolicy(string policyName, RegionEndpoint? region = null)
+        => DeletePolicyAsync(policyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPolicyAsync"/>.</summary>
+    public static GetIoTPolicyResult GetPolicy(string policyName, RegionEndpoint? region = null)
+        => GetPolicyAsync(policyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPoliciesAsync"/>.</summary>
+    public static ListIoTPoliciesResult ListPolicies(bool? ascendingOrder = null, int? pageSize = null, string? marker = null, RegionEndpoint? region = null)
+        => ListPoliciesAsync(ascendingOrder, pageSize, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePolicyVersionAsync"/>.</summary>
+    public static CreatePolicyVersionResult CreatePolicyVersion(string policyName, string policyDocument, bool? setAsDefault = null, RegionEndpoint? region = null)
+        => CreatePolicyVersionAsync(policyName, policyDocument, setAsDefault, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePolicyVersionAsync"/>.</summary>
+    public static void DeletePolicyVersion(string policyName, string policyVersionId, RegionEndpoint? region = null)
+        => DeletePolicyVersionAsync(policyName, policyVersionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPolicyVersionsAsync"/>.</summary>
+    public static ListPolicyVersionsResult ListPolicyVersions(string policyName, RegionEndpoint? region = null)
+        => ListPolicyVersionsAsync(policyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AttachPolicyAsync"/>.</summary>
+    public static void AttachPolicy(string policyName, string target, RegionEndpoint? region = null)
+        => AttachPolicyAsync(policyName, target, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetachPolicyAsync"/>.</summary>
+    public static void DetachPolicy(string policyName, string target, RegionEndpoint? region = null)
+        => DetachPolicyAsync(policyName, target, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTargetsForPolicyAsync"/>.</summary>
+    public static ListTargetsForPolicyResult ListTargetsForPolicy(string policyName, int? pageSize = null, string? marker = null, RegionEndpoint? region = null)
+        => ListTargetsForPolicyAsync(policyName, pageSize, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCertificateFromCsrAsync"/>.</summary>
+    public static CreateCertificateFromCsrResult CreateCertificateFromCsr(string certificateSigningRequest, bool? setAsActive = null, RegionEndpoint? region = null)
+        => CreateCertificateFromCsrAsync(certificateSigningRequest, setAsActive, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCertificateAsync"/>.</summary>
+    public static void DeleteCertificate(string certificateId, bool? forceDelete = null, RegionEndpoint? region = null)
+        => DeleteCertificateAsync(certificateId, forceDelete, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeCertificateAsync"/>.</summary>
+    public static DescribeIoTCertificateResult DescribeCertificate(string certificateId, RegionEndpoint? region = null)
+        => DescribeCertificateAsync(certificateId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCertificatesAsync"/>.</summary>
+    public static ListIoTCertificatesResult ListCertificates(int? pageSize = null, string? marker = null, bool? ascendingOrder = null, RegionEndpoint? region = null)
+        => ListCertificatesAsync(pageSize, marker, ascendingOrder, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateCertificateAsync"/>.</summary>
+    public static void UpdateCertificate(string certificateId, CertificateStatus newStatus, RegionEndpoint? region = null)
+        => UpdateCertificateAsync(certificateId, newStatus, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AttachThingPrincipalAsync"/>.</summary>
+    public static void AttachThingPrincipal(string thingName, string principal, RegionEndpoint? region = null)
+        => AttachThingPrincipalAsync(thingName, principal, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetachThingPrincipalAsync"/>.</summary>
+    public static void DetachThingPrincipal(string thingName, string principal, RegionEndpoint? region = null)
+        => DetachThingPrincipalAsync(thingName, principal, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListThingPrincipalsAsync"/>.</summary>
+    public static ListThingPrincipalsResult ListThingPrincipals(string thingName, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListThingPrincipalsAsync(thingName, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTopicRuleAsync"/>.</summary>
+    public static void CreateTopicRule(string ruleName, TopicRulePayload topicRulePayload, string? tags = null, RegionEndpoint? region = null)
+        => CreateTopicRuleAsync(ruleName, topicRulePayload, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTopicRuleAsync"/>.</summary>
+    public static void DeleteTopicRule(string ruleName, RegionEndpoint? region = null)
+        => DeleteTopicRuleAsync(ruleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTopicRuleAsync"/>.</summary>
+    public static GetTopicRuleResult GetTopicRule(string ruleName, RegionEndpoint? region = null)
+        => GetTopicRuleAsync(ruleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTopicRulesAsync"/>.</summary>
+    public static ListTopicRulesResult ListTopicRules(string? topic = null, int? maxResults = null, string? nextToken = null, bool? ruleDisabled = null, RegionEndpoint? region = null)
+        => ListTopicRulesAsync(topic, maxResults, nextToken, ruleDisabled, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableTopicRuleAsync"/>.</summary>
+    public static void EnableTopicRule(string ruleName, RegionEndpoint? region = null)
+        => EnableTopicRuleAsync(ruleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableTopicRuleAsync"/>.</summary>
+    public static void DisableTopicRule(string ruleName, RegionEndpoint? region = null)
+        => DisableTopicRuleAsync(ruleName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ReplaceTopicRuleAsync"/>.</summary>
+    public static void ReplaceTopicRule(string ruleName, TopicRulePayload topicRulePayload, RegionEndpoint? region = null)
+        => ReplaceTopicRuleAsync(ruleName, topicRulePayload, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateJobAsync"/>.</summary>
+    public static CreateIoTJobResult CreateJob(string jobId, List<string> targets, string? document = null, string? documentSource = null, string? description = null, JobExecutionsRolloutConfig? jobExecutionsRolloutConfig = null, AbortConfig? abortConfig = null, TimeoutConfig? timeoutConfig = null, List<Amazon.IoT.Model.Tag>? tags = null, TargetSelection? targetSelection = null, RegionEndpoint? region = null)
+        => CreateJobAsync(jobId, targets, document, documentSource, description, jobExecutionsRolloutConfig, abortConfig, timeoutConfig, tags, targetSelection, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteJobAsync"/>.</summary>
+    public static void DeleteJob(string jobId, bool? force = null, RegionEndpoint? region = null)
+        => DeleteJobAsync(jobId, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeJobAsync"/>.</summary>
+    public static DescribeIoTJobResult DescribeJob(string jobId, RegionEndpoint? region = null)
+        => DescribeJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListJobsAsync"/>.</summary>
+    public static ListIoTJobsResult ListJobs(JobStatus? status = null, TargetSelection? targetSelection = null, int? maxResults = null, string? nextToken = null, string? thingGroupName = null, string? thingGroupId = null, RegionEndpoint? region = null)
+        => ListJobsAsync(status, targetSelection, maxResults, nextToken, thingGroupName, thingGroupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelJobAsync"/>.</summary>
+    public static CancelIoTJobResult CancelJob(string jobId, string? reasonCode = null, string? comment = null, bool? force = null, RegionEndpoint? region = null)
+        => CancelJobAsync(jobId, reasonCode, comment, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateJobTemplateAsync"/>.</summary>
+    public static CreateIoTJobTemplateResult CreateJobTemplate(string jobTemplateId, string description, string? jobArn = null, string? document = null, string? documentSource = null, JobExecutionsRolloutConfig? jobExecutionsRolloutConfig = null, AbortConfig? abortConfig = null, TimeoutConfig? timeoutConfig = null, List<Amazon.IoT.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateJobTemplateAsync(jobTemplateId, description, jobArn, document, documentSource, jobExecutionsRolloutConfig, abortConfig, timeoutConfig, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeJobTemplateAsync"/>.</summary>
+    public static DescribeIoTJobTemplateResult DescribeJobTemplate(string jobTemplateId, RegionEndpoint? region = null)
+        => DescribeJobTemplateAsync(jobTemplateId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListJobTemplatesAsync"/>.</summary>
+    public static ListIoTJobTemplatesResult ListJobTemplates(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListJobTemplatesAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, List<Amazon.IoT.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static IoTListTagsResult ListTagsForResource(string resourceArn, string? nextToken = null, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SearchIndexAsync"/>.</summary>
+    public static SearchIndexResult SearchIndex(string queryString, string? indexName = null, int? maxResults = null, string? nextToken = null, string? queryVersion = null, RegionEndpoint? region = null)
+        => SearchIndexAsync(queryString, indexName, maxResults, nextToken, queryVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeIndexAsync"/>.</summary>
+    public static DescribeIndexResult DescribeIndex(string indexName, RegionEndpoint? region = null)
+        => DescribeIndexAsync(indexName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateIndexingConfigurationAsync"/>.</summary>
+    public static void UpdateIndexingConfiguration(ThingIndexingConfiguration? thingIndexingConfiguration = null, ThingGroupIndexingConfiguration? thingGroupIndexingConfiguration = null, RegionEndpoint? region = null)
+        => UpdateIndexingConfigurationAsync(thingIndexingConfiguration, thingGroupIndexingConfiguration, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetIndexingConfigurationAsync"/>.</summary>
+    public static GetIndexingConfigurationResult GetIndexingConfiguration(RegionEndpoint? region = null)
+        => GetIndexingConfigurationAsync(region).GetAwaiter().GetResult();
+
 }

@@ -814,4 +814,142 @@ public static class ElbV2Service
                 "Failed to describe listener certificates");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateLoadBalancerAsync"/>.</summary>
+    public static ElbCreateLoadBalancerResult CreateLoadBalancer(CreateLoadBalancerRequest request, RegionEndpoint? region = null)
+        => CreateLoadBalancerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteLoadBalancerAsync"/>.</summary>
+    public static ElbDeleteLoadBalancerResult DeleteLoadBalancer(string loadBalancerArn, RegionEndpoint? region = null)
+        => DeleteLoadBalancerAsync(loadBalancerArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeLoadBalancersAsync"/>.</summary>
+    public static ElbDescribeLoadBalancersResult DescribeLoadBalancers(DescribeLoadBalancersRequest request, RegionEndpoint? region = null)
+        => DescribeLoadBalancersAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyLoadBalancerAttributesAsync"/>.</summary>
+    public static ElbModifyLoadBalancerAttributesResult ModifyLoadBalancerAttributes(ModifyLoadBalancerAttributesRequest request, RegionEndpoint? region = null)
+        => ModifyLoadBalancerAttributesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTargetGroupAsync"/>.</summary>
+    public static ElbCreateTargetGroupResult CreateTargetGroup(CreateTargetGroupRequest request, RegionEndpoint? region = null)
+        => CreateTargetGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTargetGroupAsync"/>.</summary>
+    public static ElbDeleteTargetGroupResult DeleteTargetGroup(string targetGroupArn, RegionEndpoint? region = null)
+        => DeleteTargetGroupAsync(targetGroupArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTargetGroupsAsync"/>.</summary>
+    public static ElbDescribeTargetGroupsResult DescribeTargetGroups(DescribeTargetGroupsRequest request, RegionEndpoint? region = null)
+        => DescribeTargetGroupsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyTargetGroupAsync"/>.</summary>
+    public static ElbModifyTargetGroupResult ModifyTargetGroup(ModifyTargetGroupRequest request, RegionEndpoint? region = null)
+        => ModifyTargetGroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyTargetGroupAttributesAsync"/>.</summary>
+    public static ElbModifyTargetGroupAttributesResult ModifyTargetGroupAttributes(ModifyTargetGroupAttributesRequest request, RegionEndpoint? region = null)
+        => ModifyTargetGroupAttributesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RegisterTargetsAsync"/>.</summary>
+    public static ElbRegisterTargetsResult RegisterTargets(string targetGroupArn, List<TargetDescription> targets, RegionEndpoint? region = null)
+        => RegisterTargetsAsync(targetGroupArn, targets, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeregisterTargetsAsync"/>.</summary>
+    public static ElbDeregisterTargetsResult DeregisterTargets(string targetGroupArn, List<TargetDescription> targets, RegionEndpoint? region = null)
+        => DeregisterTargetsAsync(targetGroupArn, targets, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTargetHealthAsync"/>.</summary>
+    public static ElbDescribeTargetHealthResult DescribeTargetHealth(DescribeTargetHealthRequest request, RegionEndpoint? region = null)
+        => DescribeTargetHealthAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateListenerAsync"/>.</summary>
+    public static ElbCreateListenerResult CreateListener(CreateListenerRequest request, RegionEndpoint? region = null)
+        => CreateListenerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteListenerAsync"/>.</summary>
+    public static ElbDeleteListenerResult DeleteListener(string listenerArn, RegionEndpoint? region = null)
+        => DeleteListenerAsync(listenerArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeListenersAsync"/>.</summary>
+    public static ElbDescribeListenersResult DescribeListeners(DescribeListenersRequest request, RegionEndpoint? region = null)
+        => DescribeListenersAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyListenerAsync"/>.</summary>
+    public static ElbModifyListenerResult ModifyListener(ModifyListenerRequest request, RegionEndpoint? region = null)
+        => ModifyListenerAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRuleAsync"/>.</summary>
+    public static ElbCreateRuleResult CreateRule(CreateRuleRequest request, RegionEndpoint? region = null)
+        => CreateRuleAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRuleAsync"/>.</summary>
+    public static ElbDeleteRuleResult DeleteRule(string ruleArn, RegionEndpoint? region = null)
+        => DeleteRuleAsync(ruleArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeRulesAsync"/>.</summary>
+    public static ElbDescribeRulesResult DescribeRules(DescribeRulesRequest request, RegionEndpoint? region = null)
+        => DescribeRulesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyRuleAsync"/>.</summary>
+    public static ElbModifyRuleResult ModifyRule(ModifyRuleRequest request, RegionEndpoint? region = null)
+        => ModifyRuleAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetRulePrioritiesAsync"/>.</summary>
+    public static ElbSetRulePrioritiesResult SetRulePriorities(SetRulePrioritiesRequest request, RegionEndpoint? region = null)
+        => SetRulePrioritiesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsAsync"/>.</summary>
+    public static ElbAddTagsResult AddTags(AddTagsRequest request, RegionEndpoint? region = null)
+        => AddTagsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsAsync"/>.</summary>
+    public static ElbRemoveTagsResult RemoveTags(RemoveTagsRequest request, RegionEndpoint? region = null)
+        => RemoveTagsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTagsAsync"/>.</summary>
+    public static ElbDescribeTagsResult DescribeTags(DescribeTagsRequest request, RegionEndpoint? region = null)
+        => DescribeTagsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetSecurityGroupsAsync"/>.</summary>
+    public static ElbSetSecurityGroupsResult SetSecurityGroups(string loadBalancerArn, List<string> securityGroups, RegionEndpoint? region = null)
+        => SetSecurityGroupsAsync(loadBalancerArn, securityGroups, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetSubnetsAsync"/>.</summary>
+    public static ElbSetSubnetsResult SetSubnets(SetSubnetsRequest request, RegionEndpoint? region = null)
+        => SetSubnetsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAccountLimitsAsync"/>.</summary>
+    public static ElbDescribeAccountLimitsResult DescribeAccountLimits(string? marker = null, int? pageSize = null, RegionEndpoint? region = null)
+        => DescribeAccountLimitsAsync(marker, pageSize, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeLoadBalancerAttributesAsync"/>.</summary>
+    public static ElbDescribeLoadBalancerAttributesResult DescribeLoadBalancerAttributes(string loadBalancerArn, RegionEndpoint? region = null)
+        => DescribeLoadBalancerAttributesAsync(loadBalancerArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTargetGroupAttributesAsync"/>.</summary>
+    public static ElbDescribeTargetGroupAttributesResult DescribeTargetGroupAttributes(string targetGroupArn, RegionEndpoint? region = null)
+        => DescribeTargetGroupAttributesAsync(targetGroupArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSSLPoliciesAsync"/>.</summary>
+    public static ElbDescribeSSLPoliciesResult DescribeSSLPolicies(DescribeSSLPoliciesRequest request, RegionEndpoint? region = null)
+        => DescribeSSLPoliciesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddListenerCertificatesAsync"/>.</summary>
+    public static ElbAddListenerCertificatesResult AddListenerCertificates(AddListenerCertificatesRequest request, RegionEndpoint? region = null)
+        => AddListenerCertificatesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveListenerCertificatesAsync"/>.</summary>
+    public static ElbRemoveListenerCertificatesResult RemoveListenerCertificates(RemoveListenerCertificatesRequest request, RegionEndpoint? region = null)
+        => RemoveListenerCertificatesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeListenerCertificatesAsync"/>.</summary>
+    public static ElbDescribeListenerCertificatesResult DescribeListenerCertificates(DescribeListenerCertificatesRequest request, RegionEndpoint? region = null)
+        => DescribeListenerCertificatesAsync(request, region).GetAwaiter().GetResult();
+
 }

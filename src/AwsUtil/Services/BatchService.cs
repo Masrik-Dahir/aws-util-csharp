@@ -679,4 +679,106 @@ public static class BatchService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateComputeEnvironmentAsync"/>.</summary>
+    public static CreateComputeEnvironmentResult CreateComputeEnvironment(CreateComputeEnvironmentRequest request, RegionEndpoint? region = null)
+        => CreateComputeEnvironmentAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteComputeEnvironmentAsync"/>.</summary>
+    public static DeleteComputeEnvironmentResult DeleteComputeEnvironment(string computeEnvironment, RegionEndpoint? region = null)
+        => DeleteComputeEnvironmentAsync(computeEnvironment, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeComputeEnvironmentsAsync"/>.</summary>
+    public static DescribeComputeEnvironmentsResult DescribeComputeEnvironments(DescribeComputeEnvironmentsRequest request, RegionEndpoint? region = null)
+        => DescribeComputeEnvironmentsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateComputeEnvironmentAsync"/>.</summary>
+    public static UpdateComputeEnvironmentResult UpdateComputeEnvironment(UpdateComputeEnvironmentRequest request, RegionEndpoint? region = null)
+        => UpdateComputeEnvironmentAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateJobQueueAsync"/>.</summary>
+    public static CreateJobQueueResult CreateJobQueue(CreateJobQueueRequest request, RegionEndpoint? region = null)
+        => CreateJobQueueAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteJobQueueAsync"/>.</summary>
+    public static DeleteJobQueueResult DeleteJobQueue(string jobQueue, RegionEndpoint? region = null)
+        => DeleteJobQueueAsync(jobQueue, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeJobQueuesAsync"/>.</summary>
+    public static DescribeJobQueuesResult DescribeJobQueues(DescribeJobQueuesRequest request, RegionEndpoint? region = null)
+        => DescribeJobQueuesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateJobQueueAsync"/>.</summary>
+    public static UpdateJobQueueResult UpdateJobQueue(UpdateJobQueueRequest request, RegionEndpoint? region = null)
+        => UpdateJobQueueAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RegisterJobDefinitionAsync"/>.</summary>
+    public static RegisterJobDefinitionResult RegisterJobDefinition(RegisterJobDefinitionRequest request, RegionEndpoint? region = null)
+        => RegisterJobDefinitionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeregisterJobDefinitionAsync"/>.</summary>
+    public static DeregisterJobDefinitionResult DeregisterJobDefinition(string jobDefinition, RegionEndpoint? region = null)
+        => DeregisterJobDefinitionAsync(jobDefinition, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeJobDefinitionsAsync"/>.</summary>
+    public static DescribeJobDefinitionsResult DescribeJobDefinitions(DescribeJobDefinitionsRequest request, RegionEndpoint? region = null)
+        => DescribeJobDefinitionsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SubmitJobAsync"/>.</summary>
+    public static SubmitJobResult SubmitJob(SubmitJobRequest request, RegionEndpoint? region = null)
+        => SubmitJobAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelJobAsync"/>.</summary>
+    public static CancelBatchJobResult CancelJob(string jobId, string reason, RegionEndpoint? region = null)
+        => CancelJobAsync(jobId, reason, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TerminateJobAsync"/>.</summary>
+    public static TerminateBatchJobResult TerminateJob(string jobId, string reason, RegionEndpoint? region = null)
+        => TerminateJobAsync(jobId, reason, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeJobsAsync"/>.</summary>
+    public static DescribeJobsResult DescribeJobs(List<string> jobs, RegionEndpoint? region = null)
+        => DescribeJobsAsync(jobs, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListJobsAsync"/>.</summary>
+    public static ListBatchJobsResult ListJobs(ListJobsRequest request, RegionEndpoint? region = null)
+        => ListJobsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSchedulingPolicyAsync"/>.</summary>
+    public static CreateSchedulingPolicyResult CreateSchedulingPolicy(CreateSchedulingPolicyRequest request, RegionEndpoint? region = null)
+        => CreateSchedulingPolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSchedulingPolicyAsync"/>.</summary>
+    public static DeleteSchedulingPolicyResult DeleteSchedulingPolicy(string arn, RegionEndpoint? region = null)
+        => DeleteSchedulingPolicyAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSchedulingPoliciesAsync"/>.</summary>
+    public static DescribeSchedulingPoliciesResult DescribeSchedulingPolicies(List<string> arns, RegionEndpoint? region = null)
+        => DescribeSchedulingPoliciesAsync(arns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSchedulingPoliciesAsync"/>.</summary>
+    public static ListSchedulingPoliciesResult ListSchedulingPolicies(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListSchedulingPoliciesAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateSchedulingPolicyAsync"/>.</summary>
+    public static UpdateSchedulingPolicyResult UpdateSchedulingPolicy(UpdateSchedulingPolicyRequest request, RegionEndpoint? region = null)
+        => UpdateSchedulingPolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static BatchTagResourceResult TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static BatchUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static BatchListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

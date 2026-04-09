@@ -1005,4 +1005,134 @@ public static class InspectorService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="EnableAsync"/>.</summary>
+    public static List<InspectorAccountStatusResult> Enable(List<string> resourceTypes, List<string>? accountIds = null, RegionEndpoint? region = null)
+        => EnableAsync(resourceTypes, accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableAsync"/>.</summary>
+    public static List<InspectorAccountStatusResult> Disable(List<string>? resourceTypes = null, List<string>? accountIds = null, RegionEndpoint? region = null)
+        => DisableAsync(resourceTypes, accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetAccountStatusAsync"/>.</summary>
+    public static List<InspectorAccountStatusResult> BatchGetAccountStatus(List<string>? accountIds = null, RegionEndpoint? region = null)
+        => BatchGetAccountStatusAsync(accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFindingsReportStatusAsync"/>.</summary>
+    public static InspectorFindingsReportResult GetFindingsReportStatus(string? reportId = null, RegionEndpoint? region = null)
+        => GetFindingsReportStatusAsync(reportId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFindingsAsync"/>.</summary>
+    public static List<InspectorFindingResult> ListFindings(FilterCriteria? filterCriteria = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListFindingsAsync(filterCriteria, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetMemberAsync"/>.</summary>
+    public static InspectorMemberResult GetMember(string accountId, RegionEndpoint? region = null)
+        => GetMemberAsync(accountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListMembersAsync"/>.</summary>
+    public static List<InspectorMemberResult> ListMembers(bool? onlyAssociated = null, RegionEndpoint? region = null)
+        => ListMembersAsync(onlyAssociated, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssociateMemberAsync"/>.</summary>
+    public static InspectorMemberResult AssociateMember(string accountId, RegionEndpoint? region = null)
+        => AssociateMemberAsync(accountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisassociateMemberAsync"/>.</summary>
+    public static InspectorMemberResult DisassociateMember(string accountId, RegionEndpoint? region = null)
+        => DisassociateMemberAsync(accountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetFreeTrialInfoAsync"/>.</summary>
+    public static List<InspectorFreeTrialResult> BatchGetFreeTrialInfo(List<string> accountIds, RegionEndpoint? region = null)
+        => BatchGetFreeTrialInfoAsync(accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCoverageAsync"/>.</summary>
+    public static List<InspectorCoverageResult> ListCoverage(CoverageFilterCriteria? filterCriteria = null, RegionEndpoint? region = null)
+        => ListCoverageAsync(filterCriteria, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCoverageStatisticsAsync"/>.</summary>
+    public static InspectorCoverageStatisticsResult ListCoverageStatistics(CoverageFilterCriteria? filterCriteria = null, string? groupBy = null, RegionEndpoint? region = null)
+        => ListCoverageStatisticsAsync(filterCriteria, groupBy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFilterAsync"/>.</summary>
+    public static string CreateFilter(string name, string action, FilterCriteria filterCriteria, string? description = null, string? reason = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateFilterAsync(name, action, filterCriteria, description, reason, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFilterAsync"/>.</summary>
+    public static void DeleteFilter(string arn, RegionEndpoint? region = null)
+        => DeleteFilterAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFilterAsync"/>.</summary>
+    public static InspectorFilterResult GetFilter(string arn, RegionEndpoint? region = null)
+        => GetFilterAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFiltersAsync"/>.</summary>
+    public static List<InspectorFilterResult> ListFilters(string? action = null, RegionEndpoint? region = null)
+        => ListFiltersAsync(action, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateFilterAsync"/>.</summary>
+    public static string UpdateFilter(string filterArn, string? name = null, string? action = null, FilterCriteria? filterCriteria = null, string? description = null, string? reason = null, RegionEndpoint? region = null)
+        => UpdateFilterAsync(filterArn, name, action, filterCriteria, description, reason, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListUsageTotalsAsync"/>.</summary>
+    public static List<InspectorUsageResult> ListUsageTotals(List<string>? accountIds = null, RegionEndpoint? region = null)
+        => ListUsageTotalsAsync(accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableDelegatedAdminAccountAsync"/>.</summary>
+    public static InspectorDelegatedAdminResult EnableDelegatedAdminAccount(string delegatedAdminAccountId, RegionEndpoint? region = null)
+        => EnableDelegatedAdminAccountAsync(delegatedAdminAccountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableDelegatedAdminAccountAsync"/>.</summary>
+    public static InspectorDelegatedAdminResult DisableDelegatedAdminAccount(string delegatedAdminAccountId, RegionEndpoint? region = null)
+        => DisableDelegatedAdminAccountAsync(delegatedAdminAccountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDelegatedAdminAccountsAsync"/>.</summary>
+    public static List<InspectorDelegatedAdminResult> ListDelegatedAdminAccounts(RegionEndpoint? region = null)
+        => ListDelegatedAdminAccountsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeOrganizationConfigurationAsync"/>.</summary>
+    public static InspectorOrgConfigResult DescribeOrganizationConfiguration(RegionEndpoint? region = null)
+        => DescribeOrganizationConfigurationAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateOrganizationConfigurationAsync"/>.</summary>
+    public static void UpdateOrganizationConfiguration(AutoEnable autoEnable, RegionEndpoint? region = null)
+        => UpdateOrganizationConfigurationAsync(autoEnable, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSbomExportAsync"/>.</summary>
+    public static InspectorSbomExportResult CreateSbomExport(string reportFormat, Destination s3Destination, ResourceFilterCriteria? resourceFilterCriteria = null, RegionEndpoint? region = null)
+        => CreateSbomExportAsync(reportFormat, s3Destination, resourceFilterCriteria, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSbomExportAsync"/>.</summary>
+    public static InspectorSbomExportResult GetSbomExport(string reportId, RegionEndpoint? region = null)
+        => GetSbomExportAsync(reportId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAccountPermissionsAsync"/>.</summary>
+    public static List<InspectorAccountPermissionResult> ListAccountPermissions(RegionEndpoint? region = null)
+        => ListAccountPermissionsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateConfigurationAsync"/>.</summary>
+    public static void UpdateConfiguration(EcrConfiguration ecrConfiguration, RegionEndpoint? region = null)
+        => UpdateConfigurationAsync(ecrConfiguration, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetConfigurationAsync"/>.</summary>
+    public static InspectorConfigurationResult GetConfiguration(RegionEndpoint? region = null)
+        => GetConfigurationAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static List<InspectorTagResult> ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

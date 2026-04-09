@@ -698,4 +698,86 @@ public static class TranslateService
                 $"Failed to list tags for Translate resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="TranslateTextAsync"/>.</summary>
+    public static TranslateTextResult TranslateText(string text, string sourceLanguageCode, string targetLanguageCode, List<string>? terminologyNames = null, TranslationSettings? settings = null, RegionEndpoint? region = null)
+        => TranslateTextAsync(text, sourceLanguageCode, targetLanguageCode, terminologyNames, settings, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TranslateDocumentAsync"/>.</summary>
+    public static TranslateDocumentResult TranslateDocument(Amazon.Translate.Model.Document document, string sourceLanguageCode, string targetLanguageCode, List<string>? terminologyNames = null, TranslationSettings? settings = null, RegionEndpoint? region = null)
+        => TranslateDocumentAsync(document, sourceLanguageCode, targetLanguageCode, terminologyNames, settings, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartTextTranslationJobAsync"/>.</summary>
+    public static StartTextTranslationJobResult StartTextTranslationJob(InputDataConfig inputDataConfig, OutputDataConfig outputDataConfig, string dataAccessRoleArn, string sourceLanguageCode, List<string> targetLanguageCodes, string? jobName = null, List<string>? terminologyNames = null, List<string>? parallelDataNames = null, string? clientToken = null, TranslationSettings? settings = null, RegionEndpoint? region = null)
+        => StartTextTranslationJobAsync(inputDataConfig, outputDataConfig, dataAccessRoleArn, sourceLanguageCode, targetLanguageCodes, jobName, terminologyNames, parallelDataNames, clientToken, settings, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopTextTranslationJobAsync"/>.</summary>
+    public static StopTextTranslationJobResult StopTextTranslationJob(string jobId, RegionEndpoint? region = null)
+        => StopTextTranslationJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTextTranslationJobAsync"/>.</summary>
+    public static DescribeTextTranslationJobResult DescribeTextTranslationJob(string jobId, RegionEndpoint? region = null)
+        => DescribeTextTranslationJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTextTranslationJobsAsync"/>.</summary>
+    public static ListTextTranslationJobsResult ListTextTranslationJobs(TextTranslationJobFilter? filter = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListTextTranslationJobsAsync(filter, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateParallelDataAsync"/>.</summary>
+    public static CreateParallelDataResult CreateParallelData(string name, ParallelDataConfig parallelDataConfig, string? description = null, EncryptionKey? encryptionKey = null, string? clientToken = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateParallelDataAsync(name, parallelDataConfig, description, encryptionKey, clientToken, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteParallelDataAsync"/>.</summary>
+    public static void DeleteParallelData(string name, RegionEndpoint? region = null)
+        => DeleteParallelDataAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetParallelDataAsync"/>.</summary>
+    public static GetParallelDataResult GetParallelData(string name, RegionEndpoint? region = null)
+        => GetParallelDataAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListParallelDataAsync"/>.</summary>
+    public static ListParallelDataResult ListParallelData(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListParallelDataAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateParallelDataAsync"/>.</summary>
+    public static UpdateParallelDataResult UpdateParallelData(string name, ParallelDataConfig parallelDataConfig, string clientToken, string? description = null, RegionEndpoint? region = null)
+        => UpdateParallelDataAsync(name, parallelDataConfig, clientToken, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ImportTerminologyAsync"/>.</summary>
+    public static ImportTerminologyResult ImportTerminology(string name, string mergeStrategy, TerminologyData terminologyData, string? description = null, EncryptionKey? encryptionKey = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => ImportTerminologyAsync(name, mergeStrategy, terminologyData, description, encryptionKey, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTerminologyAsync"/>.</summary>
+    public static void DeleteTerminology(string name, RegionEndpoint? region = null)
+        => DeleteTerminologyAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTerminologyAsync"/>.</summary>
+    public static GetTerminologyResult GetTerminology(string name, string? terminologyDataFormat = null, RegionEndpoint? region = null)
+        => GetTerminologyAsync(name, terminologyDataFormat, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTerminologiesAsync"/>.</summary>
+    public static ListTerminologiesResult ListTerminologies(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListTerminologiesAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListLanguagesAsync"/>.</summary>
+    public static ListLanguagesResult ListLanguages(string? displayLanguageCode = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListLanguagesAsync(displayLanguageCode, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static TranslateListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

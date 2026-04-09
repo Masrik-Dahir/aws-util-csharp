@@ -1187,4 +1187,146 @@ public static class NeptuneService
                 "Failed to copy Neptune DB cluster snapshot");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBClusterAsync"/>.</summary>
+    public static NeptuneCreateDBClusterResult CreateDBCluster(CreateDBClusterRequest request, RegionEndpoint? region = null)
+        => CreateDBClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDBClusterAsync"/>.</summary>
+    public static NeptuneDeleteDBClusterResult DeleteDBCluster(string dbClusterIdentifier, bool skipFinalSnapshot = false, string? finalDBSnapshotIdentifier = null, RegionEndpoint? region = null)
+        => DeleteDBClusterAsync(dbClusterIdentifier, skipFinalSnapshot, finalDBSnapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBClustersAsync"/>.</summary>
+    public static NeptuneDescribeDBClustersResult DescribeDBClusters(string? dbClusterIdentifier = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBClustersAsync(dbClusterIdentifier, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyDBClusterAsync"/>.</summary>
+    public static NeptuneModifyDBClusterResult ModifyDBCluster(ModifyDBClusterRequest request, RegionEndpoint? region = null)
+        => ModifyDBClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBInstanceAsync"/>.</summary>
+    public static NeptuneCreateDBInstanceResult CreateDBInstance(CreateDBInstanceRequest request, RegionEndpoint? region = null)
+        => CreateDBInstanceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDBInstanceAsync"/>.</summary>
+    public static NeptuneDeleteDBInstanceResult DeleteDBInstance(string dbInstanceIdentifier, bool skipFinalSnapshot = false, string? finalDBSnapshotIdentifier = null, RegionEndpoint? region = null)
+        => DeleteDBInstanceAsync(dbInstanceIdentifier, skipFinalSnapshot, finalDBSnapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBInstancesAsync"/>.</summary>
+    public static NeptuneDescribeDBInstancesResult DescribeDBInstances(string? dbInstanceIdentifier = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBInstancesAsync(dbInstanceIdentifier, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyDBInstanceAsync"/>.</summary>
+    public static NeptuneModifyDBInstanceResult ModifyDBInstance(ModifyDBInstanceRequest request, RegionEndpoint? region = null)
+        => ModifyDBInstanceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RebootDBInstanceAsync"/>.</summary>
+    public static NeptuneRebootDBInstanceResult RebootDBInstance(string dbInstanceIdentifier, bool? forceFailover = null, RegionEndpoint? region = null)
+        => RebootDBInstanceAsync(dbInstanceIdentifier, forceFailover, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBClusterSnapshotAsync"/>.</summary>
+    public static NeptuneCreateDBClusterSnapshotResult CreateDBClusterSnapshot(string dbClusterIdentifier, string dbClusterSnapshotIdentifier, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDBClusterSnapshotAsync(dbClusterIdentifier, dbClusterSnapshotIdentifier, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDBClusterSnapshotAsync"/>.</summary>
+    public static NeptuneDeleteDBClusterSnapshotResult DeleteDBClusterSnapshot(string dbClusterSnapshotIdentifier, RegionEndpoint? region = null)
+        => DeleteDBClusterSnapshotAsync(dbClusterSnapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBClusterSnapshotsAsync"/>.</summary>
+    public static NeptuneDescribeDBClusterSnapshotsResult DescribeDBClusterSnapshots(string? dbClusterIdentifier = null, string? dbClusterSnapshotIdentifier = null, string? snapshotType = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBClusterSnapshotsAsync(dbClusterIdentifier, dbClusterSnapshotIdentifier, snapshotType, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RestoreDBClusterFromSnapshotAsync"/>.</summary>
+    public static NeptuneRestoreDBClusterFromSnapshotResult RestoreDBClusterFromSnapshot(RestoreDBClusterFromSnapshotRequest request, RegionEndpoint? region = null)
+        => RestoreDBClusterFromSnapshotAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBClusterParameterGroupAsync"/>.</summary>
+    public static NeptuneCreateDBClusterParameterGroupResult CreateDBClusterParameterGroup(string dbClusterParameterGroupName, string dbParameterGroupFamily, string description, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDBClusterParameterGroupAsync(dbClusterParameterGroupName, dbParameterGroupFamily, description, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDBClusterParameterGroupAsync"/>.</summary>
+    public static void DeleteDBClusterParameterGroup(string dbClusterParameterGroupName, RegionEndpoint? region = null)
+        => DeleteDBClusterParameterGroupAsync(dbClusterParameterGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBClusterParameterGroupsAsync"/>.</summary>
+    public static NeptuneDescribeDBClusterParameterGroupsResult DescribeDBClusterParameterGroups(string? dbClusterParameterGroupName = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBClusterParameterGroupsAsync(dbClusterParameterGroupName, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyDBClusterParameterGroupAsync"/>.</summary>
+    public static NeptuneModifyDBClusterParameterGroupResult ModifyDBClusterParameterGroup(string dbClusterParameterGroupName, List<Parameter> parameters, RegionEndpoint? region = null)
+        => ModifyDBClusterParameterGroupAsync(dbClusterParameterGroupName, parameters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBClusterParametersAsync"/>.</summary>
+    public static NeptuneDescribeDBClusterParametersResult DescribeDBClusterParameters(string dbClusterParameterGroupName, string? source = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBClusterParametersAsync(dbClusterParameterGroupName, source, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBSubnetGroupAsync"/>.</summary>
+    public static NeptuneCreateDBSubnetGroupResult CreateDBSubnetGroup(string dbSubnetGroupName, string dbSubnetGroupDescription, List<string> subnetIds, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDBSubnetGroupAsync(dbSubnetGroupName, dbSubnetGroupDescription, subnetIds, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDBSubnetGroupAsync"/>.</summary>
+    public static void DeleteDBSubnetGroup(string dbSubnetGroupName, RegionEndpoint? region = null)
+        => DeleteDBSubnetGroupAsync(dbSubnetGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBSubnetGroupsAsync"/>.</summary>
+    public static NeptuneDescribeDBSubnetGroupsResult DescribeDBSubnetGroups(string? dbSubnetGroupName = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBSubnetGroupsAsync(dbSubnetGroupName, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEventSubscriptionAsync"/>.</summary>
+    public static NeptuneCreateEventSubscriptionResult CreateEventSubscription(CreateEventSubscriptionRequest request, RegionEndpoint? region = null)
+        => CreateEventSubscriptionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEventSubscriptionAsync"/>.</summary>
+    public static NeptuneDeleteEventSubscriptionResult DeleteEventSubscription(string subscriptionName, RegionEndpoint? region = null)
+        => DeleteEventSubscriptionAsync(subscriptionName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventSubscriptionsAsync"/>.</summary>
+    public static NeptuneDescribeEventSubscriptionsResult DescribeEventSubscriptions(string? subscriptionName = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeEventSubscriptionsAsync(subscriptionName, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventsAsync"/>.</summary>
+    public static NeptuneDescribeEventsResult DescribeEvents(DescribeEventsRequest? request = null, RegionEndpoint? region = null)
+        => DescribeEventsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsToResourceAsync"/>.</summary>
+    public static void AddTagsToResource(string resourceName, List<Tag> tags, RegionEndpoint? region = null)
+        => AddTagsToResourceAsync(resourceName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsFromResourceAsync"/>.</summary>
+    public static void RemoveTagsFromResource(string resourceName, List<string> tagKeys, RegionEndpoint? region = null)
+        => RemoveTagsFromResourceAsync(resourceName, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static NeptuneListTagsForResourceResult ListTagsForResource(string resourceName, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="FailoverDBClusterAsync"/>.</summary>
+    public static NeptuneFailoverDBClusterResult FailoverDBCluster(string dbClusterIdentifier, string? targetDBInstanceIdentifier = null, RegionEndpoint? region = null)
+        => FailoverDBClusterAsync(dbClusterIdentifier, targetDBInstanceIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBEngineVersionsAsync"/>.</summary>
+    public static NeptuneDescribeDBEngineVersionsResult DescribeDBEngineVersions(string? engine = null, string? engineVersion = null, string? dbParameterGroupFamily = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBEngineVersionsAsync(engine, engineVersion, dbParameterGroupFamily, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeOrderableDBInstanceOptionsAsync"/>.</summary>
+    public static NeptuneDescribeOrderableDBInstanceOptionsResult DescribeOrderableDBInstanceOptions(string engine, string? engineVersion = null, string? dbInstanceClass = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeOrderableDBInstanceOptionsAsync(engine, engineVersion, dbInstanceClass, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartDBClusterAsync"/>.</summary>
+    public static NeptuneStartDBClusterResult StartDBCluster(string dbClusterIdentifier, RegionEndpoint? region = null)
+        => StartDBClusterAsync(dbClusterIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopDBClusterAsync"/>.</summary>
+    public static NeptuneStopDBClusterResult StopDBCluster(string dbClusterIdentifier, RegionEndpoint? region = null)
+        => StopDBClusterAsync(dbClusterIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CopyDBClusterSnapshotAsync"/>.</summary>
+    public static NeptuneCopyDBClusterSnapshotResult CopyDBClusterSnapshot(string sourceDBClusterSnapshotIdentifier, string targetDBClusterSnapshotIdentifier, string? kmsKeyId = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CopyDBClusterSnapshotAsync(sourceDBClusterSnapshotIdentifier, targetDBClusterSnapshotIdentifier, kmsKeyId, tags, region).GetAwaiter().GetResult();
+
 }

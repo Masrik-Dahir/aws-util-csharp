@@ -680,4 +680,118 @@ public static class MediaConvertService
                 $"Failed to list tags for MediaConvert resource '{arn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateJobAsync"/>.</summary>
+    public static CreateMediaConvertJobResult CreateJob(CreateJobRequest request, RegionEndpoint? region = null)
+        => CreateJobAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelJobAsync"/>.</summary>
+    public static CancelMediaConvertJobResult CancelJob(string jobId, RegionEndpoint? region = null)
+        => CancelJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetJobAsync"/>.</summary>
+    public static GetMediaConvertJobResult GetJob(string jobId, RegionEndpoint? region = null)
+        => GetJobAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListJobsAsync"/>.</summary>
+    public static ListMediaConvertJobsResult ListJobs(string? queue = null, string? status = null, RegionEndpoint? region = null)
+        => ListJobsAsync(queue, status, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateJobTemplateAsync"/>.</summary>
+    public static CreateMediaConvertJobTemplateResult CreateJobTemplate(CreateJobTemplateRequest request, RegionEndpoint? region = null)
+        => CreateJobTemplateAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteJobTemplateAsync"/>.</summary>
+    public static DeleteMediaConvertJobTemplateResult DeleteJobTemplate(string name, RegionEndpoint? region = null)
+        => DeleteJobTemplateAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetJobTemplateAsync"/>.</summary>
+    public static GetMediaConvertJobTemplateResult GetJobTemplate(string name, RegionEndpoint? region = null)
+        => GetJobTemplateAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListJobTemplatesAsync"/>.</summary>
+    public static ListMediaConvertJobTemplatesResult ListJobTemplates(RegionEndpoint? region = null)
+        => ListJobTemplatesAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateJobTemplateAsync"/>.</summary>
+    public static UpdateMediaConvertJobTemplateResult UpdateJobTemplate(UpdateJobTemplateRequest request, RegionEndpoint? region = null)
+        => UpdateJobTemplateAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePresetAsync"/>.</summary>
+    public static CreateMediaConvertPresetResult CreatePreset(CreatePresetRequest request, RegionEndpoint? region = null)
+        => CreatePresetAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePresetAsync"/>.</summary>
+    public static DeleteMediaConvertPresetResult DeletePreset(string name, RegionEndpoint? region = null)
+        => DeletePresetAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPresetAsync"/>.</summary>
+    public static GetMediaConvertPresetResult GetPreset(string name, RegionEndpoint? region = null)
+        => GetPresetAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPresetsAsync"/>.</summary>
+    public static ListMediaConvertPresetsResult ListPresets(RegionEndpoint? region = null)
+        => ListPresetsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdatePresetAsync"/>.</summary>
+    public static UpdateMediaConvertPresetResult UpdatePreset(UpdatePresetRequest request, RegionEndpoint? region = null)
+        => UpdatePresetAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateQueueAsync"/>.</summary>
+    public static CreateMediaConvertQueueResult CreateQueue(CreateQueueRequest request, RegionEndpoint? region = null)
+        => CreateQueueAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteQueueAsync"/>.</summary>
+    public static DeleteMediaConvertQueueResult DeleteQueue(string name, RegionEndpoint? region = null)
+        => DeleteQueueAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetQueueAsync"/>.</summary>
+    public static GetMediaConvertQueueResult GetQueue(string name, RegionEndpoint? region = null)
+        => GetQueueAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListQueuesAsync"/>.</summary>
+    public static ListMediaConvertQueuesResult ListQueues(RegionEndpoint? region = null)
+        => ListQueuesAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateQueueAsync"/>.</summary>
+    public static UpdateMediaConvertQueueResult UpdateQueue(UpdateQueueRequest request, RegionEndpoint? region = null)
+        => UpdateQueueAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEndpointsAsync"/>.</summary>
+    public static DescribeEndpointsResult DescribeEndpoints(RegionEndpoint? region = null)
+        => DescribeEndpointsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssociateCertificateAsync"/>.</summary>
+    public static AssociateCertificateResult AssociateCertificate(string arn, RegionEndpoint? region = null)
+        => AssociateCertificateAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisassociateCertificateAsync"/>.</summary>
+    public static DisassociateCertificateResult DisassociateCertificate(string arn, RegionEndpoint? region = null)
+        => DisassociateCertificateAsync(arn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutPolicyAsync"/>.</summary>
+    public static PutMediaConvertPolicyResult PutPolicy(PutPolicyRequest request, RegionEndpoint? region = null)
+        => PutPolicyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPolicyAsync"/>.</summary>
+    public static GetMediaConvertPolicyResult GetPolicy(RegionEndpoint? region = null)
+        => GetPolicyAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static MediaConvertTagResourceResult TagResource(string arn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(arn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static MediaConvertUntagResourceResult UntagResource(string arn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(arn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ListMediaConvertTagsResult ListTagsForResource(string arn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(arn, region).GetAwaiter().GetResult();
+
 }

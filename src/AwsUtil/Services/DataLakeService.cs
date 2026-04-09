@@ -297,4 +297,22 @@ public static class DataLakeService
             throw ErrorClassifier.WrapAwsError(exc, "Data quality pipeline failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="SchemaEvolutionManagerAsync"/>.</summary>
+    public static SchemaEvolutionManagerResult SchemaEvolutionManager(string databaseName, string tableName, List<Amazon.Glue.Model.Column> newColumns, bool allowBreakingChanges = false, RegionEndpoint? region = null)
+        => SchemaEvolutionManagerAsync(databaseName, tableName, newColumns, allowBreakingChanges, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LakeFormationAccessManagerAsync"/>.</summary>
+    public static LakeFormationAccessManagerResult LakeFormationAccessManager(string databaseName, string principal, List<string> permissions, string? tableName = null, string? auditTableName = null, RegionEndpoint? region = null)
+        => LakeFormationAccessManagerAsync(databaseName, principal, permissions, tableName, auditTableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DataQualityPipelineAsync"/>.</summary>
+    public static DataQualityPipelineResult DataQualityPipeline(string databaseName, string tableName, List<string>? requiredColumns = null, List<string>? uniqueColumns = null, string? resultsTableName = null, RegionEndpoint? region = null)
+        => DataQualityPipelineAsync(databaseName, tableName, requiredColumns, uniqueColumns, resultsTableName, region).GetAwaiter().GetResult();
+
 }

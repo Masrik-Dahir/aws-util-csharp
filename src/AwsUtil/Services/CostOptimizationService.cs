@@ -511,4 +511,34 @@ public static class CostOptimizationService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to enforce log retention policies");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="LambdaRightSizerAsync"/>.</summary>
+    public static List<LambdaRightSizerResult> LambdaRightSizer(List<string>? functionNames = null, int lookbackDays = 14, RegionEndpoint? region = null)
+        => LambdaRightSizerAsync(functionNames, lookbackDays, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UnusedResourceFinderAsync"/>.</summary>
+    public static UnusedResourceFinderResult UnusedResourceFinder(int unusedThresholdDays = 30, RegionEndpoint? region = null)
+        => UnusedResourceFinderAsync(unusedThresholdDays, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ConcurrencyOptimizerAsync"/>.</summary>
+    public static List<ConcurrencyOptimizerResult> ConcurrencyOptimizer(List<string>? functionNames = null, int lookbackDays = 7, RegionEndpoint? region = null)
+        => ConcurrencyOptimizerAsync(functionNames, lookbackDays, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CostAttributionTaggerAsync"/>.</summary>
+    public static CostAttributionTaggerResult CostAttributionTagger(Dictionary<string, string> requiredTags, Dictionary<string, string> defaultTagValues, List<string>? functionArns = null, RegionEndpoint? region = null)
+        => CostAttributionTaggerAsync(requiredTags, defaultTagValues, functionArns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DynamoDbCapacityAdvisorAsync"/>.</summary>
+    public static List<DynamoDbCapacityAdvisorResult> DynamoDbCapacityAdvisor(List<string>? tableNames = null, int lookbackDays = 14, RegionEndpoint? region = null)
+        => DynamoDbCapacityAdvisorAsync(tableNames, lookbackDays, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LogRetentionEnforcerAsync"/>.</summary>
+    public static LogRetentionEnforcerResult LogRetentionEnforcer(int maxRetentionDays = 90, int defaultRetentionDays = 30, string? logGroupPrefix = null, RegionEndpoint? region = null)
+        => LogRetentionEnforcerAsync(maxRetentionDays, defaultRetentionDays, logGroupPrefix, region).GetAwaiter().GetResult();
+
 }

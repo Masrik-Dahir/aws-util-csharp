@@ -634,4 +634,42 @@ public static class DeploymentService
                 $"Failed to build Lambda package from '{sourcePath}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="LambdaCanaryDeployAsync"/>.</summary>
+    public static LambdaCanaryDeployResult LambdaCanaryDeploy(string functionName, string aliasName, double canaryWeight = 0.1, bool promoteImmediately = false, RegionEndpoint? region = null)
+        => LambdaCanaryDeployAsync(functionName, aliasName, canaryWeight, promoteImmediately, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LambdaLayerPublisherAsync"/>.</summary>
+    public static LambdaLayerPublisherResult LambdaLayerPublisher(string layerName, string? s3Bucket = null, string? s3Key = null, byte[]? zipContent = null, string? description = null, List<string>? compatibleRuntimes = null, List<string>? compatibleArchitectures = null, string? licenseInfo = null, RegionEndpoint? region = null)
+        => LambdaLayerPublisherAsync(layerName, s3Bucket, s3Key, zipContent, description, compatibleRuntimes, compatibleArchitectures, licenseInfo, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StackDeployerAsync"/>.</summary>
+    public static StackDeployerResult StackDeployer(string stackName, string? templateBody = null, string? templateUrl = null, List<Parameter>? parameters = null, List<string>? capabilities = null, Dictionary<string, string>? tags = null, int timeoutMinutes = 30, int pollIntervalSeconds = 10, RegionEndpoint? region = null)
+        => StackDeployerAsync(stackName, templateBody, templateUrl, parameters, capabilities, tags, timeoutMinutes, pollIntervalSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnvironmentPromoterAsync"/>.</summary>
+    public static EnvironmentPromoterResult EnvironmentPromoter(string functionName, string sourceAlias, string targetAlias, RegionEndpoint? region = null)
+        => EnvironmentPromoterAsync(functionName, sourceAlias, targetAlias, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LambdaWarmerAsync"/>.</summary>
+    public static LambdaWarmerResult LambdaWarmer(string functionName, int concurrency = 5, string? qualifier = null, RegionEndpoint? region = null)
+        => LambdaWarmerAsync(functionName, concurrency, qualifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ConfigDriftDetectorAsync"/>.</summary>
+    public static ConfigDriftDetectorResult ConfigDriftDetector(string stackName, int pollIntervalSeconds = 10, int timeoutSeconds = 300, RegionEndpoint? region = null)
+        => ConfigDriftDetectorAsync(stackName, pollIntervalSeconds, timeoutSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RollbackManagerAsync"/>.</summary>
+    public static RollbackManagerResult RollbackManager(string functionName, string aliasName, string targetVersion, RegionEndpoint? region = null)
+        => RollbackManagerAsync(functionName, aliasName, targetVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LambdaPackageBuilderAsync"/>.</summary>
+    public static LambdaPackageBuilderResult LambdaPackageBuilder(string sourcePath, string bucket, string key, List<string>? excludePatterns = null, RegionEndpoint? region = null)
+        => LambdaPackageBuilderAsync(sourcePath, bucket, key, excludePatterns, region).GetAwaiter().GetResult();
+
 }

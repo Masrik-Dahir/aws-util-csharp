@@ -336,4 +336,46 @@ public static class StsService
             transitiveTagKeys: transitiveTagKeys,
             region: region);
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="AssumeRoleAsync"/>.</summary>
+    public static AssumeRoleResult AssumeRole(string roleArn, string roleSessionName, int? durationSeconds = null, string? externalId = null, string? policy = null, List<PolicyDescriptorType>? policyArns = null, string? serialNumber = null, string? tokenCode = null, List<Tag>? tags = null, List<string>? transitiveTagKeys = null, RegionEndpoint? region = null)
+        => AssumeRoleAsync(roleArn, roleSessionName, durationSeconds, externalId, policy, policyArns, serialNumber, tokenCode, tags, transitiveTagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssumeRoleWithWebIdentityAsync"/>.</summary>
+    public static AssumeRoleResult AssumeRoleWithWebIdentity(string roleArn, string roleSessionName, string webIdentityToken, int? durationSeconds = null, string? providerId = null, string? policy = null, List<PolicyDescriptorType>? policyArns = null, RegionEndpoint? region = null)
+        => AssumeRoleWithWebIdentityAsync(roleArn, roleSessionName, webIdentityToken, durationSeconds, providerId, policy, policyArns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssumeRoleWithSAMLAsync"/>.</summary>
+    public static AssumeRoleResult AssumeRoleWithSAML(string roleArn, string principalArn, string samlAssertion, int? durationSeconds = null, string? policy = null, List<PolicyDescriptorType>? policyArns = null, RegionEndpoint? region = null)
+        => AssumeRoleWithSAMLAsync(roleArn, principalArn, samlAssertion, durationSeconds, policy, policyArns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCallerIdentityAsync"/>.</summary>
+    public static CallerIdentityResult GetCallerIdentity(RegionEndpoint? region = null)
+        => GetCallerIdentityAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSessionTokenAsync"/>.</summary>
+    public static SessionTokenResult GetSessionToken(int? durationSeconds = null, string? serialNumber = null, string? tokenCode = null, RegionEndpoint? region = null)
+        => GetSessionTokenAsync(durationSeconds, serialNumber, tokenCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetFederationTokenAsync"/>.</summary>
+    public static FederationTokenResult GetFederationToken(string name, int? durationSeconds = null, string? policy = null, List<PolicyDescriptorType>? policyArns = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => GetFederationTokenAsync(name, durationSeconds, policy, policyArns, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DecodeAuthorizationMessageAsync"/>.</summary>
+    public static DecodeAuthorizationMessageResult DecodeAuthorizationMessage(string encodedMessage, RegionEndpoint? region = null)
+        => DecodeAuthorizationMessageAsync(encodedMessage, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAccessKeyInfoAsync"/>.</summary>
+    public static AccessKeyInfoResult GetAccessKeyInfo(string accessKeyId, RegionEndpoint? region = null)
+        => GetAccessKeyInfoAsync(accessKeyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagSessionAsync"/>.</summary>
+    public static AssumeRoleResult TagSession(string roleArn, string roleSessionName, Dictionary<string, string> sessionTags, List<string>? transitiveTagKeys = null, int? durationSeconds = null, string? externalId = null, RegionEndpoint? region = null)
+        => TagSessionAsync(roleArn, roleSessionName, sessionTags, transitiveTagKeys, durationSeconds, externalId, region).GetAwaiter().GetResult();
+
 }

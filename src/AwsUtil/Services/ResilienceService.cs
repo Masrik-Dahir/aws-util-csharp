@@ -450,4 +450,22 @@ public static class ResilienceService
                 Elapsed: stopwatch.Elapsed);
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="DlqMonitorAndAlertAsync"/>.</summary>
+    public static DlqMonitorAndAlertResult DlqMonitorAndAlert(string queueUrl, int alertThreshold = 10, string? snsTopicArn = null, RegionEndpoint? region = null)
+        => DlqMonitorAndAlertAsync(queueUrl, alertThreshold, snsTopicArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PoisonPillHandlerAsync"/>.</summary>
+    public static PoisonPillHandlerResult PoisonPillHandler(string queueUrl, string receiptHandle, string messageId, int maxReceiveCount = 3, string? dlqUrl = null, string? messageBody = null, RegionEndpoint? region = null)
+        => PoisonPillHandlerAsync(queueUrl, receiptHandle, messageId, maxReceiveCount, dlqUrl, messageBody, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="LambdaDestinationRouterAsync"/>.</summary>
+    public static LambdaDestinationRouterResult LambdaDestinationRouter(string payload, bool isSuccess, string? successDestinationArn = null, string? failureDestinationArn = null, RegionEndpoint? region = null)
+        => LambdaDestinationRouterAsync(payload, isSuccess, successDestinationArn, failureDestinationArn, region).GetAwaiter().GetResult();
+
 }

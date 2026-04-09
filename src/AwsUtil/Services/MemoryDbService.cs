@@ -1296,4 +1296,158 @@ public static class MemoryDbService
                 "Failed to purchase MemoryDB reserved nodes offering");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClusterAsync"/>.</summary>
+    public static MemoryDbCreateClusterResult CreateCluster(CreateClusterRequest request, RegionEndpoint? region = null)
+        => CreateClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteClusterAsync"/>.</summary>
+    public static MemoryDbDeleteClusterResult DeleteCluster(string clusterName, string? finalSnapshotName = null, RegionEndpoint? region = null)
+        => DeleteClusterAsync(clusterName, finalSnapshotName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClustersAsync"/>.</summary>
+    public static MemoryDbDescribeClustersResult DescribeClusters(string? clusterName = null, bool? showShardDetails = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeClustersAsync(clusterName, showShardDetails, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateClusterAsync"/>.</summary>
+    public static MemoryDbUpdateClusterResult UpdateCluster(UpdateClusterRequest request, RegionEndpoint? region = null)
+        => UpdateClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSnapshotAsync"/>.</summary>
+    public static MemoryDbCreateSnapshotResult CreateSnapshot(string clusterName, string snapshotName, string? kmsKeyId = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateSnapshotAsync(clusterName, snapshotName, kmsKeyId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSnapshotAsync"/>.</summary>
+    public static MemoryDbDeleteSnapshotResult DeleteSnapshot(string snapshotName, RegionEndpoint? region = null)
+        => DeleteSnapshotAsync(snapshotName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSnapshotsAsync"/>.</summary>
+    public static MemoryDbDescribeSnapshotsResult DescribeSnapshots(string? clusterName = null, string? snapshotName = null, string? source = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeSnapshotsAsync(clusterName, snapshotName, source, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CopySnapshotAsync"/>.</summary>
+    public static MemoryDbCopySnapshotResult CopySnapshot(string sourceSnapshotName, string targetSnapshotName, string? targetBucket = null, string? kmsKeyId = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CopySnapshotAsync(sourceSnapshotName, targetSnapshotName, targetBucket, kmsKeyId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSubnetGroupAsync"/>.</summary>
+    public static MemoryDbCreateSubnetGroupResult CreateSubnetGroup(string subnetGroupName, List<string> subnetIds, string? description = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateSubnetGroupAsync(subnetGroupName, subnetIds, description, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSubnetGroupAsync"/>.</summary>
+    public static MemoryDbDeleteSubnetGroupResult DeleteSubnetGroup(string subnetGroupName, RegionEndpoint? region = null)
+        => DeleteSubnetGroupAsync(subnetGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSubnetGroupsAsync"/>.</summary>
+    public static MemoryDbDescribeSubnetGroupsResult DescribeSubnetGroups(string? subnetGroupName = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeSubnetGroupsAsync(subnetGroupName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateSubnetGroupAsync"/>.</summary>
+    public static MemoryDbUpdateSubnetGroupResult UpdateSubnetGroup(string subnetGroupName, List<string>? subnetIds = null, string? description = null, RegionEndpoint? region = null)
+        => UpdateSubnetGroupAsync(subnetGroupName, subnetIds, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateParameterGroupAsync"/>.</summary>
+    public static MemoryDbCreateParameterGroupResult CreateParameterGroup(string parameterGroupName, string family, string? description = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateParameterGroupAsync(parameterGroupName, family, description, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteParameterGroupAsync"/>.</summary>
+    public static MemoryDbDeleteParameterGroupResult DeleteParameterGroup(string parameterGroupName, RegionEndpoint? region = null)
+        => DeleteParameterGroupAsync(parameterGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeParameterGroupsAsync"/>.</summary>
+    public static MemoryDbDescribeParameterGroupsResult DescribeParameterGroups(string? parameterGroupName = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeParameterGroupsAsync(parameterGroupName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateParameterGroupAsync"/>.</summary>
+    public static MemoryDbUpdateParameterGroupResult UpdateParameterGroup(string parameterGroupName, List<ParameterNameValue> parameterNameValues, RegionEndpoint? region = null)
+        => UpdateParameterGroupAsync(parameterGroupName, parameterNameValues, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeParametersAsync"/>.</summary>
+    public static MemoryDbDescribeParametersResult DescribeParameters(string parameterGroupName, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeParametersAsync(parameterGroupName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResetParameterGroupAsync"/>.</summary>
+    public static MemoryDbResetParameterGroupResult ResetParameterGroup(string parameterGroupName, bool allParameters = false, List<ParameterNameValue>? parameterNames = null, RegionEndpoint? region = null)
+        => ResetParameterGroupAsync(parameterGroupName, allParameters, parameterNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateACLAsync"/>.</summary>
+    public static MemoryDbCreateACLResult CreateACL(string aclName, List<string>? userNames = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateACLAsync(aclName, userNames, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteACLAsync"/>.</summary>
+    public static MemoryDbDeleteACLResult DeleteACL(string aclName, RegionEndpoint? region = null)
+        => DeleteACLAsync(aclName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeACLsAsync"/>.</summary>
+    public static MemoryDbDescribeACLsResult DescribeACLs(string? aclName = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeACLsAsync(aclName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateACLAsync"/>.</summary>
+    public static MemoryDbUpdateACLResult UpdateACL(string aclName, List<string>? userNamesToAdd = null, List<string>? userNamesToRemove = null, RegionEndpoint? region = null)
+        => UpdateACLAsync(aclName, userNamesToAdd, userNamesToRemove, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateUserAsync"/>.</summary>
+    public static MemoryDbCreateUserResult CreateUser(CreateUserRequest request, RegionEndpoint? region = null)
+        => CreateUserAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUserAsync"/>.</summary>
+    public static MemoryDbDeleteUserResult DeleteUser(string userName, RegionEndpoint? region = null)
+        => DeleteUserAsync(userName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeUsersAsync"/>.</summary>
+    public static MemoryDbDescribeUsersResult DescribeUsers(string? userName = null, List<Filter>? filters = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeUsersAsync(userName, filters, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateUserAsync"/>.</summary>
+    public static MemoryDbUpdateUserResult UpdateUser(UpdateUserRequest request, RegionEndpoint? region = null)
+        => UpdateUserAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventsAsync"/>.</summary>
+    public static MemoryDbDescribeEventsResult DescribeEvents(DescribeEventsRequest? request = null, RegionEndpoint? region = null)
+        => DescribeEventsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="FailoverShardAsync"/>.</summary>
+    public static MemoryDbFailoverShardResult FailoverShard(string clusterName, string shardName, RegionEndpoint? region = null)
+        => FailoverShardAsync(clusterName, shardName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeServiceUpdatesAsync"/>.</summary>
+    public static MemoryDbDescribeServiceUpdatesResult DescribeServiceUpdates(string? serviceUpdateName = null, List<string>? clusterNames = null, List<string>? status = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeServiceUpdatesAsync(serviceUpdateName, clusterNames, status, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchUpdateClusterAsync"/>.</summary>
+    public static MemoryDbBatchUpdateClusterResult BatchUpdateCluster(BatchUpdateClusterRequest request, RegionEndpoint? region = null)
+        => BatchUpdateClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsAsync"/>.</summary>
+    public static MemoryDbListTagsResult ListTags(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAllowedNodeTypeUpdatesAsync"/>.</summary>
+    public static MemoryDbListAllowedNodeTypeUpdatesResult ListAllowedNodeTypeUpdates(string clusterName, RegionEndpoint? region = null)
+        => ListAllowedNodeTypeUpdatesAsync(clusterName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeReservedNodesAsync"/>.</summary>
+    public static MemoryDbDescribeReservedNodesResult DescribeReservedNodes(string? reservedNodeId = null, string? reservedNodesOfferingId = null, string? nodeType = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeReservedNodesAsync(reservedNodeId, reservedNodesOfferingId, nodeType, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeReservedNodesOfferingsAsync"/>.</summary>
+    public static MemoryDbDescribeReservedNodesOfferingsResult DescribeReservedNodesOfferings(string? reservedNodesOfferingId = null, string? nodeType = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => DescribeReservedNodesOfferingsAsync(reservedNodesOfferingId, nodeType, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PurchaseReservedNodesOfferingAsync"/>.</summary>
+    public static MemoryDbPurchaseReservedNodesOfferingResult PurchaseReservedNodesOffering(string reservedNodesOfferingId, string? reservationId = null, int? nodeCount = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => PurchaseReservedNodesOfferingAsync(reservedNodesOfferingId, reservationId, nodeCount, tags, region).GetAwaiter().GetResult();
+
 }

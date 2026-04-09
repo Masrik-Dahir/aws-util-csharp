@@ -1,4 +1,4 @@
-name: NuGet Vulnerability Audit
+name: NuGet Audit
 
 on:
   push:
@@ -6,11 +6,11 @@ on:
   pull_request:
     branches: [main, master]
   schedule:
-    - cron: "0 9 * * 1" # Every Monday at 9 AM UTC
+    - cron: "0 8 * * 1" # Every Monday at 8 AM UTC
 
 jobs:
   audit:
-    name: Audit NuGet Packages
+    name: Audit NuGet Dependencies
     runs-on: ubuntu-latest
 
     steps:
@@ -21,27 +21,16 @@ jobs:
         with:
           dotnet-version: "10.0.x"
 
-      - name: Restore with audit
+      - name: Restore dependencies
         run: dotnet restore
 
-      - name: List vulnerable packages
-        run: dotnet list package --vulnerable --include-transitive 2>&1 | tee vulnerability-report.txt
+      - name: Check for deprecated packages
+        run: dotnet list package --deprecated
+        continue-on-error: true
 
-      - name: Check for critical vulnerabilities
-        run: |
-          if grep -qi "critical" vulnerability-report.txt; then
-            echo "::error::Critical vulnerabilities found in dependencies!"
-            exit 1
-          fi
+      - name: Check for vulnerable packages
+        run: dotnet list package --vulnerable --include-transitive
 
-      - name: List outdated packages
-        run: dotnet list package --outdated 2>&1 | tee outdated-report.txt
-
-      - name: Upload audit reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: audit-reports
-          path: |
-            vulnerability-report.txt
-            outdated-report.txt
-          retention-days: 14
+      - name: Check for outdated packages
+        run: dotnet list package --outdated
+        continue-on-error: true

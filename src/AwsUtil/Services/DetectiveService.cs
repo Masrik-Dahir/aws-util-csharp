@@ -881,4 +881,118 @@ public static class DetectiveService
                 $"Failed to list indicators for investigation '{investigationId}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGraphAsync"/>.</summary>
+    public static DetectiveGraphResult CreateGraph(Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateGraphAsync(tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGraphAsync"/>.</summary>
+    public static void DeleteGraph(string graphArn, RegionEndpoint? region = null)
+        => DeleteGraphAsync(graphArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGraphsAsync"/>.</summary>
+    public static List<DetectiveGraphListResult> ListGraphs(RegionEndpoint? region = null)
+        => ListGraphsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateMembersAsync"/>.</summary>
+    public static List<DetectiveMemberResult> CreateMembers(string graphArn, List<Account> accounts, string? message = null, bool? disableEmailNotification = null, RegionEndpoint? region = null)
+        => CreateMembersAsync(graphArn, accounts, message, disableEmailNotification, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteMembersAsync"/>.</summary>
+    public static void DeleteMembers(string graphArn, List<string> accountIds, RegionEndpoint? region = null)
+        => DeleteMembersAsync(graphArn, accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetMembersAsync"/>.</summary>
+    public static List<DetectiveMemberResult> GetMembers(string graphArn, List<string> accountIds, RegionEndpoint? region = null)
+        => GetMembersAsync(graphArn, accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListMembersAsync"/>.</summary>
+    public static List<DetectiveMemberResult> ListMembers(string graphArn, RegionEndpoint? region = null)
+        => ListMembersAsync(graphArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AcceptInvitationAsync"/>.</summary>
+    public static void AcceptInvitation(string graphArn, RegionEndpoint? region = null)
+        => AcceptInvitationAsync(graphArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RejectInvitationAsync"/>.</summary>
+    public static void RejectInvitation(string graphArn, RegionEndpoint? region = null)
+        => RejectInvitationAsync(graphArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisassociateMembershipAsync"/>.</summary>
+    public static void DisassociateMembership(string graphArn, RegionEndpoint? region = null)
+        => DisassociateMembershipAsync(graphArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListInvitationsAsync"/>.</summary>
+    public static List<DetectiveInvitationResult> ListInvitations(RegionEndpoint? region = null)
+        => ListInvitationsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartMonitoringMemberAsync"/>.</summary>
+    public static void StartMonitoringMember(string graphArn, string accountId, RegionEndpoint? region = null)
+        => StartMonitoringMemberAsync(graphArn, accountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatasourcePackagesAsync"/>.</summary>
+    public static List<DetectiveDatasourceResult> ListDatasourcePackages(string graphArn, RegionEndpoint? region = null)
+        => ListDatasourcePackagesAsync(graphArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDatasourcePackagesAsync"/>.</summary>
+    public static void UpdateDatasourcePackages(string graphArn, List<string> datasourcePackages, RegionEndpoint? region = null)
+        => UpdateDatasourcePackagesAsync(graphArn, datasourcePackages, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableOrganizationAdminAccountAsync"/>.</summary>
+    public static void EnableOrganizationAdminAccount(string accountId, RegionEndpoint? region = null)
+        => EnableOrganizationAdminAccountAsync(accountId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableOrganizationAdminAccountAsync"/>.</summary>
+    public static void DisableOrganizationAdminAccount(RegionEndpoint? region = null)
+        => DisableOrganizationAdminAccountAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListOrganizationAdminAccountsAsync"/>.</summary>
+    public static List<DetectiveAdminAccountResult> ListOrganizationAdminAccounts(RegionEndpoint? region = null)
+        => ListOrganizationAdminAccountsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetGraphMemberDatasourcesAsync"/>.</summary>
+    public static List<DetectiveMemberDatasourceResult> BatchGetGraphMemberDatasources(string graphArn, List<string> accountIds, RegionEndpoint? region = null)
+        => BatchGetGraphMemberDatasourcesAsync(graphArn, accountIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BatchGetMembershipDatasourcesAsync"/>.</summary>
+    public static List<DetectiveMemberDatasourceResult> BatchGetMembershipDatasources(List<string> graphArns, RegionEndpoint? region = null)
+        => BatchGetMembershipDatasourcesAsync(graphArns, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static List<DetectiveTagResult> ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartInvestigationAsync"/>.</summary>
+    public static DetectiveInvestigationResult StartInvestigation(string graphArn, string entityArn, DateTime scopeStartTime, DateTime scopeEndTime, RegionEndpoint? region = null)
+        => StartInvestigationAsync(graphArn, entityArn, scopeStartTime, scopeEndTime, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetInvestigationAsync"/>.</summary>
+    public static DetectiveInvestigationResult GetInvestigation(string graphArn, string investigationId, RegionEndpoint? region = null)
+        => GetInvestigationAsync(graphArn, investigationId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListInvestigationsAsync"/>.</summary>
+    public static List<DetectiveInvestigationResult> ListInvestigations(string graphArn, FilterCriteria? filterCriteria = null, RegionEndpoint? region = null)
+        => ListInvestigationsAsync(graphArn, filterCriteria, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateInvestigationStateAsync"/>.</summary>
+    public static void UpdateInvestigationState(string graphArn, string investigationId, string state, RegionEndpoint? region = null)
+        => UpdateInvestigationStateAsync(graphArn, investigationId, state, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListIndicatorsAsync"/>.</summary>
+    public static List<DetectiveIndicatorResult> ListIndicators(string graphArn, string investigationId, RegionEndpoint? region = null)
+        => ListIndicatorsAsync(graphArn, investigationId, region).GetAwaiter().GetResult();
+
 }

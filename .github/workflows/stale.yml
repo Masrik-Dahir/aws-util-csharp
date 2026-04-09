@@ -19,13 +19,11 @@ jobs:
           stale-issue-message: >
             This issue has been automatically marked as stale because it has not had
             activity in the last 60 days. It will be closed in 14 days if no further
-            activity occurs. Thank you for your contribution!
+            activity occurs.
           stale-pr-message: >
             This PR has been automatically marked as stale because it has not had
             activity in the last 30 days. It will be closed in 14 days if no further
             activity occurs.
-          close-issue-message: "This issue was closed because it has been stale for 14 days with no activity."
-          close-pr-message: "This PR was closed because it has been stale for 14 days with no activity."
           days-before-issue-stale: 60
           days-before-pr-stale: 30
           days-before-issue-close: 14

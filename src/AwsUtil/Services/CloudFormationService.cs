@@ -768,4 +768,110 @@ public static class CloudFormationService
                 $"Failed to get stack policy for '{stackName}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateStackAsync"/>.</summary>
+    public static CreateStackResult CreateStack(CreateStackRequest request, RegionEndpoint? region = null)
+        => CreateStackAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateStackAsync"/>.</summary>
+    public static UpdateStackResult UpdateStack(UpdateStackRequest request, RegionEndpoint? region = null)
+        => UpdateStackAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteStackAsync"/>.</summary>
+    public static DeleteStackResult DeleteStack(string stackName, List<string>? retainResources = null, string? roleArn = null, string? clientRequestToken = null, RegionEndpoint? region = null)
+        => DeleteStackAsync(stackName, retainResources, roleArn, clientRequestToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStacksAsync"/>.</summary>
+    public static DescribeStacksResult DescribeStacks(string? stackName = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeStacksAsync(stackName, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStacksAsync"/>.</summary>
+    public static ListStacksResult ListStacks(List<string>? stackStatusFilter = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListStacksAsync(stackStatusFilter, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStackResourcesAsync"/>.</summary>
+    public static DescribeStackResourcesResult DescribeStackResources(string? stackName = null, string? logicalResourceId = null, string? physicalResourceId = null, RegionEndpoint? region = null)
+        => DescribeStackResourcesAsync(stackName, logicalResourceId, physicalResourceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStackEventsAsync"/>.</summary>
+    public static DescribeStackEventsResult DescribeStackEvents(string? stackName = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeStackEventsAsync(stackName, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTemplateAsync"/>.</summary>
+    public static GetTemplateResult GetTemplate(string? stackName = null, string? changeSetName = null, string? templateStage = null, RegionEndpoint? region = null)
+        => GetTemplateAsync(stackName, changeSetName, templateStage, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ValidateTemplateAsync"/>.</summary>
+    public static ValidateTemplateResult ValidateTemplate(string? templateBody = null, string? templateUrl = null, RegionEndpoint? region = null)
+        => ValidateTemplateAsync(templateBody, templateUrl, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateChangeSetAsync"/>.</summary>
+    public static CreateChangeSetResult CreateChangeSet(CreateChangeSetRequest request, RegionEndpoint? region = null)
+        => CreateChangeSetAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ExecuteChangeSetAsync"/>.</summary>
+    public static ExecuteChangeSetResult ExecuteChangeSet(string changeSetName, string? stackName = null, string? clientRequestToken = null, bool? disableRollback = null, RegionEndpoint? region = null)
+        => ExecuteChangeSetAsync(changeSetName, stackName, clientRequestToken, disableRollback, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteChangeSetAsync"/>.</summary>
+    public static DeleteChangeSetResult DeleteChangeSet(string changeSetName, string? stackName = null, RegionEndpoint? region = null)
+        => DeleteChangeSetAsync(changeSetName, stackName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeChangeSetAsync"/>.</summary>
+    public static DescribeChangeSetResult DescribeChangeSet(string changeSetName, string? stackName = null, string? nextToken = null, RegionEndpoint? region = null)
+        => DescribeChangeSetAsync(changeSetName, stackName, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListChangeSetAsync"/>.</summary>
+    public static ListChangeSetsResult ListChangeSet(string stackName, string? nextToken = null, RegionEndpoint? region = null)
+        => ListChangeSetAsync(stackName, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListStackResourcesAsync"/>.</summary>
+    public static ListStackResourcesResult ListStackResources(string stackName, string? nextToken = null, RegionEndpoint? region = null)
+        => ListStackResourcesAsync(stackName, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTemplateSummaryAsync"/>.</summary>
+    public static GetTemplateSummaryResult GetTemplateSummary(string? templateBody = null, string? templateUrl = null, string? stackName = null, string? stackSetName = null, RegionEndpoint? region = null)
+        => GetTemplateSummaryAsync(templateBody, templateUrl, stackName, stackSetName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListExportsAsync"/>.</summary>
+    public static ListExportsResult ListExports(string? nextToken = null, RegionEndpoint? region = null)
+        => ListExportsAsync(nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListImportsAsync"/>.</summary>
+    public static ListImportsResult ListImports(string exportName, string? nextToken = null, RegionEndpoint? region = null)
+        => ListImportsAsync(exportName, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DetectStackDriftAsync"/>.</summary>
+    public static DetectStackDriftResult DetectStackDrift(string stackName, List<string>? logicalResourceIds = null, RegionEndpoint? region = null)
+        => DetectStackDriftAsync(stackName, logicalResourceIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStackDriftDetectionStatusAsync"/>.</summary>
+    public static DescribeStackDriftDetectionStatusResult DescribeStackDriftDetectionStatus(string stackDriftDetectionId, RegionEndpoint? region = null)
+        => DescribeStackDriftDetectionStatusAsync(stackDriftDetectionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ContinueUpdateRollbackAsync"/>.</summary>
+    public static ContinueUpdateRollbackResult ContinueUpdateRollback(string stackName, string? roleArn = null, List<string>? resourcesToSkip = null, string? clientRequestToken = null, RegionEndpoint? region = null)
+        => ContinueUpdateRollbackAsync(stackName, roleArn, resourcesToSkip, clientRequestToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SignalResourceAsync"/>.</summary>
+    public static SignalResourceResult SignalResource(string stackName, string logicalResourceId, string uniqueId, string status, RegionEndpoint? region = null)
+        => SignalResourceAsync(stackName, logicalResourceId, uniqueId, status, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EstimateTemplateCostAsync"/>.</summary>
+    public static EstimateTemplateCostResult EstimateTemplateCost(string? templateBody = null, string? templateUrl = null, List<Parameter>? parameters = null, RegionEndpoint? region = null)
+        => EstimateTemplateCostAsync(templateBody, templateUrl, parameters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetStackPolicyAsync"/>.</summary>
+    public static SetStackPolicyResult SetStackPolicy(string stackName, string? stackPolicyBody = null, string? stackPolicyUrl = null, RegionEndpoint? region = null)
+        => SetStackPolicyAsync(stackName, stackPolicyBody, stackPolicyUrl, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetStackPolicyAsync"/>.</summary>
+    public static GetStackPolicyResult GetStackPolicy(string stackName, RegionEndpoint? region = null)
+        => GetStackPolicyAsync(stackName, region).GetAwaiter().GetResult();
+
 }

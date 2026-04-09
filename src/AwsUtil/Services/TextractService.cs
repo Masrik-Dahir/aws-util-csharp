@@ -938,4 +938,110 @@ public static class TextractService
                 $"Failed to list tags for Textract resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="DetectDocumentTextAsync"/>.</summary>
+    public static DetectDocumentTextResult DetectDocumentText(Document document, RegionEndpoint? region = null)
+        => DetectDocumentTextAsync(document, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AnalyzeDocumentAsync"/>.</summary>
+    public static AnalyzeDocumentResult AnalyzeDocument(Document document, List<string> featureTypes, HumanLoopConfig? humanLoopConfig = null, QueriesConfig? queriesConfig = null, AdaptersConfig? adaptersConfig = null, RegionEndpoint? region = null)
+        => AnalyzeDocumentAsync(document, featureTypes, humanLoopConfig, queriesConfig, adaptersConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AnalyzeExpenseAsync"/>.</summary>
+    public static AnalyzeExpenseResult AnalyzeExpense(Document document, RegionEndpoint? region = null)
+        => AnalyzeExpenseAsync(document, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AnalyzeIDAsync"/>.</summary>
+    public static AnalyzeIdResult AnalyzeID(List<Document> documentPages, RegionEndpoint? region = null)
+        => AnalyzeIDAsync(documentPages, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartDocumentTextDetectionAsync"/>.</summary>
+    public static StartTextractJobResult StartDocumentTextDetection(DocumentLocation documentLocation, string? clientRequestToken = null, string? jobTag = null, NotificationChannel? notificationChannel = null, OutputConfig? outputConfig = null, string? kmsKeyId = null, RegionEndpoint? region = null)
+        => StartDocumentTextDetectionAsync(documentLocation, clientRequestToken, jobTag, notificationChannel, outputConfig, kmsKeyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDocumentTextDetectionAsync"/>.</summary>
+    public static GetDocumentTextDetectionResult GetDocumentTextDetection(string jobId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetDocumentTextDetectionAsync(jobId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartDocumentAnalysisAsync"/>.</summary>
+    public static StartTextractJobResult StartDocumentAnalysis(DocumentLocation documentLocation, List<string> featureTypes, string? clientRequestToken = null, string? jobTag = null, NotificationChannel? notificationChannel = null, OutputConfig? outputConfig = null, string? kmsKeyId = null, QueriesConfig? queriesConfig = null, AdaptersConfig? adaptersConfig = null, RegionEndpoint? region = null)
+        => StartDocumentAnalysisAsync(documentLocation, featureTypes, clientRequestToken, jobTag, notificationChannel, outputConfig, kmsKeyId, queriesConfig, adaptersConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetDocumentAnalysisAsync"/>.</summary>
+    public static GetDocumentAnalysisResult GetDocumentAnalysis(string jobId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetDocumentAnalysisAsync(jobId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartExpenseAnalysisAsync"/>.</summary>
+    public static StartTextractJobResult StartExpenseAnalysis(DocumentLocation documentLocation, string? clientRequestToken = null, string? jobTag = null, NotificationChannel? notificationChannel = null, OutputConfig? outputConfig = null, string? kmsKeyId = null, RegionEndpoint? region = null)
+        => StartExpenseAnalysisAsync(documentLocation, clientRequestToken, jobTag, notificationChannel, outputConfig, kmsKeyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetExpenseAnalysisAsync"/>.</summary>
+    public static GetExpenseAnalysisResult GetExpenseAnalysis(string jobId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetExpenseAnalysisAsync(jobId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartLendingAnalysisAsync"/>.</summary>
+    public static StartTextractJobResult StartLendingAnalysis(DocumentLocation documentLocation, string? clientRequestToken = null, string? jobTag = null, NotificationChannel? notificationChannel = null, OutputConfig? outputConfig = null, string? kmsKeyId = null, RegionEndpoint? region = null)
+        => StartLendingAnalysisAsync(documentLocation, clientRequestToken, jobTag, notificationChannel, outputConfig, kmsKeyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetLendingAnalysisAsync"/>.</summary>
+    public static GetLendingAnalysisResult GetLendingAnalysis(string jobId, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => GetLendingAnalysisAsync(jobId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetLendingAnalysisSummaryAsync"/>.</summary>
+    public static GetLendingAnalysisSummaryResult GetLendingAnalysisSummary(string jobId, RegionEndpoint? region = null)
+        => GetLendingAnalysisSummaryAsync(jobId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAdapterAsync"/>.</summary>
+    public static CreateAdapterResult CreateAdapter(string adapterName, List<string> featureTypes, string? description = null, string? autoUpdate = null, string? clientRequestToken = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateAdapterAsync(adapterName, featureTypes, description, autoUpdate, clientRequestToken, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAdapterAsync"/>.</summary>
+    public static void DeleteAdapter(string adapterId, RegionEndpoint? region = null)
+        => DeleteAdapterAsync(adapterId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAdapterAsync"/>.</summary>
+    public static GetAdapterResult GetAdapter(string adapterId, RegionEndpoint? region = null)
+        => GetAdapterAsync(adapterId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAdaptersAsync"/>.</summary>
+    public static ListAdaptersResult ListAdapters(int? maxResults = null, string? nextToken = null, DateTime? afterCreationTime = null, DateTime? beforeCreationTime = null, RegionEndpoint? region = null)
+        => ListAdaptersAsync(maxResults, nextToken, afterCreationTime, beforeCreationTime, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAdapterAsync"/>.</summary>
+    public static UpdateAdapterResult UpdateAdapter(string adapterId, string? adapterName = null, string? description = null, string? autoUpdate = null, RegionEndpoint? region = null)
+        => UpdateAdapterAsync(adapterId, adapterName, description, autoUpdate, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAdapterVersionAsync"/>.</summary>
+    public static CreateAdapterVersionResult CreateAdapterVersion(string adapterId, AdapterVersionDatasetConfig datasetConfig, OutputConfig? outputConfig = null, string? clientRequestToken = null, string? kmsKeyId = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateAdapterVersionAsync(adapterId, datasetConfig, outputConfig, clientRequestToken, kmsKeyId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAdapterVersionAsync"/>.</summary>
+    public static void DeleteAdapterVersion(string adapterId, string adapterVersion, RegionEndpoint? region = null)
+        => DeleteAdapterVersionAsync(adapterId, adapterVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAdapterVersionAsync"/>.</summary>
+    public static GetAdapterVersionResult GetAdapterVersion(string adapterId, string adapterVersion, RegionEndpoint? region = null)
+        => GetAdapterVersionAsync(adapterId, adapterVersion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAdapterVersionsAsync"/>.</summary>
+    public static ListAdapterVersionsResult ListAdapterVersions(string? adapterId = null, int? maxResults = null, string? nextToken = null, DateTime? afterCreationTime = null, DateTime? beforeCreationTime = null, RegionEndpoint? region = null)
+        => ListAdapterVersionsAsync(adapterId, maxResults, nextToken, afterCreationTime, beforeCreationTime, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static TextractListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

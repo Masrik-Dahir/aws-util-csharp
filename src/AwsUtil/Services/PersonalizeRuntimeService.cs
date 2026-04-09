@@ -141,4 +141,21 @@ public static class PersonalizeRuntimeService
                 "Failed to get action recommendations");
         }
     }
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="GetRecommendationsAsync"/>.</summary>
+    public static PersonalizeGetRecommendationsResult GetRecommendations(string? campaignArn = null, string? recommenderArn = null, string? userId = null, string? itemId = null, int? numResults = null, string? filterArn = null, Dictionary<string, string>? filterValues = null, Dictionary<string, string>? context = null, List<Promotion>? promotions = null, RegionEndpoint? region = null)
+        => GetRecommendationsAsync(campaignArn, recommenderArn, userId, itemId, numResults, filterArn, filterValues, context, promotions, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPersonalizedRankingAsync"/>.</summary>
+    public static PersonalizeGetPersonalizedRankingResult GetPersonalizedRanking(string campaignArn, string userId, List<string> inputList, string? filterArn = null, Dictionary<string, string>? filterValues = null, Dictionary<string, string>? context = null, RegionEndpoint? region = null)
+        => GetPersonalizedRankingAsync(campaignArn, userId, inputList, filterArn, filterValues, context, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetActionRecommendationsAsync"/>.</summary>
+    public static PersonalizeGetActionRecommendationsResult GetActionRecommendations(string? campaignArn = null, string? userId = null, int? numResults = null, string? filterArn = null, Dictionary<string, string>? filterValues = null, RegionEndpoint? region = null)
+        => GetActionRecommendationsAsync(campaignArn, userId, numResults, filterArn, filterValues, region).GetAwaiter().GetResult();
+
 }

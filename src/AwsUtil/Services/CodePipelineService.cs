@@ -821,4 +821,126 @@ public static class CodePipelineService
                 "Failed to list webhooks");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePipelineAsync"/>.</summary>
+    public static CpCreatePipelineResult CreatePipeline(CreatePipelineRequest request, RegionEndpoint? region = null)
+        => CreatePipelineAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeletePipelineAsync"/>.</summary>
+    public static CpDeletePipelineResult DeletePipeline(string name, RegionEndpoint? region = null)
+        => DeletePipelineAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPipelineAsync"/>.</summary>
+    public static CpGetPipelineResult GetPipeline(string name, int? version = null, RegionEndpoint? region = null)
+        => GetPipelineAsync(name, version, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPipelinesAsync"/>.</summary>
+    public static CpListPipelinesResult ListPipelines(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListPipelinesAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdatePipelineAsync"/>.</summary>
+    public static CpUpdatePipelineResult UpdatePipeline(PipelineDeclaration pipeline, RegionEndpoint? region = null)
+        => UpdatePipelineAsync(pipeline, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartPipelineExecutionAsync"/>.</summary>
+    public static CpStartPipelineExecutionResult StartPipelineExecution(StartPipelineExecutionRequest request, RegionEndpoint? region = null)
+        => StartPipelineExecutionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopPipelineExecutionAsync"/>.</summary>
+    public static CpStopPipelineExecutionResult StopPipelineExecution(StopPipelineExecutionRequest request, RegionEndpoint? region = null)
+        => StopPipelineExecutionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPipelineExecutionAsync"/>.</summary>
+    public static CpGetPipelineExecutionResult GetPipelineExecution(string pipelineName, string pipelineExecutionId, RegionEndpoint? region = null)
+        => GetPipelineExecutionAsync(pipelineName, pipelineExecutionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPipelineExecutionsAsync"/>.</summary>
+    public static CpListPipelineExecutionsResult ListPipelineExecutions(string pipelineName, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListPipelineExecutionsAsync(pipelineName, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPipelineStateAsync"/>.</summary>
+    public static CpGetPipelineStateResult GetPipelineState(string name, RegionEndpoint? region = null)
+        => GetPipelineStateAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableStageTransitionAsync"/>.</summary>
+    public static CpEnableStageTransitionResult EnableStageTransition(string pipelineName, string stageName, string transitionType, RegionEndpoint? region = null)
+        => EnableStageTransitionAsync(pipelineName, stageName, transitionType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableStageTransitionAsync"/>.</summary>
+    public static CpDisableStageTransitionResult DisableStageTransition(string pipelineName, string stageName, string transitionType, string reason, RegionEndpoint? region = null)
+        => DisableStageTransitionAsync(pipelineName, stageName, transitionType, reason, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutApprovalResultAsync"/>.</summary>
+    public static CpPutApprovalResultResult PutApprovalResult(PutApprovalResultRequest request, RegionEndpoint? region = null)
+        => PutApprovalResultAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AcknowledgeJobAsync"/>.</summary>
+    public static CpAcknowledgeJobResult AcknowledgeJob(string jobId, string nonce, RegionEndpoint? region = null)
+        => AcknowledgeJobAsync(jobId, nonce, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PollForJobsAsync"/>.</summary>
+    public static CpPollForJobsResult PollForJobs(PollForJobsRequest request, RegionEndpoint? region = null)
+        => PollForJobsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutJobSuccessResultAsync"/>.</summary>
+    public static CpPutJobSuccessResultResult PutJobSuccessResult(PutJobSuccessResultRequest request, RegionEndpoint? region = null)
+        => PutJobSuccessResultAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutJobFailureResultAsync"/>.</summary>
+    public static CpPutJobFailureResultResult PutJobFailureResult(PutJobFailureResultRequest request, RegionEndpoint? region = null)
+        => PutJobFailureResultAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RetryStageExecutionAsync"/>.</summary>
+    public static CpRetryStageExecutionResult RetryStageExecution(RetryStageExecutionRequest request, RegionEndpoint? region = null)
+        => RetryStageExecutionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RollbackStageAsync"/>.</summary>
+    public static CpRollbackStageResult RollbackStage(RollbackStageRequest request, RegionEndpoint? region = null)
+        => RollbackStageAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static CpTagResourceResult TagResource(string resourceArn, List<Amazon.CodePipeline.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static CpUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static CpListTagsForResourceResult ListTagsForResource(string resourceArn, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutActionRevisionAsync"/>.</summary>
+    public static CpPutActionRevisionResult PutActionRevision(PutActionRevisionRequest request, RegionEndpoint? region = null)
+        => PutActionRevisionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListActionExecutionsAsync"/>.</summary>
+    public static CpListActionExecutionsResult ListActionExecutions(ListActionExecutionsRequest request, RegionEndpoint? region = null)
+        => ListActionExecutionsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RegisterWebhookWithThirdPartyAsync"/>.</summary>
+    public static CpRegisterWebhookWithThirdPartyResult RegisterWebhookWithThirdParty(string? webhookName = null, RegionEndpoint? region = null)
+        => RegisterWebhookWithThirdPartyAsync(webhookName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeregisterWebhookWithThirdPartyAsync"/>.</summary>
+    public static CpDeregisterWebhookWithThirdPartyResult DeregisterWebhookWithThirdParty(string? webhookName = null, RegionEndpoint? region = null)
+        => DeregisterWebhookWithThirdPartyAsync(webhookName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutWebhookAsync"/>.</summary>
+    public static CpPutWebhookResult PutWebhook(PutWebhookRequest request, RegionEndpoint? region = null)
+        => PutWebhookAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteWebhookAsync"/>.</summary>
+    public static CpDeleteWebhookResult DeleteWebhook(string name, RegionEndpoint? region = null)
+        => DeleteWebhookAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListWebhooksAsync"/>.</summary>
+    public static CpListWebhooksResult ListWebhooks(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListWebhooksAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
 }

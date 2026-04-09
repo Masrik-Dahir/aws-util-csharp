@@ -274,4 +274,22 @@ public static class EventPatternsService
             throw ErrorClassifier.WrapAwsError(exc, "Event transformation failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="EventPatternMatcherAsync"/>.</summary>
+    public static EventPatternMatcherResult EventPatternMatcher(string eventPattern, List<Dictionary<string, object?>> testEvents, RegionEndpoint? region = null)
+        => EventPatternMatcherAsync(eventPattern, testEvents, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EventFilterBuilderAsync"/>.</summary>
+    public static EventFilterBuilderResult EventFilterBuilder(string filterName, List<string> sources, List<string>? detailTypes = null, Dictionary<string, List<string>>? detailFilters = null, string? eventBusName = null, RegionEndpoint? region = null)
+        => EventFilterBuilderAsync(filterName, sources, detailTypes, detailFilters, eventBusName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EventTransformerAsync"/>.</summary>
+    public static EventTransformerResult EventTransformer(List<Dictionary<string, object?>> events, string? newSource = null, string? newDetailType = null, Dictionary<string, string>? fieldMappings = null, string? targetEventBusName = null, RegionEndpoint? region = null)
+        => EventTransformerAsync(events, newSource, newDetailType, fieldMappings, targetEventBusName, region).GetAwaiter().GetResult();
+
 }

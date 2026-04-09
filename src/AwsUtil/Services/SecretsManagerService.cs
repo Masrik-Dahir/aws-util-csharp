@@ -601,4 +601,86 @@ public static class SecretsManagerService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to validate resource policy");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSecretAsync"/>.</summary>
+    public static string CreateSecret(string name, object value, string description = "", string? kmsKeyId = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateSecretAsync(name, value, description, kmsKeyId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateSecretAsync"/>.</summary>
+    public static void UpdateSecret(string name, object value, RegionEndpoint? region = null)
+        => UpdateSecretAsync(name, value, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSecretAsync"/>.</summary>
+    public static void DeleteSecret(string name, int recoveryWindowInDays = 30, bool forceDelete = false, RegionEndpoint? region = null)
+        => DeleteSecretAsync(name, recoveryWindowInDays, forceDelete, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSecretsAsync"/>.</summary>
+    public static List<Dictionary<string, object?>> ListSecrets(string? namePrefix = null, RegionEndpoint? region = null)
+        => ListSecretsAsync(namePrefix, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RotateSecretAsync"/>.</summary>
+    public static void RotateSecret(string name, string? lambdaArn = null, int? rotationDays = null, RegionEndpoint? region = null)
+        => RotateSecretAsync(name, lambdaArn, rotationDays, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSecretAsync"/>.</summary>
+    public static string GetSecret(string inner, RegionEndpoint? region = null)
+        => GetSecretAsync(inner, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSecretAsync"/>.</summary>
+    public static DescribeSecretResult DescribeSecret(string secretId, RegionEndpoint? region = null)
+        => DescribeSecretAsync(secretId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSecretValueAsync"/>.</summary>
+    public static GetSecretValueResult GetSecretValue(string secretId, string? versionId = null, string? versionStage = null, RegionEndpoint? region = null)
+        => GetSecretValueAsync(secretId, versionId, versionStage, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRandomPasswordAsync"/>.</summary>
+    public static GetRandomPasswordResult GetRandomPassword(int? passwordLength = null, string? excludeCharacters = null, bool? excludeNumbers = null, bool? excludePunctuation = null, bool? excludeUppercase = null, bool? excludeLowercase = null, bool? includeSpace = null, bool? requireEachIncludedType = null, RegionEndpoint? region = null)
+        => GetRandomPasswordAsync(passwordLength, excludeCharacters, excludeNumbers, excludePunctuation, excludeUppercase, excludeLowercase, includeSpace, requireEachIncludedType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string secretId, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(secretId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string secretId, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(secretId, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RestoreSecretAsync"/>.</summary>
+    public static RestoreSecretResult RestoreSecret(string secretId, RegionEndpoint? region = null)
+        => RestoreSecretAsync(secretId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetResourcePolicyAsync"/>.</summary>
+    public static GetResourcePolicyResult GetResourcePolicy(string secretId, RegionEndpoint? region = null)
+        => GetResourcePolicyAsync(secretId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutResourcePolicyAsync"/>.</summary>
+    public static PutResourcePolicyResult PutResourcePolicy(string secretId, string resourcePolicy, bool? blockPublicPolicy = null, RegionEndpoint? region = null)
+        => PutResourcePolicyAsync(secretId, resourcePolicy, blockPublicPolicy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteResourcePolicyAsync"/>.</summary>
+    public static DeleteResourcePolicyResult DeleteResourcePolicy(string secretId, RegionEndpoint? region = null)
+        => DeleteResourcePolicyAsync(secretId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelRotateSecretAsync"/>.</summary>
+    public static CancelRotateSecretResult CancelRotateSecret(string secretId, RegionEndpoint? region = null)
+        => CancelRotateSecretAsync(secretId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutSecretValueAsync"/>.</summary>
+    public static PutSecretValueResult PutSecretValue(string secretId, string? clientRequestToken = null, byte[]? secretBinary = null, string? secretString = null, List<string>? versionStages = null, RegionEndpoint? region = null)
+        => PutSecretValueAsync(secretId, clientRequestToken, secretBinary, secretString, versionStages, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateSecretVersionStageAsync"/>.</summary>
+    public static UpdateSecretVersionStageResult UpdateSecretVersionStage(string secretId, string versionStage, string? removeFromVersionId = null, string? moveToVersionId = null, RegionEndpoint? region = null)
+        => UpdateSecretVersionStageAsync(secretId, versionStage, removeFromVersionId, moveToVersionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ValidateResourcePolicyAsync"/>.</summary>
+    public static ValidateResourcePolicyResult ValidateResourcePolicy(string resourcePolicy, string? secretId = null, RegionEndpoint? region = null)
+        => ValidateResourcePolicyAsync(resourcePolicy, secretId, region).GetAwaiter().GetResult();
+
 }

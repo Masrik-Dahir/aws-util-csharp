@@ -1196,4 +1196,158 @@ public static class EventBridgeService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to list tags for resource");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="PutEventsAsync"/>.</summary>
+    public static PutEventsResult PutEvents(List<PutEventsRequestEntry> entries, string? endpointId = null, RegionEndpoint? region = null)
+        => PutEventsAsync(entries, endpointId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutRuleAsync"/>.</summary>
+    public static PutRuleResult PutRule(PutRuleRequest request, RegionEndpoint? region = null)
+        => PutRuleAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRuleAsync"/>.</summary>
+    public static DeleteRuleResult DeleteRule(string name, string? eventBusName = null, bool? force = null, RegionEndpoint? region = null)
+        => DeleteRuleAsync(name, eventBusName, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeRuleAsync"/>.</summary>
+    public static DescribeRuleResult DescribeRule(string name, string? eventBusName = null, RegionEndpoint? region = null)
+        => DescribeRuleAsync(name, eventBusName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRulesAsync"/>.</summary>
+    public static ListRulesResult ListRules(string? namePrefix = null, string? eventBusName = null, string? nextToken = null, int? limit = null, RegionEndpoint? region = null)
+        => ListRulesAsync(namePrefix, eventBusName, nextToken, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableRuleAsync"/>.</summary>
+    public static EnableRuleResult EnableRule(string name, string? eventBusName = null, RegionEndpoint? region = null)
+        => EnableRuleAsync(name, eventBusName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableRuleAsync"/>.</summary>
+    public static DisableRuleResult DisableRule(string name, string? eventBusName = null, RegionEndpoint? region = null)
+        => DisableRuleAsync(name, eventBusName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutTargetsAsync"/>.</summary>
+    public static PutTargetsResult PutTargets(string rule, List<Target> targets, string? eventBusName = null, RegionEndpoint? region = null)
+        => PutTargetsAsync(rule, targets, eventBusName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTargetsAsync"/>.</summary>
+    public static RemoveTargetsResult RemoveTargets(string rule, List<string> ids, string? eventBusName = null, bool? force = null, RegionEndpoint? region = null)
+        => RemoveTargetsAsync(rule, ids, eventBusName, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTargetsByRuleAsync"/>.</summary>
+    public static ListTargetsByRuleResult ListTargetsByRule(string rule, string? eventBusName = null, string? nextToken = null, int? limit = null, RegionEndpoint? region = null)
+        => ListTargetsByRuleAsync(rule, eventBusName, nextToken, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEventBusAsync"/>.</summary>
+    public static CreateEventBusResult CreateEventBus(string name, string? eventSourceName = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateEventBusAsync(name, eventSourceName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEventBusAsync"/>.</summary>
+    public static DeleteEventBusResult DeleteEventBus(string name, RegionEndpoint? region = null)
+        => DeleteEventBusAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventBusAsync"/>.</summary>
+    public static DescribeEventBusResult DescribeEventBus(string? name = null, RegionEndpoint? region = null)
+        => DescribeEventBusAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListEventBusesAsync"/>.</summary>
+    public static ListEventBusesResult ListEventBuses(string? namePrefix = null, string? nextToken = null, int? limit = null, RegionEndpoint? region = null)
+        => ListEventBusesAsync(namePrefix, nextToken, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutPermissionAsync"/>.</summary>
+    public static PutPermissionResult PutPermission(string? eventBusName = null, string? action = null, string? principal = null, string? statementId = null, Condition? condition = null, string? policy = null, RegionEndpoint? region = null)
+        => PutPermissionAsync(eventBusName, action, principal, statementId, condition, policy, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemovePermissionAsync"/>.</summary>
+    public static RemovePermissionResult RemovePermission(string? statementId = null, string? eventBusName = null, bool? removeAllPermissions = null, RegionEndpoint? region = null)
+        => RemovePermissionAsync(statementId, eventBusName, removeAllPermissions, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventSourceAsync"/>.</summary>
+    public static DescribeEventSourceResult DescribeEventSource(string name, RegionEndpoint? region = null)
+        => DescribeEventSourceAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListEventSourcesAsync"/>.</summary>
+    public static ListEventSourcesResult ListEventSources(string? namePrefix = null, string? nextToken = null, int? limit = null, RegionEndpoint? region = null)
+        => ListEventSourcesAsync(namePrefix, nextToken, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateArchiveAsync"/>.</summary>
+    public static CreateArchiveResult CreateArchive(string archiveName, string eventSourceArn, string? description = null, string? eventPattern = null, int? retentionDays = null, RegionEndpoint? region = null)
+        => CreateArchiveAsync(archiveName, eventSourceArn, description, eventPattern, retentionDays, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteArchiveAsync"/>.</summary>
+    public static DeleteArchiveResult DeleteArchive(string archiveName, RegionEndpoint? region = null)
+        => DeleteArchiveAsync(archiveName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeArchiveAsync"/>.</summary>
+    public static DescribeArchiveResult DescribeArchive(string archiveName, RegionEndpoint? region = null)
+        => DescribeArchiveAsync(archiveName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListArchivesAsync"/>.</summary>
+    public static ListArchivesResult ListArchives(string? namePrefix = null, string? eventSourceArn = null, string? state = null, string? nextToken = null, int? limit = null, RegionEndpoint? region = null)
+        => ListArchivesAsync(namePrefix, eventSourceArn, state, nextToken, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartReplayAsync"/>.</summary>
+    public static StartReplayResult StartReplay(StartReplayRequest request, RegionEndpoint? region = null)
+        => StartReplayAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeReplayAsync"/>.</summary>
+    public static DescribeReplayResult DescribeReplay(string replayName, RegionEndpoint? region = null)
+        => DescribeReplayAsync(replayName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListReplaysAsync"/>.</summary>
+    public static ListReplaysResult ListReplays(string? namePrefix = null, string? state = null, string? eventSourceArn = null, string? nextToken = null, int? limit = null, RegionEndpoint? region = null)
+        => ListReplaysAsync(namePrefix, state, eventSourceArn, nextToken, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelReplayAsync"/>.</summary>
+    public static CancelReplayResult CancelReplay(string replayName, RegionEndpoint? region = null)
+        => CancelReplayAsync(replayName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateConnectionAsync"/>.</summary>
+    public static CreateConnectionResult CreateConnection(CreateConnectionRequest request, RegionEndpoint? region = null)
+        => CreateConnectionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConnectionAsync"/>.</summary>
+    public static DeleteConnectionResult DeleteConnection(string name, RegionEndpoint? region = null)
+        => DeleteConnectionAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeConnectionAsync"/>.</summary>
+    public static DescribeConnectionResult DescribeConnection(string name, RegionEndpoint? region = null)
+        => DescribeConnectionAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListConnectionsAsync"/>.</summary>
+    public static ListConnectionsResult ListConnections(string? namePrefix = null, string? connectionState = null, string? nextToken = null, int? limit = null, RegionEndpoint? region = null)
+        => ListConnectionsAsync(namePrefix, connectionState, nextToken, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateApiDestinationAsync"/>.</summary>
+    public static CreateApiDestinationResult CreateApiDestination(CreateApiDestinationRequest request, RegionEndpoint? region = null)
+        => CreateApiDestinationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApiDestinationAsync"/>.</summary>
+    public static DeleteApiDestinationResult DeleteApiDestination(string name, RegionEndpoint? region = null)
+        => DeleteApiDestinationAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeApiDestinationAsync"/>.</summary>
+    public static DescribeApiDestinationResult DescribeApiDestination(string name, RegionEndpoint? region = null)
+        => DescribeApiDestinationAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListApiDestinationsAsync"/>.</summary>
+    public static ListApiDestinationsResult ListApiDestinations(string? namePrefix = null, string? connectionArn = null, string? nextToken = null, int? limit = null, RegionEndpoint? region = null)
+        => ListApiDestinationsAsync(namePrefix, connectionArn, nextToken, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static EbTagResourceResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static EbUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static EbListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

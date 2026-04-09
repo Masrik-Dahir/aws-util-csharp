@@ -647,4 +647,102 @@ public static class SnsService
             throw ErrorClassifier.WrapAwsError(exc, $"Failed to opt in phone number '{phoneNumber}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="PublishAsync"/>.</summary>
+    public static PublishResult Publish(string message, string? topicArn = null, string? targetArn = null, string? phoneNumber = null, string? subject = null, Dictionary<string, MessageAttributeValue>? messageAttributes = null, string? messageStructure = null, string? messageDeduplicationId = null, string? messageGroupId = null, RegionEndpoint? region = null)
+        => PublishAsync(message, topicArn, targetArn, phoneNumber, subject, messageAttributes, messageStructure, messageDeduplicationId, messageGroupId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTopicAsync"/>.</summary>
+    public static CreateTopicResult CreateTopic(string name, Dictionary<string, string>? attributes = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateTopicAsync(name, attributes, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTopicAsync"/>.</summary>
+    public static void DeleteTopic(string topicArn, RegionEndpoint? region = null)
+        => DeleteTopicAsync(topicArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SubscribeAsync"/>.</summary>
+    public static SubscribeResult Subscribe(string topicArn, string protocol, string? endpoint = null, Dictionary<string, string>? attributes = null, bool returnSubscriptionArn = true, RegionEndpoint? region = null)
+        => SubscribeAsync(topicArn, protocol, endpoint, attributes, returnSubscriptionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UnsubscribeAsync"/>.</summary>
+    public static void Unsubscribe(string subscriptionArn, RegionEndpoint? region = null)
+        => UnsubscribeAsync(subscriptionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTopicsAsync"/>.</summary>
+    public static ListTopicsResult ListTopics(RegionEndpoint? region = null)
+        => ListTopicsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSubscriptionsAsync"/>.</summary>
+    public static ListSubscriptionsResult ListSubscriptions(RegionEndpoint? region = null)
+        => ListSubscriptionsAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSubscriptionsByTopicAsync"/>.</summary>
+    public static ListSubscriptionsResult ListSubscriptionsByTopic(string topicArn, RegionEndpoint? region = null)
+        => ListSubscriptionsByTopicAsync(topicArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetTopicAttributesAsync"/>.</summary>
+    public static TopicAttributesResult GetTopicAttributes(string topicArn, RegionEndpoint? region = null)
+        => GetTopicAttributesAsync(topicArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetTopicAttributesAsync"/>.</summary>
+    public static void SetTopicAttributes(string topicArn, string attributeName, string attributeValue, RegionEndpoint? region = null)
+        => SetTopicAttributesAsync(topicArn, attributeName, attributeValue, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSubscriptionAttributesAsync"/>.</summary>
+    public static SubscriptionAttributesResult GetSubscriptionAttributes(string subscriptionArn, RegionEndpoint? region = null)
+        => GetSubscriptionAttributesAsync(subscriptionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetSubscriptionAttributesAsync"/>.</summary>
+    public static void SetSubscriptionAttributes(string subscriptionArn, string attributeName, string attributeValue, RegionEndpoint? region = null)
+        => SetSubscriptionAttributesAsync(subscriptionArn, attributeName, attributeValue, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ConfirmSubscriptionAsync"/>.</summary>
+    public static ConfirmSubscriptionResult ConfirmSubscription(string topicArn, string token, bool? authenticateOnUnsubscribe = null, RegionEndpoint? region = null)
+        => ConfirmSubscriptionAsync(topicArn, token, authenticateOnUnsubscribe, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static SnsListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePlatformApplicationAsync"/>.</summary>
+    public static CreatePlatformApplicationResult CreatePlatformApplication(string name, string platform, Dictionary<string, string> attributes, RegionEndpoint? region = null)
+        => CreatePlatformApplicationAsync(name, platform, attributes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreatePlatformEndpointAsync"/>.</summary>
+    public static CreatePlatformEndpointResult CreatePlatformEndpoint(string platformApplicationArn, string token, string? customUserData = null, Dictionary<string, string>? attributes = null, RegionEndpoint? region = null)
+        => CreatePlatformEndpointAsync(platformApplicationArn, token, customUserData, attributes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PublishBatchAsync"/>.</summary>
+    public static PublishBatchResult PublishBatch(string topicArn, List<PublishBatchRequestEntry> entries, RegionEndpoint? region = null)
+        => PublishBatchAsync(topicArn, entries, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetSmsAttributesAsync"/>.</summary>
+    public static void SetSmsAttributes(Dictionary<string, string> attributes, RegionEndpoint? region = null)
+        => SetSmsAttributesAsync(attributes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CheckIfPhoneNumberIsOptedOutAsync"/>.</summary>
+    public static CheckIfPhoneNumberIsOptedOutResult CheckIfPhoneNumberIsOptedOut(string phoneNumber, RegionEndpoint? region = null)
+        => CheckIfPhoneNumberIsOptedOutAsync(phoneNumber, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListPhoneNumbersOptedOutAsync"/>.</summary>
+    public static ListPhoneNumbersOptedOutResult ListPhoneNumbersOptedOut(RegionEndpoint? region = null)
+        => ListPhoneNumbersOptedOutAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="OptInPhoneNumberAsync"/>.</summary>
+    public static void OptInPhoneNumber(string phoneNumber, RegionEndpoint? region = null)
+        => OptInPhoneNumberAsync(phoneNumber, region).GetAwaiter().GetResult();
+
 }

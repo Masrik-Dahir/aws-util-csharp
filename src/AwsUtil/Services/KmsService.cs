@@ -1186,4 +1186,166 @@ public static class KmsService
             throw ErrorClassifier.WrapAwsError(exc, $"Failed to update primary region for key '{keyId}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateKeyAsync"/>.</summary>
+    public static CreateKeyResult CreateKey(CreateKeyRequest? request = null, RegionEndpoint? region = null)
+        => CreateKeyAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeKeyAsync"/>.</summary>
+    public static DescribeKeyResult DescribeKey(string keyId, RegionEndpoint? region = null)
+        => DescribeKeyAsync(keyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListKeysAsync"/>.</summary>
+    public static ListKeysResult ListKeys(int? limit = null, string? marker = null, RegionEndpoint? region = null)
+        => ListKeysAsync(limit, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableKeyAsync"/>.</summary>
+    public static void EnableKey(string keyId, RegionEndpoint? region = null)
+        => EnableKeyAsync(keyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableKeyAsync"/>.</summary>
+    public static void DisableKey(string keyId, RegionEndpoint? region = null)
+        => DisableKeyAsync(keyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ScheduleKeyDeletionAsync"/>.</summary>
+    public static ScheduleKeyDeletionResult ScheduleKeyDeletion(string keyId, int? pendingWindowInDays = null, RegionEndpoint? region = null)
+        => ScheduleKeyDeletionAsync(keyId, pendingWindowInDays, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelKeyDeletionAsync"/>.</summary>
+    public static void CancelKeyDeletion(string keyId, RegionEndpoint? region = null)
+        => CancelKeyDeletionAsync(keyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EncryptAsync"/>.</summary>
+    public static EncryptResult Encrypt(string keyId, MemoryStream plaintext, string? encryptionAlgorithm = null, Dictionary<string, string>? encryptionContext = null, List<string>? grantTokens = null, RegionEndpoint? region = null)
+        => EncryptAsync(keyId, plaintext, encryptionAlgorithm, encryptionContext, grantTokens, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DecryptAsync"/>.</summary>
+    public static DecryptResult Decrypt(MemoryStream ciphertextBlob, string? keyId = null, string? encryptionAlgorithm = null, Dictionary<string, string>? encryptionContext = null, List<string>? grantTokens = null, RegionEndpoint? region = null)
+        => DecryptAsync(ciphertextBlob, keyId, encryptionAlgorithm, encryptionContext, grantTokens, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ReEncryptAsync"/>.</summary>
+    public static ReEncryptResult ReEncrypt(MemoryStream ciphertextBlob, string destinationKeyId, string? sourceKeyId = null, string? sourceEncryptionAlgorithm = null, string? destinationEncryptionAlgorithm = null, Dictionary<string, string>? sourceEncryptionContext = null, Dictionary<string, string>? destinationEncryptionContext = null, List<string>? grantTokens = null, RegionEndpoint? region = null)
+        => ReEncryptAsync(ciphertextBlob, destinationKeyId, sourceKeyId, sourceEncryptionAlgorithm, destinationEncryptionAlgorithm, sourceEncryptionContext, destinationEncryptionContext, grantTokens, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GenerateDataKeyAsync"/>.</summary>
+    public static GenerateDataKeyResult GenerateDataKey(string keyId, string? keySpec = null, int? numberOfBytes = null, Dictionary<string, string>? encryptionContext = null, List<string>? grantTokens = null, RegionEndpoint? region = null)
+        => GenerateDataKeyAsync(keyId, keySpec, numberOfBytes, encryptionContext, grantTokens, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GenerateDataKeyWithoutPlaintextAsync"/>.</summary>
+    public static GenerateDataKeyWithoutPlaintextResult GenerateDataKeyWithoutPlaintext(string keyId, string? keySpec = null, int? numberOfBytes = null, Dictionary<string, string>? encryptionContext = null, List<string>? grantTokens = null, RegionEndpoint? region = null)
+        => GenerateDataKeyWithoutPlaintextAsync(keyId, keySpec, numberOfBytes, encryptionContext, grantTokens, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAliasAsync"/>.</summary>
+    public static void CreateAlias(string aliasName, string targetKeyId, RegionEndpoint? region = null)
+        => CreateAliasAsync(aliasName, targetKeyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAliasAsync"/>.</summary>
+    public static void DeleteAlias(string aliasName, RegionEndpoint? region = null)
+        => DeleteAliasAsync(aliasName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAliasesAsync"/>.</summary>
+    public static KmsListAliasesResult ListAliases(string? keyId = null, int? limit = null, string? marker = null, RegionEndpoint? region = null)
+        => ListAliasesAsync(keyId, limit, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAliasAsync"/>.</summary>
+    public static void UpdateAlias(string aliasName, string targetKeyId, RegionEndpoint? region = null)
+        => UpdateAliasAsync(aliasName, targetKeyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateGrantAsync"/>.</summary>
+    public static CreateGrantResult CreateGrant(CreateGrantRequest request, RegionEndpoint? region = null)
+        => CreateGrantAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RetireGrantAsync"/>.</summary>
+    public static void RetireGrant(string? grantToken = null, string? keyId = null, string? grantId = null, RegionEndpoint? region = null)
+        => RetireGrantAsync(grantToken, keyId, grantId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RevokeGrantAsync"/>.</summary>
+    public static void RevokeGrant(string keyId, string grantId, RegionEndpoint? region = null)
+        => RevokeGrantAsync(keyId, grantId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGrantsAsync"/>.</summary>
+    public static ListGrantsResult ListGrants(string keyId, int? limit = null, string? marker = null, string? granteePrincipal = null, string? grantId = null, RegionEndpoint? region = null)
+        => ListGrantsAsync(keyId, limit, marker, granteePrincipal, grantId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="EnableKeyRotationAsync"/>.</summary>
+    public static void EnableKeyRotation(string keyId, RegionEndpoint? region = null)
+        => EnableKeyRotationAsync(keyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisableKeyRotationAsync"/>.</summary>
+    public static void DisableKeyRotation(string keyId, RegionEndpoint? region = null)
+        => DisableKeyRotationAsync(keyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetKeyRotationStatusAsync"/>.</summary>
+    public static GetKeyRotationStatusResult GetKeyRotationStatus(string keyId, RegionEndpoint? region = null)
+        => GetKeyRotationStatusAsync(keyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetKeyPolicyAsync"/>.</summary>
+    public static GetKeyPolicyResult GetKeyPolicy(string keyId, string policyName = "default", RegionEndpoint? region = null)
+        => GetKeyPolicyAsync(keyId, policyName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutKeyPolicyAsync"/>.</summary>
+    public static void PutKeyPolicy(string keyId, string policy, string policyName = "default", bool? bypassPolicyLockoutSafetyCheck = null, RegionEndpoint? region = null)
+        => PutKeyPolicyAsync(keyId, policy, policyName, bypassPolicyLockoutSafetyCheck, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListKeyPoliciesAsync"/>.</summary>
+    public static ListKeyPoliciesResult ListKeyPolicies(string keyId, int? limit = null, string? marker = null, RegionEndpoint? region = null)
+        => ListKeyPoliciesAsync(keyId, limit, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string keyId, List<Amazon.KeyManagementService.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(keyId, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string keyId, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(keyId, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListResourceTagsAsync"/>.</summary>
+    public static ListResourceTagsResult ListResourceTags(string keyId, int? limit = null, string? marker = null, RegionEndpoint? region = null)
+        => ListResourceTagsAsync(keyId, limit, marker, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateKeyDescriptionAsync"/>.</summary>
+    public static void UpdateKeyDescription(string keyId, string description, RegionEndpoint? region = null)
+        => UpdateKeyDescriptionAsync(keyId, description, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetPublicKeyAsync"/>.</summary>
+    public static GetPublicKeyResult GetPublicKey(string keyId, List<string>? grantTokens = null, RegionEndpoint? region = null)
+        => GetPublicKeyAsync(keyId, grantTokens, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SignAsync"/>.</summary>
+    public static SignResult Sign(string keyId, MemoryStream message, string signingAlgorithm, string? messageType = null, List<string>? grantTokens = null, RegionEndpoint? region = null)
+        => SignAsync(keyId, message, signingAlgorithm, messageType, grantTokens, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="VerifyAsync"/>.</summary>
+    public static VerifyResult Verify(string keyId, MemoryStream message, MemoryStream signature, string signingAlgorithm, string? messageType = null, List<string>? grantTokens = null, RegionEndpoint? region = null)
+        => VerifyAsync(keyId, message, signature, signingAlgorithm, messageType, grantTokens, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GenerateRandomAsync"/>.</summary>
+    public static GenerateRandomResult GenerateRandom(int numberOfBytes, string? customKeyStoreId = null, RegionEndpoint? region = null)
+        => GenerateRandomAsync(numberOfBytes, customKeyStoreId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ImportKeyMaterialAsync"/>.</summary>
+    public static void ImportKeyMaterial(string keyId, MemoryStream importToken, MemoryStream encryptedKeyMaterial, DateTime? validTo = null, string? expirationModel = null, RegionEndpoint? region = null)
+        => ImportKeyMaterialAsync(keyId, importToken, encryptedKeyMaterial, validTo, expirationModel, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteImportedKeyMaterialAsync"/>.</summary>
+    public static void DeleteImportedKeyMaterial(string keyId, RegionEndpoint? region = null)
+        => DeleteImportedKeyMaterialAsync(keyId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetParametersForImportAsync"/>.</summary>
+    public static GetParametersForImportResult GetParametersForImport(string keyId, string wrappingAlgorithm, string wrappingKeySpec, RegionEndpoint? region = null)
+        => GetParametersForImportAsync(keyId, wrappingAlgorithm, wrappingKeySpec, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ReplicateKeyAsync"/>.</summary>
+    public static ReplicateKeyResult ReplicateKey(string keyId, string replicaRegion, string? policy = null, string? description = null, List<Amazon.KeyManagementService.Model.Tag>? tags = null, bool? bypassPolicyLockoutSafetyCheck = null, RegionEndpoint? region = null)
+        => ReplicateKeyAsync(keyId, replicaRegion, policy, description, tags, bypassPolicyLockoutSafetyCheck, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdatePrimaryRegionAsync"/>.</summary>
+    public static void UpdatePrimaryRegion(string keyId, string primaryRegion, RegionEndpoint? region = null)
+        => UpdatePrimaryRegionAsync(keyId, primaryRegion, region).GetAwaiter().GetResult();
+
 }

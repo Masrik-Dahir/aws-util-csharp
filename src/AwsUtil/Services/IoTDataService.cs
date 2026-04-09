@@ -218,4 +218,38 @@ public static class IoTDataService
                 $"Failed to get retained message for topic '{topic}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="PublishAsync"/>.</summary>
+    public static IoTPublishResult Publish(string topic, MemoryStream? payload = null, int? qos = null, bool? retain = null, string? contentType = null, RegionEndpoint? region = null)
+        => PublishAsync(topic, payload, qos, retain, contentType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetThingShadowAsync"/>.</summary>
+    public static GetThingShadowResult GetThingShadow(string thingName, string? shadowName = null, RegionEndpoint? region = null)
+        => GetThingShadowAsync(thingName, shadowName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateThingShadowAsync"/>.</summary>
+    public static UpdateThingShadowResult UpdateThingShadow(string thingName, MemoryStream payload, string? shadowName = null, RegionEndpoint? region = null)
+        => UpdateThingShadowAsync(thingName, payload, shadowName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteThingShadowAsync"/>.</summary>
+    public static void DeleteThingShadow(string thingName, string? shadowName = null, RegionEndpoint? region = null)
+        => DeleteThingShadowAsync(thingName, shadowName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListNamedShadowsForThingAsync"/>.</summary>
+    public static ListNamedShadowsResult ListNamedShadowsForThing(string thingName, int? pageSize = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListNamedShadowsForThingAsync(thingName, pageSize, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRetainedMessagesAsync"/>.</summary>
+    public static ListRetainedMessagesResult ListRetainedMessages(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListRetainedMessagesAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRetainedMessageAsync"/>.</summary>
+    public static GetRetainedMessageResult GetRetainedMessage(string topic, RegionEndpoint? region = null)
+        => GetRetainedMessageAsync(topic, region).GetAwaiter().GetResult();
+
 }

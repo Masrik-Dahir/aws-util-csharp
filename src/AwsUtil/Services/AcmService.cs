@@ -379,4 +379,70 @@ public static class AcmService
             throw ErrorClassifier.WrapAwsError(exc, "Failed to get account configuration");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="RequestCertificateAsync"/>.</summary>
+    public static RequestCertificateResult RequestCertificate(RequestCertificateRequest request, RegionEndpoint? region = null)
+        => RequestCertificateAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCertificateAsync"/>.</summary>
+    public static void DeleteCertificate(string certificateArn, RegionEndpoint? region = null)
+        => DeleteCertificateAsync(certificateArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeCertificateAsync"/>.</summary>
+    public static DescribeCertificateResult DescribeCertificate(string certificateArn, RegionEndpoint? region = null)
+        => DescribeCertificateAsync(certificateArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCertificatesAsync"/>.</summary>
+    public static ListCertificatesResult ListCertificates(ListCertificatesRequest? request = null, RegionEndpoint? region = null)
+        => ListCertificatesAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCertificateAsync"/>.</summary>
+    public static GetCertificateResult GetCertificate(string certificateArn, RegionEndpoint? region = null)
+        => GetCertificateAsync(certificateArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ImportCertificateAsync"/>.</summary>
+    public static ImportCertificateResult ImportCertificate(ImportCertificateRequest request, RegionEndpoint? region = null)
+        => ImportCertificateAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ExportCertificateAsync"/>.</summary>
+    public static ExportCertificateResult ExportCertificate(ExportCertificateRequest request, RegionEndpoint? region = null)
+        => ExportCertificateAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RenewCertificateAsync"/>.</summary>
+    public static void RenewCertificate(string certificateArn, RegionEndpoint? region = null)
+        => RenewCertificateAsync(certificateArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResendValidationEmailAsync"/>.</summary>
+    public static void ResendValidationEmail(string certificateArn, string domain, string validationDomain, RegionEndpoint? region = null)
+        => ResendValidationEmailAsync(certificateArn, domain, validationDomain, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsToCertificateAsync"/>.</summary>
+    public static void AddTagsToCertificate(string certificateArn, List<Tag> tags, RegionEndpoint? region = null)
+        => AddTagsToCertificateAsync(certificateArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsFromCertificateAsync"/>.</summary>
+    public static void RemoveTagsFromCertificate(string certificateArn, List<Tag> tags, RegionEndpoint? region = null)
+        => RemoveTagsFromCertificateAsync(certificateArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForCertificateAsync"/>.</summary>
+    public static ListTagsForCertificateResult ListTagsForCertificate(string certificateArn, RegionEndpoint? region = null)
+        => ListTagsForCertificateAsync(certificateArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateCertificateOptionsAsync"/>.</summary>
+    public static void UpdateCertificateOptions(string certificateArn, CertificateOptions options, RegionEndpoint? region = null)
+        => UpdateCertificateOptionsAsync(certificateArn, options, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutAccountConfigurationAsync"/>.</summary>
+    public static void PutAccountConfiguration(ExpiryEventsConfiguration expiryEvents, string idempotencyToken, RegionEndpoint? region = null)
+        => PutAccountConfigurationAsync(expiryEvents, idempotencyToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAccountConfigurationAsync"/>.</summary>
+    public static GetAccountConfigurationResult GetAccountConfiguration(RegionEndpoint? region = null)
+        => GetAccountConfigurationAsync(region).GetAwaiter().GetResult();
+
 }

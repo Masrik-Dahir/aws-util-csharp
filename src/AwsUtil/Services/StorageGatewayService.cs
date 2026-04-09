@@ -1242,4 +1242,170 @@ public static class StorageGatewayService
                 $"Failed to list tags for resource '{resourceARN}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="ActivateGatewayAsync"/>.</summary>
+    public static StorageGatewayActivationResult ActivateGateway(ActivateGatewayRequest request, RegionEndpoint? region = null)
+        => ActivateGatewayAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteGatewayAsync"/>.</summary>
+    public static StorageGatewayActivationResult DeleteGateway(string gatewayARN, RegionEndpoint? region = null)
+        => DeleteGatewayAsync(gatewayARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeGatewayInformationAsync"/>.</summary>
+    public static StorageGatewayInfo DescribeGatewayInformation(string gatewayARN, RegionEndpoint? region = null)
+        => DescribeGatewayInformationAsync(gatewayARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListGatewaysAsync"/>.</summary>
+    public static List<StorageGatewayInfo> ListGateways(string? marker = null, int? limit = null, RegionEndpoint? region = null)
+        => ListGatewaysAsync(marker, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ShutdownGatewayAsync"/>.</summary>
+    public static StorageGatewayActivationResult ShutdownGateway(string gatewayARN, RegionEndpoint? region = null)
+        => ShutdownGatewayAsync(gatewayARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartGatewayAsync"/>.</summary>
+    public static StorageGatewayActivationResult StartGateway(string gatewayARN, RegionEndpoint? region = null)
+        => StartGatewayAsync(gatewayARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateGatewayInformationAsync"/>.</summary>
+    public static StorageGatewayActivationResult UpdateGatewayInformation(UpdateGatewayInformationRequest request, RegionEndpoint? region = null)
+        => UpdateGatewayInformationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateGatewaySoftwareNowAsync"/>.</summary>
+    public static StorageGatewayActivationResult UpdateGatewaySoftwareNow(string gatewayARN, RegionEndpoint? region = null)
+        => UpdateGatewaySoftwareNowAsync(gatewayARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCachediSCSIVolumeAsync"/>.</summary>
+    public static StorageGatewayCreateVolumeResult CreateCachediSCSIVolume(CreateCachediSCSIVolumeRequest request, RegionEndpoint? region = null)
+        => CreateCachediSCSIVolumeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateStorediSCSIVolumeAsync"/>.</summary>
+    public static StorageGatewayCreateVolumeResult CreateStorediSCSIVolume(CreateStorediSCSIVolumeRequest request, RegionEndpoint? region = null)
+        => CreateStorediSCSIVolumeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteVolumeAsync"/>.</summary>
+    public static string? DeleteVolume(string volumeARN, RegionEndpoint? region = null)
+        => DeleteVolumeAsync(volumeARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeStorediSCSIVolumesAsync"/>.</summary>
+    public static List<StorageGatewayStorediSCSIVolumeInfo> DescribeStorediSCSIVolumes(List<string> volumeARNs, RegionEndpoint? region = null)
+        => DescribeStorediSCSIVolumesAsync(volumeARNs, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeCachediSCSIVolumesAsync"/>.</summary>
+    public static List<StorageGatewayCachediSCSIVolumeInfo> DescribeCachediSCSIVolumes(List<string> volumeARNs, RegionEndpoint? region = null)
+        => DescribeCachediSCSIVolumesAsync(volumeARNs, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListVolumesAsync"/>.</summary>
+    public static List<StorageGatewayVolumeInfo> ListVolumes(string? gatewayARN = null, string? marker = null, int? limit = null, RegionEndpoint? region = null)
+        => ListVolumesAsync(gatewayARN, marker, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSnapshotAsync"/>.</summary>
+    public static StorageGatewaySnapshotResult CreateSnapshot(string volumeARN, string snapshotDescription, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateSnapshotAsync(volumeARN, snapshotDescription, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSnapshotScheduleAsync"/>.</summary>
+    public static string? DeleteSnapshotSchedule(string volumeARN, RegionEndpoint? region = null)
+        => DeleteSnapshotScheduleAsync(volumeARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSnapshotScheduleAsync"/>.</summary>
+    public static StorageGatewaySnapshotScheduleInfo DescribeSnapshotSchedule(string volumeARN, RegionEndpoint? region = null)
+        => DescribeSnapshotScheduleAsync(volumeARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateSnapshotScheduleAsync"/>.</summary>
+    public static string? UpdateSnapshotSchedule(UpdateSnapshotScheduleRequest request, RegionEndpoint? region = null)
+        => UpdateSnapshotScheduleAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateNFSFileShareAsync"/>.</summary>
+    public static string? CreateNFSFileShare(CreateNFSFileShareRequest request, RegionEndpoint? region = null)
+        => CreateNFSFileShareAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFileShareAsync"/>.</summary>
+    public static string? DeleteFileShare(string fileShareARN, bool? forceDelete = null, RegionEndpoint? region = null)
+        => DeleteFileShareAsync(fileShareARN, forceDelete, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeNFSFileSharesAsync"/>.</summary>
+    public static List<StorageGatewayNFSFileShareInfo> DescribeNFSFileShares(List<string> fileShareARNList, RegionEndpoint? region = null)
+        => DescribeNFSFileSharesAsync(fileShareARNList, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateNFSFileShareAsync"/>.</summary>
+    public static string? UpdateNFSFileShare(UpdateNFSFileShareRequest request, RegionEndpoint? region = null)
+        => UpdateNFSFileShareAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSMBFileShareAsync"/>.</summary>
+    public static string? CreateSMBFileShare(CreateSMBFileShareRequest request, RegionEndpoint? region = null)
+        => CreateSMBFileShareAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSMBFileSharesAsync"/>.</summary>
+    public static List<StorageGatewaySMBFileShareInfo> DescribeSMBFileShares(List<string> fileShareARNList, RegionEndpoint? region = null)
+        => DescribeSMBFileSharesAsync(fileShareARNList, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateSMBFileShareAsync"/>.</summary>
+    public static string? UpdateSMBFileShare(UpdateSMBFileShareRequest request, RegionEndpoint? region = null)
+        => UpdateSMBFileShareAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTapeWithBarcodeAsync"/>.</summary>
+    public static StorageGatewayCreateTapeResult CreateTapeWithBarcode(CreateTapeWithBarcodeRequest request, RegionEndpoint? region = null)
+        => CreateTapeWithBarcodeAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTapeAsync"/>.</summary>
+    public static string? DeleteTape(string gatewayARN, string tapeARN, bool? bypassGovernanceRetention = null, RegionEndpoint? region = null)
+        => DeleteTapeAsync(gatewayARN, tapeARN, bypassGovernanceRetention, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTapesAsync"/>.</summary>
+    public static List<StorageGatewayTapeInfo> DescribeTapes(string gatewayARN, List<string>? tapeARNs = null, string? marker = null, int? limit = null, RegionEndpoint? region = null)
+        => DescribeTapesAsync(gatewayARN, tapeARNs, marker, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTapesAsync"/>.</summary>
+    public static List<StorageGatewayTapeInfo> ListTapes(List<string>? tapeARNs = null, string? marker = null, int? limit = null, RegionEndpoint? region = null)
+        => ListTapesAsync(tapeARNs, marker, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateTapePoolAsync"/>.</summary>
+    public static string? CreateTapePool(CreateTapePoolRequest request, RegionEndpoint? region = null)
+        => CreateTapePoolAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteTapePoolAsync"/>.</summary>
+    public static string? DeleteTapePool(string poolARN, RegionEndpoint? region = null)
+        => DeleteTapePoolAsync(poolARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTapePoolsAsync"/>.</summary>
+    public static List<StorageGatewayTapePoolInfo> ListTapePools(List<string>? poolARNs = null, string? marker = null, int? limit = null, RegionEndpoint? region = null)
+        => ListTapePoolsAsync(poolARNs, marker, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddCacheAsync"/>.</summary>
+    public static StorageGatewayActivationResult AddCache(string gatewayARN, List<string> diskIds, RegionEndpoint? region = null)
+        => AddCacheAsync(gatewayARN, diskIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeCacheAsync"/>.</summary>
+    public static StorageGatewayCacheInfo DescribeCache(string gatewayARN, RegionEndpoint? region = null)
+        => DescribeCacheAsync(gatewayARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddWorkingStorageAsync"/>.</summary>
+    public static StorageGatewayActivationResult AddWorkingStorage(string gatewayARN, List<string> diskIds, RegionEndpoint? region = null)
+        => AddWorkingStorageAsync(gatewayARN, diskIds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeWorkingStorageAsync"/>.</summary>
+    public static StorageGatewayWorkingStorageInfo DescribeWorkingStorage(string gatewayARN, RegionEndpoint? region = null)
+        => DescribeWorkingStorageAsync(gatewayARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListLocalDisksAsync"/>.</summary>
+    public static List<StorageGatewayLocalDiskInfo> ListLocalDisks(string gatewayARN, RegionEndpoint? region = null)
+        => ListLocalDisksAsync(gatewayARN, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsToResourceAsync"/>.</summary>
+    public static StorageGatewayTagResult AddTagsToResource(string resourceARN, List<Tag> tags, RegionEndpoint? region = null)
+        => AddTagsToResourceAsync(resourceARN, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsFromResourceAsync"/>.</summary>
+    public static StorageGatewayTagResult RemoveTagsFromResource(string resourceARN, List<string> tagKeys, RegionEndpoint? region = null)
+        => RemoveTagsFromResourceAsync(resourceARN, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static StorageGatewayListTagsResult ListTagsForResource(string resourceARN, string? marker = null, int? limit = null, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceARN, marker, limit, region).GetAwaiter().GetResult();
+
 }

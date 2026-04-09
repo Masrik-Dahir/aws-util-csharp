@@ -1203,4 +1203,154 @@ public static class DmsService
                 $"Failed to cancel DMS replication task assessment run '{replicationTaskAssessmentRunArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateReplicationInstanceAsync"/>.</summary>
+    public static DmsCreateReplicationInstanceResult CreateReplicationInstance(CreateReplicationInstanceRequest request, RegionEndpoint? region = null)
+        => CreateReplicationInstanceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteReplicationInstanceAsync"/>.</summary>
+    public static DmsDeleteReplicationInstanceResult DeleteReplicationInstance(string replicationInstanceArn, RegionEndpoint? region = null)
+        => DeleteReplicationInstanceAsync(replicationInstanceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeReplicationInstancesAsync"/>.</summary>
+    public static DmsDescribeReplicationInstancesResult DescribeReplicationInstances(List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeReplicationInstancesAsync(filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyReplicationInstanceAsync"/>.</summary>
+    public static DmsModifyReplicationInstanceResult ModifyReplicationInstance(ModifyReplicationInstanceRequest request, RegionEndpoint? region = null)
+        => ModifyReplicationInstanceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEndpointAsync"/>.</summary>
+    public static DmsCreateEndpointResult CreateEndpoint(CreateEndpointRequest request, RegionEndpoint? region = null)
+        => CreateEndpointAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEndpointAsync"/>.</summary>
+    public static DmsDeleteEndpointResult DeleteEndpoint(string endpointArn, RegionEndpoint? region = null)
+        => DeleteEndpointAsync(endpointArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEndpointsAsync"/>.</summary>
+    public static DmsDescribeEndpointsResult DescribeEndpoints(List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeEndpointsAsync(filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyEndpointAsync"/>.</summary>
+    public static DmsModifyEndpointResult ModifyEndpoint(ModifyEndpointRequest request, RegionEndpoint? region = null)
+        => ModifyEndpointAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TestConnectionAsync"/>.</summary>
+    public static DmsTestConnectionResult TestConnection(string replicationInstanceArn, string endpointArn, RegionEndpoint? region = null)
+        => TestConnectionAsync(replicationInstanceArn, endpointArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeConnectionsAsync"/>.</summary>
+    public static DmsDescribeConnectionsResult DescribeConnections(List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeConnectionsAsync(filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateReplicationTaskAsync"/>.</summary>
+    public static DmsCreateReplicationTaskResult CreateReplicationTask(CreateReplicationTaskRequest request, RegionEndpoint? region = null)
+        => CreateReplicationTaskAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteReplicationTaskAsync"/>.</summary>
+    public static DmsDeleteReplicationTaskResult DeleteReplicationTask(string replicationTaskArn, RegionEndpoint? region = null)
+        => DeleteReplicationTaskAsync(replicationTaskArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeReplicationTasksAsync"/>.</summary>
+    public static DmsDescribeReplicationTasksResult DescribeReplicationTasks(List<Filter>? filters = null, string? marker = null, int? maxRecords = null, bool? withoutSettings = null, RegionEndpoint? region = null)
+        => DescribeReplicationTasksAsync(filters, marker, maxRecords, withoutSettings, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyReplicationTaskAsync"/>.</summary>
+    public static DmsModifyReplicationTaskResult ModifyReplicationTask(ModifyReplicationTaskRequest request, RegionEndpoint? region = null)
+        => ModifyReplicationTaskAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartReplicationTaskAsync"/>.</summary>
+    public static DmsStartReplicationTaskResult StartReplicationTask(string replicationTaskArn, string startReplicationTaskType, string? cdcStartTime = null, string? cdcStartPosition = null, string? cdcStopPosition = null, RegionEndpoint? region = null)
+        => StartReplicationTaskAsync(replicationTaskArn, startReplicationTaskType, cdcStartTime, cdcStartPosition, cdcStopPosition, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopReplicationTaskAsync"/>.</summary>
+    public static DmsStopReplicationTaskResult StopReplicationTask(string replicationTaskArn, RegionEndpoint? region = null)
+        => StopReplicationTaskAsync(replicationTaskArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateReplicationSubnetGroupAsync"/>.</summary>
+    public static DmsCreateReplicationSubnetGroupResult CreateReplicationSubnetGroup(string replicationSubnetGroupIdentifier, string replicationSubnetGroupDescription, List<string> subnetIds, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateReplicationSubnetGroupAsync(replicationSubnetGroupIdentifier, replicationSubnetGroupDescription, subnetIds, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteReplicationSubnetGroupAsync"/>.</summary>
+    public static void DeleteReplicationSubnetGroup(string replicationSubnetGroupIdentifier, RegionEndpoint? region = null)
+        => DeleteReplicationSubnetGroupAsync(replicationSubnetGroupIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeReplicationSubnetGroupsAsync"/>.</summary>
+    public static DmsDescribeReplicationSubnetGroupsResult DescribeReplicationSubnetGroups(List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeReplicationSubnetGroupsAsync(filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyReplicationSubnetGroupAsync"/>.</summary>
+    public static DmsModifyReplicationSubnetGroupResult ModifyReplicationSubnetGroup(string replicationSubnetGroupIdentifier, List<string> subnetIds, string? replicationSubnetGroupDescription = null, RegionEndpoint? region = null)
+        => ModifyReplicationSubnetGroupAsync(replicationSubnetGroupIdentifier, subnetIds, replicationSubnetGroupDescription, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeTableStatisticsAsync"/>.</summary>
+    public static DmsDescribeTableStatisticsResult DescribeTableStatistics(string replicationTaskArn, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeTableStatisticsAsync(replicationTaskArn, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEndpointTypesAsync"/>.</summary>
+    public static DmsDescribeEndpointTypesResult DescribeEndpointTypes(List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeEndpointTypesAsync(filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeOrderableReplicationInstancesAsync"/>.</summary>
+    public static DmsDescribeOrderableReplicationInstancesResult DescribeOrderableReplicationInstances(string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeOrderableReplicationInstancesAsync(marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEventSubscriptionAsync"/>.</summary>
+    public static DmsCreateEventSubscriptionResult CreateEventSubscription(CreateEventSubscriptionRequest request, RegionEndpoint? region = null)
+        => CreateEventSubscriptionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEventSubscriptionAsync"/>.</summary>
+    public static DmsDeleteEventSubscriptionResult DeleteEventSubscription(string subscriptionName, RegionEndpoint? region = null)
+        => DeleteEventSubscriptionAsync(subscriptionName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventSubscriptionsAsync"/>.</summary>
+    public static DmsDescribeEventSubscriptionsResult DescribeEventSubscriptions(string? subscriptionName = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeEventSubscriptionsAsync(subscriptionName, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventsAsync"/>.</summary>
+    public static DmsDescribeEventsResult DescribeEvents(DescribeEventsRequest? request = null, RegionEndpoint? region = null)
+        => DescribeEventsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsToResourceAsync"/>.</summary>
+    public static void AddTagsToResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => AddTagsToResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsFromResourceAsync"/>.</summary>
+    public static void RemoveTagsFromResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => RemoveTagsFromResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static DmsListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ReloadTablesAsync"/>.</summary>
+    public static void ReloadTables(string replicationTaskArn, List<TableToReload> tablesToReload, string? reloadOption = null, RegionEndpoint? region = null)
+        => ReloadTablesAsync(replicationTaskArn, tablesToReload, reloadOption, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RefreshSchemasAsync"/>.</summary>
+    public static void RefreshSchemas(string endpointArn, string replicationInstanceArn, RegionEndpoint? region = null)
+        => RefreshSchemasAsync(endpointArn, replicationInstanceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSchemasAsync"/>.</summary>
+    public static DmsDescribeSchemasResult DescribeSchemas(string endpointArn, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeSchemasAsync(endpointArn, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeReplicationTaskAssessmentRunsAsync"/>.</summary>
+    public static DmsDescribeReplicationTaskAssessmentRunsResult DescribeReplicationTaskAssessmentRuns(List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeReplicationTaskAssessmentRunsAsync(filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartReplicationTaskAssessmentRunAsync"/>.</summary>
+    public static DmsStartReplicationTaskAssessmentRunResult StartReplicationTaskAssessmentRun(StartReplicationTaskAssessmentRunRequest request, RegionEndpoint? region = null)
+        => StartReplicationTaskAssessmentRunAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelReplicationTaskAssessmentRunAsync"/>.</summary>
+    public static DmsCancelReplicationTaskAssessmentRunResult CancelReplicationTaskAssessmentRun(string replicationTaskAssessmentRunArn, RegionEndpoint? region = null)
+        => CancelReplicationTaskAssessmentRunAsync(replicationTaskAssessmentRunArn, region).GetAwaiter().GetResult();
+
 }

@@ -988,4 +988,126 @@ public static class SqsService
 
         return null;
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="SendMessageAsync"/>.</summary>
+    public static SendMessageResult SendMessage(string queueUrl, object body, int delaySeconds = 0, string? messageGroupId = null, string? messageDeduplicationId = null, RegionEndpoint? region = null)
+        => SendMessageAsync(queueUrl, body, delaySeconds, messageGroupId, messageDeduplicationId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SendMessageBatchAsync"/>.</summary>
+    public static SendMessageBatchResult SendMessageBatch(string queueUrl, List<SendMessageBatchRequestEntry> entries, RegionEndpoint? region = null)
+        => SendMessageBatchAsync(queueUrl, entries, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ReceiveMessagesAsync"/>.</summary>
+    public static List<SqsMessage> ReceiveMessages(string queueUrl, int maxNumber = 1, int waitSeconds = 0, int visibilityTimeout = 30, RegionEndpoint? region = null)
+        => ReceiveMessagesAsync(queueUrl, maxNumber, waitSeconds, visibilityTimeout, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteMessageAsync"/>.</summary>
+    public static void DeleteMessage(string queueUrl, string receiptHandle, RegionEndpoint? region = null)
+        => DeleteMessageAsync(queueUrl, receiptHandle, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteMessageBatchAsync"/>.</summary>
+    public static DeleteMessageBatchResult DeleteMessageBatch(string queueUrl, List<DeleteMessageBatchRequestEntry> entries, RegionEndpoint? region = null)
+        => DeleteMessageBatchAsync(queueUrl, entries, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateQueueAsync"/>.</summary>
+    public static CreateQueueResult CreateQueue(string queueName, Dictionary<string, string>? attributes = null, Dictionary<string, string>? tags = null, RegionEndpoint? region = null)
+        => CreateQueueAsync(queueName, attributes, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteQueueAsync"/>.</summary>
+    public static void DeleteQueue(string queueUrl, RegionEndpoint? region = null)
+        => DeleteQueueAsync(queueUrl, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetQueueUrlAsync"/>.</summary>
+    public static string GetQueueUrl(string queueName, RegionEndpoint? region = null)
+        => GetQueueUrlAsync(queueName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetQueueAttributesAsync"/>.</summary>
+    public static Dictionary<string, string> GetQueueAttributes(string queueUrl, List<string>? attributeNames = null, RegionEndpoint? region = null)
+        => GetQueueAttributesAsync(queueUrl, attributeNames, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SetQueueAttributesAsync"/>.</summary>
+    public static void SetQueueAttributes(string queueUrl, Dictionary<string, string> attributes, RegionEndpoint? region = null)
+        => SetQueueAttributesAsync(queueUrl, attributes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PurgeQueueAsync"/>.</summary>
+    public static void PurgeQueue(string queueUrl, RegionEndpoint? region = null)
+        => PurgeQueueAsync(queueUrl, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ChangeMessageVisibilityAsync"/>.</summary>
+    public static void ChangeMessageVisibility(string queueUrl, string receiptHandle, int visibilityTimeout, RegionEndpoint? region = null)
+        => ChangeMessageVisibilityAsync(queueUrl, receiptHandle, visibilityTimeout, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ChangeMessageVisibilityBatchAsync"/>.</summary>
+    public static ChangeMessageVisibilityBatchResult ChangeMessageVisibilityBatch(string queueUrl, List<ChangeMessageVisibilityBatchRequestEntry> entries, RegionEndpoint? region = null)
+        => ChangeMessageVisibilityBatchAsync(queueUrl, entries, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListQueuesAsync"/>.</summary>
+    public static ListQueuesResult ListQueues(string? queueNamePrefix = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListQueuesAsync(queueNamePrefix, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagQueueAsync"/>.</summary>
+    public static void TagQueue(string queueUrl, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagQueueAsync(queueUrl, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagQueueAsync"/>.</summary>
+    public static void UntagQueue(string queueUrl, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagQueueAsync(queueUrl, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListQueueTagsAsync"/>.</summary>
+    public static ListQueueTagsResult ListQueueTags(string queueUrl, RegionEndpoint? region = null)
+        => ListQueueTagsAsync(queueUrl, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddPermissionAsync"/>.</summary>
+    public static void AddPermission(string queueUrl, string label, List<string> awsAccountIds, List<string> actions, RegionEndpoint? region = null)
+        => AddPermissionAsync(queueUrl, label, awsAccountIds, actions, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemovePermissionAsync"/>.</summary>
+    public static void RemovePermission(string queueUrl, string label, RegionEndpoint? region = null)
+        => RemovePermissionAsync(queueUrl, label, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDeadLetterSourceQueuesAsync"/>.</summary>
+    public static ListDeadLetterSourceQueuesResult ListDeadLetterSourceQueues(string queueUrl, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListDeadLetterSourceQueuesAsync(queueUrl, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartMessageMoveTaskAsync"/>.</summary>
+    public static StartMessageMoveTaskResult StartMessageMoveTask(string sourceArn, string? destinationArn = null, int? maxNumberOfMessagesPerSecond = null, RegionEndpoint? region = null)
+        => StartMessageMoveTaskAsync(sourceArn, destinationArn, maxNumberOfMessagesPerSecond, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CancelMessageMoveTaskAsync"/>.</summary>
+    public static CancelMessageMoveTaskResult CancelMessageMoveTask(string taskHandle, RegionEndpoint? region = null)
+        => CancelMessageMoveTaskAsync(taskHandle, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListMessageMoveTasksAsync"/>.</summary>
+    public static ListMessageMoveTasksResult ListMessageMoveTasks(string sourceArn, int? maxResults = null, RegionEndpoint? region = null)
+        => ListMessageMoveTasksAsync(sourceArn, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SendBatchAsync"/>.</summary>
+    public static List<SendMessageResult> SendBatch(string queueUrl, List<object> messages, RegionEndpoint? region = null)
+        => SendBatchAsync(queueUrl, messages, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SendLargeBatchAsync"/>.</summary>
+    public static int SendLargeBatch(string queueUrl, List<object> messages, RegionEndpoint? region = null)
+        => SendLargeBatchAsync(queueUrl, messages, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteBatchAsync"/>.</summary>
+    public static void DeleteBatch(string queueUrl, List<string> receiptHandles, RegionEndpoint? region = null)
+        => DeleteBatchAsync(queueUrl, receiptHandles, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DrainQueueAsync"/>.</summary>
+    public static int DrainQueue(string queueUrl, Func<SqsMessage, Task> handler, int batchSize = 10, int? maxMessages = null, int visibilityTimeout = 60, int waitSeconds = 5, RegionEndpoint? region = null)
+        => DrainQueueAsync(queueUrl, handler, batchSize, maxMessages, visibilityTimeout, waitSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ReplayDlqAsync"/>.</summary>
+    public static int ReplayDlq(string dlqUrl, string targetUrl, int? maxMessages = null, RegionEndpoint? region = null)
+        => ReplayDlqAsync(dlqUrl, targetUrl, maxMessages, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="WaitForMessageAsync"/>.</summary>
+    public static SqsMessage? WaitForMessage(string queueUrl, Func<SqsMessage, bool>? predicate = null, TimeSpan? timeout = null, TimeSpan? pollInterval = null, int visibilityTimeout = 30, bool deleteOnMatch = true, RegionEndpoint? region = null)
+        => WaitForMessageAsync(queueUrl, predicate, timeout, pollInterval, visibilityTimeout, deleteOnMatch, region).GetAwaiter().GetResult();
+
 }

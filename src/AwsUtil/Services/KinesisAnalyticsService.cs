@@ -910,4 +910,126 @@ public static class KinesisAnalyticsService
                 $"Failed to create pre-signed URL for application '{applicationName}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateApplicationAsync"/>.</summary>
+    public static KaCreateApplicationResult CreateApplication(CreateApplicationRequest request, RegionEndpoint? region = null)
+        => CreateApplicationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApplicationAsync"/>.</summary>
+    public static KaDeleteApplicationResult DeleteApplication(string applicationName, DateTime createTimestamp, RegionEndpoint? region = null)
+        => DeleteApplicationAsync(applicationName, createTimestamp, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeApplicationAsync"/>.</summary>
+    public static KaDescribeApplicationResult DescribeApplication(string applicationName, bool? includeAdditionalDetails = null, RegionEndpoint? region = null)
+        => DescribeApplicationAsync(applicationName, includeAdditionalDetails, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListApplicationsAsync"/>.</summary>
+    public static KaListApplicationsResult ListApplications(string? nextToken = null, int? limit = null, RegionEndpoint? region = null)
+        => ListApplicationsAsync(nextToken, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateApplicationAsync"/>.</summary>
+    public static KaUpdateApplicationResult UpdateApplication(UpdateApplicationRequest request, RegionEndpoint? region = null)
+        => UpdateApplicationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartApplicationAsync"/>.</summary>
+    public static KaStartApplicationResult StartApplication(string applicationName, RunConfiguration? runConfiguration = null, RegionEndpoint? region = null)
+        => StartApplicationAsync(applicationName, runConfiguration, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopApplicationAsync"/>.</summary>
+    public static KaStopApplicationResult StopApplication(string applicationName, bool? force = null, RegionEndpoint? region = null)
+        => StopApplicationAsync(applicationName, force, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddApplicationInputAsync"/>.</summary>
+    public static KaAddApplicationInputResult AddApplicationInput(string applicationName, long currentApplicationVersionId, Input input, RegionEndpoint? region = null)
+        => AddApplicationInputAsync(applicationName, currentApplicationVersionId, input, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddApplicationOutputAsync"/>.</summary>
+    public static KaAddApplicationOutputResult AddApplicationOutput(string applicationName, long currentApplicationVersionId, Output output, RegionEndpoint? region = null)
+        => AddApplicationOutputAsync(applicationName, currentApplicationVersionId, output, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddApplicationReferenceDataSourceAsync"/>.</summary>
+    public static KaAddApplicationReferenceDataSourceResult AddApplicationReferenceDataSource(string applicationName, long currentApplicationVersionId, ReferenceDataSource referenceDataSource, RegionEndpoint? region = null)
+        => AddApplicationReferenceDataSourceAsync(applicationName, currentApplicationVersionId, referenceDataSource, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApplicationInputProcessingConfigurationAsync"/>.</summary>
+    public static KaDeleteApplicationInputProcessingConfigurationResult DeleteApplicationInputProcessingConfiguration(string applicationName, long currentApplicationVersionId, string inputId, RegionEndpoint? region = null)
+        => DeleteApplicationInputProcessingConfigurationAsync(applicationName, currentApplicationVersionId, inputId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApplicationOutputAsync"/>.</summary>
+    public static KaDeleteApplicationOutputResult DeleteApplicationOutput(string applicationName, long currentApplicationVersionId, string outputId, RegionEndpoint? region = null)
+        => DeleteApplicationOutputAsync(applicationName, currentApplicationVersionId, outputId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApplicationReferenceDataSourceAsync"/>.</summary>
+    public static KaDeleteApplicationReferenceDataSourceResult DeleteApplicationReferenceDataSource(string applicationName, long currentApplicationVersionId, string referenceId, RegionEndpoint? region = null)
+        => DeleteApplicationReferenceDataSourceAsync(applicationName, currentApplicationVersionId, referenceId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddApplicationVpcConfigurationAsync"/>.</summary>
+    public static KaAddApplicationVpcConfigurationResult AddApplicationVpcConfiguration(string applicationName, long currentApplicationVersionId, VpcConfiguration vpcConfiguration, RegionEndpoint? region = null)
+        => AddApplicationVpcConfigurationAsync(applicationName, currentApplicationVersionId, vpcConfiguration, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApplicationVpcConfigurationAsync"/>.</summary>
+    public static KaDeleteApplicationVpcConfigurationResult DeleteApplicationVpcConfiguration(string applicationName, long currentApplicationVersionId, string vpcConfigurationId, RegionEndpoint? region = null)
+        => DeleteApplicationVpcConfigurationAsync(applicationName, currentApplicationVersionId, vpcConfigurationId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddApplicationCloudWatchLoggingOptionAsync"/>.</summary>
+    public static KaAddApplicationCloudWatchLoggingOptionResult AddApplicationCloudWatchLoggingOption(string applicationName, long currentApplicationVersionId, CloudWatchLoggingOption cloudWatchLoggingOption, RegionEndpoint? region = null)
+        => AddApplicationCloudWatchLoggingOptionAsync(applicationName, currentApplicationVersionId, cloudWatchLoggingOption, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApplicationCloudWatchLoggingOptionAsync"/>.</summary>
+    public static KaDeleteApplicationCloudWatchLoggingOptionResult DeleteApplicationCloudWatchLoggingOption(string applicationName, long currentApplicationVersionId, string cloudWatchLoggingOptionId, RegionEndpoint? region = null)
+        => DeleteApplicationCloudWatchLoggingOptionAsync(applicationName, currentApplicationVersionId, cloudWatchLoggingOptionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeApplicationVersionAsync"/>.</summary>
+    public static KaDescribeApplicationVersionResult DescribeApplicationVersion(string applicationName, long applicationVersionId, RegionEndpoint? region = null)
+        => DescribeApplicationVersionAsync(applicationName, applicationVersionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListApplicationVersionsAsync"/>.</summary>
+    public static KaListApplicationVersionsResult ListApplicationVersions(string applicationName, string? nextToken = null, int? limit = null, RegionEndpoint? region = null)
+        => ListApplicationVersionsAsync(applicationName, nextToken, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RollbackApplicationAsync"/>.</summary>
+    public static KaRollbackApplicationResult RollbackApplication(string applicationName, long currentApplicationVersionId, RegionEndpoint? region = null)
+        => RollbackApplicationAsync(applicationName, currentApplicationVersionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateApplicationSnapshotAsync"/>.</summary>
+    public static KaCreateApplicationSnapshotResult CreateApplicationSnapshot(string applicationName, string snapshotName, RegionEndpoint? region = null)
+        => CreateApplicationSnapshotAsync(applicationName, snapshotName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteApplicationSnapshotAsync"/>.</summary>
+    public static KaDeleteApplicationSnapshotResult DeleteApplicationSnapshot(string applicationName, string snapshotName, DateTime snapshotCreationTimestamp, RegionEndpoint? region = null)
+        => DeleteApplicationSnapshotAsync(applicationName, snapshotName, snapshotCreationTimestamp, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeApplicationSnapshotAsync"/>.</summary>
+    public static KaDescribeApplicationSnapshotResult DescribeApplicationSnapshot(string applicationName, string snapshotName, RegionEndpoint? region = null)
+        => DescribeApplicationSnapshotAsync(applicationName, snapshotName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListApplicationSnapshotsAsync"/>.</summary>
+    public static KaListApplicationSnapshotsResult ListApplicationSnapshots(string applicationName, string? nextToken = null, int? limit = null, RegionEndpoint? region = null)
+        => ListApplicationSnapshotsAsync(applicationName, nextToken, limit, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DiscoverInputSchemaAsync"/>.</summary>
+    public static KaDiscoverInputSchemaResult DiscoverInputSchema(DiscoverInputSchemaRequest request, RegionEndpoint? region = null)
+        => DiscoverInputSchemaAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static KaTagResourceResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static KaUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static KaListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateApplicationPresignedUrlAsync"/>.</summary>
+    public static KaCreateApplicationPresignedUrlResult CreateApplicationPresignedUrl(string applicationName, UrlType urlType, long? sessionExpirationDurationInSeconds = null, RegionEndpoint? region = null)
+        => CreateApplicationPresignedUrlAsync(applicationName, urlType, sessionExpirationDurationInSeconds, region).GetAwaiter().GetResult();
+
 }

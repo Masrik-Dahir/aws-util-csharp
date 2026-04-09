@@ -828,4 +828,130 @@ public static class EksService
                 $"Failed to deregister cluster '{name}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateClusterAsync"/>.</summary>
+    public static EksCreateClusterResult CreateCluster(CreateClusterRequest request, RegionEndpoint? region = null)
+        => CreateClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteClusterAsync"/>.</summary>
+    public static EksDeleteClusterResult DeleteCluster(string name, RegionEndpoint? region = null)
+        => DeleteClusterAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeClusterAsync"/>.</summary>
+    public static EksDescribeClusterResult DescribeCluster(string name, RegionEndpoint? region = null)
+        => DescribeClusterAsync(name, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListClustersAsync"/>.</summary>
+    public static EksListClustersResult ListClusters(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListClustersAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateClusterVersionAsync"/>.</summary>
+    public static EksUpdateClusterVersionResult UpdateClusterVersion(string name, string version, RegionEndpoint? region = null)
+        => UpdateClusterVersionAsync(name, version, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateClusterConfigAsync"/>.</summary>
+    public static EksUpdateClusterConfigResult UpdateClusterConfig(UpdateClusterConfigRequest request, RegionEndpoint? region = null)
+        => UpdateClusterConfigAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateNodegroupAsync"/>.</summary>
+    public static EksCreateNodegroupResult CreateNodegroup(CreateNodegroupRequest request, RegionEndpoint? region = null)
+        => CreateNodegroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteNodegroupAsync"/>.</summary>
+    public static EksDeleteNodegroupResult DeleteNodegroup(string clusterName, string nodegroupName, RegionEndpoint? region = null)
+        => DeleteNodegroupAsync(clusterName, nodegroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeNodegroupAsync"/>.</summary>
+    public static EksDescribeNodegroupResult DescribeNodegroup(string clusterName, string nodegroupName, RegionEndpoint? region = null)
+        => DescribeNodegroupAsync(clusterName, nodegroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListNodegroupsAsync"/>.</summary>
+    public static EksListNodegroupsResult ListNodegroups(string clusterName, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListNodegroupsAsync(clusterName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateNodegroupVersionAsync"/>.</summary>
+    public static EksUpdateNodegroupVersionResult UpdateNodegroupVersion(UpdateNodegroupVersionRequest request, RegionEndpoint? region = null)
+        => UpdateNodegroupVersionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateNodegroupConfigAsync"/>.</summary>
+    public static EksUpdateNodegroupConfigResult UpdateNodegroupConfig(UpdateNodegroupConfigRequest request, RegionEndpoint? region = null)
+        => UpdateNodegroupConfigAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFargateProfileAsync"/>.</summary>
+    public static EksCreateFargateProfileResult CreateFargateProfile(CreateFargateProfileRequest request, RegionEndpoint? region = null)
+        => CreateFargateProfileAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFargateProfileAsync"/>.</summary>
+    public static EksDeleteFargateProfileResult DeleteFargateProfile(string clusterName, string fargateProfileName, RegionEndpoint? region = null)
+        => DeleteFargateProfileAsync(clusterName, fargateProfileName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeFargateProfileAsync"/>.</summary>
+    public static EksDescribeFargateProfileResult DescribeFargateProfile(string clusterName, string fargateProfileName, RegionEndpoint? region = null)
+        => DescribeFargateProfileAsync(clusterName, fargateProfileName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFargateProfilesAsync"/>.</summary>
+    public static EksListFargateProfilesResult ListFargateProfiles(string clusterName, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListFargateProfilesAsync(clusterName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAddonAsync"/>.</summary>
+    public static EksCreateAddonResult CreateAddon(CreateAddonRequest request, RegionEndpoint? region = null)
+        => CreateAddonAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAddonAsync"/>.</summary>
+    public static EksDeleteAddonResult DeleteAddon(string clusterName, string addonName, bool? preserve = null, RegionEndpoint? region = null)
+        => DeleteAddonAsync(clusterName, addonName, preserve, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAddonAsync"/>.</summary>
+    public static EksDescribeAddonResult DescribeAddon(string clusterName, string addonName, RegionEndpoint? region = null)
+        => DescribeAddonAsync(clusterName, addonName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAddonsAsync"/>.</summary>
+    public static EksListAddonsResult ListAddons(string clusterName, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListAddonsAsync(clusterName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateAddonAsync"/>.</summary>
+    public static EksUpdateAddonResult UpdateAddon(UpdateAddonRequest request, RegionEndpoint? region = null)
+        => UpdateAddonAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static EksTagResourceResult TagResource(string resourceArn, Dictionary<string, string> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static EksUntagResourceResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static EksListTagsForResourceResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAddonVersionsAsync"/>.</summary>
+    public static EksDescribeAddonVersionsResult DescribeAddonVersions(DescribeAddonVersionsRequest request, RegionEndpoint? region = null)
+        => DescribeAddonVersionsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssociateIdentityProviderConfigAsync"/>.</summary>
+    public static EksAssociateIdentityProviderConfigResult AssociateIdentityProviderConfig(AssociateIdentityProviderConfigRequest request, RegionEndpoint? region = null)
+        => AssociateIdentityProviderConfigAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisassociateIdentityProviderConfigAsync"/>.</summary>
+    public static EksDisassociateIdentityProviderConfigResult DisassociateIdentityProviderConfig(DisassociateIdentityProviderConfigRequest request, RegionEndpoint? region = null)
+        => DisassociateIdentityProviderConfigAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListIdentityProviderConfigsAsync"/>.</summary>
+    public static EksListIdentityProviderConfigsResult ListIdentityProviderConfigs(string clusterName, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListIdentityProviderConfigsAsync(clusterName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RegisterClusterAsync"/>.</summary>
+    public static EksRegisterClusterResult RegisterCluster(RegisterClusterRequest request, RegionEndpoint? region = null)
+        => RegisterClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeregisterClusterAsync"/>.</summary>
+    public static EksDeregisterClusterResult DeregisterCluster(string name, RegionEndpoint? region = null)
+        => DeregisterClusterAsync(name, region).GetAwaiter().GetResult();
+
 }

@@ -689,4 +689,98 @@ public static class SesV2Service
 
         return new ListConfigurationSetsResult(ConfigurationSets: configSets);
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="SendEmailAsync"/>.</summary>
+    public static SesV2SendEmailResult SendEmail(EmailContent content, string? fromEmailAddress = null, Destination? destination = null, List<string>? replyToAddresses = null, string? feedbackForwardingEmailAddress = null, string? configurationSetName = null, List<MessageTag>? emailTags = null, RegionEndpoint? region = null)
+        => SendEmailAsync(content, fromEmailAddress, destination, replyToAddresses, feedbackForwardingEmailAddress, configurationSetName, emailTags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEmailIdentityAsync"/>.</summary>
+    public static CreateEmailIdentityResult CreateEmailIdentity(string emailIdentity, List<Amazon.SimpleEmailV2.Model.Tag>? tags = null, DkimSigningAttributes? dkimSigningAttributes = null, string? configurationSetName = null, RegionEndpoint? region = null)
+        => CreateEmailIdentityAsync(emailIdentity, tags, dkimSigningAttributes, configurationSetName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEmailIdentityAsync"/>.</summary>
+    public static void DeleteEmailIdentity(string emailIdentity, RegionEndpoint? region = null)
+        => DeleteEmailIdentityAsync(emailIdentity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetEmailIdentityAsync"/>.</summary>
+    public static GetEmailIdentityResult GetEmailIdentity(string emailIdentity, RegionEndpoint? region = null)
+        => GetEmailIdentityAsync(emailIdentity, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListEmailIdentitiesAsync"/>.</summary>
+    public static ListEmailIdentitiesResult ListEmailIdentities(int? pageSize = null, RegionEndpoint? region = null)
+        => ListEmailIdentitiesAsync(pageSize, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateContactListAsync"/>.</summary>
+    public static void CreateContactList(string contactListName, string? description = null, List<Topic>? topics = null, List<Amazon.SimpleEmailV2.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateContactListAsync(contactListName, description, topics, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteContactListAsync"/>.</summary>
+    public static void DeleteContactList(string contactListName, RegionEndpoint? region = null)
+        => DeleteContactListAsync(contactListName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetContactAsync"/>.</summary>
+    public static GetContactResult GetContact(string contactListName, string emailAddress, RegionEndpoint? region = null)
+        => GetContactAsync(contactListName, emailAddress, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateContactAsync"/>.</summary>
+    public static void CreateContact(string contactListName, string emailAddress, List<TopicPreference>? topicPreferences = null, bool? unsubscribeAll = null, string? attributesData = null, RegionEndpoint? region = null)
+        => CreateContactAsync(contactListName, emailAddress, topicPreferences, unsubscribeAll, attributesData, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteContactAsync"/>.</summary>
+    public static void DeleteContact(string contactListName, string emailAddress, RegionEndpoint? region = null)
+        => DeleteContactAsync(contactListName, emailAddress, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListContactsAsync"/>.</summary>
+    public static SesV2ListContactsResult ListContacts(string contactListName, ListContactsFilter? filter = null, int? pageSize = null, RegionEndpoint? region = null)
+        => ListContactsAsync(contactListName, filter, pageSize, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEmailTemplateAsync"/>.</summary>
+    public static void CreateEmailTemplate(string templateName, EmailTemplateContent templateContent, RegionEndpoint? region = null)
+        => CreateEmailTemplateAsync(templateName, templateContent, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEmailTemplateAsync"/>.</summary>
+    public static void DeleteEmailTemplate(string templateName, RegionEndpoint? region = null)
+        => DeleteEmailTemplateAsync(templateName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetEmailTemplateAsync"/>.</summary>
+    public static GetEmailTemplateResult GetEmailTemplate(string templateName, RegionEndpoint? region = null)
+        => GetEmailTemplateAsync(templateName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateEmailTemplateAsync"/>.</summary>
+    public static void UpdateEmailTemplate(string templateName, EmailTemplateContent templateContent, RegionEndpoint? region = null)
+        => UpdateEmailTemplateAsync(templateName, templateContent, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListEmailTemplatesAsync"/>.</summary>
+    public static ListEmailTemplatesResult ListEmailTemplates(int? pageSize = null, RegionEndpoint? region = null)
+        => ListEmailTemplatesAsync(pageSize, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAccountAsync"/>.</summary>
+    public static GetAccountResult GetAccount(RegionEndpoint? region = null)
+        => GetAccountAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutAccountDetailsAsync"/>.</summary>
+    public static void PutAccountDetails(string mailType, string websiteUrl, string useCaseDescription, string? contactLanguage = null, string? additionalContactEmailAddresses = null, bool? productionAccessEnabled = null, RegionEndpoint? region = null)
+        => PutAccountDetailsAsync(mailType, websiteUrl, useCaseDescription, contactLanguage, additionalContactEmailAddresses, productionAccessEnabled, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateConfigurationSetAsync"/>.</summary>
+    public static void CreateConfigurationSet(string configurationSetName, TrackingOptions? trackingOptions = null, DeliveryOptions? deliveryOptions = null, ReputationOptions? reputationOptions = null, SendingOptions? sendingOptions = null, List<Amazon.SimpleEmailV2.Model.Tag>? tags = null, SuppressionOptions? suppressionOptions = null, VdmOptions? vdmOptions = null, RegionEndpoint? region = null)
+        => CreateConfigurationSetAsync(configurationSetName, trackingOptions, deliveryOptions, reputationOptions, sendingOptions, tags, suppressionOptions, vdmOptions, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConfigurationSetAsync"/>.</summary>
+    public static void DeleteConfigurationSet(string configurationSetName, RegionEndpoint? region = null)
+        => DeleteConfigurationSetAsync(configurationSetName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetConfigurationSetAsync"/>.</summary>
+    public static GetConfigurationSetResult GetConfigurationSet(string configurationSetName, RegionEndpoint? region = null)
+        => GetConfigurationSetAsync(configurationSetName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListConfigurationSetsAsync"/>.</summary>
+    public static ListConfigurationSetsResult ListConfigurationSets(int? pageSize = null, RegionEndpoint? region = null)
+        => ListConfigurationSetsAsync(pageSize, region).GetAwaiter().GetResult();
+
 }

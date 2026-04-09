@@ -196,4 +196,21 @@ public static class SageMakerRuntimeService
                 $"Failed to invoke endpoint async '{endpointName}'");
         }
     }
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="InvokeEndpointAsync"/>.</summary>
+    public static SageMakerInvokeEndpointResult InvokeEndpoint(string endpointName, MemoryStream body, string? contentType = null, string? accept = null, string? targetModel = null, string? targetVariant = null, string? targetContainerHostname = null, string? inferenceId = null, string? inferenceComponentName = null, string? customAttributes = null, string? sessionId = null, RegionEndpoint? region = null)
+        => InvokeEndpointAsync(endpointName, body, contentType, accept, targetModel, targetVariant, targetContainerHostname, inferenceId, inferenceComponentName, customAttributes, sessionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="InvokeEndpointWithResponseStreamAsync"/>.</summary>
+    public static SageMakerInvokeEndpointStreamResult InvokeEndpointWithResponseStream(string endpointName, MemoryStream body, string? contentType = null, string? accept = null, string? targetModel = null, string? targetVariant = null, string? targetContainerHostname = null, string? inferenceId = null, string? inferenceComponentName = null, string? customAttributes = null, string? sessionId = null, RegionEndpoint? region = null)
+        => InvokeEndpointWithResponseStreamAsync(endpointName, body, contentType, accept, targetModel, targetVariant, targetContainerHostname, inferenceId, inferenceComponentName, customAttributes, sessionId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="InvokeEndpointAsyncAsync"/>.</summary>
+    public static SageMakerInvokeEndpointAsyncResult InvokeEndpointAsync(string endpointName, string inputLocation, string? contentType = null, string? accept = null, string? inferenceId = null, int? invocationTimeoutSeconds = null, int? requestTTLSeconds = null, string? customAttributes = null, RegionEndpoint? region = null)
+        => InvokeEndpointAsyncAsync(endpointName, inputLocation, contentType, accept, inferenceId, invocationTimeoutSeconds, requestTTLSeconds, customAttributes, region).GetAwaiter().GetResult();
+
 }

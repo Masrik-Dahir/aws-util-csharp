@@ -1570,4 +1570,222 @@ public static class PersonalizeService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDatasetGroupAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateDatasetGroup(string name, string? roleArn = null, string? kmsKeyArn = null, string? domain = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDatasetGroupAsync(name, roleArn, kmsKeyArn, domain, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDatasetGroupAsync"/>.</summary>
+    public static PersonalizeDeleteResult DeleteDatasetGroup(string datasetGroupArn, RegionEndpoint? region = null)
+        => DeleteDatasetGroupAsync(datasetGroupArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDatasetGroupAsync"/>.</summary>
+    public static PersonalizeDescribeDatasetGroupResult DescribeDatasetGroup(string datasetGroupArn, RegionEndpoint? region = null)
+        => DescribeDatasetGroupAsync(datasetGroupArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatasetGroupsAsync"/>.</summary>
+    public static PersonalizeListDatasetGroupsResult ListDatasetGroups(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListDatasetGroupsAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDatasetAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateDataset(string name, string schemaArn, string datasetGroupArn, string datasetType, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDatasetAsync(name, schemaArn, datasetGroupArn, datasetType, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDatasetAsync"/>.</summary>
+    public static PersonalizeDeleteResult DeleteDataset(string datasetArn, RegionEndpoint? region = null)
+        => DeleteDatasetAsync(datasetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDatasetAsync"/>.</summary>
+    public static PersonalizeDescribeDatasetResult DescribeDataset(string datasetArn, RegionEndpoint? region = null)
+        => DescribeDatasetAsync(datasetArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatasetsAsync"/>.</summary>
+    public static PersonalizeListDatasetsResult ListDatasets(string? datasetGroupArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListDatasetsAsync(datasetGroupArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateDatasetAsync"/>.</summary>
+    public static PersonalizeResourceResult UpdateDataset(string datasetArn, string schemaArn, RegionEndpoint? region = null)
+        => UpdateDatasetAsync(datasetArn, schemaArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSchemaAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateSchema(string name, string schema, string? domain = null, RegionEndpoint? region = null)
+        => CreateSchemaAsync(name, schema, domain, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSchemaAsync"/>.</summary>
+    public static PersonalizeDeleteResult DeleteSchema(string schemaArn, RegionEndpoint? region = null)
+        => DeleteSchemaAsync(schemaArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSchemaAsync"/>.</summary>
+    public static PersonalizeDescribeSchemaResult DescribeSchema(string schemaArn, RegionEndpoint? region = null)
+        => DescribeSchemaAsync(schemaArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSchemasAsync"/>.</summary>
+    public static PersonalizeListSchemasResult ListSchemas(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListSchemasAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSolutionAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateSolution(string name, string datasetGroupArn, string? recipeArn = null, string? eventType = null, SolutionConfig? solutionConfig = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateSolutionAsync(name, datasetGroupArn, recipeArn, eventType, solutionConfig, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSolutionAsync"/>.</summary>
+    public static PersonalizeDeleteResult DeleteSolution(string solutionArn, RegionEndpoint? region = null)
+        => DeleteSolutionAsync(solutionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSolutionAsync"/>.</summary>
+    public static PersonalizeDescribeSolutionResult DescribeSolution(string solutionArn, RegionEndpoint? region = null)
+        => DescribeSolutionAsync(solutionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSolutionsAsync"/>.</summary>
+    public static PersonalizeListSolutionsResult ListSolutions(string? datasetGroupArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListSolutionsAsync(datasetGroupArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSolutionVersionAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateSolutionVersion(string solutionArn, string? trainingMode = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateSolutionVersionAsync(solutionArn, trainingMode, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeSolutionVersionAsync"/>.</summary>
+    public static PersonalizeDescribeSolutionVersionResult DescribeSolutionVersion(string solutionVersionArn, RegionEndpoint? region = null)
+        => DescribeSolutionVersionAsync(solutionVersionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSolutionVersionsAsync"/>.</summary>
+    public static PersonalizeListSolutionVersionsResult ListSolutionVersions(string? solutionArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListSolutionVersionsAsync(solutionArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateCampaignAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateCampaign(string name, string solutionVersionArn, int? minProvisionedTPS = null, CampaignConfig? campaignConfig = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateCampaignAsync(name, solutionVersionArn, minProvisionedTPS, campaignConfig, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteCampaignAsync"/>.</summary>
+    public static PersonalizeDeleteResult DeleteCampaign(string campaignArn, RegionEndpoint? region = null)
+        => DeleteCampaignAsync(campaignArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeCampaignAsync"/>.</summary>
+    public static PersonalizeDescribeCampaignResult DescribeCampaign(string campaignArn, RegionEndpoint? region = null)
+        => DescribeCampaignAsync(campaignArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListCampaignsAsync"/>.</summary>
+    public static PersonalizeListCampaignsResult ListCampaigns(string? solutionArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListCampaignsAsync(solutionArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateCampaignAsync"/>.</summary>
+    public static PersonalizeResourceResult UpdateCampaign(string campaignArn, string? solutionVersionArn = null, int? minProvisionedTPS = null, CampaignConfig? campaignConfig = null, RegionEndpoint? region = null)
+        => UpdateCampaignAsync(campaignArn, solutionVersionArn, minProvisionedTPS, campaignConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateBatchInferenceJobAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateBatchInferenceJob(string jobName, string solutionVersionArn, BatchInferenceJobInput jobInput, BatchInferenceJobOutput jobOutput, string roleArn, BatchInferenceJobConfig? batchInferenceJobConfig = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateBatchInferenceJobAsync(jobName, solutionVersionArn, jobInput, jobOutput, roleArn, batchInferenceJobConfig, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeBatchInferenceJobAsync"/>.</summary>
+    public static PersonalizeDescribeBatchInferenceJobResult DescribeBatchInferenceJob(string batchInferenceJobArn, RegionEndpoint? region = null)
+        => DescribeBatchInferenceJobAsync(batchInferenceJobArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListBatchInferenceJobsAsync"/>.</summary>
+    public static PersonalizeListBatchInferenceJobsResult ListBatchInferenceJobs(string? solutionVersionArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListBatchInferenceJobsAsync(solutionVersionArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateBatchSegmentJobAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateBatchSegmentJob(string jobName, string solutionVersionArn, BatchSegmentJobInput jobInput, BatchSegmentJobOutput jobOutput, string roleArn, int? numResults = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateBatchSegmentJobAsync(jobName, solutionVersionArn, jobInput, jobOutput, roleArn, numResults, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeBatchSegmentJobAsync"/>.</summary>
+    public static PersonalizeDescribeBatchSegmentJobResult DescribeBatchSegmentJob(string batchSegmentJobArn, RegionEndpoint? region = null)
+        => DescribeBatchSegmentJobAsync(batchSegmentJobArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListBatchSegmentJobsAsync"/>.</summary>
+    public static PersonalizeListBatchSegmentJobsResult ListBatchSegmentJobs(string? solutionVersionArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListBatchSegmentJobsAsync(solutionVersionArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDatasetImportJobAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateDatasetImportJob(string jobName, string datasetArn, DataSource dataSource, string roleArn, string? importMode = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDatasetImportJobAsync(jobName, datasetArn, dataSource, roleArn, importMode, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDatasetImportJobAsync"/>.</summary>
+    public static PersonalizeDescribeDatasetImportJobResult DescribeDatasetImportJob(string datasetImportJobArn, RegionEndpoint? region = null)
+        => DescribeDatasetImportJobAsync(datasetImportJobArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatasetImportJobsAsync"/>.</summary>
+    public static PersonalizeListDatasetImportJobsResult ListDatasetImportJobs(string? datasetArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListDatasetImportJobsAsync(datasetArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDatasetExportJobAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateDatasetExportJob(string jobName, string datasetArn, DatasetExportJobOutput jobOutput, string roleArn, string? ingestionMode = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDatasetExportJobAsync(jobName, datasetArn, jobOutput, roleArn, ingestionMode, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDatasetExportJobAsync"/>.</summary>
+    public static PersonalizeDescribeDatasetExportJobResult DescribeDatasetExportJob(string datasetExportJobArn, RegionEndpoint? region = null)
+        => DescribeDatasetExportJobAsync(datasetExportJobArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListDatasetExportJobsAsync"/>.</summary>
+    public static PersonalizeListDatasetExportJobsResult ListDatasetExportJobs(string? datasetArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListDatasetExportJobsAsync(datasetArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateFilterAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateFilter(string name, string datasetGroupArn, string filterExpression, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateFilterAsync(name, datasetGroupArn, filterExpression, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteFilterAsync"/>.</summary>
+    public static PersonalizeDeleteResult DeleteFilter(string filterArn, RegionEndpoint? region = null)
+        => DeleteFilterAsync(filterArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeFilterAsync"/>.</summary>
+    public static PersonalizeDescribeFilterResult DescribeFilter(string filterArn, RegionEndpoint? region = null)
+        => DescribeFilterAsync(filterArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListFiltersAsync"/>.</summary>
+    public static PersonalizeListFiltersResult ListFilters(string? datasetGroupArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListFiltersAsync(datasetGroupArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateRecommenderAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateRecommender(string name, string datasetGroupArn, string recipeArn, RecommenderConfig? recommenderConfig = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateRecommenderAsync(name, datasetGroupArn, recipeArn, recommenderConfig, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteRecommenderAsync"/>.</summary>
+    public static PersonalizeDeleteResult DeleteRecommender(string recommenderArn, RegionEndpoint? region = null)
+        => DeleteRecommenderAsync(recommenderArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeRecommenderAsync"/>.</summary>
+    public static PersonalizeDescribeRecommenderResult DescribeRecommender(string recommenderArn, RegionEndpoint? region = null)
+        => DescribeRecommenderAsync(recommenderArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRecommendersAsync"/>.</summary>
+    public static PersonalizeListRecommendersResult ListRecommenders(string? datasetGroupArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListRecommendersAsync(datasetGroupArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateRecommenderAsync"/>.</summary>
+    public static PersonalizeResourceResult UpdateRecommender(string recommenderArn, RecommenderConfig recommenderConfig, RegionEndpoint? region = null)
+        => UpdateRecommenderAsync(recommenderArn, recommenderConfig, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEventTrackerAsync"/>.</summary>
+    public static PersonalizeResourceResult CreateEventTracker(string name, string datasetGroupArn, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateEventTrackerAsync(name, datasetGroupArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEventTrackerAsync"/>.</summary>
+    public static PersonalizeDeleteResult DeleteEventTracker(string eventTrackerArn, RegionEndpoint? region = null)
+        => DeleteEventTrackerAsync(eventTrackerArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventTrackerAsync"/>.</summary>
+    public static PersonalizeDescribeEventTrackerResult DescribeEventTracker(string eventTrackerArn, RegionEndpoint? region = null)
+        => DescribeEventTrackerAsync(eventTrackerArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListEventTrackersAsync"/>.</summary>
+    public static PersonalizeListEventTrackersResult ListEventTrackers(string? datasetGroupArn = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListEventTrackersAsync(datasetGroupArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static PersonalizeTagResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static PersonalizeTagResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static PersonalizeListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

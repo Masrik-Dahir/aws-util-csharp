@@ -1030,4 +1030,138 @@ public static class AppRunnerService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateServiceAsync"/>.</summary>
+    public static AppRunnerServiceInfo CreateService(CreateServiceRequest request, RegionEndpoint? region = null)
+        => CreateServiceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteServiceAsync"/>.</summary>
+    public static AppRunnerServiceInfo DeleteService(string serviceArn, RegionEndpoint? region = null)
+        => DeleteServiceAsync(serviceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeServiceAsync"/>.</summary>
+    public static AppRunnerServiceInfo DescribeService(string serviceArn, RegionEndpoint? region = null)
+        => DescribeServiceAsync(serviceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListServicesAsync"/>.</summary>
+    public static List<AppRunnerServiceInfo> ListServices(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListServicesAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateServiceAsync"/>.</summary>
+    public static AppRunnerServiceInfo UpdateService(UpdateServiceRequest request, RegionEndpoint? region = null)
+        => UpdateServiceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PauseServiceAsync"/>.</summary>
+    public static AppRunnerServiceInfo PauseService(string serviceArn, RegionEndpoint? region = null)
+        => PauseServiceAsync(serviceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResumeServiceAsync"/>.</summary>
+    public static AppRunnerServiceInfo ResumeService(string serviceArn, RegionEndpoint? region = null)
+        => ResumeServiceAsync(serviceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateAutoScalingConfigurationAsync"/>.</summary>
+    public static AppRunnerAutoScalingConfig CreateAutoScalingConfiguration(string autoScalingConfigurationName, int? maxConcurrency = null, int? minSize = null, int? maxSize = null, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateAutoScalingConfigurationAsync(autoScalingConfigurationName, maxConcurrency, minSize, maxSize, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteAutoScalingConfigurationAsync"/>.</summary>
+    public static AppRunnerAutoScalingConfig DeleteAutoScalingConfiguration(string autoScalingConfigurationArn, RegionEndpoint? region = null)
+        => DeleteAutoScalingConfigurationAsync(autoScalingConfigurationArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeAutoScalingConfigurationAsync"/>.</summary>
+    public static AppRunnerAutoScalingConfig DescribeAutoScalingConfiguration(string autoScalingConfigurationArn, RegionEndpoint? region = null)
+        => DescribeAutoScalingConfigurationAsync(autoScalingConfigurationArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAutoScalingConfigurationsAsync"/>.</summary>
+    public static List<AppRunnerAutoScalingConfig> ListAutoScalingConfigurations(string? autoScalingConfigurationName = null, bool? latestOnly = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListAutoScalingConfigurationsAsync(autoScalingConfigurationName, latestOnly, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateConnectionAsync"/>.</summary>
+    public static AppRunnerConnectionInfo CreateConnection(string connectionName, string providerType, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateConnectionAsync(connectionName, providerType, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteConnectionAsync"/>.</summary>
+    public static AppRunnerConnectionInfo DeleteConnection(string connectionArn, RegionEndpoint? region = null)
+        => DeleteConnectionAsync(connectionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListConnectionsAsync"/>.</summary>
+    public static List<AppRunnerConnectionInfo> ListConnections(string? connectionName = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListConnectionsAsync(connectionName, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateVpcConnectorAsync"/>.</summary>
+    public static AppRunnerVpcConnectorInfo CreateVpcConnector(CreateVpcConnectorRequest request, RegionEndpoint? region = null)
+        => CreateVpcConnectorAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteVpcConnectorAsync"/>.</summary>
+    public static AppRunnerVpcConnectorInfo DeleteVpcConnector(string vpcConnectorArn, RegionEndpoint? region = null)
+        => DeleteVpcConnectorAsync(vpcConnectorArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeVpcConnectorAsync"/>.</summary>
+    public static AppRunnerVpcConnectorInfo DescribeVpcConnector(string vpcConnectorArn, RegionEndpoint? region = null)
+        => DescribeVpcConnectorAsync(vpcConnectorArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListVpcConnectorsAsync"/>.</summary>
+    public static List<AppRunnerVpcConnectorInfo> ListVpcConnectors(string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListVpcConnectorsAsync(nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateObservabilityConfigurationAsync"/>.</summary>
+    public static AppRunnerObservabilityConfig CreateObservabilityConfiguration(CreateObservabilityConfigurationRequest request, RegionEndpoint? region = null)
+        => CreateObservabilityConfigurationAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteObservabilityConfigurationAsync"/>.</summary>
+    public static AppRunnerObservabilityConfig DeleteObservabilityConfiguration(string observabilityConfigurationArn, RegionEndpoint? region = null)
+        => DeleteObservabilityConfigurationAsync(observabilityConfigurationArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeObservabilityConfigurationAsync"/>.</summary>
+    public static AppRunnerObservabilityConfig DescribeObservabilityConfiguration(string observabilityConfigurationArn, RegionEndpoint? region = null)
+        => DescribeObservabilityConfigurationAsync(observabilityConfigurationArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListObservabilityConfigurationsAsync"/>.</summary>
+    public static List<AppRunnerObservabilityConfig> ListObservabilityConfigurations(string? observabilityConfigurationName = null, bool? latestOnly = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListObservabilityConfigurationsAsync(observabilityConfigurationName, latestOnly, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateVpcIngressConnectionAsync"/>.</summary>
+    public static AppRunnerVpcIngressConnectionInfo CreateVpcIngressConnection(CreateVpcIngressConnectionRequest request, RegionEndpoint? region = null)
+        => CreateVpcIngressConnectionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteVpcIngressConnectionAsync"/>.</summary>
+    public static AppRunnerVpcIngressConnectionInfo DeleteVpcIngressConnection(string vpcIngressConnectionArn, RegionEndpoint? region = null)
+        => DeleteVpcIngressConnectionAsync(vpcIngressConnectionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeVpcIngressConnectionAsync"/>.</summary>
+    public static AppRunnerVpcIngressConnectionInfo DescribeVpcIngressConnection(string vpcIngressConnectionArn, RegionEndpoint? region = null)
+        => DescribeVpcIngressConnectionAsync(vpcIngressConnectionArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListVpcIngressConnectionsAsync"/>.</summary>
+    public static List<AppRunnerVpcIngressConnectionInfo> ListVpcIngressConnections(ListVpcIngressConnectionsFilter? filter = null, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListVpcIngressConnectionsAsync(filter, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateVpcIngressConnectionAsync"/>.</summary>
+    public static AppRunnerVpcIngressConnectionInfo UpdateVpcIngressConnection(UpdateVpcIngressConnectionRequest request, RegionEndpoint? region = null)
+        => UpdateVpcIngressConnectionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartDeploymentAsync"/>.</summary>
+    public static AppRunnerDeploymentInfo StartDeployment(string serviceArn, RegionEndpoint? region = null)
+        => StartDeploymentAsync(serviceArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListOperationsAsync"/>.</summary>
+    public static List<AppRunnerOperationInfo> ListOperations(string serviceArn, string? nextToken = null, int? maxResults = null, RegionEndpoint? region = null)
+        => ListOperationsAsync(serviceArn, nextToken, maxResults, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static AppRunnerTagResult TagResource(string resourceArn, List<Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static AppRunnerTagResult UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static AppRunnerListTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

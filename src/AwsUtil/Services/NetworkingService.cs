@@ -343,4 +343,26 @@ public static class NetworkingService
             throw ErrorClassifier.WrapAwsError(exc, "Network ACL audit failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="VpcPeeringManagerAsync"/>.</summary>
+    public static VpcPeeringManagerResult VpcPeeringManager(string requesterVpcId, string accepterVpcId, string? accepterAccountId = null, string? accepterRegion = null, List<(string RouteTableId, string DestinationCidr)>? routes = null, RegionEndpoint? region = null)
+        => VpcPeeringManagerAsync(requesterVpcId, accepterVpcId, accepterAccountId, accepterRegion, routes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TransitGatewayConfiguratorAsync"/>.</summary>
+    public static TransitGatewayConfiguratorResult TransitGatewayConfigurator(string transitGatewayId, string vpcId, List<string> subnetIds, List<(string RouteTableId, string DestinationCidr)>? routes = null, RegionEndpoint? region = null)
+        => TransitGatewayConfiguratorAsync(transitGatewayId, vpcId, subnetIds, routes, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PrivateLinkManagerAsync"/>.</summary>
+    public static PrivateLinkManagerResult PrivateLinkManager(string vpcId, string serviceName, List<string> subnetIds, List<string> securityGroupIds, string endpointType = "Interface", RegionEndpoint? region = null)
+        => PrivateLinkManagerAsync(vpcId, serviceName, subnetIds, securityGroupIds, endpointType, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="NetworkAclAuditorAsync"/>.</summary>
+    public static NetworkAclAuditorResult NetworkAclAuditor(List<string>? vpcIds = null, RegionEndpoint? region = null)
+        => NetworkAclAuditorAsync(vpcIds, region).GetAwaiter().GetResult();
+
 }

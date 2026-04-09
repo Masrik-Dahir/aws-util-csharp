@@ -169,4 +169,22 @@ public static class NotifierService
         var resolved = (string)(await Placeholder.RetrieveAsync(messageTemplate))!;
         return await SendAlertAsync(topicArn, subject, resolved, region);
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="SendAlertAsync"/>.</summary>
+    public static NotificationResult SendAlert(string topicArn, string subject, string message, RegionEndpoint? region = null)
+        => SendAlertAsync(topicArn, subject, message, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="BroadcastAsync"/>.</summary>
+    public static BroadcastResult Broadcast(string subject, string message, List<string>? snsTopicArns = null, List<(string From, string To)>? sesTargets = null, List<string>? sqsQueueUrls = null, RegionEndpoint? region = null)
+        => BroadcastAsync(subject, message, snsTopicArns, sesTargets, sqsQueueUrls, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ResolveAndNotifyAsync"/>.</summary>
+    public static NotificationResult ResolveAndNotify(string topicArn, string subject, string messageTemplate, RegionEndpoint? region = null)
+        => ResolveAndNotifyAsync(topicArn, subject, messageTemplate, region).GetAwaiter().GetResult();
+
 }

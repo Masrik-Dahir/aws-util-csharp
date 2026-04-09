@@ -1354,4 +1354,174 @@ public static class RdsService
             throw ErrorClassifier.WrapAwsError(exc, $"Failed to switchover read replica '{dbInstanceIdentifier}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBInstanceAsync"/>.</summary>
+    public static CreateDBInstanceResult CreateDBInstance(CreateDBInstanceRequest request, RegionEndpoint? region = null)
+        => CreateDBInstanceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDBInstanceAsync"/>.</summary>
+    public static DeleteDBInstanceResult DeleteDBInstance(string dbInstanceIdentifier, bool skipFinalSnapshot = false, string? finalDBSnapshotIdentifier = null, RegionEndpoint? region = null)
+        => DeleteDBInstanceAsync(dbInstanceIdentifier, skipFinalSnapshot, finalDBSnapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBInstancesAsync"/>.</summary>
+    public static DescribeDBInstancesResult DescribeDBInstances(string? dbInstanceIdentifier = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBInstancesAsync(dbInstanceIdentifier, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyDBInstanceAsync"/>.</summary>
+    public static ModifyDBInstanceResult ModifyDBInstance(ModifyDBInstanceRequest request, RegionEndpoint? region = null)
+        => ModifyDBInstanceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RebootDBInstanceAsync"/>.</summary>
+    public static RebootDBInstanceResult RebootDBInstance(string dbInstanceIdentifier, bool? forceFailover = null, RegionEndpoint? region = null)
+        => RebootDBInstanceAsync(dbInstanceIdentifier, forceFailover, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StartDBInstanceAsync"/>.</summary>
+    public static StartDBInstanceResult StartDBInstance(string dbInstanceIdentifier, RegionEndpoint? region = null)
+        => StartDBInstanceAsync(dbInstanceIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="StopDBInstanceAsync"/>.</summary>
+    public static StopDBInstanceResult StopDBInstance(string dbInstanceIdentifier, string? dbSnapshotIdentifier = null, RegionEndpoint? region = null)
+        => StopDBInstanceAsync(dbInstanceIdentifier, dbSnapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBClusterAsync"/>.</summary>
+    public static CreateDBClusterResult CreateDBCluster(CreateDBClusterRequest request, RegionEndpoint? region = null)
+        => CreateDBClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDBClusterAsync"/>.</summary>
+    public static DeleteDBClusterResult DeleteDBCluster(string dbClusterIdentifier, bool skipFinalSnapshot = false, string? finalDBSnapshotIdentifier = null, RegionEndpoint? region = null)
+        => DeleteDBClusterAsync(dbClusterIdentifier, skipFinalSnapshot, finalDBSnapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBClustersAsync"/>.</summary>
+    public static DescribeDBClustersResult DescribeDBClusters(string? dbClusterIdentifier = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBClustersAsync(dbClusterIdentifier, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyDBClusterAsync"/>.</summary>
+    public static ModifyDBClusterResult ModifyDBCluster(ModifyDBClusterRequest request, RegionEndpoint? region = null)
+        => ModifyDBClusterAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBSnapshotAsync"/>.</summary>
+    public static CreateDBSnapshotResult CreateDBSnapshot(string dbInstanceIdentifier, string dbSnapshotIdentifier, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDBSnapshotAsync(dbInstanceIdentifier, dbSnapshotIdentifier, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDBSnapshotAsync"/>.</summary>
+    public static DeleteDBSnapshotResult DeleteDBSnapshot(string dbSnapshotIdentifier, RegionEndpoint? region = null)
+        => DeleteDBSnapshotAsync(dbSnapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBSnapshotsAsync"/>.</summary>
+    public static DescribeDBSnapshotsResult DescribeDBSnapshots(string? dbInstanceIdentifier = null, string? dbSnapshotIdentifier = null, string? snapshotType = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBSnapshotsAsync(dbInstanceIdentifier, dbSnapshotIdentifier, snapshotType, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RestoreDBInstanceFromDBSnapshotAsync"/>.</summary>
+    public static RestoreDBInstanceFromDBSnapshotResult RestoreDBInstanceFromDBSnapshot(RestoreDBInstanceFromDBSnapshotRequest request, RegionEndpoint? region = null)
+        => RestoreDBInstanceFromDBSnapshotAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBClusterSnapshotAsync"/>.</summary>
+    public static CreateDBClusterSnapshotResult CreateDBClusterSnapshot(string dbClusterIdentifier, string dbClusterSnapshotIdentifier, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDBClusterSnapshotAsync(dbClusterIdentifier, dbClusterSnapshotIdentifier, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDBClusterSnapshotAsync"/>.</summary>
+    public static DeleteDBClusterSnapshotResult DeleteDBClusterSnapshot(string dbClusterSnapshotIdentifier, RegionEndpoint? region = null)
+        => DeleteDBClusterSnapshotAsync(dbClusterSnapshotIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBClusterSnapshotsAsync"/>.</summary>
+    public static DescribeDBClusterSnapshotsResult DescribeDBClusterSnapshots(string? dbClusterIdentifier = null, string? dbClusterSnapshotIdentifier = null, string? snapshotType = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBClusterSnapshotsAsync(dbClusterIdentifier, dbClusterSnapshotIdentifier, snapshotType, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBSubnetGroupAsync"/>.</summary>
+    public static CreateDBSubnetGroupResult CreateDBSubnetGroup(string dbSubnetGroupName, string dbSubnetGroupDescription, List<string> subnetIds, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDBSubnetGroupAsync(dbSubnetGroupName, dbSubnetGroupDescription, subnetIds, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDBSubnetGroupAsync"/>.</summary>
+    public static void DeleteDBSubnetGroup(string dbSubnetGroupName, RegionEndpoint? region = null)
+        => DeleteDBSubnetGroupAsync(dbSubnetGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBSubnetGroupsAsync"/>.</summary>
+    public static DescribeDBSubnetGroupsResult DescribeDBSubnetGroups(string? dbSubnetGroupName = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBSubnetGroupsAsync(dbSubnetGroupName, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBParameterGroupAsync"/>.</summary>
+    public static CreateDBParameterGroupResult CreateDBParameterGroup(string dbParameterGroupName, string dbParameterGroupFamily, string description, List<Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateDBParameterGroupAsync(dbParameterGroupName, dbParameterGroupFamily, description, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteDBParameterGroupAsync"/>.</summary>
+    public static void DeleteDBParameterGroup(string dbParameterGroupName, RegionEndpoint? region = null)
+        => DeleteDBParameterGroupAsync(dbParameterGroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBParameterGroupsAsync"/>.</summary>
+    public static DescribeDBParameterGroupsResult DescribeDBParameterGroups(string? dbParameterGroupName = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBParameterGroupsAsync(dbParameterGroupName, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ModifyDBParameterGroupAsync"/>.</summary>
+    public static ModifyDBParameterGroupResult ModifyDBParameterGroup(string dbParameterGroupName, List<Parameter> parameters, RegionEndpoint? region = null)
+        => ModifyDBParameterGroupAsync(dbParameterGroupName, parameters, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBParametersAsync"/>.</summary>
+    public static DescribeDBParametersResult DescribeDBParameters(string dbParameterGroupName, string? source = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBParametersAsync(dbParameterGroupName, source, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBEngineVersionsAsync"/>.</summary>
+    public static DescribeDBEngineVersionsResult DescribeDBEngineVersions(string? engine = null, string? engineVersion = null, string? dbParameterGroupFamily = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBEngineVersionsAsync(engine, engineVersion, dbParameterGroupFamily, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeOrderableDBInstanceOptionsAsync"/>.</summary>
+    public static DescribeOrderableDBInstanceOptionsResult DescribeOrderableDBInstanceOptions(string engine, string? engineVersion = null, string? dbInstanceClass = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeOrderableDBInstanceOptionsAsync(engine, engineVersion, dbInstanceClass, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEventSubscriptionAsync"/>.</summary>
+    public static CreateEventSubscriptionResult CreateEventSubscription(CreateEventSubscriptionRequest request, RegionEndpoint? region = null)
+        => CreateEventSubscriptionAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEventSubscriptionAsync"/>.</summary>
+    public static DeleteEventSubscriptionResult DeleteEventSubscription(string subscriptionName, RegionEndpoint? region = null)
+        => DeleteEventSubscriptionAsync(subscriptionName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventSubscriptionsAsync"/>.</summary>
+    public static DescribeEventSubscriptionsResult DescribeEventSubscriptions(string? subscriptionName = null, List<Filter>? filters = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeEventSubscriptionsAsync(subscriptionName, filters, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeEventsAsync"/>.</summary>
+    public static DescribeEventsResult DescribeEvents(DescribeEventsRequest? request = null, RegionEndpoint? region = null)
+        => DescribeEventsAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AddTagsToResourceAsync"/>.</summary>
+    public static void AddTagsToResource(string resourceName, List<Tag> tags, RegionEndpoint? region = null)
+        => AddTagsToResourceAsync(resourceName, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RemoveTagsFromResourceAsync"/>.</summary>
+    public static void RemoveTagsFromResource(string resourceName, List<string> tagKeys, RegionEndpoint? region = null)
+        => RemoveTagsFromResourceAsync(resourceName, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ListTagsForResourceResult ListTagsForResource(string resourceName, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PromoteReadReplicaAsync"/>.</summary>
+    public static PromoteReadReplicaResult PromoteReadReplica(string dbInstanceIdentifier, string? backupRetentionPeriod = null, string? preferredBackupWindow = null, RegionEndpoint? region = null)
+        => PromoteReadReplicaAsync(dbInstanceIdentifier, backupRetentionPeriod, preferredBackupWindow, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateDBInstanceReadReplicaAsync"/>.</summary>
+    public static CreateDBInstanceReadReplicaResult CreateDBInstanceReadReplica(CreateDBInstanceReadReplicaRequest request, RegionEndpoint? region = null)
+        => CreateDBInstanceReadReplicaAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DescribeDBLogFilesAsync"/>.</summary>
+    public static DescribeDBLogFilesResult DescribeDBLogFiles(string dbInstanceIdentifier, string? filenameContains = null, long? fileLastWritten = null, long? fileSize = null, string? marker = null, int? maxRecords = null, RegionEndpoint? region = null)
+        => DescribeDBLogFilesAsync(dbInstanceIdentifier, filenameContains, fileLastWritten, fileSize, marker, maxRecords, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DownloadDBLogFilePortionAsync"/>.</summary>
+    public static DownloadDBLogFilePortionResult DownloadDBLogFilePortion(string dbInstanceIdentifier, string logFileName, string? marker = null, int? numberOfLines = null, RegionEndpoint? region = null)
+        => DownloadDBLogFilePortionAsync(dbInstanceIdentifier, logFileName, marker, numberOfLines, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="FailoverDBClusterAsync"/>.</summary>
+    public static FailoverDBClusterResult FailoverDBCluster(string dbClusterIdentifier, string? targetDBInstanceIdentifier = null, RegionEndpoint? region = null)
+        => FailoverDBClusterAsync(dbClusterIdentifier, targetDBInstanceIdentifier, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SwitchoverReadReplicaAsync"/>.</summary>
+    public static SwitchoverReadReplicaResult SwitchoverReadReplica(string dbInstanceIdentifier, RegionEndpoint? region = null)
+        => SwitchoverReadReplicaAsync(dbInstanceIdentifier, region).GetAwaiter().GetResult();
+
 }

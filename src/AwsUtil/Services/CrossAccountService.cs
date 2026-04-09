@@ -280,4 +280,22 @@ public static class CrossAccountService
             throw ErrorClassifier.WrapAwsError(exc, "Multi-account resource inventory failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CrossAccountEventBusFederatorAsync"/>.</summary>
+    public static CrossAccountEventBusFederatorResult CrossAccountEventBusFederator(string sourceAccount, List<(string AccountId, string RoleArn, string EventBusArn)> targets, List<Amazon.EventBridge.Model.PutEventsRequestEntry> events, RegionEndpoint? region = null)
+        => CrossAccountEventBusFederatorAsync(sourceAccount, targets, events, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CentralizedLogAggregatorAsync"/>.</summary>
+    public static CentralizedLogAggregatorResult CentralizedLogAggregator(List<(string AccountId, string RoleArn)> sourceAccounts, string destinationBucket, string? logGroupPrefix = null, int lastNHours = 24, RegionEndpoint? region = null)
+        => CentralizedLogAggregatorAsync(sourceAccounts, destinationBucket, logGroupPrefix, lastNHours, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="MultiAccountResourceInventoryAsync"/>.</summary>
+    public static MultiAccountResourceInventoryResult MultiAccountResourceInventory(List<(string AccountId, string RoleArn)> accounts, List<string>? resourceTypes = null, RegionEndpoint? region = null)
+        => MultiAccountResourceInventoryAsync(accounts, resourceTypes, region).GetAwaiter().GetResult();
+
 }

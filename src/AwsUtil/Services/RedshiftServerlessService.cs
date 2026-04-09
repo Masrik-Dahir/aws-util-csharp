@@ -970,4 +970,138 @@ public static class RedshiftServerlessService
                 $"Failed to list tags for Redshift Serverless resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="CreateNamespaceAsync"/>.</summary>
+    public static CreateRssNamespaceResult CreateNamespace(CreateNamespaceRequest request, RegionEndpoint? region = null)
+        => CreateNamespaceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteNamespaceAsync"/>.</summary>
+    public static DeleteRssNamespaceResult DeleteNamespace(string namespaceName, string? finalSnapshotName = null, int? finalSnapshotRetentionPeriod = null, RegionEndpoint? region = null)
+        => DeleteNamespaceAsync(namespaceName, finalSnapshotName, finalSnapshotRetentionPeriod, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetNamespaceAsync"/>.</summary>
+    public static GetRssNamespaceResult GetNamespace(string namespaceName, RegionEndpoint? region = null)
+        => GetNamespaceAsync(namespaceName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListNamespacesAsync"/>.</summary>
+    public static ListRssNamespacesResult ListNamespaces(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListNamespacesAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateNamespaceAsync"/>.</summary>
+    public static UpdateRssNamespaceResult UpdateNamespace(UpdateNamespaceRequest request, RegionEndpoint? region = null)
+        => UpdateNamespaceAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateWorkgroupAsync"/>.</summary>
+    public static CreateRssWorkgroupResult CreateWorkgroup(CreateWorkgroupRequest request, RegionEndpoint? region = null)
+        => CreateWorkgroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteWorkgroupAsync"/>.</summary>
+    public static DeleteRssWorkgroupResult DeleteWorkgroup(string workgroupName, RegionEndpoint? region = null)
+        => DeleteWorkgroupAsync(workgroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetWorkgroupAsync"/>.</summary>
+    public static GetRssWorkgroupResult GetWorkgroup(string workgroupName, RegionEndpoint? region = null)
+        => GetWorkgroupAsync(workgroupName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListWorkgroupsAsync"/>.</summary>
+    public static ListRssWorkgroupsResult ListWorkgroups(int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListWorkgroupsAsync(maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateWorkgroupAsync"/>.</summary>
+    public static UpdateRssWorkgroupResult UpdateWorkgroup(UpdateWorkgroupRequest request, RegionEndpoint? region = null)
+        => UpdateWorkgroupAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateSnapshotAsync"/>.</summary>
+    public static CreateRssSnapshotResult CreateSnapshot(string namespaceName, string snapshotName, int? retentionPeriod = null, List<Amazon.RedshiftServerless.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => CreateSnapshotAsync(namespaceName, snapshotName, retentionPeriod, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteSnapshotAsync"/>.</summary>
+    public static DeleteRssSnapshotResult DeleteSnapshot(string snapshotName, RegionEndpoint? region = null)
+        => DeleteSnapshotAsync(snapshotName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetSnapshotAsync"/>.</summary>
+    public static GetRssSnapshotResult GetSnapshot(string? snapshotName = null, string? snapshotArn = null, RegionEndpoint? region = null)
+        => GetSnapshotAsync(snapshotName, snapshotArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListSnapshotsAsync"/>.</summary>
+    public static ListRssSnapshotsResult ListSnapshots(string? namespaceName = null, string? namespaceArn = null, DateTime? startTime = null, DateTime? endTime = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListSnapshotsAsync(namespaceName, namespaceArn, startTime, endTime, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RestoreFromSnapshotAsync"/>.</summary>
+    public static RestoreFromRssSnapshotResult RestoreFromSnapshot(RestoreFromSnapshotRequest request, RegionEndpoint? region = null)
+        => RestoreFromSnapshotAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ConvertRecoveryPointToSnapshotAsync"/>.</summary>
+    public static ConvertRecoveryPointToRssSnapshotResult ConvertRecoveryPointToSnapshot(string recoveryPointId, string snapshotName, int? retentionPeriod = null, List<Amazon.RedshiftServerless.Model.Tag>? tags = null, RegionEndpoint? region = null)
+        => ConvertRecoveryPointToSnapshotAsync(recoveryPointId, snapshotName, retentionPeriod, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateEndpointAccessAsync"/>.</summary>
+    public static CreateRssEndpointAccessResult CreateEndpointAccess(CreateEndpointAccessRequest request, RegionEndpoint? region = null)
+        => CreateEndpointAccessAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteEndpointAccessAsync"/>.</summary>
+    public static DeleteRssEndpointAccessResult DeleteEndpointAccess(string endpointName, RegionEndpoint? region = null)
+        => DeleteEndpointAccessAsync(endpointName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetEndpointAccessAsync"/>.</summary>
+    public static GetRssEndpointAccessResult GetEndpointAccess(string endpointName, RegionEndpoint? region = null)
+        => GetEndpointAccessAsync(endpointName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListEndpointAccessAsync"/>.</summary>
+    public static ListRssEndpointAccessResult ListEndpointAccess(string? workgroupName = null, string? vpcId = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListEndpointAccessAsync(workgroupName, vpcId, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateEndpointAccessAsync"/>.</summary>
+    public static UpdateRssEndpointAccessResult UpdateEndpointAccess(UpdateEndpointAccessRequest request, RegionEndpoint? region = null)
+        => UpdateEndpointAccessAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetCredentialsAsync"/>.</summary>
+    public static GetRssCredentialsResult GetCredentials(string workgroupName, string? dbName = null, int? durationSeconds = null, RegionEndpoint? region = null)
+        => GetCredentialsAsync(workgroupName, dbName, durationSeconds, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRecoveryPointAsync"/>.</summary>
+    public static GetRssRecoveryPointResult GetRecoveryPoint(string recoveryPointId, RegionEndpoint? region = null)
+        => GetRecoveryPointAsync(recoveryPointId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRecoveryPointsAsync"/>.</summary>
+    public static ListRssRecoveryPointsResult ListRecoveryPoints(string? namespaceName = null, string? namespaceArn = null, DateTime? startTime = null, DateTime? endTime = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListRecoveryPointsAsync(namespaceName, namespaceArn, startTime, endTime, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="CreateUsageLimitAsync"/>.</summary>
+    public static CreateRssUsageLimitResult CreateUsageLimit(CreateUsageLimitRequest request, RegionEndpoint? region = null)
+        => CreateUsageLimitAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteUsageLimitAsync"/>.</summary>
+    public static DeleteRssUsageLimitResult DeleteUsageLimit(string usageLimitId, RegionEndpoint? region = null)
+        => DeleteUsageLimitAsync(usageLimitId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetUsageLimitAsync"/>.</summary>
+    public static GetRssUsageLimitResult GetUsageLimit(string usageLimitId, RegionEndpoint? region = null)
+        => GetUsageLimitAsync(usageLimitId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListUsageLimitsAsync"/>.</summary>
+    public static ListRssUsageLimitsResult ListUsageLimits(string? resourceArn = null, string? usageType = null, int? maxResults = null, string? nextToken = null, RegionEndpoint? region = null)
+        => ListUsageLimitsAsync(resourceArn, usageType, maxResults, nextToken, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UpdateUsageLimitAsync"/>.</summary>
+    public static UpdateRssUsageLimitResult UpdateUsageLimit(UpdateUsageLimitRequest request, RegionEndpoint? region = null)
+        => UpdateUsageLimitAsync(request, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, List<Amazon.RedshiftServerless.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static ListRssTagsResult ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

@@ -671,4 +671,86 @@ public static class ServiceQuotasService
                 $"Failed to list tags for resource '{resourceArn}'");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="GetServiceQuotaAsync"/>.</summary>
+    public static ServiceQuotaResult GetServiceQuota(string serviceCode, string quotaCode, RegionEndpoint? region = null)
+        => GetServiceQuotaAsync(serviceCode, quotaCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListServiceQuotasAsync"/>.</summary>
+    public static List<ServiceQuotaResult> ListServiceQuotas(string serviceCode, RegionEndpoint? region = null)
+        => ListServiceQuotasAsync(serviceCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAWSDefaultServiceQuotaAsync"/>.</summary>
+    public static ServiceQuotaResult GetAWSDefaultServiceQuota(string serviceCode, string quotaCode, RegionEndpoint? region = null)
+        => GetAWSDefaultServiceQuotaAsync(serviceCode, quotaCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListAWSDefaultServiceQuotasAsync"/>.</summary>
+    public static List<ServiceQuotaResult> ListAWSDefaultServiceQuotas(string serviceCode, RegionEndpoint? region = null)
+        => ListAWSDefaultServiceQuotasAsync(serviceCode, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="RequestServiceQuotaIncreaseAsync"/>.</summary>
+    public static RequestedQuotaChangeResult RequestServiceQuotaIncrease(string serviceCode, string quotaCode, double desiredValue, RegionEndpoint? region = null)
+        => RequestServiceQuotaIncreaseAsync(serviceCode, quotaCode, desiredValue, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetRequestedServiceQuotaChangeAsync"/>.</summary>
+    public static RequestedQuotaChangeResult GetRequestedServiceQuotaChange(string requestId, RegionEndpoint? region = null)
+        => GetRequestedServiceQuotaChangeAsync(requestId, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRequestedServiceQuotaChangeHistoryAsync"/>.</summary>
+    public static List<RequestedQuotaChangeResult> ListRequestedServiceQuotaChangeHistory(string? serviceCode = null, string? status = null, RegionEndpoint? region = null)
+        => ListRequestedServiceQuotaChangeHistoryAsync(serviceCode, status, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListRequestedServiceQuotaChangeHistoryByQuotaAsync"/>.</summary>
+    public static List<RequestedQuotaChangeResult> ListRequestedServiceQuotaChangeHistoryByQuota(string serviceCode, string quotaCode, string? status = null, RegionEndpoint? region = null)
+        => ListRequestedServiceQuotaChangeHistoryByQuotaAsync(serviceCode, quotaCode, status, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListServicesAsync"/>.</summary>
+    public static List<ServiceInfoResult> ListServices(RegionEndpoint? region = null)
+        => ListServicesAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListServiceQuotaIncreaseRequestsInTemplateAsync"/>.</summary>
+    public static List<QuotaTemplateRequestResult> ListServiceQuotaIncreaseRequestsInTemplate(string? serviceCode = null, string? awsRegion = null, RegionEndpoint? region = null)
+        => ListServiceQuotaIncreaseRequestsInTemplateAsync(serviceCode, awsRegion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="PutServiceQuotaIncreaseRequestIntoTemplateAsync"/>.</summary>
+    public static QuotaTemplateRequestResult PutServiceQuotaIncreaseRequestIntoTemplate(string serviceCode, string quotaCode, string awsRegion, double desiredValue, RegionEndpoint? region = null)
+        => PutServiceQuotaIncreaseRequestIntoTemplateAsync(serviceCode, quotaCode, awsRegion, desiredValue, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DeleteServiceQuotaIncreaseRequestFromTemplateAsync"/>.</summary>
+    public static void DeleteServiceQuotaIncreaseRequestFromTemplate(string serviceCode, string quotaCode, string awsRegion, RegionEndpoint? region = null)
+        => DeleteServiceQuotaIncreaseRequestFromTemplateAsync(serviceCode, quotaCode, awsRegion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetServiceQuotaIncreaseRequestFromTemplateAsync"/>.</summary>
+    public static QuotaTemplateRequestResult GetServiceQuotaIncreaseRequestFromTemplate(string serviceCode, string quotaCode, string awsRegion, RegionEndpoint? region = null)
+        => GetServiceQuotaIncreaseRequestFromTemplateAsync(serviceCode, quotaCode, awsRegion, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="AssociateServiceQuotaTemplateAsync"/>.</summary>
+    public static void AssociateServiceQuotaTemplate(RegionEndpoint? region = null)
+        => AssociateServiceQuotaTemplateAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="DisassociateServiceQuotaTemplateAsync"/>.</summary>
+    public static void DisassociateServiceQuotaTemplate(RegionEndpoint? region = null)
+        => DisassociateServiceQuotaTemplateAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="GetAssociationForServiceQuotaTemplateAsync"/>.</summary>
+    public static QuotaTemplateAssociationResult GetAssociationForServiceQuotaTemplate(RegionEndpoint? region = null)
+        => GetAssociationForServiceQuotaTemplateAsync(region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="TagResourceAsync"/>.</summary>
+    public static void TagResource(string resourceArn, List<Amazon.ServiceQuotas.Model.Tag> tags, RegionEndpoint? region = null)
+        => TagResourceAsync(resourceArn, tags, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="UntagResourceAsync"/>.</summary>
+    public static void UntagResource(string resourceArn, List<string> tagKeys, RegionEndpoint? region = null)
+        => UntagResourceAsync(resourceArn, tagKeys, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ListTagsForResourceAsync"/>.</summary>
+    public static List<SqTagResult> ListTagsForResource(string resourceArn, RegionEndpoint? region = null)
+        => ListTagsForResourceAsync(resourceArn, region).GetAwaiter().GetResult();
+
 }

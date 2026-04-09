@@ -550,4 +550,26 @@ public static class SecurityAutomationService
             throw ErrorClassifier.WrapAwsError(exc, "Compliance report generation failed");
         }
     }
+
+
+    // -----------------------------------------------------------------------
+    // Synchronous wrappers
+    // -----------------------------------------------------------------------
+
+    /// <summary>Synchronous wrapper for <see cref="GuardDutyResponseAutomatorAsync"/>.</summary>
+    public static GuardDutyResponseAutomatorResult GuardDutyResponseAutomator(List<(string FindingType, string Severity, string ResourceType, string ResourceId)> findings, string? alertTopicArn = null, string? auditTableName = null, RegionEndpoint? region = null)
+        => GuardDutyResponseAutomatorAsync(findings, alertTopicArn, auditTableName, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="WafRuleManagerAsync"/>.</summary>
+    public static WafRuleManagerResult WafRuleManager(string webAclId, string ruleName, List<string>? blockIpAddresses = null, string action = "Block", string? alertTopicArn = null, RegionEndpoint? region = null)
+        => WafRuleManagerAsync(webAclId, ruleName, blockIpAddresses, action, alertTopicArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="SecurityGroupRemediatorAsync"/>.</summary>
+    public static SecurityGroupRemediatorResult SecurityGroupRemediator(List<string>? securityGroupIds = null, bool autoRemediate = false, List<int>? restrictedPorts = null, string? alertTopicArn = null, RegionEndpoint? region = null)
+        => SecurityGroupRemediatorAsync(securityGroupIds, autoRemediate, restrictedPorts, alertTopicArn, region).GetAwaiter().GetResult();
+
+    /// <summary>Synchronous wrapper for <see cref="ComplianceReportGeneratorAsync"/>.</summary>
+    public static ComplianceReportGeneratorResult ComplianceReportGenerator(string? reportBucket = null, string? reportKeyPrefix = null, string? alertTopicArn = null, RegionEndpoint? region = null)
+        => ComplianceReportGeneratorAsync(reportBucket, reportKeyPrefix, alertTopicArn, region).GetAwaiter().GetResult();
+
 }
