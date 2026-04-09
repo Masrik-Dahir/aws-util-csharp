@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [2.2.9] - 2026-04-09
+### Added
+- Separate NuGet-specific README (NUGET_README.md) without relative images or Mermaid diagrams
+
+### Changed
+- Package now uses NUGET_README.md for NuGet display instead of the GitHub README
+
 ### Added
 - CLAUDE.md project instructions for Claude Code sessions
 - Animated author banner SVG (.github/banner.svg) — Ocean Depths style

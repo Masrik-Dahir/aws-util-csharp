@@ -6,11 +6,16 @@
     <Nullable>enable</Nullable>
     <RootNamespace>AwsUtil</RootNamespace>
     <PackageId>AwsUtil</PackageId>
-    <Version>2.2.6</Version>
+    <Version>2.2.9</Version>
     <Authors>Masrik Dahir</Authors>
     <Description>A utility library for common AWS services - C# port of aws-util Python package</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\NUGET_README.md" Pack="true" PackagePath="README.md" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AWSSDK.Core" Version="4.*" />
