@@ -26,19 +26,24 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Test with coverage
-        run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage" --results-directory ./coverage -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+        run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage" --results-directory ./coverage
+
+      - name: Copy coverage file to known location
+        run: |
+          mkdir -p ./coverage-report
+          find ./coverage -name "coverage.cobertura.xml" -exec cp {} ./coverage-report/coverage.cobertura.xml \;
 
       - name: Upload to Codecov
         uses: codecov/codecov-action@v4
         with:
-          directory: ./coverage
+          files: ./coverage-report/coverage.cobertura.xml
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Generate coverage report summary
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: coverage/**/coverage.cobertura.xml
+          filename: coverage-report/coverage.cobertura.xml
           badge: true
           format: markdown
           output: both
